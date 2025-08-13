@@ -1,0 +1,276 @@
+{
+  "locales": {
+    "en-US": {
+      "code": "en-US",
+      "language": "en",
+      "country": "US",
+      "name": "English (United States)",
+      "nativeName": "English (US)",
+      "direction": "ltr",
+      "isDefault": true,
+      "region": "Americas",
+      "currency": "USD",
+      "dateFormat": "MM/dd/yyyy",
+      "timeFormat": "12h",
+      "numberFormat": {
+        "decimal": ".",
+        "thousand": ","
+      },
+      "fonts": {
+        "primary": "Inter",
+        "secondary": "Sora",
+        "mono": "JetBrains Mono"
+      }
+    },
+    "en-GB": {
+      "code": "en-GB",
+      "language": "en",
+      "country": "GB",
+      "name": "English (United Kingdom)",
+      "nativeName": "English (UK)",
+      "direction": "ltr",
+      "isDefault": false,
+      "region": "Europe",
+      "currency": "GBP",
+      "dateFormat": "dd/MM/yyyy",
+      "timeFormat": "24h",
+      "numberFormat": {
+        "decimal": ".",
+        "thousand": ","
+      },
+      "fonts": {
+        "primary": "Inter",
+        "secondary": "Sora",
+        "mono": "JetBrains Mono"
+      }
+    },
+    "en-AU": {
+      "code": "en-AU",
+      "language": "en",
+      "country": "AU",
+      "name": "English (Australia)",
+      "nativeName": "English (AU)",
+      "direction": "ltr",
+      "isDefault": false,
+      "region": "Oceania",
+      "currency": "AUD",
+      "dateFormat": "dd/MM/yyyy",
+      "timeFormat": "12h",
+      "numberFormat": {
+        "decimal": ".",
+        "thousand": ","
+      },
+      "fonts": {
+        "primary": "Inter",
+        "secondary": "Sora",
+        "mono": "JetBrains Mono"
+      }
+    },
+    "es-ES": {
+      "code": "es-ES",
+      "language": "es",
+      "country": "ES",
+      "name": "Spanish (Spain)",
+      "nativeName": "Español (España)",
+      "direction": "ltr",
+      "isDefault": false,
+      "region": "Europe",
+      "currency": "EUR",
+      "dateFormat": "dd/MM/yyyy",
+      "timeFormat": "24h",
+      "numberFormat": {
+        "decimal": ",",
+        "thousand": "."
+      },
+      "fonts": {
+        "primary": "Inter",
+        "secondary": "Sora",
+        "mono": "JetBrains Mono"
+      }
+    },
+    "es-MX": {
+      "code": "es-MX",
+      "language": "es",
+      "country": "MX",
+      "name": "Spanish (Mexico)",
+      "nativeName": "Español (México)",
+      "direction": "ltr",
+      "isDefault": false,
+      "region": "Americas",
+      "currency": "MXN",
+      "dateFormat": "dd/MM/yyyy",
+      "timeFormat": "12h",
+      "numberFormat": {
+        "decimal": ".",
+        "thousand": ","
+      },
+      "fonts": {
+        "primary": "Inter",
+        "secondary": "Sora",
+        "mono": "JetBrains Mono"
+      }
+    },
+    "fr-FR": {
+      "code": "fr-FR",
+      "language": "fr",
+      "country": "FR",
+      "name": "French (France)",
+      "nativeName": "Français (France)",
+      "direction": "ltr",
+      "isDefault": false,
+      "region": "Europe",
+      "currency": "EUR",
+      "dateFormat": "dd/MM/yyyy",
+      "timeFormat": "24h",
+      "numberFormat": {
+        "decimal": ",",
+        "thousand": " "
+      },
+      "fonts": {
+        "primary": "Inter",
+        "secondary": "Sora",
+        "mono": "JetBrains Mono"
+      }
+    },
+    "fr-CA": {
+      "code": "fr-CA",
+      "language": "fr",
+      "country": "CA",
+      "name": "French (Canada)",
+      "nativeName": "Français (Canada)",
+      "direction": "ltr",
+      "isDefault": false,
+      "region": "Americas",
+      "currency": "CAD",
+      "dateFormat": "yyyy-MM-dd",
+      "timeFormat": "24h",
+      "numberFormat": {
+        "decimal": ",",
+        "thousand": " "
+      },
+      "fonts": {
+        "primary": "Inter",
+        "secondary": "Sora",
+        "mono": "JetBrains Mono"
+      }
+    },
+    "de-DE": {
+      "code": "de-DE",
+      "language": "de",
+      "country": "DE",
+      "name": "German (Germany)",
+      "nativeName": "Deutsch (Deutschland)",
+      "direction": "ltr",
+      "isDefault": false,
+      "region": "Europe",
+      "currency": "EUR",
+      "dateFormat": "dd.MM.yyyy",
+      "timeFormat": "24h",
+      "numberFormat": {
+        "decimal": ",",
+        "thousand": "."
+      },
+      "fonts": {
+        "primary": "Inter",
+        "secondary": "Sora",
+        "mono": "JetBrains Mono"
+      }
+    },
+    "ar-SA": {
+      "code": "ar-SA",
+      "language": "ar",
+      "country": "SA",
+      "name": "Arabic (Saudi Arabia)",
+      "nativeName": "العربية (السعودية)",
+      "direction": "rtl",
+      "isDefault": false,
+      "region": "Middle East",
+      "currency": "SAR",
+      "dateFormat": "dd/MM/yyyy",
+      "timeFormat": "12h",
+      "numberFormat": {
+        "decimal": ".",
+        "thousand": ","
+      },
+      "fonts": {
+        "primary": "Noto Sans Arabic",
+        "secondary": "Cairo",
+        "mono": "JetBrains Mono"
+      },
+      "fontWeights": {
+        "light": 300,
+        "regular": 400,
+        "medium": 500,
+        "semibold": 600,
+        "bold": 700
+      }
+    },
+    "ja-JP": {
+      "code": "ja-JP",
+      "language": "ja",
+      "country": "JP",
+      "name": "Japanese (Japan)",
+      "nativeName": "日本語 (日本)",
+      "direction": "ltr",
+      "isDefault": false,
+      "region": "Asia",
+      "currency": "JPY",
+      "dateFormat": "yyyy/MM/dd",
+      "timeFormat": "24h",
+      "numberFormat": {
+        "decimal": ".",
+        "thousand": ","
+      },
+      "fonts": {
+        "primary": "Noto Sans JP",
+        "secondary": "Hiragino Kaku Gothic ProN",
+        "mono": "JetBrains Mono"
+      }
+    }
+  },
+  "fallback": "en-US",
+  "defaultDirection": "ltr",
+  "rtlLocales": ["ar-SA"],
+  "regions": {
+    "Americas": ["en-US", "es-MX", "fr-CA"],
+    "Europe": ["en-GB", "es-ES", "fr-FR", "de-DE"],
+    "Asia": ["ja-JP"],
+    "Middle East": ["ar-SA"],
+    "Oceania": ["en-AU"]
+  },
+  "urlPatterns": {
+    "subdomain": {
+      "enabled": false,
+      "pattern": "{locale}.veritron.com"
+    },
+    "subdirectory": {
+      "enabled": true,
+      "pattern": "veritron.com/{locale}/"
+    },
+    "parameter": {
+      "enabled": false,
+      "pattern": "veritron.com?lang={locale}"
+    }
+  },
+  "seo": {
+    "generateHreflang": true,
+    "includeXDefault": true,
+    "canonicalBase": "https://veritron.com",
+    "sitemap": {
+      "enabled": true,
+      "includeAlternates": true
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-08-10",
+    "totalLocales": 10,
+    "supportedScripts": ["Latin", "Arabic", "Japanese"],
+    "compliance": {
+      "iso639": true,
+      "iso3166": true,
+      "bcp47": true,
+      "wcag": "2.1 AA"
+    }
+  }
+}

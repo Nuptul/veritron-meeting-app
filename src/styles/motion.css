@@ -1,0 +1,1142 @@
+/* =======================
+   VERITRON KINETIC MOTION SYSTEM v2.0
+   ======================= */
+
+/* Motion preferences detection and base setup */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Preserve essential functionality while removing motion */
+  .scroll-reveal,
+  .kinetic-text,
+  .parallax-text,
+  .text-morph,
+  .typing-animation,
+  .word-cascade,
+  .letter-float {
+    transform: none !important;
+    opacity: 1 !important;
+    animation: none !important;
+  }
+  
+  /* Keep view transitions but instant */
+  ::view-transition-group(*) {
+    animation-duration: 0.01ms !important;
+  }
+  
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* =======================
+   MOTION TOKENS & CONFIGURATION
+   ======================= */
+
+:root {
+  /* Motion timing system - optimized for 60fps */
+  --motion-instant: 50ms;
+  --motion-quick: 150ms;
+  --motion-smooth: 300ms;
+  --motion-relaxed: 500ms;
+  --motion-slow: 700ms;
+  --motion-glacial: 1200ms;
+  
+  /* Premium easing curves */
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-swift: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --ease-precise: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  --ease-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  --ease-expo-out: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-expo-in-out: cubic-bezier(0.87, 0, 0.13, 1);
+  
+  /* Scroll timeline configuration */
+  --scroll-range-short: 30vh;
+  --scroll-range-medium: 60vh;
+  --scroll-range-long: 100vh;
+  --scroll-range-epic: 200vh;
+  
+  /* Typography motion distances */
+  --text-float-distance: clamp(2px, 0.5vw, 8px);
+  --text-slide-distance: clamp(20px, 4vw, 60px);
+  --text-scale-factor: clamp(0.95, 0.98, 1.05);
+  --text-rotate-angle: clamp(0.5deg, 1deg, 2deg);
+  
+  /* Performance budget controls */
+  --motion-budget-high: all;
+  --motion-budget-medium: transform, opacity, filter;
+  --motion-budget-low: transform, opacity;
+}
+
+/* =======================
+   ADVANCED SCROLL-DRIVEN ANIMATIONS (Native CSS)
+   ======================= */
+
+/* Modern browsers: CSS Scroll-Driven Animations */
+@supports (animation-timeline: scroll()) {
+  
+  /* Enhanced text reveal with staggered timing */
+  .scroll-reveal-text {
+    animation: text-reveal-scroll linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    opacity: 0;
+    transform: translateY(var(--text-slide-distance));
+    will-change: transform, opacity;
+  }
+  
+  /* Advanced parallax with depth layers */
+  .parallax-text {
+    animation: parallax-scroll linear;
+    animation-timeline: scroll(root);
+    animation-range: 0% 100%;
+    will-change: transform;
+  }
+  
+  .parallax-text-deep {
+    animation: parallax-deep-scroll linear;
+    animation-timeline: scroll(root);
+    animation-range: 0% 100%;
+    will-change: transform;
+  }
+  
+  .parallax-text-surface {
+    animation: parallax-surface-scroll linear;
+    animation-timeline: scroll(root);
+    animation-range: 0% 100%;
+    will-change: transform;
+  }
+  
+  /* Kinetic word-by-word reveal with physics */
+  .kinetic-word-reveal {
+    animation: word-reveal-scroll linear;
+    animation-timeline: view();
+    animation-range: entry 10% entry 90%;
+    opacity: 0;
+    transform: translateY(30px) scale(0.9) rotateX(-15deg);
+    will-change: transform, opacity;
+  }
+  
+  /* Staggered letter cascade with 3D transforms */
+  .letter-cascade {
+    animation: letter-cascade-scroll linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 60%;
+    will-change: transform, opacity;
+  }
+  
+  /* Multi-stage typography scaling */
+  .scale-text-scroll {
+    animation: scale-multi-scroll linear;
+    animation-timeline: scroll(root);
+    animation-range: 0% 100%;
+    will-change: transform;
+  }
+  
+  /* Advanced floating with sine wave motion */
+  .text-float-scroll {
+    animation: float-sine-scroll linear;
+    animation-timeline: scroll(root);
+    animation-range: 0% 100%;
+    will-change: transform;
+  }
+  
+  /* Text morphing on scroll progression */
+  .text-morph-scroll {
+    animation: morph-scroll linear;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+    will-change: transform, opacity, filter;
+  }
+  
+  /* Character-by-character reveal */
+  .char-reveal-scroll {
+    animation: char-reveal-scroll linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 80%;
+    will-change: transform, opacity;
+  }
+  
+  /* Typography rotation with momentum */
+  .text-rotate-scroll {
+    animation: rotate-momentum-scroll linear;
+    animation-timeline: scroll(root);
+    animation-range: 0% 100%;
+    will-change: transform;
+  }
+  
+  /* Advanced gradient animation sync */
+  .gradient-sync-scroll {
+    animation: gradient-sync-scroll linear;
+    animation-timeline: scroll(root);
+    animation-range: 0% 100%;
+    will-change: background-position;
+  }
+  
+  /* Typography blur-to-focus reveal */
+  .blur-focus-scroll {
+    animation: blur-focus-scroll linear;
+    animation-timeline: view();
+    animation-range: entry 0% entry 50%;
+    will-change: filter, transform;
+  }
+}
+
+/* =======================
+   ADVANCED SCROLL TIMELINE KEYFRAMES
+   ======================= */
+
+@keyframes text-reveal-scroll {
+  0% {
+    opacity: 0;
+    transform: translateY(var(--text-slide-distance)) scale(0.9) rotateX(-20deg);
+    filter: blur(3px);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translateY(calc(var(--text-slide-distance) * 0.3)) scale(0.98) rotateX(-5deg);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+    filter: blur(0);
+  }
+}
+
+/* Multi-layer parallax system */
+@keyframes parallax-scroll {
+  from { transform: translateY(0) translateZ(0); }
+  to { transform: translateY(-60px) translateZ(10px); }
+}
+
+@keyframes parallax-deep-scroll {
+  from { transform: translateY(0) scale(1) translateZ(-20px); }
+  to { transform: translateY(-120px) scale(0.95) translateZ(-20px); }
+}
+
+@keyframes parallax-surface-scroll {
+  from { transform: translateY(0) translateZ(20px); }
+  to { transform: translateY(-30px) translateZ(20px); }
+}
+
+/* Physics-based word reveal */
+@keyframes word-reveal-scroll {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.8) rotateX(-30deg) rotateY(10deg);
+    filter: blur(2px);
+  }
+  40% {
+    opacity: 0.6;
+    transform: translateY(10px) scale(0.95) rotateX(-8deg) rotateY(3deg);
+    filter: blur(0.5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg) rotateY(0deg);
+    filter: blur(0);
+  }
+}
+
+/* Enhanced letter cascade with perspective */
+@keyframes letter-cascade-scroll {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) rotateX(-120deg) rotateZ(-10deg);
+    transform-origin: 50% 100%;
+  }
+  30% {
+    opacity: 0.3;
+    transform: translateY(25px) rotateX(-60deg) rotateZ(-5deg);
+  }
+  70% {
+    opacity: 0.8;
+    transform: translateY(5px) rotateX(-10deg) rotateZ(-1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg) rotateZ(0deg);
+  }
+}
+
+/* Multi-stage scaling animation */
+@keyframes scale-multi-scroll {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.05); }
+  50% { transform: scale(0.98); }
+  75% { transform: scale(1.08); }
+  100% { transform: scale(1.02); }
+}
+
+/* Sine wave floating motion */
+@keyframes float-sine-scroll {
+  0% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(var(--text-float-distance)) rotate(2deg); }
+  50% { transform: translateY(0) rotate(0deg); }
+  75% { transform: translateY(calc(var(--text-float-distance) * -0.7)) rotate(-2deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Text morphing animation */
+@keyframes morph-scroll {
+  0% {
+    opacity: 1;
+    transform: scale(1) skewX(0deg);
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    opacity: 0.9;
+    transform: scale(1.02) skewX(2deg);
+    filter: hue-rotate(45deg);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(0.98) skewX(-1deg);
+    filter: hue-rotate(90deg);
+  }
+  75% {
+    opacity: 0.9;
+    transform: scale(1.01) skewX(1deg);
+    filter: hue-rotate(135deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) skewX(0deg);
+    filter: hue-rotate(180deg);
+  }
+}
+
+/* Character reveal animation */
+@keyframes char-reveal-scroll {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) rotateZ(-5deg) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateZ(0deg) scale(1);
+  }
+}
+
+/* Momentum-based rotation */
+@keyframes rotate-momentum-scroll {
+  0% { transform: rotateZ(0deg) rotateY(0deg); }
+  25% { transform: rotateZ(5deg) rotateY(10deg); }
+  50% { transform: rotateZ(-3deg) rotateY(-5deg); }
+  75% { transform: rotateZ(2deg) rotateY(3deg); }
+  100% { transform: rotateZ(0deg) rotateY(0deg); }
+}
+
+/* Synchronized gradient animation */
+@keyframes gradient-sync-scroll {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Blur to focus reveal */
+@keyframes blur-focus-scroll {
+  from {
+    filter: blur(10px);
+    transform: scale(1.1);
+    opacity: 0.5;
+  }
+  to {
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* =======================
+   FALLBACK INTERSECTION OBSERVER ANIMATIONS
+   ======================= */
+
+/* For browsers without scroll-driven animations */
+@supports not (animation-timeline: scroll()) {
+  
+  .scroll-reveal-text {
+    opacity: 0;
+    transform: translateY(var(--text-slide-distance));
+    transition: all var(--motion-smooth) var(--ease-smooth);
+  }
+  
+  .scroll-reveal-text.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .parallax-text {
+    transition: transform var(--motion-quick) linear;
+  }
+  
+  .kinetic-word-reveal {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: all var(--motion-relaxed) var(--ease-bounce);
+  }
+  
+  .kinetic-word-reveal.in-view {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  
+  .letter-cascade {
+    opacity: 0;
+    transform: translateY(30px) rotateX(-90deg);
+    transition: all var(--motion-smooth) var(--ease-smooth);
+  }
+  
+  .letter-cascade.in-view {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+/* =======================
+   KINETIC TYPOGRAPHY EFFECTS
+   ======================= */
+
+/* Text morphing animation */
+.text-morph {
+  position: relative;
+  display: inline-block;
+  will-change: transform;
+}
+
+.text-morph::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: scale(1.1) rotateY(90deg);
+  transition: all var(--motion-smooth) var(--ease-elastic);
+}
+
+.text-morph:hover::before {
+  opacity: 1;
+  transform: scale(1) rotateY(0deg);
+}
+
+.text-morph:hover {
+  opacity: 0;
+  transform: scale(0.9) rotateY(-90deg);
+}
+
+/* Typewriter effect */
+.typing-animation {
+  overflow: hidden;
+  border-right: 2px solid var(--veritron-gold-500, #d4af37);
+  white-space: nowrap;
+  animation: 
+    typing var(--motion-glacial) steps(var(--char-count, 20), end),
+    blink-cursor 1s infinite;
+  will-change: width;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-cursor {
+  0%, 50% { border-color: var(--veritron-gold-500, #d4af37); }
+  51%, 100% { border-color: transparent; }
+}
+
+/* Word cascade effect */
+.word-cascade {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px) rotateX(-15deg);
+  animation: word-cascade-in var(--motion-smooth) var(--ease-bounce) forwards;
+  animation-delay: calc(var(--word-index, 0) * 0.1s);
+  will-change: transform, opacity;
+}
+
+@keyframes word-cascade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+/* Letter floating animation */
+.letter-float {
+  display: inline-block;
+  animation: letter-float 2s ease-in-out infinite;
+  animation-delay: calc(var(--letter-index, 0) * 0.05s);
+  will-change: transform;
+}
+
+@keyframes letter-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(var(--text-float-distance));
+  }
+  75% {
+    transform: translateY(calc(var(--text-float-distance) * -0.5));
+  }
+}
+
+/* Gradient text animation */
+.gradient-text-animated {
+  background: linear-gradient(
+    90deg,
+    var(--veritron-gold-400, #f4e99c),
+    var(--veritron-gold-600, #d4af37),
+    var(--veritron-aluminum-400, #8a9ba8),
+    var(--veritron-gold-600, #d4af37),
+    var(--veritron-gold-400, #f4e99c)
+  );
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-text-flow 3s linear infinite;
+  will-change: background-position;
+}
+
+@keyframes gradient-text-flow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Text shadow pulse effect */
+.text-glow-pulse {
+  text-shadow: 0 0 20px var(--veritron-gold-500, #d4af37);
+  animation: text-glow-pulse 2s ease-in-out infinite alternate;
+  will-change: text-shadow;
+}
+
+@keyframes text-glow-pulse {
+  from {
+    text-shadow: 
+      0 0 10px var(--veritron-gold-500, #d4af37),
+      0 0 20px var(--veritron-gold-500, #d4af37),
+      0 0 30px var(--veritron-gold-500, #d4af37);
+  }
+  to {
+    text-shadow: 
+      0 0 20px var(--veritron-gold-500, #d4af37),
+      0 0 40px var(--veritron-gold-500, #d4af37),
+      0 0 60px var(--veritron-gold-500, #d4af37);
+  }
+}
+
+/* =======================
+   ADVANCED VIEW TRANSITIONS SYSTEM
+   ======================= */
+
+/* Enhanced page transition animations with intelligent choreography */
+@supports (view-transition-name: none) {
+  
+  /* Content transition naming */
+  .page-content {
+    view-transition-name: page-content;
+  }
+  
+  .page-header {
+    view-transition-name: page-header;
+  }
+  
+  .hero-text {
+    view-transition-name: hero-text;
+  }
+  
+  .nav-menu {
+    view-transition-name: nav-menu;
+  }
+  
+  .modal-content {
+    view-transition-name: modal-content;
+  }
+  
+  .card-grid {
+    view-transition-name: card-grid;
+  }
+  
+  /* Dynamic transition types based on data attributes */
+  .transition-slide .page-content {
+    view-transition-name: slide-content;
+  }
+  
+  .transition-fade .page-content {
+    view-transition-name: fade-content;
+  }
+  
+  .transition-zoom .page-content {
+    view-transition-name: zoom-content;
+  }
+  
+  .transition-morph .page-content {
+    view-transition-name: morph-content;
+  }
+  
+  /* Slide transitions */
+  ::view-transition-old(slide-content) {
+    animation: slide-out-left calc(var(--transition-duration, 400ms)) var(--ease-swift);
+  }
+  
+  ::view-transition-new(slide-content) {
+    animation: slide-in-right calc(var(--transition-duration, 400ms)) var(--ease-smooth);
+  }
+  
+  /* Fade transitions */
+  ::view-transition-old(fade-content) {
+    animation: fade-out calc(var(--transition-duration, 400ms)) var(--ease-smooth);
+  }
+  
+  ::view-transition-new(fade-content) {
+    animation: fade-in calc(var(--transition-duration, 400ms)) var(--ease-smooth);
+  }
+  
+  /* Zoom transitions */
+  ::view-transition-old(zoom-content) {
+    animation: zoom-out calc(var(--transition-duration, 400ms)) var(--ease-swift);
+  }
+  
+  ::view-transition-new(zoom-content) {
+    animation: zoom-in calc(var(--transition-duration, 400ms)) var(--ease-bounce);
+  }
+  
+  /* Morph transitions */
+  ::view-transition-old(morph-content) {
+    animation: morph-out calc(var(--transition-duration, 400ms)) var(--ease-elastic);
+  }
+  
+  ::view-transition-new(morph-content) {
+    animation: morph-in calc(var(--transition-duration, 400ms)) var(--ease-elastic);
+  }
+  
+  /* Enhanced hero text transitions */
+  ::view-transition-old(hero-text) {
+    animation: hero-text-exit var(--motion-smooth) var(--ease-swift);
+  }
+  
+  ::view-transition-new(hero-text) {
+    animation: hero-text-enter var(--motion-relaxed) var(--ease-bounce);
+  }
+  
+  /* Navigation transitions */
+  ::view-transition-old(nav-menu) {
+    animation: nav-slide-out var(--motion-quick) var(--ease-swift);
+  }
+  
+  ::view-transition-new(nav-menu) {
+    animation: nav-slide-in var(--motion-quick) var(--ease-smooth);
+  }
+  
+  /* Modal transitions */
+  ::view-transition-old(modal-content) {
+    animation: modal-scale-out var(--motion-smooth) var(--ease-swift);
+  }
+  
+  ::view-transition-new(modal-content) {
+    animation: modal-scale-in var(--motion-smooth) var(--ease-bounce);
+  }
+  
+  /* Grid/layout transitions */
+  ::view-transition-old(card-grid) {
+    animation: grid-dissolve var(--motion-relaxed) var(--ease-smooth);
+  }
+  
+  ::view-transition-new(card-grid) {
+    animation: grid-materialize var(--motion-relaxed) var(--ease-smooth);
+  }
+}
+
+/* Enhanced transition keyframes with physics-based motion */
+@keyframes slide-out-left {
+  0% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+  50% {
+    transform: translateX(-20%) scale(0.98);
+    opacity: 0.8;
+    filter: blur(1px);
+  }
+  100% {
+    transform: translateX(-100%) scale(0.9);
+    opacity: 0;
+    filter: blur(3px);
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(100%) scale(0.9);
+    opacity: 0;
+    filter: blur(3px);
+  }
+  50% {
+    transform: translateX(20%) scale(0.98);
+    opacity: 0.8;
+    filter: blur(1px);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(1.05) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes zoom-out {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    transform: scale(0.8) rotate(-2deg);
+    opacity: 0;
+    filter: blur(2px);
+  }
+}
+
+@keyframes zoom-in {
+  0% {
+    transform: scale(1.2) rotate(2deg);
+    opacity: 0;
+    filter: blur(2px);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes morph-out {
+  0% {
+    transform: scale(1) skewX(0deg) skewY(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+  50% {
+    transform: scale(0.95) skewX(5deg) skewY(2deg);
+    opacity: 0.7;
+    border-radius: 10px;
+  }
+  100% {
+    transform: scale(0.8) skewX(-10deg) skewY(-5deg);
+    opacity: 0;
+    border-radius: 20px;
+  }
+}
+
+@keyframes morph-in {
+  0% {
+    transform: scale(1.2) skewX(10deg) skewY(5deg);
+    opacity: 0;
+    border-radius: 20px;
+  }
+  50% {
+    transform: scale(1.05) skewX(-5deg) skewY(-2deg);
+    opacity: 0.7;
+    border-radius: 10px;
+  }
+  100% {
+    transform: scale(1) skewX(0deg) skewY(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+}
+
+@keyframes hero-text-exit {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotateX(0deg);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9) translateY(-30px) rotateX(-15deg);
+    filter: blur(5px);
+  }
+}
+
+@keyframes hero-text-enter {
+  0% {
+    opacity: 0;
+    transform: scale(1.1) translateY(30px) rotateX(15deg);
+    filter: blur(5px);
+  }
+  60% {
+    opacity: 0.8;
+    transform: scale(1.02) translateY(5px) rotateX(3deg);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotateX(0deg);
+    filter: blur(0);
+  }
+}
+
+@keyframes nav-slide-out {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}
+
+@keyframes nav-slide-in {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes modal-scale-out {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+
+@keyframes modal-scale-in {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes grid-dissolve {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+    filter: blur(3px);
+  }
+}
+
+@keyframes grid-materialize {
+  0% {
+    opacity: 0;
+    transform: scale(1.05);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+/* =======================
+   PERFORMANCE OPTIMIZATIONS
+   ======================= */
+
+/* GPU acceleration for motion elements */
+.motion-element {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Composite layering for smooth animations */
+.kinetic-text,
+.scroll-reveal-text,
+.parallax-text,
+.text-morph,
+.typing-animation,
+.word-cascade,
+.letter-float {
+  contain: layout style paint;
+  will-change: transform, opacity;
+}
+
+/* Optimization for font rendering during animations */
+@supports (font-display: optional) {
+  .kinetic-text,
+  .animated-text {
+    font-display: optional;
+    text-rendering: optimizeSpeed;
+  }
+}
+
+/* =======================
+   ACCESSIBILITY ENHANCEMENTS
+   ======================= */
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .gradient-text-animated {
+    background: currentColor;
+    -webkit-text-fill-color: currentColor;
+  }
+  
+  .text-glow-pulse {
+    text-shadow: none;
+    font-weight: bold;
+  }
+}
+
+/* Transparency preference support */
+@media (prefers-reduced-transparency: reduce) {
+  .text-morph::before,
+  .glass-text-effect {
+    backdrop-filter: none;
+    background: currentColor;
+    opacity: 1;
+  }
+}
+
+/* Focus states for interactive text */
+.interactive-text:focus {
+  outline: 2px solid var(--veritron-gold-500, #d4af37);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* =======================
+   UTILITY CLASSES
+   ======================= */
+
+/* Motion control utilities */
+.motion-safe {
+  animation-play-state: running;
+}
+
+.motion-pause {
+  animation-play-state: paused;
+}
+
+.motion-reverse {
+  animation-direction: reverse;
+}
+
+/* Delay utilities for orchestration */
+.delay-short { animation-delay: var(--motion-instant); }
+.delay-medium { animation-delay: var(--motion-smooth); }
+.delay-long { animation-delay: var(--motion-relaxed); }
+
+/* Speed variants */
+.speed-fast {
+  animation-duration: calc(var(--motion-smooth) * 0.5);
+}
+
+.speed-slow {
+  animation-duration: calc(var(--motion-smooth) * 2);
+}
+
+/* Easing variants */
+.ease-bounce { animation-timing-function: var(--ease-bounce); }
+.ease-smooth { animation-timing-function: var(--ease-smooth); }
+.ease-elastic { animation-timing-function: var(--ease-elastic); }
+
+/* =======================
+   RESPONSIVE MOTION SCALING
+   ======================= */
+
+/* Reduce motion intensity on smaller screens */
+@media (max-width: 768px) {
+  :root {
+    --text-float-distance: clamp(1px, 0.3vw, 4px);
+    --text-slide-distance: clamp(10px, 2vw, 30px);
+    --motion-smooth: 200ms;
+    --motion-relaxed: 350ms;
+  }
+  
+  .parallax-text {
+    transform: none !important;
+  }
+  
+  .letter-float,
+  .word-cascade {
+    animation-duration: calc(var(--motion-smooth) * 0.7);
+  }
+}
+
+/* Enhanced motion for larger screens */
+@media (min-width: 1440px) {
+  :root {
+    --text-float-distance: clamp(6px, 0.8vw, 12px);
+    --text-slide-distance: clamp(40px, 6vw, 80px);
+  }
+}
+
+/* =======================
+   DEBUG AND DEVELOPMENT
+   ======================= */
+
+/* Debug mode for development */
+.debug-motion * {
+  outline: 1px dashed rgba(255, 0, 0, 0.3) !important;
+}
+
+.debug-motion .motion-element::before {
+  content: '🎭';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  font-size: 12px;
+  z-index: 9999;
+}
+
+/* Performance monitoring */
+@media (min-resolution: 120dpi) {
+  .kinetic-text {
+    will-change: auto;
+  }
+}
+
+/* =======================
+   BROWSER COMPATIBILITY
+   ======================= */
+
+/* Safari-specific optimizations */
+@supports (-webkit-appearance: none) {
+  .kinetic-text,
+  .scroll-reveal-text {
+    -webkit-transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Firefox-specific optimizations */
+@-moz-document url-prefix() {
+  .motion-element {
+    will-change: auto;
+  }
+}
+
+/* =======================
+   ACCESSIBILITY CONTROL PANEL
+   ======================= */
+
+/* Motion preference toggle for enhanced accessibility */
+.motion-toggle-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--veritron-gold-500, #d4af37);
+  color: black;
+  border: 2px solid transparent;
+  padding: 10px 15px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10001;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+}
+
+.motion-toggle-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.motion-toggle-button:focus {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+  border-color: #fff;
+}
+
+.reduce-motion .motion-toggle-button::after {
+  content: '🛡️ Motion Disabled';
+}
+
+.motion-toggle-button:not(.reduce-motion)::after {
+  content: '🎭 Motion Enabled';
+}
+
+/* Skip motion link for motion-sensitive users */
+.skip-motion-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--veritron-gold-500, #d4af37);
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  z-index: 10000;
+  transition: top 0.2s ease;
+  font-family: system-ui, sans-serif;
+}
+
+.skip-motion-link:focus {
+  top: 6px;
+}
+
+/* Screen reader announcements */
+.motion-announcer {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* =======================
+   END VERITRON KINETIC MOTION SYSTEM v2.0
+   Performance-First • Accessibility-Compliant • 60fps Target
+   ======================= */

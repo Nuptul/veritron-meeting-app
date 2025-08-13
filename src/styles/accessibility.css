@@ -1,0 +1,563 @@
+/* ==================== ACCESSIBILITY ENHANCEMENTS ==================== */
+/* APCA-compliant colors and utilities for inclusive design */
+
+/* APCA Color Variables - Meeting Lc requirements */
+:root {
+  /* APCA-compliant text colors */
+  --apca-text-primary: #000000;        /* Lc 90+ on white backgrounds */
+  --apca-text-secondary: #1f2937;      /* Lc 75+ on white backgrounds */
+  --apca-text-tertiary: #4b5563;       /* Lc 60+ on white backgrounds */
+  
+  /* APCA-compliant gold variants */
+  --apca-gold-primary: #b8860b;        /* Lc 60+ on white */
+  --apca-gold-secondary: #9a7c0a;      /* Lc 75+ on white */
+  --apca-gold-dark: #7d5f02;           /* Lc 90+ on white */
+  
+  /* High contrast pairs */
+  --apca-white-on-dark: #ffffff;       /* Lc 90+ on dark backgrounds */
+  --apca-light-on-dark: #f9fafb;       /* Lc 75+ on dark backgrounds */
+  --apca-gray-on-dark: #e5e7eb;        /* Lc 60+ on dark backgrounds */
+  
+  /* Background colors */
+  --apca-bg-dark-primary: #111827;     /* Dark background for light text */
+  --apca-bg-dark-secondary: #1f2937;   /* Secondary dark background */
+  --apca-bg-light-primary: #ffffff;    /* Light background for dark text */
+  --apca-bg-light-secondary: #f9fafb;  /* Secondary light background */
+}
+
+/* APCA Text Utility Classes */
+.text-apca-high {
+  color: var(--apca-text-primary);     /* Lc 90+ - Critical text */
+}
+
+.text-apca-medium {
+  color: var(--apca-text-secondary);   /* Lc 75+ - Body text */
+}
+
+.text-apca-low {
+  color: var(--apca-text-tertiary);    /* Lc 60+ - Large text only */
+}
+
+.text-apca-gold-primary {
+  color: var(--apca-gold-primary);     /* APCA-compliant gold */
+}
+
+.text-apca-gold-secondary {
+  color: var(--apca-gold-secondary);   /* Darker gold for higher contrast */
+}
+
+.text-apca-gold-dark {
+  color: var(--apca-gold-dark);        /* High contrast gold */
+}
+
+/* Dark mode APCA text colors */
+.dark .text-apca-high {
+  color: var(--apca-white-on-dark);
+}
+
+.dark .text-apca-medium {
+  color: var(--apca-light-on-dark);
+}
+
+.dark .text-apca-low {
+  color: var(--apca-gray-on-dark);
+}
+
+/* ENHANCED FOCUS MANAGEMENT */
+
+/* Skip Links */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 16px;
+  background: var(--apca-text-primary);
+  color: var(--apca-bg-light-primary);
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  z-index: 10000;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 16px;
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}
+
+/* Enhanced Focus Styles */
+.focus-enhanced {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.focus-enhanced:focus-visible {
+  outline-color: #d4af37;
+  box-shadow: 
+    0 0 0 4px rgba(212, 175, 55, 0.3),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Focus trap helper */
+.focus-trap {
+  position: relative;
+}
+
+.focus-trap::before,
+.focus-trap::after {
+  content: '';
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* High visibility focus for critical interactive elements */
+.focus-critical:focus-visible {
+  outline: 3px solid #d4af37;
+  outline-offset: 3px;
+  box-shadow: 
+    0 0 0 6px rgba(212, 175, 55, 0.4),
+    0 0 12px rgba(212, 175, 55, 0.6);
+}
+
+/* Dark mode focus adjustments */
+.dark .focus-enhanced:focus-visible {
+  box-shadow: 
+    0 0 0 4px rgba(251, 191, 36, 0.4),
+    inset 0 0 0 2px rgba(0, 0, 0, 0.8);
+}
+
+/* READING MODE & DYSLEXIA SUPPORT */
+
+/* Dyslexia-friendly reading mode */
+.reading-mode {
+  font-family: 'OpenDyslexic', 'Lexie Readable', 'Comic Sans MS', cursive, sans-serif !important;
+  letter-spacing: 0.12em;
+  line-height: 1.8;
+  word-spacing: 0.16em;
+  font-weight: 500;
+}
+
+.reading-mode h1,
+.reading-mode h2,
+.reading-mode h3,
+.reading-mode h4,
+.reading-mode h5,
+.reading-mode h6 {
+  line-height: 1.6;
+  margin-bottom: 0.8em;
+}
+
+.reading-mode p {
+  margin-bottom: 1.2em;
+}
+
+/* Reading mode overlays for visual stress reduction */
+.reading-overlay-blue {
+  background-color: rgba(173, 216, 230, 0.15) !important;
+  color: #1a365d !important;
+}
+
+.reading-overlay-cream {
+  background-color: rgba(255, 253, 208, 0.9) !important;
+  color: #2d3748 !important;
+}
+
+.reading-overlay-gray {
+  background-color: rgba(247, 250, 252, 0.95) !important;
+  color: #1a202c !important;
+}
+
+.reading-overlay-dark {
+  background-color: #2d3748 !important;
+  color: #f7fafc !important;
+}
+
+/* Increased text spacing utilities */
+.text-spacing-wide {
+  letter-spacing: 0.08em;
+  word-spacing: 0.12em;
+}
+
+.text-spacing-extra-wide {
+  letter-spacing: 0.12em;
+  word-spacing: 0.16em;
+}
+
+/* Line height utilities for readability */
+.line-height-comfortable {
+  line-height: 1.7;
+}
+
+.line-height-spacious {
+  line-height: 2.0;
+}
+
+/* SCREEN READER UTILITIES */
+
+/* Visually hidden but available to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip to main content utility */
+.sr-skip:not(:focus) {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Live regions for dynamic content */
+.live-region {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.live-region.announce {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: none;
+}
+
+/* Loading state announcements */
+.loading-announced::before {
+  content: "Loading...";
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* DIALOG & POPOVER ACCESSIBILITY */
+
+/* Modal backdrop with inert support */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+  backdrop-filter: blur(2px);
+}
+
+.modal-backdrop[aria-hidden="true"] {
+  display: none;
+}
+
+/* Dialog container */
+.dialog-container {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.dialog-content {
+  position: relative;
+  background: white;
+  border-radius: 8px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: auto;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  outline: 2px solid transparent;
+}
+
+.dialog-content:focus {
+  outline-color: #d4af37;
+}
+
+/* Popover positioning */
+.popover {
+  position: absolute;
+  z-index: 1000;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  max-width: 320px;
+}
+
+.popover[data-placement^="top"] {
+  margin-bottom: 8px;
+}
+
+.popover[data-placement^="bottom"] {
+  margin-top: 8px;
+}
+
+.popover[data-placement^="left"] {
+  margin-right: 8px;
+}
+
+.popover[data-placement^="right"] {
+  margin-left: 8px;
+}
+
+/* FORM ACCESSIBILITY ENHANCEMENTS */
+
+/* Error state with APCA compliance */
+.form-error {
+  color: #dc2626; /* High contrast red */
+  font-size: 0.875rem;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.form-error::before {
+  content: "⚠";
+  font-weight: bold;
+}
+
+/* Required field indicator */
+.form-required::after {
+  content: " *";
+  color: #dc2626;
+  font-weight: bold;
+  margin-left: 2px;
+}
+
+/* Form field with enhanced focus */
+.form-field {
+  border: 2px solid #d1d5db;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 16px; /* Prevent zoom on iOS */
+  transition: all 0.2s ease;
+}
+
+.form-field:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+.form-field[aria-invalid="true"] {
+  border-color: #dc2626;
+  background-color: #fef2f2;
+}
+
+.form-field[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+}
+
+/* HIGH CONTRAST MODE SUPPORT */
+@media (prefers-contrast: high) {
+  :root {
+    --apca-text-primary: #000000;
+    --apca-text-secondary: #000000;
+    --apca-gold-primary: #000000;
+    --apca-bg-light-primary: #ffffff;
+  }
+  
+  .focus-enhanced:focus-visible {
+    outline: 3px solid #000000;
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+  
+  .form-field {
+    border-color: #000000;
+  }
+  
+  .form-field:focus {
+    border-color: #000000;
+    box-shadow: inset 0 0 0 2px #000000;
+  }
+}
+
+/* REDUCED MOTION PREFERENCES */
+@media (prefers-reduced-motion: reduce) {
+  .focus-enhanced,
+  .form-field,
+  .modal-backdrop,
+  .dialog-content,
+  .popover {
+    transition: none !important;
+  }
+  
+  .reading-mode * {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* TOUCH TARGET SIZING */
+.touch-target {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure interactive elements meet minimum touch target size */
+button, 
+a, 
+input[type="button"], 
+input[type="submit"], 
+input[type="reset"], 
+input[type="checkbox"], 
+input[type="radio"],
+select {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* Exception for text inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+textarea {
+  min-height: 44px;
+  min-width: auto;
+}
+
+/* PRINT ACCESSIBILITY */
+@media print {
+  .skip-link,
+  .live-region,
+  .modal-backdrop,
+  .dialog-container {
+    display: none !important;
+  }
+  
+  .reading-mode {
+    font-family: Georgia, serif !important;
+    font-size: 12pt !important;
+    line-height: 1.5 !important;
+  }
+  
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+}
+
+/* COLOR BLIND SAFE PATTERNS */
+.colorblind-safe-error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border-left: 4px solid #dc2626;
+  padding: 12px;
+}
+
+.colorblind-safe-success {
+  background-color: #f0fdf4;
+  color: #166534;
+  border-left: 4px solid #16a34a;
+  padding: 12px;
+}
+
+.colorblind-safe-warning {
+  background-color: #fffbeb;
+  color: #92400e;
+  border-left: 4px solid #d97706;
+  padding: 12px;
+}
+
+.colorblind-safe-info {
+  background-color: #eff6ff;
+  color: #1e40af;
+  border-left: 4px solid #3b82f6;
+  padding: 12px;
+}
+
+/* Right-to-left language support */
+[dir="rtl"] .skip-link {
+  right: 16px;
+  left: auto;
+}
+
+[dir="rtl"] .popover[data-placement^="left"] {
+  margin-left: 8px;
+  margin-right: 0;
+}
+
+[dir="rtl"] .popover[data-placement^="right"] {
+  margin-right: 8px;
+  margin-left: 0;
+}
+
+/* Voice control compatibility - larger click targets */
+@media (hover: none) {
+  .touch-target,
+  button,
+  a {
+    min-width: 48px;
+    min-height: 48px;
+    padding: 12px;
+  }
+}
+
+/* UTILITY CLASSES FOR COMPONENT INTEGRATION */
+
+/* Announce state changes */
+.state-announced[data-state]::before {
+  content: attr(data-state);
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Accessible hiding with smooth reveal */
+.a11y-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.a11y-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+/* Focus management helpers */
+.focus-trap-start,
+.focus-trap-end {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.focus-trap-active .focus-trap-start:focus,
+.focus-trap-active .focus-trap-end:focus {
+  outline: none;
+}

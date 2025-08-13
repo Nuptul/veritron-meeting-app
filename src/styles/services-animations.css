@@ -1,0 +1,292 @@
+/* Services Page Custom Animations */
+
+/* Neumorphic Card Animations */
+.neumorphic-card {
+  background: linear-gradient(145deg, #1a1410, #2d2518);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.neumorphic-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(212, 175, 55, 0.1),
+    0 0 30px rgba(212, 175, 55, 0.1);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+/* Service Icon Glow */
+.service-icon-glow {
+  animation: iconPulse 3s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
+  }
+}
+
+/* Premium Button Hover */
+.premium-button-gold {
+  background: linear-gradient(135deg, #d4af37, #b8941f);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.premium-button-gold:hover {
+  background: linear-gradient(135deg, #f4d03f, #d4af37);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+/* Floating Animation for Trust Indicators */
+.trust-float {
+  animation: trustFloat 6s ease-in-out infinite;
+}
+
+@keyframes trustFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Service Detail View Transitions */
+.service-detail-enter {
+  opacity: 0;
+  transform: scale(0.9) translateY(50px);
+}
+
+.service-detail-enter-active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.service-detail-exit {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.service-detail-exit-active {
+  opacity: 0;
+  transform: scale(0.9) translateY(-50px);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Sparkle Animation */
+.sparkle-animation {
+  animation: sparkleFloat 2s ease-in-out infinite;
+}
+
+@keyframes sparkleFloat {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0) scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-20px) scale(1);
+  }
+}
+
+/* Background Pattern Animation */
+.bg-pattern-animate {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(184, 148, 31, 0.05) 0%, transparent 50%);
+  animation: patternMove 20s linear infinite;
+}
+
+@keyframes patternMove {
+  0% {
+    background-position: 0% 0%, 100% 100%;
+  }
+  50% {
+    background-position: 100% 50%, 0% 50%;
+  }
+  100% {
+    background-position: 0% 0%, 100% 100%;
+  }
+}
+
+/* Text Gradient Animation */
+.text-gradient-animate {
+  background: linear-gradient(
+    90deg,
+    #f4d03f,
+    #d4af37,
+    #b8941f,
+    #d4af37,
+    #f4d03f
+  );
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: textGradientShift 3s ease-in-out infinite;
+}
+
+@keyframes textGradientShift {
+  0%, 100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 200% center;
+  }
+}
+
+/* Comet Trail Effect */
+.comet-trail {
+  position: relative;
+  overflow: hidden;
+}
+
+.comet-trail::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.6),
+    transparent
+  );
+  animation: cometMove 3s ease-in-out infinite;
+}
+
+@keyframes cometMove {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+/* Service Grid Stagger Animation */
+.service-grid-item {
+  animation: serviceGridSlideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.service-grid-item:nth-child(1) { animation-delay: 0.1s; }
+.service-grid-item:nth-child(2) { animation-delay: 0.2s; }
+.service-grid-item:nth-child(3) { animation-delay: 0.3s; }
+.service-grid-item:nth-child(4) { animation-delay: 0.4s; }
+.service-grid-item:nth-child(5) { animation-delay: 0.5s; }
+.service-grid-item:nth-child(6) { animation-delay: 0.6s; }
+.service-grid-item:nth-child(7) { animation-delay: 0.7s; }
+.service-grid-item:nth-child(8) { animation-delay: 0.8s; }
+.service-grid-item:nth-child(9) { animation-delay: 0.9s; }
+
+@keyframes serviceGridSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Premium Glow Effect */
+.premium-glow {
+  position: relative;
+}
+
+.premium-glow::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(212, 175, 55, 0.1),
+    transparent,
+    rgba(184, 148, 31, 0.1),
+    transparent
+  );
+  border-radius: inherit;
+  z-index: -1;
+  animation: premiumGlowRotate 4s linear infinite;
+}
+
+@keyframes premiumGlowRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading Skeleton Animation */
+.skeleton-loading {
+  background: linear-gradient(
+    90deg,
+    rgba(212, 175, 55, 0.1) 25%,
+    rgba(212, 175, 55, 0.2) 50%,
+    rgba(212, 175, 55, 0.1) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeletonLoading 1.5s infinite;
+}
+
+@keyframes skeletonLoading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Hover Tilt Effect */
+.hover-tilt {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-tilt:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+}
+
+/* Focus States for Accessibility */
+.focus-ring:focus-visible {
+  outline: 2px solid rgba(212, 175, 55, 0.6);
+  outline-offset: 2px;
+}
+
+/* Responsive Animation Adjustments */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-grid-item {
+    animation-duration: 0.5s;
+  }
+  
+  .neumorphic-card:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+}

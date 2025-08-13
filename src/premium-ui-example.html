@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium UI Components - Quick Reference</title>
+</head>
+<body style="font-family: system-ui, -apple-system, sans-serif; background: #0a0a0a; color: #e5e5e5; padding: 2rem;">
+    <h1 style="background: linear-gradient(135deg, #d4af37, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        Premium UI Implementation Guide
+    </h1>
+    
+    <h2>Quick Usage Examples:</h2>
+    
+    <h3>1. Premium Glass Card</h3>
+    <pre style="background: #1a1a1a; padding: 1rem; border-radius: 0.5rem; overflow-x: auto;">
+import PremiumGlassCard from './components/atoms/PremiumGlassCard';
+
+// Basic usage
+&lt;PremiumGlassCard variant="elevated"&gt;
+  &lt;h2&gt;Your Content&lt;/h2&gt;
+  &lt;p&gt;Multi-layer glass morphism with interactive effects&lt;/p&gt;
+&lt;/PremiumGlassCard&gt;
+
+// Variants: 'default' | 'elevated' | 'floating'
+</pre>
+
+    <h3>2. Animated Borders</h3>
+    <pre style="background: #1a1a1a; padding: 1rem; border-radius: 0.5rem; overflow-x: auto;">
+import AnimatedBorder from './components/atoms/AnimatedBorder';
+
+// Gradient border
+&lt;AnimatedBorder variant="gradient" colors={['#d4af37', '#8a9ba8']}&gt;
+  &lt;div className="p-8"&gt;Content&lt;/div&gt;
+&lt;/AnimatedBorder&gt;
+
+// Shimmer effect
+&lt;AnimatedBorder variant="shimmer" speed={3}&gt;
+  &lt;div className="p-8"&gt;Content&lt;/div&gt;
+&lt;/AnimatedBorder&gt;
+
+// Neon glow
+&lt;AnimatedBorder variant="neon" colors={['#d4af37']}&gt;
+  &lt;div className="p-8"&gt;Content&lt;/div&gt;
+&lt;/AnimatedBorder&gt;
+</pre>
+
+    <h3>3. Premium Typography Classes</h3>
+    <pre style="background: #1a1a1a; padding: 1rem; border-radius: 0.5rem; overflow-x: auto;">
+/* Available in globals.css and premium-glass.css */
+
+.premium-heading    /* clamp(2rem, 5vw + 1rem, 4.5rem) */
+.premium-subheading /* clamp(1.25rem, 3vw + 0.5rem, 2.25rem) */
+.premium-body       /* clamp(1rem, 2vw, 1.125rem) */
+
+/* CSS Variables for dynamic sizing */
+--text-xs through --text-5xl
+--space-xs through --space-2xl
+</pre>
+
+    <h3>4. Enhanced Button Effects</h3>
+    <pre style="background: #1a1a1a; padding: 1rem; border-radius: 0.5rem; overflow-x: auto;">
+import AnimatedButton from './components/atoms/AnimatedButton';
+
+// Metal with glow
+&lt;AnimatedButton variant="metal" effect="glow"&gt;
+  Premium Action
+&lt;/AnimatedButton&gt;
+
+// Glass chip with morph
+&lt;AnimatedButton variant="glass-chip" effect="morph"&gt;
+  Morphing Glass
+&lt;/AnimatedButton&gt;
+
+// Gradient with ripple
+&lt;AnimatedButton variant="gradient" effect="ripple"&gt;
+  Ripple Effect
+&lt;/AnimatedButton&gt;
+</pre>
+
+    <h3>5. Premium CSS Timing Functions</h3>
+    <pre style="background: #1a1a1a; padding: 1rem; border-radius: 0.5rem; overflow-x: auto;">
+/* Available as CSS variables */
+--ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+--ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+--spring-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+--spring-smooth: cubic-bezier(0.23, 1, 0.32, 1);
+
+/* Usage */
+transition: all 0.6s var(--spring-smooth);
+</pre>
+
+    <h3>Demo Component</h3>
+    <pre style="background: #1a1a1a; padding: 1rem; border-radius: 0.5rem; overflow-x: auto;">
+// View the complete implementation
+import PremiumUIDemo from './components/examples/PremiumUIDemo';
+
+// Add to your App.tsx or routes
+&lt;PremiumUIDemo /&gt;
+</pre>
+
+    <hr style="border-color: #2a2a2a; margin: 2rem 0;">
+    
+    <h2 style="color: #d4af37;">Implementation Notes:</h2>
+    <ul style="line-height: 1.8;">
+        <li>✅ All components use GPU-accelerated transforms for smooth animations</li>
+        <li>✅ Multi-layer glass effects with noise textures for premium feel</li>
+        <li>✅ Responsive typography using clamp() for smooth scaling</li>
+        <li>✅ Interactive effects respond to mouse movement</li>
+        <li>✅ Dark mode optimized with enhanced contrast</li>
+        <li>✅ Performance optimized with will-change and transform3d</li>
+    </ul>
+
+    <h2 style="color: #8a9ba8; margin-top: 2rem;">File Locations:</h2>
+    <ul style="line-height: 1.8; font-family: monospace;">
+        <li>/src/components/atoms/PremiumGlassCard.tsx</li>
+        <li>/src/components/atoms/AnimatedBorder.tsx</li>
+        <li>/src/styles/premium-glass.css</li>
+        <li>/src/components/examples/PremiumUIDemo.tsx</li>
+        <li>/src/styles/globals.css (enhanced)</li>
+    </ul>
+</body>
+</html>

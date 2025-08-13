@@ -1,0 +1,521 @@
+/* Veritron Button System - Premium Metal-Inspired Design */
+
+:root {
+  /* Button-specific CSS variables */
+  --btn-transition-duration: 300ms;
+  --btn-shine-duration: 600ms;
+  --btn-hover-y-offset: -2px;
+  --btn-active-y-offset: 0px;
+  --btn-shadow-light: 0 10px 30px rgba(0, 0, 0, 0.15);
+  --btn-shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --btn-shine-gradient: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 45%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.3) 55%,
+    transparent 100%
+  );
+}
+
+/* Base Button Styles */
+.veritron-button {
+  font-family: inherit;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: clamp(0.1rem, 0.2vw, 0.15rem);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  isolation: isolate;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Critical overflow containment for animations */
+  overflow: hidden;
+  contain: layout style paint;
+}
+
+/* Responsive Button Sizes */
+.btn-small {
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  border-radius: clamp(8px, 1.5vw, 10px);
+  min-height: 36px;
+}
+
+.btn-medium {
+  padding: clamp(1rem, 2.5vw, 1.25rem) clamp(2rem, 5vw, 2.75rem);
+  font-size: clamp(0.875rem, 1.8vw, 1rem);
+  border-radius: clamp(10px, 2vw, 12px);
+  min-height: 44px;
+}
+
+.btn-large {
+  padding: clamp(1.25rem, 3vw, 1.5rem) clamp(2.5rem, 6vw, 3.5rem);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  border-radius: clamp(12px, 2.5vw, 14px);
+  min-height: 52px;
+}
+
+/* Enhanced Aluminum Button - Brushed Metal Effect */
+.btn-aluminum {
+  background: radial-gradient(
+    ellipse at 50% -20%,
+    #ffffff 0%,
+    #fafafa 8%,
+    #f5f5f5 15%,
+    #ececec 22%,
+    #e2e2e2 30%,
+    #d8d8d8 40%,
+    #cecece 50%,
+    #c4c4c4 60%,
+    #b8b8b8 75%,
+    #acacac 90%,
+    #a0a0a0 100%
+  );
+  color: #2a2a2a;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.25),
+    0 1px 0 rgba(255, 255, 255, 0.8) inset,
+    0 -3px 5px rgba(0, 0, 0, 0.2) inset,
+    0 0 0 1px rgba(0, 0, 0, 0.08);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.btn-aluminum::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.btn-aluminum:hover:not([disabled]) {
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.35),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 -3px 6px rgba(0, 0, 0, 0.25) inset;
+}
+
+.btn-aluminum:active:not([disabled]) {
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.25),
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 -2px 4px rgba(0, 0, 0, 0.15) inset;
+}
+
+/* Enhanced Gunmetal Button - Dark Metal Effect */
+.btn-gunmetal {
+  background: radial-gradient(
+    ellipse at 50% -20%,
+    #6a6a6a 0%,
+    #525252 15%,
+    #3a3a3a 35%,
+    #2a2a2a 55%,
+    #1f1f1f 75%,
+    #1a1a1a 90%,
+    #151515 100%
+  );
+  color: #f0f0f0;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.1) inset,
+    0 -3px 5px rgba(0, 0, 0, 0.7) inset,
+    0 0 0 1px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.btn-gunmetal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.btn-gunmetal:hover:not([disabled]) {
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.6),
+    0 1px 0 rgba(255, 255, 255, 0.15) inset,
+    0 -3px 6px rgba(0, 0, 0, 0.8) inset;
+}
+
+.btn-gunmetal:active:not([disabled]) {
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.4),
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 -2px 4px rgba(0, 0, 0, 0.6) inset;
+}
+
+/* Enhanced Gold Button - Luxury Feel with Animation */
+.btn-gold {
+  background: radial-gradient(
+    ellipse at 50% -20%,
+    #fff4d4 0%,
+    #ffed9e 8%,
+    #ffe574 15%,
+    #ffdb4a 22%,
+    #ffd020 30%,
+    #f4c430 40%,
+    #e8b923 50%,
+    #dcad17 60%,
+    #d4a517 70%,
+    #c89f15 85%,
+    #b8941f 100%
+  );
+  color: #1a1a1a;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    0 0 50px rgba(212, 175, 55, 0.2),
+    0 1px 0 rgba(255, 255, 200, 0.6) inset,
+    0 -3px 5px rgba(168, 134, 11, 0.4) inset,
+    0 0 0 1px rgba(168, 134, 11, 0.3);
+  text-shadow: 0 1px 0 rgba(255, 255, 200, 0.4);
+  animation: gold-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes gold-shimmer {
+  0%, 100% {
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.3),
+      0 0 50px rgba(212, 175, 55, 0.2),
+      0 1px 0 rgba(255, 255, 200, 0.6) inset,
+      0 -3px 5px rgba(168, 134, 11, 0.4) inset,
+      0 0 0 1px rgba(168, 134, 11, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.3),
+      0 0 70px rgba(212, 175, 55, 0.35),
+      0 1px 0 rgba(255, 255, 200, 0.7) inset,
+      0 -3px 5px rgba(168, 134, 11, 0.5) inset,
+      0 0 0 1px rgba(168, 134, 11, 0.4);
+  }
+}
+
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    transparent 50%,
+    rgba(168, 134, 11, 0.2) 100%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.btn-gold:hover:not([disabled]) {
+  animation-play-state: paused;
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.4),
+    0 0 80px rgba(212, 175, 55, 0.3),
+    0 1px 0 rgba(255, 255, 200, 0.8) inset,
+    0 -3px 6px rgba(168, 134, 11, 0.5) inset;
+}
+
+.btn-gold:active:not([disabled]) {
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(212, 175, 55, 0.1),
+    0 1px 0 rgba(255, 255, 200, 0.7) inset,
+    0 -2px 4px rgba(168, 134, 11, 0.3) inset;
+}
+
+/* Shine Effect Overlay - Properly Contained */
+.veritron-button-shine {
+  position: absolute;
+  inset: 0;
+  background: var(--btn-shine-gradient);
+  transform: translateX(-100%);
+  transition: transform var(--btn-shine-duration) ease;
+  pointer-events: none;
+  border-radius: inherit;
+  /* Ensure shine stays within button bounds */
+  overflow: hidden;
+  will-change: transform;
+  z-index: 1;
+}
+
+.veritron-button:hover .veritron-button-shine {
+  transform: translateX(100%);
+}
+
+/* Premium Button Classes for Component Integration */
+.premium-btn {
+  @apply veritron-button;
+}
+
+.premium-btn-small {
+  @apply btn-small;
+}
+
+.premium-btn-medium {
+  @apply btn-medium;
+}
+
+.premium-btn-large {
+  @apply btn-large;
+}
+
+.premium-btn-aluminum {
+  @apply btn-aluminum;
+}
+
+.premium-btn-gunmetal {
+  @apply btn-gunmetal;
+}
+
+.premium-btn-gold {
+  @apply btn-gold;
+}
+
+/* Enhanced Button Sweep Animations - Properly Contained */
+.btn-aluminum::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255,255,255,0.2) 48%,
+    rgba(255,255,255,0.25) 50%,
+    rgba(255,255,255,0.2) 52%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 1;
+  /* Ensure sweep stays within button bounds */
+  overflow: hidden;
+  will-change: transform;
+}
+
+.btn-aluminum:hover::after {
+  transform: translateX(100%);
+}
+
+.btn-gunmetal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255,255,255,0.06) 48%,
+    rgba(255,255,255,0.08) 50%,
+    rgba(255,255,255,0.06) 52%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 1;
+  /* Ensure sweep stays within button bounds */
+  overflow: hidden;
+  will-change: transform;
+}
+
+.btn-gunmetal:hover::after {
+  transform: translateX(100%);
+}
+
+.btn-gold::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255,255,200,0.3) 48%,
+    rgba(255,255,200,0.35) 50%,
+    rgba(255,255,200,0.3) 52%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 1;
+  /* Ensure sweep stays within button bounds */
+  overflow: hidden;
+  will-change: transform;
+}
+
+.btn-gold:hover::after {
+  transform: translateX(100%);
+}
+
+/* Loading Spinner */
+.veritron-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: veritron-spin 0.75s linear infinite;
+}
+
+@keyframes veritron-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Button Icon Spacing */
+.veritron-button-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Button Group Styles */
+.veritron-button-group {
+  gap: 0;
+}
+
+.veritron-button-group > .veritron-button:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.veritron-button-group > .veritron-button:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.veritron-button-group > .veritron-button:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Dark Mode Adjustments */
+.dark .btn-aluminum {
+  background: radial-gradient(
+    ellipse at 50% -20%,
+    #e0e0e0 0%,
+    #d0d0d0 15%,
+    #c0c0c0 35%,
+    #b0b0b0 55%,
+    #a0a0a0 75%,
+    #909090 90%,
+    #808080 100%
+  );
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.3) inset,
+    0 -3px 5px rgba(0, 0, 0, 0.4) inset;
+}
+
+.dark .btn-gunmetal {
+  background: radial-gradient(
+    ellipse at 50% -20%,
+    #4a4a4a 0%,
+    #3a3a3a 15%,
+    #2a2a2a 35%,
+    #1f1f1f 55%,
+    #151515 75%,
+    #0f0f0f 90%,
+    #0a0a0a 100%
+  );
+}
+
+.dark .btn-gold {
+  background: radial-gradient(
+    ellipse at 50% -20%,
+    #ffd700 0%,
+    #ffcc00 15%,
+    #ffc200 35%,
+    #ffb700 55%,
+    #f4a500 75%,
+    #e89400 90%,
+    #d48300 100%
+  );
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.6),
+    0 0 60px rgba(212, 175, 55, 0.4),
+    0 1px 0 rgba(255, 255, 200, 0.5) inset,
+    0 -3px 5px rgba(168, 134, 11, 0.6) inset;
+}
+
+/* Accessibility - Focus States */
+.veritron-button:focus-visible {
+  outline: 2px solid var(--vt-primary-gold, #d4af37);
+  outline-offset: 3px;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .veritron-button {
+    border: 2px solid currentColor;
+  }
+  
+  .veritron-button:focus-visible {
+    outline-width: 3px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .veritron-button {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .veritron-button-shine {
+    display: none;
+  }
+  
+  .btn-gold {
+    animation: none !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .veritron-button {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    background: #f0f0f0 !important;
+    color: #000 !important;
+    border: 1px solid #000 !important;
+  }
+}
+
+/* Utility Classes for Animation Containment */
+.animation-contained {
+  overflow: hidden;
+  contain: layout style paint;
+  will-change: transform;
+}
+
+.sweep-contained {
+  position: relative;
+  overflow: hidden;
+  contain: layout style paint;
+}
+
+.sweep-contained::before,
+.sweep-contained::after {
+  overflow: hidden;
+  contain: strict;
+}
