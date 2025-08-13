@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <title>VERITRON™ Ultimate Design System</title>
+    <style>
+        /* CSS Variables */
+        :root {
+            --vt-primary-gold: #d4af37;
+            --vt-primary-gold-light: #ffd700;
+            --vt-primary-gold-dark: #b8941f;
+            
+            --vt-silver: #c0c0c0;
+            --vt-silver-light: #e8e8e8;
+            --vt-platinum: #e5e4e2;
+            
+            --vt-aluminum-1: #ffffff;
+            --vt-aluminum-2: #e8e8e8;
+            --vt-aluminum-3: #c0c0c0;
+            --vt-aluminum-4: #989898;
+            --vt-aluminum-5: #707070;
+            
+            --vt-gunmetal-1: #5a5a5a;
+            --vt-gunmetal-2: #3a3a3a;
+            --vt-gunmetal-3: #2a2a2a;
+            --vt-gunmetal-4: #1a1a1a;
+            --vt-gunmetal-5: #0a0a0a;
+            
+            --vt-bg-primary: #000000;
+            --vt-bg-secondary: #0a0a0f;
+            --vt-bg-tertiary: #0f0f14;
+            
+            --vt-text-primary: #e8e8e8;
+            --vt-text-secondary: #888888;
+            --vt-text-muted: #666666;
+            
+            --vt-success: #4caf50;
+            --vt-error: #f44336;
+            --vt-warning: #ff9800;
+            --vt-info: #2196f3;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: var(--vt-bg-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+            color: var(--vt-text-primary);
+            padding: 2rem;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(ellipse at 20% 0%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 100%, rgba(212, 175, 55, 0.02) 0%, transparent 50%),
+                        radial-gradient(ellipse at center, #0a0a0f 0%, #000000 100%);
+            z-index: -2;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        h1 {
+            font-size: clamp(3rem, 5vw, 6rem);
+            font-weight: 100;
+            letter-spacing: 1rem;
+            margin: 2rem 0;
+            background: radial-gradient(ellipse at 50% -30%,
+                #ffffff 0%, #fafafa 10%, #f5f5f5 18%, #ececec 26%,
+                #e2e2e2 34%, #d8d8d8 42%, #cecece 50%, #c4c4c4 58%,
+                #bababa 66%, #b0b0b0 74%, #a6a6a6 82%, #9c9c9c 90%, #929292 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+        }
+        
+        .subtitle {
+            color: var(--vt-text-muted);
+            font-size: 0.75rem;
+            letter-spacing: 0.3rem;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        h2 {
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.2rem;
+            text-transform: uppercase;
+            color: var(--vt-text-secondary);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(136,136,136,0.15);
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--vt-primary-gold), transparent);
+        }
+        
+        /* Ultra-Realistic Typography */
+        .text-neumorphic-gold {
+            background: linear-gradient(145deg, 
+                #fff9e6 0%, #ffe574 8%, #ffd700 20%, 
+                #f4d03f 35%, #d4af37 50%, #b8941f 65%, 
+                #9a7c19 80%, #7d6515 90%, #5a4a0f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 
+                0 1px 0 #ffe574,
+                0 2px 0 #ffd700,
+                0 3px 0 #d4af37,
+                0 4px 0 #b8941f,
+                0 5px 0 #9a7c19,
+                0 6px 1px rgba(0,0,0,.1),
+                0 0 5px rgba(255,237,78,.5),
+                0 1px 3px rgba(0,0,0,.3),
+                0 3px 5px rgba(0,0,0,.2);
+            filter: brightness(1.2) contrast(1.1);
+        }
+        
+        .text-neumorphic-gold-extruded {
+            background: linear-gradient(135deg, 
+                #fff9e6 0%, #ffed9e 10%, #ffe574 20%, #ffdb4a 30%, 
+                #ffd428 40%, #f4c838 50%, #e8bc3c 60%, #dcb03e 70%, 
+                #d0a43c 80%, #c49838 90%, #b88c34 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 
+                0px 1px 0px #f4d03f,
+                0px 2px 0px #ecc94b,
+                0px 3px 0px #e4c441,
+                0px 4px 0px #dcbe37,
+                0px 5px 0px #d4b82d,
+                0px 6px 0px #ccb223,
+                0px 7px 0px #c4ac19,
+                0px 8px 0px #bca60f,
+                0px 9px 0px #b4a005,
+                0px 10px 10px rgba(0,0,0,0.6);
+            letter-spacing: 0.15em;
+        }
+        
+        .text-neumorphic-silver {
+            background: linear-gradient(145deg, 
+                #ffffff 0%, #f7f7f7 10%, #e8e8e8 20%, #d9d9d9 30%,
+                #c0c0c0 40%, #a8a8a8 50%, #989898 60%, #888888 70%,
+                #787878 80%, #686868 90%, #585858 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 
+                0 1px 0 #ffffff,
+                0 2px 0 #f0f0f0,
+                0 3px 0 #e0e0e0,
+                0 4px 0 #d0d0d0,
+                0 5px 0 #c0c0c0,
+                0 6px 1px rgba(0,0,0,.1);
+            filter: brightness(1.3) contrast(1.2);
+        }
+        
+        .text-neumorphic-platinum {
+            background: linear-gradient(135deg, 
+                #ffffff 0%, #fafafa 8%, #f5f5f5 16%, #f0f0f0 24%,
+                #e5e4e2 32%, #dad9d7 40%, #cfcecc 48%, #c4c3c1 56%,
+                #b9b8b6 64%, #aeadab 72%, #a3a2a0 80%, #989795 88%, #8d8c8a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 
+                0 1px 0 rgba(255,255,255,0.95),
+                0 2px 0 rgba(245,245,245,0.9),
+                0 3px 0 rgba(229,228,226,0.85),
+                0 4px 0 rgba(201,201,199,0.8),
+                0 5px 0 rgba(173,173,171,0.75);
+            letter-spacing: 0.1em;
+            font-weight: 300;
+        }
+        
+        .text-neumorphic-black-glass {
+            background: linear-gradient(145deg, 
+                rgba(80,80,80,0.9) 0%, 
+                rgba(40,40,40,0.95) 20%, 
+                rgba(20,20,20,1) 40%, 
+                rgba(0,0,0,1) 50%, 
+                rgba(10,10,10,1) 60%,
+                rgba(20,20,20,0.95) 80%,
+                rgba(30,30,30,0.9) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 
+                0 1px 0 rgba(255,255,255,0.1),
+                0 -1px 0 rgba(0,0,0,0.9),
+                0 2px 4px rgba(0,0,0,0.8);
+            position: relative;
+            filter: contrast(1.2) brightness(0.9);
+        }
+        
+        .text-chrome-effect {
+            background: linear-gradient(180deg, 
+                #ffffff 0%, #f5f5f5 10%, #e0e0e0 20%, #cccccc 30%,
+                #b8b8b8 40%, #999999 50%, #808080 51%, #666666 60%,
+                #4d4d4d 70%, #333333 80%, #1a1a1a 90%, #000000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: contrast(1.3) brightness(1.2);
+            text-shadow: 
+                0 1px 0 #ffffff,
+                0 2px 0 #f0f0f0,
+                0 3px 0 #e0e0e0,
+                0 4px 0 #d0d0d0,
+                0 5px 0 #c0c0c0;
+        }
+        
+        .text-holographic {
+            background: linear-gradient(90deg, 
+                #ff0080 0%, #ff00ff 14%, #8000ff 28%, #0080ff 42%, 
+                #00ffff 56%, #00ff80 70%, #ffff00 84%, #ff8000 100%);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: holographicShift 4s ease-in-out infinite;
+            filter: brightness(1.2) contrast(1.3);
+        }
+        
+        @keyframes holographicShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .text-neon-glow {
+            color: var(--vt-primary-gold);
+            text-shadow: 
+                0 0 5px var(--vt-primary-gold),
+                0 0 10px var(--vt-primary-gold),
+                0 0 15px var(--vt-primary-gold),
+                0 0 20px var(--vt-primary-gold),
+                0 0 35px var(--vt-primary-gold-light),
+                0 0 40px var(--vt-primary-gold-light);
+            animation: neonPulse 1.5s ease-in-out infinite alternate;
+        }
+        
+        @keyframes neonPulse {
+            from { opacity: 1; }
+            to { opacity: 0.8; }
+        }
+        
+        /* Typography Showcase */
+        .typography-showcase {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .typography-item {
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.02);
+            border-radius: 16px;
+            border: 1px solid rgba(136,136,136,0.1);
+        }
+        
+        .typography-label {
+            font-size: 0.625rem;
+            color: var(--vt-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Buttons */
+        .btn-veritron {
+            font-family: inherit;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+            transform-style: preserve-3d;
+        }
+        
+        .btn-small {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.625rem;
+            border-radius: 8px;
+        }
+        
+        .btn-medium {
+            padding: 1rem 2rem;
+            font-size: 0.75rem;
+            border-radius: 10px;
+        }
+        
+        .btn-large {
+            padding: 1.25rem 2.5rem;
+            font-size: 0.875rem;
+            border-radius: 12px;
+        }
+        
+        .btn-aluminum {
+            background: radial-gradient(ellipse at 50% -20%, 
+                #ffffff 0%, #fafafa 8%, #f5f5f5 15%, #ececec 22%, 
+                #e2e2e2 28%, #d8d8d8 35%, #cecece 42%, #c4c4c4 48%, 
+                #bababa 55%, #b0b0b0 62%, #a6a6a6 68%, #9c9c9c 75%, 
+                #929292 82%, #888888 90%, #7e7e7e 100%);
+            color: #1a1a1a;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+            box-shadow: 
+                0 10px 30px rgba(0,0,0,0.3),
+                0 1px 0 rgba(255,255,255,0.8) inset,
+                0 -3px 5px rgba(0,0,0,0.2) inset;
+        }
+        
+        .btn-aluminum:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 14px 40px rgba(0,0,0,0.35),
+                0 1px 0 rgba(255,255,255,0.9) inset,
+                0 -3px 6px rgba(0,0,0,0.25) inset;
+        }
+        
+        .btn-gunmetal {
+            background: radial-gradient(ellipse at 50% -20%, 
+                #6a6a6a 0%, #525252 15%, #3a3a3a 35%, 
+                #2a2a2a 55%, #1c1c1c 70%, #0a0a0a 100%);
+            color: #c0c0c0;
+            text-shadow: 0 -1px 2px rgba(0,0,0,0.8);
+            box-shadow: 
+                0 10px 30px rgba(0,0,0,0.5),
+                0 1px 0 rgba(255,255,255,0.1) inset,
+                0 -3px 5px rgba(0,0,0,0.7) inset;
+        }
+        
+        .btn-gunmetal:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 14px 40px rgba(0,0,0,0.6),
+                0 1px 0 rgba(255,255,255,0.15) inset,
+                0 -3px 6px rgba(0,0,0,0.8) inset;
+            color: #e8e8e8;
+        }
+        
+        .btn-gold {
+            background: radial-gradient(ellipse at 50% -20%, 
+                #fff4d4 0%, #ffed9e 8%, #ffe574 15%, #ffdb4a 22%, 
+                #ffd428 28%, #f4c838 35%, #e8bc3c 42%, #dcb03e 48%, 
+                #d0a43c 55%, #c49838 62%, #b88c34 68%, #ac8030 75%, 
+                #a0742c 82%, #946828 90%, #885c24 100%);
+            color: #0a0a0f;
+            text-shadow: 0 1px 0 rgba(255,255,200,0.5);
+            box-shadow: 
+                0 10px 30px rgba(0,0,0,0.35),
+                0 0 40px rgba(212,175,55,0.15),
+                0 1px 0 rgba(255,255,200,0.8) inset,
+                0 -3px 5px rgba(0,0,0,0.3) inset;
+        }
+        
+        .btn-gold:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 
+                0 14px 40px rgba(0,0,0,0.4),
+                0 0 80px rgba(212,175,55,0.3),
+                0 1px 0 rgba(255,255,200,0.9) inset,
+                0 -3px 6px rgba(0,0,0,0.35) inset;
+        }
+        
+        .button-container {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        /* Cards */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .card-veritron {
+            background: linear-gradient(135deg, #0f0f14 0%, #050507 50%, #0a0a0f 100%);
+            border-radius: 24px;
+            padding: 0;
+            border: 1px solid rgba(136,136,136,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            min-height: 320px;
+            box-shadow: 
+                0 8px 30px rgba(0,0,0,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.02);
+            cursor: pointer;
+        }
+        
+        .card-veritron:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 25px 60px rgba(0,0,0,0.5),
+                0 0 120px rgba(212,175,55,0.08),
+                inset 0 1px 0 rgba(255,255,255,0.05);
+            border-color: rgba(212,175,55,0.3);
+        }
+        
+        .card-inner {
+            padding: 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-status-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                var(--vt-primary-gold) 0%, 
+                var(--vt-primary-gold-light) 50%, 
+                var(--vt-primary-gold) 100%);
+            background-size: 200% 100%;
+            animation: statusPulse 3s linear infinite;
+            opacity: 0.8;
+        }
+        
+        @keyframes statusPulse {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+        
+        .card-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, var(--vt-primary-gold), var(--vt-primary-gold-dark));
+            color: #0a0a0f;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card-icon-wrapper {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, rgba(212,175,55,0.1), transparent);
+            border-radius: 12px;
+        }
+        
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--vt-text-primary);
+            background: linear-gradient(90deg, #e8e8e8, #c0c0c0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-content {
+            color: var(--vt-text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(136,136,136,0.08);
+        }
+        
+        .card-stats {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .card-stat {
+            font-size: 0.75rem;
+            color: var(--vt-text-muted);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .card-stat-value {
+            color: var(--vt-primary-gold);
+            font-weight: 600;
+        }
+        
+        .card-action {
+            background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(212,175,55,0.05));
+            border: 1px solid rgba(212,175,55,0.3);
+            color: var(--vt-primary-gold);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .card-action:hover {
+            background: linear-gradient(135deg, rgba(212,175,55,0.2), rgba(212,175,55,0.1));
+            transform: translateY(-2px);
+        }
+        
+        /* Tables */
+        .table-veritron {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--vt-bg-secondary);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+        }
+        
+        .table-veritron thead {
+            background: linear-gradient(135deg, #1a1a1f 0%, #0a0a0f 100%);
+        }
+        
+        .table-veritron th {
+            padding: 1rem;
+            text-align: left;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--vt-text-secondary);
+            border-bottom: 2px solid rgba(212,175,55,0.2);
+        }
+        
+        .table-veritron td {
+            padding: 1rem;
+            color: var(--vt-text-primary);
+            font-size: 0.875rem;
+        }
+        
+        .table-veritron tbody tr {
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(136,136,136,0.1);
+        }
+        
+        .table-veritron tbody tr:hover {
+            background: rgba(212,175,55,0.05);
+        }
+        
+        /* Form Elements */
+        .input-veritron {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            color: var(--vt-text-primary);
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+        
+        .input-veritron:focus {
+            outline: none;
+            border-color: rgba(212,175,55,0.4);
+            background: rgba(212,175,55,0.02);
+            box-shadow: 0 0 30px rgba(212,175,55,0.1);
+        }
+        
+        /* Progress Bars */
+        .progress-bar {
+            height: 8px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--vt-primary-gold), var(--vt-primary-gold-light));
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+        
+        /* Alerts */
+        .alert-veritron {
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            position: relative;
+            border-left: 4px solid;
+        }
+        
+        .alert-success {
+            background: rgba(76,175,80,0.1);
+            border-color: var(--vt-success);
+            color: var(--vt-success);
+        }
+        
+        .alert-error {
+            background: rgba(244,67,54,0.1);
+            border-color: var(--vt-error);
+            color: var(--vt-error);
+        }
+        
+        .alert-warning {
+            background: rgba(255,152,0,0.1);
+            border-color: var(--vt-warning);
+            color: var(--vt-warning);
+        }
+        
+        .alert-info {
+            background: rgba(33,150,243,0.1);
+            border-color: var(--vt-info);
+            color: var(--vt-info);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="subtitle">Complete Design System</div>
+        <h1>VERITRON™</h1>
+    </div>
+    
+    <!-- Typography Section -->
+    <section class="section">
+        <h2>Premium Typography System</h2>
+        <div class="typography-showcase">
+            <div class="typography-item">
+                <div class="typography-label">Neumorphic Gold</div>
+                <h3 class="text-neumorphic-gold" style="font-size: 2rem;">Premium Gold Typography</h3>
+            </div>
+            
+            <div class="typography-item">
+                <div class="typography-label">Neumorphic Gold Extruded</div>
+                <h3 class="text-neumorphic-gold-extruded" style="font-size: 2rem;">3D EXTRUDED TEXT</h3>
+            </div>
+            
+            <div class="typography-item">
+                <div class="typography-label">Neumorphic Silver</div>
+                <h3 class="text-neumorphic-silver" style="font-size: 2rem;">Silver Metal Typography</h3>
+            </div>
+            
+            <div class="typography-item">
+                <div class="typography-label">Neumorphic Platinum</div>
+                <h3 class="text-neumorphic-platinum" style="font-size: 2rem;">PLATINUM EDITION</h3>
+            </div>
+            
+            <div class="typography-item">
+                <div class="typography-label">Black Glass</div>
+                <h3 class="text-neumorphic-black-glass" style="font-size: 2rem;">Black Glass Effect</h3>
+            </div>
+            
+            <div class="typography-item">
+                <div class="typography-label">Chrome Effect</div>
+                <h3 class="text-chrome-effect" style="font-size: 2rem;">Chrome Typography</h3>
+            </div>
+            
+            <div class="typography-item">
+                <div class="typography-label">Holographic</div>
+                <h3 class="text-holographic" style="font-size: 2rem;">Holographic Shift</h3>
+            </div>
+            
+            <div class="typography-item">
+                <div class="typography-label">Neon Glow</div>
+                <h3 class="text-neon-glow" style="font-size: 2rem;">NEON GLOW</h3>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Buttons Section -->
+    <section class="section">
+        <h2>Material Button Components</h2>
+        
+        <div style="margin-bottom: 2rem;">
+            <h3 style="color: var(--vt-text-muted); font-size: 0.75rem; margin-bottom: 1rem;">BRUSHED ALUMINUM</h3>
+            <div class="button-container">
+                <button class="btn-veritron btn-aluminum btn-small">SMALL</button>
+                <button class="btn-veritron btn-aluminum btn-medium">MEDIUM</button>
+                <button class="btn-veritron btn-aluminum btn-large">LARGE</button>
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 2rem;">
+            <h3 style="color: var(--vt-text-muted); font-size: 0.75rem; margin-bottom: 1rem;">GUNMETAL DARK</h3>
+            <div class="button-container">
+                <button class="btn-veritron btn-gunmetal btn-small">SMALL</button>
+                <button class="btn-veritron btn-gunmetal btn-medium">MEDIUM</button>
+                <button class="btn-veritron btn-gunmetal btn-large">LARGE</button>
+            </div>
+        </div>
+        
+        <div>
+            <h3 style="color: var(--vt-text-muted); font-size: 0.75rem; margin-bottom: 1rem;">GOLD ACCENT</h3>
+            <div class="button-container">
+                <button class="btn-veritron btn-gold btn-small">SMALL</button>
+                <button class="btn-veritron btn-gold btn-medium">MEDIUM</button>
+                <button class="btn-veritron btn-gold btn-large">LARGE</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Cards Section -->
+    <section class="section">
+        <h2>Premium Card Components</h2>
+        <div class="card-container">
+            <article class="card-veritron">
+                <div class="card-status-bar"></div>
+                <div class="card-inner">
+                    <div class="card-badge">PRO</div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                <circle cx="15" cy="15" r="14" stroke="#d4af37" stroke-width="2"/>
+                                <path d="M10 15L13 18L20 11" stroke="#d4af37" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Performance</h3>
+                    </div>
+                    <div class="card-content">
+                        Advanced system monitoring with real-time analytics and machine learning powered insights for optimal performance optimization.
+                    </div>
+                    <footer class="card-footer">
+                        <div class="card-stats">
+                            <span class="card-stat">
+                                <span class="card-stat-value">38%</span> CPU
+                            </span>
+                            <span class="card-stat">
+                                <span class="card-stat-value">6.4GB</span> RAM
+                            </span>
+                        </div>
+                        <button class="card-action">View Details</button>
+                    </footer>
+                </div>
+            </article>
+            
+            <article class="card-veritron">
+                <div class="card-status-bar"></div>
+                <div class="card-inner">
+                    <div class="card-badge">SECURE</div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                <path d="M15 2L5 7V14C5 20 15 28 15 28C15 28 25 20 25 14V7L15 2Z" stroke="#d4af37" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Security</h3>
+                    </div>
+                    <div class="card-content">
+                        Enterprise-grade security with multi-layer protection, real-time threat detection, and automated response systems.
+                    </div>
+                    <footer class="card-footer">
+                        <div class="card-stats">
+                            <span class="card-stat">
+                                <span class="card-stat-value">Protected</span>
+                            </span>
+                            <span class="card-stat">
+                                <span class="card-stat-value">247</span> Threats
+                            </span>
+                        </div>
+                        <button class="card-action">Configure</button>
+                    </footer>
+                </div>
+            </article>
+            
+            <article class="card-veritron">
+                <div class="card-status-bar"></div>
+                <div class="card-inner">
+                    <div class="card-badge">LIVE</div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                <rect x="5" y="20" width="4" height="5" fill="#d4af37" opacity="0.5"/>
+                                <rect x="13" y="15" width="4" height="10" fill="#d4af37" opacity="0.7"/>
+                                <rect x="21" y="10" width="4" height="15" fill="#d4af37"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Analytics</h3>
+                    </div>
+                    <div class="card-content">
+                        Comprehensive data visualization and analysis tools with predictive modeling and custom reporting capabilities.
+                    </div>
+                    <footer class="card-footer">
+                        <div class="card-stats">
+                            <span class="card-stat">
+                                <span class="card-stat-value">3.2TB</span> Data
+                            </span>
+                            <span class="card-stat">
+                                <span class="card-stat-value">+18%</span> Growth
+                            </span>
+                        </div>
+                        <button class="card-action">Analyze</button>
+                    </footer>
+                </div>
+            </article>
+        </div>
+    </section>
+    
+    <!-- Tables Section -->
+    <section class="section">
+        <h2>Data Tables</h2>
+        <table class="table-veritron">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Progress</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#001</td>
+                    <td>System Analysis</td>
+                    <td><span style="color: var(--vt-success);">Active</span></td>
+                    <td>87%</td>
+                </tr>
+                <tr>
+                    <td>#002</td>
+                    <td>Data Migration</td>
+                    <td><span style="color: var(--vt-warning);">Pending</span></td>
+                    <td>42%</td>
+                </tr>
+                <tr>
+                    <td>#003</td>
+                    <td>Security Audit</td>
+                    <td><span style="color: var(--vt-error);">Inactive</span></td>
+                    <td>0%</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    
+    <!-- Form Elements Section -->
+    <section class="section">
+        <h2>Form Elements</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
+            <input type="text" class="input-veritron" placeholder="Enter username">
+            <input type="email" class="input-veritron" placeholder="Enter email">
+            <input type="password" class="input-veritron" placeholder="Enter password">
+        </div>
+    </section>
+    
+    <!-- Progress Bars Section -->
+    <section class="section">
+        <h2>Progress Indicators</h2>
+        <div style="max-width: 600px;">
+            <div style="margin-bottom: 1rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span style="font-size: 0.75rem; color: var(--vt-text-secondary);">System Performance</span>
+                    <span style="font-size: 0.75rem; color: var(--vt-text-secondary);">75%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 75%"></div>
+                </div>
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span style="font-size: 0.75rem; color: var(--vt-text-secondary);">Memory Usage</span>
+                    <span style="font-size: 0.75rem; color: var(--vt-text-secondary);">45%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Alerts Section -->
+    <section class="section">
+        <h2>Alerts & Notifications</h2>
+        <div style="max-width: 600px;">
+            <div class="alert-veritron alert-success">
+                <strong>Success!</strong> Operation completed successfully.
+            </div>
+            <div class="alert-veritron alert-error">
+                <strong>Error!</strong> An error occurred during processing.
+            </div>
+            <div class="alert-veritron alert-warning">
+                <strong>Warning!</strong> Please review your settings.
+            </div>
+            <div class="alert-veritron alert-info">
+                <strong>Info!</strong> New updates are available.
+            </div>
+        </div>
+    </section>
+</body>
+</html>

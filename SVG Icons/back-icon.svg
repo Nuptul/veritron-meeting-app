@@ -1,0 +1,242 @@
+<svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Premium Gunmetal Gradient -->
+        <linearGradient id="backGunmetal" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#6a6a6a;stop-opacity:1" />
+            <stop offset="15%" style="stop-color:#5a5a5a;stop-opacity:1" />
+            <stop offset="30%" style="stop-color:#4a4a4a;stop-opacity:1" />
+            <stop offset="45%" style="stop-color:#3a3a3a;stop-opacity:1" />
+            <stop offset="60%" style="stop-color:#2a2a2a;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#1a1a1a;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#0a0a0a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Premium Gold Gradient -->
+        <linearGradient id="backGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fff9e6;stop-opacity:1" />
+            <stop offset="25%" style="stop-color:#ffed9e;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#ffd428;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#d4af37;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#946828;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Arrow Gradient -->
+        <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#74c0fc;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#4dabf7;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#1971c2;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Arrow Trail -->
+        <linearGradient id="arrowTrail" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#4dabf7;stop-opacity:0" />
+            <stop offset="50%" style="stop-color:#4dabf7;stop-opacity:0.6" />
+            <stop offset="100%" style="stop-color:#4dabf7;stop-opacity:0" />
+        </linearGradient>
+        
+        <!-- Back Glow -->
+        <radialGradient id="backGlow">
+            <stop offset="0%" style="stop-color:#4dabf7;stop-opacity:0.4" />
+            <stop offset="50%" style="stop-color:#4dabf7;stop-opacity:0.2" />
+            <stop offset="100%" style="stop-color:#4dabf7;stop-opacity:0" />
+        </radialGradient>
+        
+        <!-- Grid Pattern -->
+        <pattern id="backGridPattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="0" y2="4" stroke="#d4af37" stroke-width="0.1" opacity="0.2"/>
+            <line x1="0" y1="0" x2="4" y2="0" stroke="#d4af37" stroke-width="0.1" opacity="0.2"/>
+        </pattern>
+        
+        <!-- Inner Shadow -->
+        <filter id="backInnerShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.5"/>
+            <feComposite in2="offsetblur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        
+        <!-- Glow Filter -->
+        <filter id="backGlowFilter">
+            <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <g transform="translate(45,45)">
+        <!-- Outer Hexagon Frame -->
+        <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                 fill="url(#backGunmetal)" 
+                 stroke="#1a1a1a" 
+                 stroke-width="0.75"
+                 filter="url(#backInnerShadow)"/>
+        
+        <!-- Inner Dark Background -->
+        <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                 fill="#000000" 
+                 opacity="0.95"/>
+        
+        <!-- Background Glow -->
+        <ellipse cx="0" cy="0" rx="18" ry="14" 
+                 fill="url(#backGlow)" 
+                 opacity="0.3">
+            <animate attributeName="opacity" values="0.3;0.5;0.3" dur="4s" repeatCount="indefinite"/>
+        </ellipse>
+        
+        <!-- Background Grid -->
+        <rect x="-20" y="-15" width="40" height="30" 
+              fill="url(#backGridPattern)" 
+              opacity="0.3"/>
+        
+        <!-- Motion Lines -->
+        <g opacity="0.4">
+            <line x1="10" y1="-6" x2="18" y2="-6" stroke="url(#arrowTrail)" stroke-width="1">
+                <animate attributeName="x1" values="10;18;10" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;0.4;0" dur="2s" repeatCount="indefinite"/>
+            </line>
+            <line x1="10" y1="0" x2="18" y2="0" stroke="url(#arrowTrail)" stroke-width="1">
+                <animate attributeName="x1" values="10;18;10" dur="2s" begin="0.3s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;0.4;0" dur="2s" begin="0.3s" repeatCount="indefinite"/>
+            </line>
+            <line x1="10" y1="6" x2="18" y2="6" stroke="url(#arrowTrail)" stroke-width="1">
+                <animate attributeName="x1" values="10;18;10" dur="2s" begin="0.6s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;0.4;0" dur="2s" begin="0.6s" repeatCount="indefinite"/>
+            </line>
+        </g>
+        
+        <!-- Main Arrow -->
+        <g filter="url(#backGlowFilter)">
+            <!-- Shadow -->
+            <ellipse cx="0" cy="12" rx="10" ry="3" fill="#000000" opacity="0.3"/>
+            
+            <!-- Arrow Circle Background -->
+            <circle cx="0" cy="0" r="14" 
+                    fill="url(#backGold)" 
+                    opacity="0.3"/>
+            
+            <!-- Arrow Body -->
+            <g transform="translate(0,0)">
+                <!-- Arrow Shaft -->
+                <rect x="-8" y="-2" width="16" height="4" 
+                      rx="2" 
+                      fill="url(#arrowGradient)" 
+                      filter="url(#backInnerShadow)"/>
+                
+                <!-- Arrow Head -->
+                <path d="M-8,0 L-14,-6 L-14,-2 L-18,-2 L-18,2 L-14,2 L-14,6 Z" 
+                      fill="url(#arrowGradient)" 
+                      filter="url(#backInnerShadow)"/>
+                
+                <!-- Arrow Head Highlight -->
+                <path d="M-10,0 L-14,-4 L-14,-1 L-16,-1 L-16,1 L-14,1 L-14,4 Z" 
+                      fill="#74c0fc" 
+                      opacity="0.3"/>
+                
+                <!-- Movement Animation -->
+                <animateTransform attributeName="transform" 
+                                  type="translate" 
+                                  values="0,0; -2,0; 0,0" 
+                                  dur="2s" 
+                                  repeatCount="indefinite"/>
+            </g>
+        </g>
+        
+        <!-- Direction Indicator Circle -->
+        <g transform="translate(0,0)" opacity="0.8">
+            <circle cx="0" cy="0" r="14" 
+                    fill="none" 
+                    stroke="url(#backGold)" 
+                    stroke-width="0.5" 
+                    stroke-dasharray="2,2">
+                <animateTransform attributeName="transform" 
+                                  type="rotate" 
+                                  from="0" 
+                                  to="-360" 
+                                  dur="10s" 
+                                  repeatCount="indefinite"/>
+            </circle>
+        </g>
+        
+        <!-- Navigation Breadcrumbs -->
+        <g transform="translate(0,-14)" opacity="0.7">
+            <circle cx="-8" cy="0" r="1" fill="url(#backGold)"/>
+            <line x1="-6" y1="0" x2="-2" y2="0" stroke="url(#backGold)" stroke-width="0.5"/>
+            <circle cx="0" cy="0" r="1" fill="url(#backGold)"/>
+            <line x1="2" y1="0" x2="6" y2="0" stroke="url(#backGold)" stroke-width="0.5"/>
+            <circle cx="8" cy="0" r="1.5" fill="url(#arrowGradient)"/>
+        </g>
+        
+        <!-- History Stack -->
+        <g transform="translate(12,8)" opacity="0.6">
+            <rect x="-2" y="-1" width="4" height="0.5" fill="url(#backGold)" rx="0.2"/>
+            <rect x="-2" y="0" width="4" height="0.5" fill="url(#backGold)" rx="0.2"/>
+            <rect x="-2" y="1" width="4" height="0.5" fill="url(#backGold)" rx="0.2"/>
+            <rect x="-2" y="2" width="4" height="0.5" fill="url(#backGold)" rx="0.2"/>
+        </g>
+        
+        <!-- Undo Symbol -->
+        <g transform="translate(-12,8)" opacity="0.7">
+            <path d="M0,0 Q-3,0 -3,-3 Q-3,-5 -1,-5 Q1,-5 1,-3 L1,-1" 
+                  fill="none" 
+                  stroke="url(#backGold)" 
+                  stroke-width="1" 
+                  stroke-linecap="round"/>
+            <path d="M-3,-3 L-4,-2 L-2,-2 Z" 
+                  fill="url(#backGold)"/>
+        </g>
+        
+        <!-- Navigation Text -->
+        <g transform="translate(0,14)" opacity="0.8">
+            <text x="0" y="0" font-size="2" fill="url(#backGold)" text-anchor="middle" font-family="monospace">PREVIOUS</text>
+        </g>
+        
+        <!-- Corner Indicators -->
+        <g opacity="0.5">
+            <path d="M-20,-10 L-18,-10 L-18,-8" 
+                  fill="none" 
+                  stroke="url(#backGold)" 
+                  stroke-width="0.5" 
+                  stroke-linecap="round"/>
+            <path d="M20,-10 L18,-10 L18,-8" 
+                  fill="none" 
+                  stroke="url(#backGold)" 
+                  stroke-width="0.5" 
+                  stroke-linecap="round"/>
+            <path d="M-20,10 L-18,10 L-18,8" 
+                  fill="none" 
+                  stroke="url(#backGold)" 
+                  stroke-width="0.5" 
+                  stroke-linecap="round"/>
+            <path d="M20,10 L18,10 L18,8" 
+                  fill="none" 
+                  stroke="url(#backGold)" 
+                  stroke-width="0.5" 
+                  stroke-linecap="round"/>
+        </g>
+        
+        <!-- Status Text -->
+        <g opacity="0.6">
+            <text x="-18" y="-18" font-size="2" fill="url(#backGold)" font-family="monospace">BACK</text>
+            <text x="10" y="-18" font-size="2" fill="url(#arrowGradient)" font-family="monospace">NAV</text>
+        </g>
+        
+        <!-- Floating Particles -->
+        <g opacity="0.5">
+            <circle cx="-15" cy="10" r="0.3" fill="url(#arrowGradient)">
+                <animate attributeName="cy" values="10;-15;10" dur="5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;0.5;0" dur="5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="15" cy="-10" r="0.3" fill="url(#backGold)">
+                <animate attributeName="cy" values="-10;15;-10" dur="5s" begin="2.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;0.5;0" dur="5s" begin="2.5s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+    </g>
+</svg>

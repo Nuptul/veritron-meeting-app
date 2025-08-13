@@ -1,0 +1,321 @@
+<svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Complex Gunmetal Gradient - 15 stops -->
+        <linearGradient id="videoGunmetal" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#6a6a6a;stop-opacity:1" />
+            <stop offset="5%" style="stop-color:#626262;stop-opacity:1" />
+            <stop offset="10%" style="stop-color:#5a5a5a;stop-opacity:1" />
+            <stop offset="15%" style="stop-color:#525252;stop-opacity:1" />
+            <stop offset="22%" style="stop-color:#4a4a4a;stop-opacity:1" />
+            <stop offset="28%" style="stop-color:#424242;stop-opacity:1" />
+            <stop offset="35%" style="stop-color:#3a3a3a;stop-opacity:1" />
+            <stop offset="42%" style="stop-color:#323232;stop-opacity:1" />
+            <stop offset="48%" style="stop-color:#2a2a2a;stop-opacity:1" />
+            <stop offset="55%" style="stop-color:#222222;stop-opacity:1" />
+            <stop offset="62%" style="stop-color:#1c1c1c;stop-opacity:1" />
+            <stop offset="68%" style="stop-color:#161616;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#101010;stop-opacity:1" />
+            <stop offset="82%" style="stop-color:#0c0c0c;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#080808;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#040404;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Complex Gold Gradient - 12 stops -->
+        <linearGradient id="videoGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fff4d4;stop-opacity:1" />
+            <stop offset="8%" style="stop-color:#ffed9e;stop-opacity:1" />
+            <stop offset="15%" style="stop-color:#ffe574;stop-opacity:1" />
+            <stop offset="22%" style="stop-color:#ffdb4a;stop-opacity:1" />
+            <stop offset="28%" style="stop-color:#ffd428;stop-opacity:1" />
+            <stop offset="35%" style="stop-color:#f4c838;stop-opacity:1" />
+            <stop offset="42%" style="stop-color:#e8bc3c;stop-opacity:1" />
+            <stop offset="48%" style="stop-color:#dcb03e;stop-opacity:1" />
+            <stop offset="55%" style="stop-color:#d0a43c;stop-opacity:1" />
+            <stop offset="62%" style="stop-color:#c49838;stop-opacity:1" />
+            <stop offset="68%" style="stop-color:#b88c34;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#ac8030;stop-opacity:1" />
+            <stop offset="82%" style="stop-color:#a0742c;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#946828;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#885c24;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Film Reel Gradient -->
+        <linearGradient id="reelGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#2a2a2a;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#1a1a1a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#0a0a0a;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Screen Gradient -->
+        <linearGradient id="screenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#16213e;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#0f3460;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Recording Red -->
+        <radialGradient id="recordingRed">
+            <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#cc0000;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#880000;stop-opacity:1" />
+        </radialGradient>
+        
+        <!-- Play Button Green -->
+        <linearGradient id="playGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#4caf50;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#2e7d32;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Lens Flare -->
+        <radialGradient id="lensFlare">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+            <stop offset="30%" style="stop-color:#ffd700;stop-opacity:0.4" />
+            <stop offset="60%" style="stop-color:#ff9800;stop-opacity:0.2" />
+            <stop offset="100%" style="stop-color:#ff5722;stop-opacity:0" />
+        </radialGradient>
+        
+        <!-- Film Strip Pattern -->
+        <pattern id="filmStrip" x="0" y="0" width="6" height="4" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="6" height="4" fill="#1a1a1a"/>
+            <rect x="0.5" y="0.5" width="2" height="3" fill="#000000" opacity="0.8" rx="0.2"/>
+            <rect x="3.5" y="0.5" width="2" height="3" fill="#000000" opacity="0.8" rx="0.2"/>
+        </pattern>
+        
+        <!-- Scan Lines -->
+        <pattern id="scanLines" x="0" y="0" width="1" height="2" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="1" y2="0" stroke="#00ff00" stroke-width="0.5" opacity="0.1"/>
+        </pattern>
+        
+        <!-- Inner Shadow Filter -->
+        <filter id="videoInnerShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.4"/>
+            <feComposite in2="offsetblur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        
+        <!-- Glow Filter -->
+        <filter id="videoGlow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        
+        <!-- Chrome Filter -->
+        <filter id="chrome">
+            <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="2"/>
+            <feSpecularLighting result="specOut" in="blur" specularConstant="1.5" specularExponent="20" lighting-color="white">
+                <fePointLight x="-50" y="30" z="200"/>
+            </feSpecularLighting>
+            <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut2"/>
+            <feComposite in="SourceGraphic" in2="specOut2" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+        </filter>
+    </defs>
+    
+    <g transform="translate(45,45)">
+        <!-- Outer Hexagon Frame -->
+        <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                 fill="url(#videoGunmetal)" 
+                 stroke="#1a1a1a" 
+                 stroke-width="0.75"
+                 filter="url(#videoInnerShadow)"/>
+        
+        <!-- Inner Dark Background -->
+        <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                 fill="#000000" 
+                 opacity="0.94"/>
+        
+        <!-- Film Reel Background (Left) -->
+        <g transform="translate(-14, -8)" opacity="0.4">
+            <circle cx="0" cy="0" r="5" fill="url(#reelGradient)" stroke="url(#videoGold)" stroke-width="0.5"/>
+            <circle cx="0" cy="0" r="2" fill="#000000"/>
+            <!-- Reel Holes -->
+            <circle cx="2" cy="0" r="0.5" fill="#000000"/>
+            <circle cx="-2" cy="0" r="0.5" fill="#000000"/>
+            <circle cx="0" cy="2" r="0.5" fill="#000000"/>
+            <circle cx="0" cy="-2" r="0.5" fill="#000000"/>
+            <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="8s" repeatCount="indefinite"/>
+        </g>
+        
+        <!-- Film Reel Background (Right) -->
+        <g transform="translate(14, -8)" opacity="0.4">
+            <circle cx="0" cy="0" r="5" fill="url(#reelGradient)" stroke="url(#videoGold)" stroke-width="0.5"/>
+            <circle cx="0" cy="0" r="2" fill="#000000"/>
+            <!-- Reel Holes -->
+            <circle cx="2" cy="0" r="0.5" fill="#000000"/>
+            <circle cx="-2" cy="0" r="0.5" fill="#000000"/>
+            <circle cx="0" cy="2" r="0.5" fill="#000000"/>
+            <circle cx="0" cy="-2" r="0.5" fill="#000000"/>
+            <animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="8s" repeatCount="indefinite"/>
+        </g>
+        
+        <!-- Main Video Screen -->
+        <rect x="-16" y="-6" width="32" height="18" 
+              fill="url(#screenGradient)" 
+              stroke="url(#videoGold)" 
+              stroke-width="2" 
+              rx="2.5"
+              filter="url(#chrome)"/>
+        
+        <!-- Screen Inner -->
+        <rect x="-14" y="-4" width="28" height="14" 
+              fill="#0a0a0f" 
+              rx="1.5"
+              opacity="0.95"/>
+        
+        <!-- Scan Lines Effect -->
+        <rect x="-14" y="-4" width="28" height="14" 
+              fill="url(#scanLines)" 
+              rx="1.5"
+              opacity="0.5">
+            <animate attributeName="y" values="-4;-6;-4" dur="3s" repeatCount="indefinite"/>
+        </rect>
+        
+        <!-- Video Content Preview -->
+        <g opacity="0.8">
+            <!-- Waveform Display -->
+            <g transform="translate(-12, 3)">
+                <rect x="0" y="-2" width="1" height="4" fill="url(#videoGold)" opacity="0.6">
+                    <animate attributeName="height" values="4;6;4" dur="0.5s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="2" y="-3" width="1" height="6" fill="url(#videoGold)" opacity="0.6">
+                    <animate attributeName="height" values="6;8;6" dur="0.6s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="4" y="-2.5" width="1" height="5" fill="url(#videoGold)" opacity="0.6">
+                    <animate attributeName="height" values="5;7;5" dur="0.4s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="6" y="-4" width="1" height="8" fill="url(#videoGold)" opacity="0.6">
+                    <animate attributeName="height" values="8;10;8" dur="0.7s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="8" y="-3" width="1" height="6" fill="url(#videoGold)" opacity="0.6">
+                    <animate attributeName="height" values="6;8;6" dur="0.5s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="10" y="-2" width="1" height="4" fill="url(#videoGold)" opacity="0.6">
+                    <animate attributeName="height" values="4;6;4" dur="0.6s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="12" y="-3.5" width="1" height="7" fill="url(#videoGold)" opacity="0.6">
+                    <animate attributeName="height" values="7;9;7" dur="0.4s" repeatCount="indefinite"/>
+                </rect>
+            </g>
+        </g>
+        
+        <!-- Play Button (Center) -->
+        <g transform="translate(0, 3)">
+            <circle cx="0" cy="0" r="5" 
+                    fill="rgba(0,0,0,0.7)" 
+                    stroke="url(#videoGold)" 
+                    stroke-width="1.5" 
+                    opacity="0.9"/>
+            <path d="M-2,-2.5 L3,0 L-2,2.5 Z" 
+                  fill="url(#videoGold)" 
+                  opacity="0.95">
+                <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="2s" repeatCount="indefinite"/>
+            </path>
+        </g>
+        
+        <!-- Recording Indicator -->
+        <g transform="translate(11, -2)">
+            <circle cx="0" cy="0" r="1.5" fill="url(#recordingRed)" filter="url(#videoGlow)">
+                <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
+            </circle>
+            <text x="0" y="0.3" font-size="1" fill="#ffffff" text-anchor="middle" font-weight="bold">REC</text>
+        </g>
+        
+        <!-- Timeline/Progress Bar -->
+        <rect x="-14" y="8" width="28" height="1" 
+              fill="rgba(255,255,255,0.1)" 
+              rx="0.5"/>
+        <rect x="-14" y="8" width="18" height="1" 
+              fill="url(#videoGold)" 
+              rx="0.5"
+              opacity="0.8">
+            <animate attributeName="width" values="0;28;0" dur="6s" repeatCount="indefinite"/>
+        </rect>
+        
+        <!-- Playhead -->
+        <circle cx="4" cy="8.5" r="1" fill="url(#videoGold)" filter="url(#videoGlow)">
+            <animate attributeName="cx" values="-14;14;-14" dur="6s" repeatCount="indefinite"/>
+        </circle>
+        
+        <!-- Film Strip Top -->
+        <rect x="-18" y="-11" width="36" height="3" 
+              fill="url(#filmStrip)" 
+              opacity="0.6">
+            <animateTransform attributeName="transform" type="translate" from="0 0" to="-6 0" dur="2s" repeatCount="indefinite"/>
+        </rect>
+        
+        <!-- Film Strip Bottom -->
+        <rect x="-18" y="11" width="36" height="3" 
+              fill="url(#filmStrip)" 
+              opacity="0.6">
+            <animateTransform attributeName="transform" type="translate" from="0 0" to="6 0" dur="2s" repeatCount="indefinite"/>
+        </rect>
+        
+        <!-- Camera/Director Elements -->
+        <g transform="translate(-10, -10)" opacity="0.7">
+            <!-- Viewfinder Corners -->
+            <path d="M0,0 L2,0 M0,0 L0,2" stroke="url(#videoGold)" stroke-width="0.5" stroke-linecap="round"/>
+            <path d="M6,0 L4,0 M6,0 L6,2" stroke="url(#videoGold)" stroke-width="0.5" stroke-linecap="round"/>
+            <path d="M0,6 L2,6 M0,6 L0,4" stroke="url(#videoGold)" stroke-width="0.5" stroke-linecap="round"/>
+            <path d="M6,6 L4,6 M6,6 L6,4" stroke="url(#videoGold)" stroke-width="0.5" stroke-linecap="round"/>
+            <!-- Center Cross -->
+            <line x1="3" y1="2.5" x2="3" y2="3.5" stroke="url(#videoGold)" stroke-width="0.3" opacity="0.5"/>
+            <line x1="2.5" y1="3" x2="3.5" y2="3" stroke="url(#videoGold)" stroke-width="0.3" opacity="0.5"/>
+        </g>
+        
+        <!-- Timecode Display -->
+        <g transform="translate(0, -9)">
+            <rect x="-6" y="-1" width="12" height="2" fill="rgba(0,0,0,0.8)" rx="0.5"/>
+            <text x="0" y="0.3" font-size="1.2" fill="url(#videoGold)" text-anchor="middle" font-family="monospace">00:01:24:18</text>
+        </g>
+        
+        <!-- Audio Meters -->
+        <g transform="translate(16, 0)">
+            <rect x="0" y="-3" width="2" height="6" fill="rgba(0,0,0,0.5)" rx="0.3"/>
+            <rect x="0" y="1" width="2" height="2" fill="url(#playGreen)" rx="0.2">
+                <animate attributeName="height" values="2;5;2" dur="0.8s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="1;-2;1" dur="0.8s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="2.5" y="-3" width="2" height="6" fill="rgba(0,0,0,0.5)" rx="0.3"/>
+            <rect x="2.5" y="0" width="2" height="3" fill="url(#playGreen)" rx="0.2">
+                <animate attributeName="height" values="3;6;3" dur="1s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="0;-3;0" dur="1s" repeatCount="indefinite"/>
+            </rect>
+        </g>
+        
+        <!-- Lens Flare Effect -->
+        <g opacity="0.6">
+            <circle cx="-8" cy="-2" r="2" fill="url(#lensFlare)">
+                <animate attributeName="opacity" values="0.6;0.3;0.6" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="-6" cy="-1" r="1" fill="url(#lensFlare)" opacity="0.5"/>
+            <circle cx="-4" cy="0" r="0.5" fill="url(#lensFlare)" opacity="0.3"/>
+        </g>
+        
+        <!-- Director's Clapperboard -->
+        <g transform="translate(10, 9) rotate(-15)" opacity="0.5">
+            <rect x="-3" y="-1.5" width="6" height="3" fill="#1a1a1a" stroke="url(#videoGold)" stroke-width="0.3"/>
+            <rect x="-3" y="-2.5" width="6" height="1" fill="#1a1a1a" stroke="url(#videoGold)" stroke-width="0.3">
+                <animateTransform attributeName="transform" type="rotate" from="0 0 -2" to="-30 0 -2" dur="2s" repeatCount="indefinite"/>
+            </rect>
+            <!-- Clapper Stripes -->
+            <rect x="-3" y="-2.5" width="1" height="1" fill="url(#videoGold)" opacity="0.8"/>
+            <rect x="-1" y="-2.5" width="1" height="1" fill="url(#videoGold)" opacity="0.8"/>
+            <rect x="1" y="-2.5" width="1" height="1" fill="url(#videoGold)" opacity="0.8"/>
+        </g>
+        
+        <!-- Screen Glow Effect -->
+        <ellipse cx="0" cy="3" rx="20" ry="12" 
+                 fill="url(#videoGold)" 
+                 opacity="0.1" 
+                 filter="url(#videoGlow)">
+            <animate attributeName="opacity" values="0.1;0.15;0.1" dur="3s" repeatCount="indefinite"/>
+        </ellipse>
+    </g>
+</svg>

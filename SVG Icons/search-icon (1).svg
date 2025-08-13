@@ -1,0 +1,249 @@
+<svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Premium Gunmetal Gradient -->
+        <linearGradient id="searchGunmetal" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#6a6a6a;stop-opacity:1" />
+            <stop offset="15%" style="stop-color:#5a5a5a;stop-opacity:1" />
+            <stop offset="30%" style="stop-color:#4a4a4a;stop-opacity:1" />
+            <stop offset="45%" style="stop-color:#3a3a3a;stop-opacity:1" />
+            <stop offset="60%" style="stop-color:#2a2a2a;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#1a1a1a;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#0a0a0a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Premium Gold Gradient -->
+        <linearGradient id="searchGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fff9e6;stop-opacity:1" />
+            <stop offset="25%" style="stop-color:#ffed9e;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#ffd428;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#d4af37;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#946828;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Magnifier Glass -->
+        <radialGradient id="glassGradient">
+            <stop offset="0%" style="stop-color:#e7f5ff;stop-opacity:0.8" />
+            <stop offset="30%" style="stop-color:#a5d8ff;stop-opacity:0.6" />
+            <stop offset="60%" style="stop-color:#74c0fc;stop-opacity:0.4" />
+            <stop offset="100%" style="stop-color:#4dabf7;stop-opacity:0.2" />
+        </radialGradient>
+        
+        <!-- Lens Rim -->
+        <linearGradient id="rimGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#adb5bd;stop-opacity:1" />
+            <stop offset="30%" style="stop-color:#868e96;stop-opacity:1" />
+            <stop offset="60%" style="stop-color:#495057;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#343a40;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Lens Reflection -->
+        <radialGradient id="lensReflect" cx="30%" cy="30%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
+            <stop offset="50%" style="stop-color:#ffffff;stop-opacity:0.4" />
+            <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+        </radialGradient>
+        
+        <!-- Search Glow -->
+        <radialGradient id="searchGlow">
+            <stop offset="0%" style="stop-color:#4dabf7;stop-opacity:0.6" />
+            <stop offset="50%" style="stop-color:#4dabf7;stop-opacity:0.3" />
+            <stop offset="100%" style="stop-color:#4dabf7;stop-opacity:0" />
+        </radialGradient>
+        
+        <!-- Grid Pattern -->
+        <pattern id="searchGridPattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="0" y2="4" stroke="#d4af37" stroke-width="0.1" opacity="0.2"/>
+            <line x1="0" y1="0" x2="4" y2="0" stroke="#d4af37" stroke-width="0.1" opacity="0.2"/>
+        </pattern>
+        
+        <!-- Inner Shadow -->
+        <filter id="searchInnerShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.5"/>
+            <feComposite in2="offsetblur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        
+        <!-- Glow Filter -->
+        <filter id="searchGlowFilter">
+            <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <g transform="translate(45,45)">
+        <!-- Outer Hexagon Frame -->
+        <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                 fill="url(#searchGunmetal)" 
+                 stroke="#1a1a1a" 
+                 stroke-width="0.75"
+                 filter="url(#searchInnerShadow)"/>
+        
+        <!-- Inner Dark Background -->
+        <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                 fill="#000000" 
+                 opacity="0.95"/>
+        
+        <!-- Background Glow -->
+        <ellipse cx="0" cy="0" rx="18" ry="14" 
+                 fill="url(#searchGlow)" 
+                 opacity="0.3">
+            <animate attributeName="opacity" values="0.3;0.5;0.3" dur="4s" repeatCount="indefinite"/>
+        </ellipse>
+        
+        <!-- Background Grid -->
+        <rect x="-20" y="-15" width="40" height="30" 
+              fill="url(#searchGridPattern)" 
+              opacity="0.3"/>
+        
+        <!-- Magnifying Glass -->
+        <g transform="rotate(-45)" filter="url(#searchGlowFilter)">
+            <!-- Shadow -->
+            <ellipse cx="0" cy="12" rx="10" ry="3" fill="#000000" opacity="0.3"/>
+            
+            <!-- Handle -->
+            <rect x="-2" y="8" width="4" height="10" 
+                  rx="2" 
+                  fill="url(#searchGold)" 
+                  filter="url(#searchInnerShadow)"/>
+            
+            <!-- Handle Detail -->
+            <rect x="-1" y="9" width="2" height="8" 
+                  fill="#946828" 
+                  opacity="0.5"/>
+            
+            <!-- Handle Grip -->
+            <g opacity="0.7">
+                <rect x="-1.5" y="14" width="3" height="0.5" fill="#d4af37"/>
+                <rect x="-1.5" y="15" width="3" height="0.5" fill="#d4af37"/>
+                <rect x="-1.5" y="16" width="3" height="0.5" fill="#d4af37"/>
+            </g>
+            
+            <!-- Lens Rim -->
+            <circle cx="0" cy="0" r="10" 
+                    fill="url(#rimGradient)" 
+                    filter="url(#searchInnerShadow)"/>
+            
+            <!-- Glass -->
+            <circle cx="0" cy="0" r="8" 
+                    fill="url(#glassGradient)"/>
+            
+            <!-- Inner Rim -->
+            <circle cx="0" cy="0" r="8" 
+                    fill="none" 
+                    stroke="#495057" 
+                    stroke-width="0.5" 
+                    opacity="0.5"/>
+            
+            <!-- Lens Reflection -->
+            <ellipse cx="-3" cy="-3" rx="3" ry="3" 
+                     fill="url(#lensReflect)" 
+                     opacity="0.8"/>
+            
+            <!-- Focus Cross -->
+            <g opacity="0.6">
+                <line x1="-4" y1="0" x2="4" y2="0" 
+                      stroke="url(#searchGold)" 
+                      stroke-width="0.5" 
+                      stroke-linecap="round"/>
+                <line x1="0" y1="-4" x2="0" y2="4" 
+                      stroke="url(#searchGold)" 
+                      stroke-width="0.5" 
+                      stroke-linecap="round"/>
+                <circle cx="0" cy="0" r="2" 
+                        fill="none" 
+                        stroke="url(#searchGold)" 
+                        stroke-width="0.5">
+                    <animate attributeName="r" values="2;3;2" dur="2s" repeatCount="indefinite"/>
+                </circle>
+            </g>
+        </g>
+        
+        <!-- Search Results -->
+        <g transform="translate(10,10)" opacity="0.7">
+            <rect x="-2" y="-1" width="8" height="1" fill="url(#searchGold)" rx="0.5">
+                <animate attributeName="width" values="8;10;8" dur="2s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="-2" y="1" width="6" height="1" fill="#4dabf7" rx="0.5">
+                <animate attributeName="width" values="6;8;6" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="-2" y="3" width="7" height="1" fill="#51cf66" rx="0.5">
+                <animate attributeName="width" values="7;9;7" dur="2s" begin="1s" repeatCount="indefinite"/>
+            </rect>
+        </g>
+        
+        <!-- Data Points -->
+        <g opacity="0.5">
+            <circle cx="-12" cy="-8" r="0.5" fill="url(#searchGold)">
+                <animate attributeName="opacity" values="0;0.5;0" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="12" cy="-6" r="0.5" fill="url(#searchGold)">
+                <animate attributeName="opacity" values="0;0.5;0" dur="3s" begin="1s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="-10" cy="8" r="0.5" fill="url(#searchGold)">
+                <animate attributeName="opacity" values="0;0.5;0" dur="3s" begin="2s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+        
+        <!-- Scan Lines -->
+        <g opacity="0.4">
+            <line x1="-15" y1="-10" x2="-5" y2="-10" 
+                  stroke="url(#searchGold)" 
+                  stroke-width="0.5">
+                <animate attributeName="y1" values="-10;10;-10" dur="4s" repeatCount="indefinite"/>
+                <animate attributeName="y2" values="-10;10;-10" dur="4s" repeatCount="indefinite"/>
+            </line>
+            <line x1="5" y1="10" x2="15" y2="10" 
+                  stroke="url(#searchGold)" 
+                  stroke-width="0.5">
+                <animate attributeName="y1" values="10;-10;10" dur="4s" begin="2s" repeatCount="indefinite"/>
+                <animate attributeName="y2" values="10;-10;10" dur="4s" begin="2s" repeatCount="indefinite"/>
+            </line>
+        </g>
+        
+        <!-- Found Indicator -->
+        <g transform="translate(0,-16)" opacity="0.8">
+            <circle cx="0" cy="0" r="2" fill="#51cf66">
+                <animate attributeName="r" values="2;2.5;2" dur="1s" repeatCount="indefinite"/>
+            </circle>
+            <path d="M-1,0 L-0.5,0.5 L1,-1" 
+                  fill="none" 
+                  stroke="#ffffff" 
+                  stroke-width="0.5" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round"/>
+        </g>
+        
+        <!-- Search Query -->
+        <g transform="translate(-14,-14)" opacity="0.6">
+            <rect x="-4" y="-1" width="8" height="2" rx="0.5" fill="url(#searchGold)"/>
+            <text x="0" y="0.5" font-size="1.5" fill="#946828" text-anchor="middle" font-family="monospace">FIND</text>
+        </g>
+        
+        <!-- Status Text -->
+        <g opacity="0.6">
+            <text x="-18" y="18" font-size="2" fill="url(#searchGold)" font-family="monospace">SEARCH</text>
+            <text x="10" y="18" font-size="2" fill="#4dabf7" font-family="monospace">SCAN</text>
+        </g>
+        
+        <!-- Floating Particles -->
+        <g opacity="0.5">
+            <circle cx="-15" cy="10" r="0.3" fill="url(#glassGradient)">
+                <animate attributeName="cy" values="10;-15;10" dur="5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;0.5;0" dur="5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="15" cy="-10" r="0.3" fill="url(#searchGold)">
+                <animate attributeName="cy" values="-10;15;-10" dur="5s" begin="2.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;0.5;0" dur="5s" begin="2.5s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+    </g>
+</svg>

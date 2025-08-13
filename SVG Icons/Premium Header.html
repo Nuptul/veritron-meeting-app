@@ -1,0 +1,3197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <title>VERITRON™ Ultra Premium Conversion Header</title>
+    <style>
+        /* ==================== VERITRON DESIGN SYSTEM ==================== */
+        :root {
+            /* Gold Spectrum - 12 stops for realistic metal */
+            --vt-gold-1: #fff9e6;
+            --vt-gold-2: #fff4d4;
+            --vt-gold-3: #ffed9e;
+            --vt-gold-4: #ffe574;
+            --vt-gold-5: #ffdb4a;
+            --vt-gold-6: #ffd428;
+            --vt-gold-7: #f4c838;
+            --vt-gold-8: #e8bc3c;
+            --vt-gold-9: #d4af37;
+            --vt-gold-10: #c49838;
+            --vt-gold-11: #b88c34;
+            --vt-gold-12: #9a7c19;
+            
+            /* Aluminum Spectrum - True brushed metal */
+            --vt-aluminum-1: #ffffff;
+            --vt-aluminum-2: #fafafa;
+            --vt-aluminum-3: #f5f5f5;
+            --vt-aluminum-4: #ececec;
+            --vt-aluminum-5: #e2e2e2;
+            --vt-aluminum-6: #d8d8d8;
+            --vt-aluminum-7: #cecece;
+            --vt-aluminum-8: #c4c4c4;
+            --vt-aluminum-9: #bababa;
+            --vt-aluminum-10: #b0b0b0;
+            --vt-aluminum-11: #a6a6a6;
+            --vt-aluminum-12: #9c9c9c;
+            --vt-aluminum-13: #929292;
+            --vt-aluminum-14: #888888;
+            --vt-aluminum-15: #7e7e7e;
+            
+            /* Gunmetal Spectrum */
+            --vt-gunmetal-1: #6a6a6a;
+            --vt-gunmetal-2: #5a5a5a;
+            --vt-gunmetal-3: #4a4a4a;
+            --vt-gunmetal-4: #3a3a3a;
+            --vt-gunmetal-5: #2a2a2a;
+            --vt-gunmetal-6: #1c1c1c;
+            --vt-gunmetal-7: #151515;
+            --vt-gunmetal-8: #0f0f0f;
+            --vt-gunmetal-9: #0a0a0a;
+            --vt-gunmetal-10: #050505;
+            
+            /* Core Design Tokens */
+            --vt-bg-primary: #000000;
+            --vt-bg-secondary: #0a0a0f;
+            --vt-bg-tertiary: #0f0f14;
+            
+            --vt-text-primary: #e8e8e8;
+            --vt-text-secondary: #888888;
+            --vt-text-muted: #666666;
+            
+            /* Dynamic Spacing */
+            --vt-space-xs: clamp(0.25rem, 1vw, 0.5rem);
+            --vt-space-sm: clamp(0.5rem, 2vw, 1rem);
+            --vt-space-md: clamp(1rem, 3vw, 1.5rem);
+            --vt-space-lg: clamp(1.5rem, 4vw, 2.5rem);
+            --vt-space-xl: clamp(2rem, 5vw, 4rem);
+            --vt-space-2xl: clamp(3rem, 7vw, 6rem);
+            
+            /* Premium Timing Functions */
+            --vt-ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+            --vt-ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+            --vt-ease-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --vt-ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Typography Scale */
+            --vt-text-xs: clamp(0.625rem, 0.5rem + 0.25vw, 0.75rem);
+            --vt-text-sm: clamp(0.75rem, 0.625rem + 0.5vw, 0.875rem);
+            --vt-text-base: clamp(0.875rem, 0.75rem + 0.5vw, 1rem);
+            --vt-text-lg: clamp(1rem, 0.875rem + 0.75vw, 1.25rem);
+            
+            /* Header Specific */
+            --header-height-expanded: clamp(85px, 13vw, 105px);
+            --header-height-shrunk: clamp(60px, 8vw, 72px);
+            --header-transition: 0.4s var(--vt-ease-out-expo);
+        }
+        
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+        
+        /* Optimized Body */
+        body {
+            background: var(--vt-bg-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+            color: var(--vt-text-primary);
+            min-height: 300vh;
+            position: relative;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        
+        /* Premium Background Layers */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 20% 0%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(212, 175, 55, 0.02) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, #0a0a0f 0%, #000000 100%);
+            z-index: -2;
+        }
+        
+        /* Animated Noise Texture */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            opacity: 0.03;
+            z-index: -1;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px);
+            animation: noiseShift 8s steps(10) infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes noiseShift {
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(-2%, -2%); }
+            20% { transform: translate(2%, 2%); }
+            30% { transform: translate(-2%, 2%); }
+            40% { transform: translate(2%, -2%); }
+            50% { transform: translate(-1%, 1%); }
+            60% { transform: translate(1%, -1%); }
+            70% { transform: translate(-1%, -1%); }
+            80% { transform: translate(1%, 1%); }
+            90% { transform: translate(0, -1%); }
+        }
+        
+        /* Demo Content */
+        .demo-content {
+            padding-top: calc(var(--header-height-expanded) + var(--vt-space-xl));
+            padding-left: var(--vt-space-md);
+            padding-right: var(--vt-space-md);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* ======================== ULTRA PREMIUM CONVERSION HEADER ======================== */
+        
+        .conversion-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10000;
+            height: var(--header-height-expanded);
+            transition: height 0.4s var(--vt-ease-out-expo), transform 0.4s var(--vt-ease-out-expo);
+            will-change: transform, height;
+            transform: translateZ(0);
+        }
+        
+        /* Scroll States */
+        .conversion-header.scrolled {
+            height: var(--header-height-shrunk);
+        }
+        
+        .conversion-header.hidden {
+            transform: translateY(-100%);
+        }
+        
+        /* Multi-Layer Glass Background */
+        .header-glass-layers {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+        
+        /* Layer 1: Base Glass */
+        .glass-layer-1 {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(15, 15, 20, 0.88) 0%,
+                rgba(12, 12, 17, 0.91) 15%,
+                rgba(10, 10, 15, 0.93) 30%,
+                rgba(8, 8, 12, 0.94) 45%,
+                rgba(5, 5, 10, 0.95) 60%,
+                rgba(3, 3, 7, 0.94) 75%,
+                rgba(0, 0, 5, 0.92) 90%,
+                rgba(0, 0, 0, 0.90) 100%
+            );
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+        }
+        
+        /* Layer 2: Metallic Sheen */
+        .glass-layer-2 {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.01) 20%,
+                rgba(255, 255, 255, 0.02) 40%,
+                rgba(255, 255, 255, 0.01) 60%,
+                transparent 100%
+            );
+            mix-blend-mode: overlay;
+        }
+        
+        /* Layer 3: Animated Shimmer */
+        .glass-layer-3 {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                115deg,
+                transparent 0%,
+                transparent 40%,
+                rgba(212, 175, 55, 0.03) 45%,
+                rgba(212, 175, 55, 0.05) 50%,
+                rgba(212, 175, 55, 0.03) 55%,
+                transparent 60%,
+                transparent 100%
+            );
+            background-size: 200% 100%;
+            animation: shimmerMove 8s linear infinite;
+        }
+        
+        @keyframes shimmerMove {
+            0% { background-position: -100% 0; }
+            100% { background-position: 100% 0; }
+        }
+        
+        /* Complex Border System */
+        .header-borders {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+        
+        .border-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.05) 20%,
+                rgba(255, 255, 255, 0.08) 50%,
+                rgba(255, 255, 255, 0.05) 80%,
+                transparent 100%
+            );
+        }
+        
+        .border-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(136, 136, 136, 0.1) 10%,
+                rgba(136, 136, 136, 0.15) 50%,
+                rgba(136, 136, 136, 0.1) 90%,
+                transparent 100%
+            );
+            box-shadow: 
+                0 1px 0 rgba(0, 0, 0, 0.5),
+                0 -1px 0 rgba(255, 255, 255, 0.01) inset;
+        }
+        
+        /* Premium Gold Glow Border */
+        .border-glow {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(212, 175, 55, 0.2) 10%,
+                rgba(212, 175, 55, 0.4) 30%,
+                rgba(255, 215, 0, 0.5) 50%,
+                rgba(212, 175, 55, 0.4) 70%,
+                rgba(212, 175, 55, 0.2) 90%,
+                transparent 100%
+            );
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            filter: blur(1px);
+        }
+        
+        .conversion-header.scrolled .border-glow {
+            opacity: 1;
+            animation: glowPulse 3s ease-in-out infinite, glowMove 6s linear infinite;
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes glowMove {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Premium Shadow System */
+        .header-shadows {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            box-shadow: 
+                0 1px 0 rgba(255, 255, 255, 0.01) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.2) inset,
+                0 2px 10px rgba(0, 0, 0, 0.2),
+                0 4px 20px rgba(0, 0, 0, 0.15),
+                0 8px 40px rgba(0, 0, 0, 0.1);
+            transition: box-shadow var(--header-transition);
+        }
+        
+        .conversion-header.scrolled .header-shadows {
+            box-shadow: 
+                0 1px 0 rgba(255, 255, 255, 0.02) inset,
+                0 -2px 0 rgba(0, 0, 0, 0.3) inset,
+                0 4px 20px rgba(0, 0, 0, 0.3),
+                0 8px 40px rgba(0, 0, 0, 0.25),
+                0 16px 80px rgba(0, 0, 0, 0.2),
+                0 0 120px rgba(212, 175, 55, 0.02);
+        }
+        
+        /* Container */
+        .header-container {
+            position: relative;
+            height: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 3vw, 2rem);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--vt-space-lg);
+            z-index: 1;
+        }
+        
+        /* ==================== LOGO WITH ANIMATED HEXAGON ==================== */
+        
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--vt-space-sm);
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-hexagon {
+            width: clamp(42px, 6vw, 54px);
+            height: clamp(42px, 6vw, 54px);
+            position: relative;
+            transition: all var(--header-transition);
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+        }
+        
+        .conversion-header.scrolled .logo-hexagon {
+            width: clamp(32px, 4.5vw, 40px);
+            height: clamp(32px, 4.5vw, 40px);
+        }
+        
+        .logo-hexagon svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .header-logo:hover .logo-hexagon {
+            transform: rotate(6deg) scale(1.05);
+            filter: drop-shadow(0 6px 20px rgba(212, 175, 55, 0.3));
+        }
+        
+        .logo-text {
+            font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+            font-weight: 200;
+            letter-spacing: clamp(0.25rem, 1vw, 0.5rem);
+            background: radial-gradient(ellipse at 50% -20%,
+                var(--vt-aluminum-1) 0%,
+                var(--vt-aluminum-2) 8%,
+                var(--vt-aluminum-3) 15%,
+                var(--vt-aluminum-4) 22%,
+                var(--vt-aluminum-5) 28%,
+                var(--vt-aluminum-6) 35%,
+                var(--vt-aluminum-7) 42%,
+                var(--vt-aluminum-8) 48%,
+                var(--vt-aluminum-9) 55%,
+                var(--vt-aluminum-10) 62%,
+                var(--vt-aluminum-11) 68%,
+                var(--vt-aluminum-12) 75%,
+                var(--vt-aluminum-13) 82%,
+                var(--vt-aluminum-14) 90%,
+                var(--vt-aluminum-15) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all var(--header-transition);
+            position: relative;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .conversion-header.scrolled .logo-text {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            letter-spacing: clamp(0.2rem, 0.8vw, 0.4rem);
+        }
+        
+        /* Logo shine effect */
+        .logo-text::after {
+            content: 'VERITRON';
+            position: absolute;
+            top: 0;
+            left: 0;
+            letter-spacing: inherit;
+            background: linear-gradient(
+                105deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.1) 45%,
+                rgba(255, 255, 255, 0.15) 50%,
+                rgba(255, 255, 255, 0.1) 55%,
+                transparent 70%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 100%;
+            animation: logoShine 4s ease-in-out infinite;
+        }
+        
+        @keyframes logoShine {
+            0%, 100% { background-position: -100% 0; }
+            50% { background-position: 100% 0; }
+        }
+        
+        /* ==================== NAVIGATION LINKS ==================== */
+        
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.25rem, 1vw, 0.75rem);
+            flex: 1;
+            justify-content: center;
+        }
+        
+        .nav-link-premium {
+            color: var(--vt-text-secondary);
+            text-decoration: none;
+            font-size: var(--vt-text-sm);
+            text-transform: uppercase;
+            letter-spacing: clamp(0.08rem, 0.15vw, 0.12rem);
+            padding: clamp(0.625rem, 1.5vw, 0.875rem) clamp(0.875rem, 2vw, 1.375rem);
+            position: relative;
+            transition: all 0.3s var(--vt-ease-out-expo);
+            font-weight: 500;
+            display: inline-block;
+        }
+        
+        /* Multi-layer hover effect */
+        .nav-link-premium::before,
+        .nav-link-premium::after {
+            content: '';
+            position: absolute;
+            transition: all 0.3s var(--vt-ease-out-expo);
+        }
+        
+        /* Bottom gradient line */
+        .nav-link-premium::before {
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(
+                90deg,
+                var(--vt-gold-6) 0%,
+                var(--vt-gold-4) 50%,
+                var(--vt-gold-6) 100%
+            );
+            transform: translateX(-50%);
+        }
+        
+        /* Background glow */
+        .nav-link-premium::after {
+            inset: 0;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(212, 175, 55, 0.05) 0%,
+                transparent 70%
+            );
+            opacity: 0;
+            border-radius: 8px;
+        }
+        
+        .nav-link-premium:hover {
+            color: var(--vt-text-primary);
+            transform: translateY(-1px);
+        }
+        
+        .nav-link-premium:hover::before {
+            width: calc(100% - 1rem);
+        }
+        
+        .nav-link-premium:hover::after {
+            opacity: 1;
+        }
+        
+        /* ==================== CTA SECTION ==================== */
+        
+        .header-cta-section {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.75rem, 2vw, 1.25rem);
+            flex-shrink: 0;
+        }
+        
+        /* Live Activity Indicator - Premium */
+        .live-indicator-premium {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: linear-gradient(
+                135deg,
+                rgba(76, 175, 80, 0.08) 0%,
+                rgba(76, 175, 80, 0.12) 50%,
+                rgba(76, 175, 80, 0.08) 100%
+            );
+            border: 1px solid rgba(76, 175, 80, 0.25);
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .live-indicator-premium::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(76, 175, 80, 0.1) 50%,
+                transparent 100%
+            );
+            animation: liveWave 3s linear infinite;
+        }
+        
+        @keyframes liveWave {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .live-dot-container {
+            position: relative;
+            width: 8px;
+            height: 8px;
+        }
+        
+        .live-dot {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                circle,
+                #4caf50 0%,
+                #45a049 50%,
+                #388e3c 100%
+            );
+            border-radius: 50%;
+            animation: livePulse 1.5s ease-in-out infinite;
+        }
+        
+        .live-dot::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: radial-gradient(
+                circle,
+                rgba(76, 175, 80, 0.4) 0%,
+                transparent 70%
+            );
+            border-radius: 50%;
+            animation: livePulseRing 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes livePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        @keyframes livePulseRing {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 0;
+            }
+            50% { 
+                transform: scale(1.5);
+                opacity: 1;
+            }
+        }
+        
+        .live-text {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: #4caf50;
+            text-transform: uppercase;
+        }
+        
+        .live-count {
+            color: var(--vt-text-primary);
+            font-weight: 700;
+        }
+        
+        /* Ultra Premium Primary CTA Button */
+        .cta-ultra-premium {
+            background: radial-gradient(ellipse at 50% -30%,
+                var(--vt-gold-1) 0%,
+                var(--vt-gold-2) 5%,
+                var(--vt-gold-3) 10%,
+                var(--vt-gold-4) 16%,
+                var(--vt-gold-5) 22%,
+                var(--vt-gold-6) 28%,
+                var(--vt-gold-7) 36%,
+                var(--vt-gold-8) 44%,
+                var(--vt-gold-9) 52%,
+                var(--vt-gold-10) 60%,
+                var(--vt-gold-11) 70%,
+                var(--vt-gold-12) 85%,
+                #885c24 100%);
+            color: var(--vt-bg-primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: clamp(0.1rem, 0.2vw, 0.15rem);
+            padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3.5vw, 2.25rem);
+            border: none;
+            border-radius: clamp(10px, 2vw, 14px);
+            font-size: var(--vt-text-xs);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s var(--vt-ease-out-expo);
+            box-shadow: 
+                0 1px 0 rgba(255, 255, 200, 0.8) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.3) inset,
+                0 2px 0 rgba(0, 0, 0, 0.2) inset,
+                0 -3px 5px rgba(0, 0, 0, 0.3) inset,
+                0 6px 8px rgba(0, 0, 0, 0.3),
+                0 10px 20px rgba(0, 0, 0, 0.25),
+                0 20px 40px rgba(0, 0, 0, 0.15),
+                0 0 60px rgba(212, 175, 55, 0.1);
+            text-shadow: 
+                0 1px 0 rgba(255, 255, 200, 0.3),
+                0 -1px 2px rgba(0, 0, 0, 0.4);
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+            will-change: transform;
+        }
+        
+        /* Multiple shine layers */
+        .cta-ultra-premium::before,
+        .cta-ultra-premium::after,
+        .cta-shine-layer {
+            content: '';
+            position: absolute;
+            pointer-events: none;
+        }
+        
+        /* Primary shine */
+        .cta-ultra-premium::before {
+            inset: 0;
+            background: linear-gradient(
+                115deg,
+                transparent 0%,
+                transparent 35%,
+                rgba(255, 255, 200, 0.2) 45%,
+                rgba(255, 255, 200, 0.3) 50%,
+                rgba(255, 255, 200, 0.2) 55%,
+                transparent 65%,
+                transparent 100%
+            );
+            transform: translateX(-120%);
+            transition: transform 0.6s var(--vt-ease-out-expo);
+        }
+        
+        /* Secondary ambient glow */
+        .cta-ultra-premium::after {
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle at 50% 50%,
+                rgba(255, 215, 0, 0.1) 0%,
+                transparent 50%
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .cta-ultra-premium:hover::before {
+            transform: translateX(120%);
+        }
+        
+        .cta-ultra-premium:hover::after {
+            opacity: 1;
+            animation: glowPulse 2s ease-in-out infinite;
+        }
+        
+        .cta-ultra-premium:hover {
+            transform: translateY(-3px) translateZ(10px) scale(1.02);
+            box-shadow: 
+                0 1px 0 rgba(255, 255, 200, 0.9) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.4) inset,
+                0 2px 0 rgba(0, 0, 0, 0.25) inset,
+                0 -4px 6px rgba(0, 0, 0, 0.35) inset,
+                0 10px 12px rgba(0, 0, 0, 0.35),
+                0 15px 30px rgba(0, 0, 0, 0.3),
+                0 25px 50px rgba(0, 0, 0, 0.2),
+                0 0 100px rgba(212, 175, 55, 0.2);
+        }
+        
+        .cta-ultra-premium:active {
+            transform: translateY(-1px) translateZ(5px) scale(1.01);
+            box-shadow: 
+                0 1px 0 rgba(255, 255, 200, 0.7) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.4) inset,
+                0 2px 0 rgba(0, 0, 0, 0.3) inset,
+                0 -2px 3px rgba(0, 0, 0, 0.3) inset,
+                0 4px 6px rgba(0, 0, 0, 0.3),
+                0 8px 15px rgba(0, 0, 0, 0.25),
+                0 0 40px rgba(212, 175, 55, 0.1);
+        }
+        
+        /* Secondary CTA - Aluminum Style */
+        .cta-secondary-premium {
+            background: radial-gradient(ellipse at 50% -20%,
+                var(--vt-aluminum-1) 0%,
+                var(--vt-aluminum-2) 5%,
+                var(--vt-aluminum-3) 10%,
+                var(--vt-aluminum-4) 15%,
+                var(--vt-aluminum-5) 20%,
+                var(--vt-aluminum-6) 30%,
+                var(--vt-aluminum-7) 40%,
+                var(--vt-aluminum-8) 50%,
+                var(--vt-aluminum-9) 60%,
+                var(--vt-aluminum-10) 70%,
+                var(--vt-aluminum-11) 80%,
+                var(--vt-aluminum-12) 90%,
+                var(--vt-aluminum-15) 100%);
+            color: var(--vt-gunmetal-8);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: clamp(0.08rem, 0.15vw, 0.12rem);
+            padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3.5vw, 2.25rem);
+            border: none;
+            border-radius: clamp(10px, 2vw, 14px);
+            font-size: var(--vt-text-xs);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s var(--vt-ease-out-expo);
+            box-shadow: 
+                0 1px 0 rgba(255, 255, 255, 0.8) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.1) inset,
+                0 -2px 4px rgba(0, 0, 0, 0.15) inset,
+                0 4px 8px rgba(0, 0, 0, 0.2),
+                0 8px 16px rgba(0, 0, 0, 0.15);
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+        }
+        
+        .cta-secondary-premium::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                115deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.15) 48%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.15) 52%,
+                transparent 70%
+            );
+            transform: translateX(-120%);
+            transition: transform 0.5s var(--vt-ease-out-expo);
+        }
+        
+        .cta-secondary-premium:hover::before {
+            transform: translateX(120%);
+        }
+        
+        .cta-secondary-premium:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 
+                0 1px 0 rgba(255, 255, 255, 0.9) inset,
+                0 -1px 0 rgba(0, 0, 0, 0.15) inset,
+                0 -3px 5px rgba(0, 0, 0, 0.2) inset,
+                0 8px 12px rgba(0, 0, 0, 0.25),
+                0 12px 24px rgba(0, 0, 0, 0.2),
+                0 0 40px rgba(136, 136, 136, 0.1);
+        }
+        
+        /* Notification Icon with Badge */
+        .notification-wrapper {
+            position: relative;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .notification-wrapper:hover {
+            background: rgba(212, 175, 55, 0.05);
+        }
+        
+        .notification-icon {
+            width: 22px;
+            height: 22px;
+            color: var(--vt-text-secondary);
+            transition: all 0.3s var(--vt-ease-spring);
+        }
+        
+        .notification-wrapper:hover .notification-icon {
+            color: var(--vt-gold-9);
+            transform: rotate(15deg) scale(1.1);
+        }
+        
+        .notification-badge-premium {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background: linear-gradient(135deg, #ff5252, #ff1744, #d50000);
+            color: white;
+            font-size: 9px;
+            padding: 2px 5px;
+            border-radius: 10px;
+            font-weight: 700;
+            min-width: 16px;
+            text-align: center;
+            box-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.3),
+                0 0 8px rgba(255, 23, 68, 0.4);
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes badgePulse {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 
+                    0 2px 4px rgba(0, 0, 0, 0.3),
+                    0 0 8px rgba(255, 23, 68, 0.4);
+            }
+            50% { 
+                transform: scale(1.15);
+                box-shadow: 
+                    0 2px 6px rgba(0, 0, 0, 0.4),
+                    0 0 12px rgba(255, 23, 68, 0.6);
+            }
+        }
+        
+        /* User Profile Section */
+        .user-section-premium {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.5rem, 1.5vw, 0.875rem);
+            padding: 5px 14px 5px 5px;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.03) 0%,
+                rgba(255, 255, 255, 0.02) 50%,
+                rgba(255, 255, 255, 0.01) 100%
+            );
+            border: 1px solid rgba(136, 136, 136, 0.1);
+            border-radius: 28px;
+            cursor: pointer;
+            transition: all 0.3s var(--vt-ease-out-expo);
+            position: relative;
+        }
+        
+        .user-section-premium::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(
+                135deg,
+                rgba(212, 175, 55, 0.2) 0%,
+                transparent 50%,
+                rgba(212, 175, 55, 0.2) 100%
+            );
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .user-section-premium:hover::before {
+            opacity: 1;
+        }
+        
+        .user-section-premium:hover {
+            background: linear-gradient(
+                135deg,
+                rgba(212, 175, 55, 0.05) 0%,
+                rgba(212, 175, 55, 0.03) 50%,
+                rgba(212, 175, 55, 0.02) 100%
+            );
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-color: rgba(212, 175, 55, 0.2);
+        }
+        
+        .user-avatar-premium {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at 50% -20%,
+                var(--vt-gold-4) 0%,
+                var(--vt-gold-6) 25%,
+                var(--vt-gold-8) 50%,
+                var(--vt-gold-10) 75%,
+                var(--vt-gold-12) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--vt-bg-primary);
+            position: relative;
+            box-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 200, 0.4),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+            transition: all var(--header-transition);
+        }
+        
+        .conversion-header.scrolled .user-avatar-premium {
+            width: 30px;
+            height: 30px;
+            font-size: 12px;
+        }
+        
+        /* Online status with multiple rings */
+        .user-avatar-premium::after,
+        .user-avatar-premium::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            border-radius: 50%;
+        }
+        
+        .user-avatar-premium::after {
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, #4caf50, #388e3c);
+            border: 2px solid var(--vt-bg-primary);
+            z-index: 2;
+        }
+        
+        .user-avatar-premium::before {
+            width: 10px;
+            height: 10px;
+            background: transparent;
+            border: 2px solid transparent;
+            animation: statusRing 2s ease-in-out infinite;
+            z-index: 1;
+        }
+        
+        @keyframes statusRing {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 1;
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.6);
+            }
+            50% { 
+                transform: scale(1.8);
+                opacity: 0;
+                box-shadow: 0 0 0 6px rgba(76, 175, 80, 0);
+            }
+        }
+        
+        /* Mobile Menu Toggle */
+        .mobile-toggle-premium {
+            display: none;
+            width: 44px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(136, 136, 136, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s var(--vt-ease-out-expo);
+        }
+        
+        .mobile-toggle-premium:hover {
+            background: rgba(212, 175, 55, 0.05);
+            border-color: rgba(212, 175, 55, 0.2);
+        }
+        
+        .mobile-toggle-premium span {
+            width: 22px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--vt-text-secondary), var(--vt-text-muted));
+            transition: all 0.3s var(--vt-ease-out-expo);
+            transform-origin: center;
+        }
+        
+        .mobile-toggle-premium:hover span {
+            background: linear-gradient(90deg, var(--vt-gold-9), var(--vt-gold-11));
+        }
+        
+        .mobile-toggle-premium.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .mobile-toggle-premium.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        
+        .mobile-toggle-premium.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+        
+        /* ==================== MOBILE DRAWER - ULTRA PREMIUM ==================== */
+        
+        .mobile-drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s var(--vt-ease-out-expo);
+            z-index: 9998;
+        }
+        
+        .mobile-drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: min(85vw, 380px);
+            background: linear-gradient(
+                135deg,
+                rgba(15, 15, 20, 0.98) 0%,
+                rgba(12, 12, 17, 0.99) 20%,
+                rgba(10, 10, 15, 0.99) 40%,
+                rgba(8, 8, 12, 1) 60%,
+                rgba(5, 5, 10, 1) 80%,
+                rgba(0, 0, 5, 1) 100%
+            );
+            backdrop-filter: blur(30px) saturate(200%);
+            -webkit-backdrop-filter: blur(30px) saturate(200%);
+            transform: translateX(100%);
+            transition: transform 0.4s var(--vt-ease-out-expo);
+            z-index: 9999;
+            overflow-y: auto;
+            box-shadow: 
+                -4px 0 20px rgba(0, 0, 0, 0.4),
+                -8px 0 40px rgba(0, 0, 0, 0.3),
+                -16px 0 80px rgba(0, 0, 0, 0.2),
+                inset 1px 0 0 rgba(255, 255, 255, 0.02);
+        }
+        
+        .mobile-drawer.active {
+            transform: translateX(0);
+        }
+        
+        /* Drawer Header */
+        .drawer-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid rgba(136, 136, 136, 0.1);
+            background: linear-gradient(
+                180deg,
+                rgba(212, 175, 55, 0.03) 0%,
+                transparent 100%
+            );
+            position: relative;
+        }
+        
+        .drawer-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(212, 175, 55, 0.3) 50%,
+                transparent 100%
+            );
+        }
+        
+        .drawer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .drawer-logo svg {
+            width: 36px;
+            height: 36px;
+        }
+        
+        .drawer-logo-text {
+            font-size: 1.25rem;
+            font-weight: 200;
+            letter-spacing: 0.3rem;
+            background: linear-gradient(
+                135deg,
+                var(--vt-aluminum-1) 0%,
+                var(--vt-aluminum-8) 50%,
+                var(--vt-aluminum-15) 100%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Drawer Navigation */
+        .drawer-nav {
+            padding: 24px 0;
+        }
+        
+        .drawer-nav-item {
+            display: block;
+            padding: 16px 24px;
+            color: var(--vt-text-secondary);
+            text-decoration: none;
+            font-size: var(--vt-text-base);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            transition: all 0.3s var(--vt-ease-out-expo);
+        }
+        
+        .drawer-nav-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(
+                180deg,
+                var(--vt-gold-6) 0%,
+                var(--vt-gold-9) 50%,
+                var(--vt-gold-6) 100%
+            );
+            transform: scaleY(0);
+            transition: transform 0.3s var(--vt-ease-out-expo);
+        }
+        
+        .drawer-nav-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                90deg,
+                rgba(212, 175, 55, 0.05) 0%,
+                transparent 50%
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .drawer-nav-item:hover {
+            color: var(--vt-text-primary);
+            padding-left: 32px;
+        }
+        
+        .drawer-nav-item:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .drawer-nav-item:hover::after {
+            opacity: 1;
+        }
+        
+        /* Drawer Footer */
+        .drawer-footer {
+            padding: 24px;
+            border-top: 1px solid rgba(136, 136, 136, 0.1);
+            margin-top: auto;
+        }
+        
+        .drawer-cta-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .drawer-cta {
+            width: 100%;
+            padding: 14px 24px;
+            text-align: center;
+            border-radius: 12px;
+            font-size: var(--vt-text-sm);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s var(--vt-ease-out-expo);
+        }
+        
+        .drawer-cta-primary {
+            background: radial-gradient(ellipse at 50% -20%,
+                var(--vt-gold-3) 0%,
+                var(--vt-gold-6) 30%,
+                var(--vt-gold-9) 60%,
+                var(--vt-gold-12) 100%);
+            color: var(--vt-bg-primary);
+            border: none;
+            box-shadow: 
+                0 4px 12px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(212, 175, 55, 0.2),
+                inset 0 1px 0 rgba(255, 255, 200, 0.4);
+        }
+        
+        .drawer-cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 6px 20px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(212, 175, 55, 0.3),
+                inset 0 1px 0 rgba(255, 255, 200, 0.5);
+        }
+        
+        .drawer-cta-secondary {
+            background: transparent;
+            color: var(--vt-text-secondary);
+            border: 1px solid rgba(136, 136, 136, 0.3);
+        }
+        
+        .drawer-cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--vt-text-primary);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .header-nav {
+                display: none;
+            }
+            
+            .mobile-toggle-premium {
+                display: flex;
+            }
+            
+            .cta-secondary-premium {
+                display: none;
+            }
+            
+            .live-indicator-premium {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .logo-text {
+                display: none;
+            }
+            
+            .user-name {
+                display: none;
+            }
+        }
+        
+        /* Accessibility */
+        .conversion-header *:focus-visible {
+            outline: 2px solid var(--vt-gold-9);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Ultra Premium Conversion Header -->
+    <header class="conversion-header" id="conversionHeader" role="banner">
+        <!-- Multi-layer glass morphism background -->
+        <div class="header-glass-layers">
+            <div class="glass-layer-1"></div>
+            <div class="glass-layer-2"></div>
+            <div class="glass-layer-3"></div>
+        </div>
+        
+        <!-- Complex border system -->
+        <div class="header-borders">
+            <div class="border-top"></div>
+            <div class="border-bottom"></div>
+            <div class="border-glow"></div>
+        </div>
+        
+        <!-- Shadow layers -->
+        <div class="header-shadows"></div>
+        
+        <div class="header-container">
+            <!-- Logo with animated hexagon -->
+            <div class="header-logo" role="button" tabindex="0" aria-label="VERITRON Home">
+                <div class="logo-hexagon">
+                    <svg viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <!-- Complex gold gradient -->
+                            <linearGradient id="hexGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#fff4d4;stop-opacity:1" />
+                                <stop offset="8%" style="stop-color:#ffed9e;stop-opacity:1" />
+                                <stop offset="16%" style="stop-color:#ffe574;stop-opacity:1" />
+                                <stop offset="24%" style="stop-color:#ffdb4a;stop-opacity:1" />
+                                <stop offset="32%" style="stop-color:#ffd428;stop-opacity:1" />
+                                <stop offset="40%" style="stop-color:#f4c838;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#e8bc3c;stop-opacity:1" />
+                                <stop offset="60%" style="stop-color:#d4af37;stop-opacity:1" />
+                                <stop offset="70%" style="stop-color:#c49838;stop-opacity:1" />
+                                <stop offset="80%" style="stop-color:#b88c34;stop-opacity:1" />
+                                <stop offset="90%" style="stop-color:#a0742c;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#885c24;stop-opacity:1" />
+                            </linearGradient>
+                            <!-- Aluminum gradient -->
+                            <linearGradient id="hexAlum" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                                <stop offset="10%" style="stop-color:#f5f5f5;stop-opacity:1" />
+                                <stop offset="20%" style="stop-color:#e8e8e8;stop-opacity:1" />
+                                <stop offset="30%" style="stop-color:#d8d8d8;stop-opacity:1" />
+                                <stop offset="40%" style="stop-color:#c8c8c8;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#b8b8b8;stop-opacity:1" />
+                                <stop offset="60%" style="stop-color:#a8a8a8;stop-opacity:1" />
+                                <stop offset="70%" style="stop-color:#989898;stop-opacity:1" />
+                                <stop offset="80%" style="stop-color:#888888;stop-opacity:1" />
+                                <stop offset="90%" style="stop-color:#787878;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#686868;stop-opacity:1" />
+                            </linearGradient>
+                            <!-- Inner shadow filter -->
+                            <filter id="innerShadow">
+                                <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+                                <feOffset dx="0" dy="2" result="offsetblur"/>
+                                <feFlood flood-color="#000000" flood-opacity="0.4"/>
+                                <feComposite in2="offsetblur" operator="in"/>
+                                <feMerge>
+                                    <feMergeNode/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <!-- Outer hexagon -->
+                        <polygon points="27,4 46,15 46,39 27,50 8,39 8,15" 
+                                 fill="url(#hexAlum)" 
+                                 stroke="url(#hexGold)" 
+                                 stroke-width="1.5"
+                                 filter="url(#innerShadow)"/>
+                        <!-- Inner hexagon -->
+                        <polygon points="27,10 38,17 38,33 27,40 16,33 16,17" 
+                                 fill="url(#hexGold)" 
+                                 opacity="0.85"/>
+                        <!-- Center detail -->
+                        <polygon points="27,16 32,19 32,27 27,30 22,27 22,19" 
+                                 fill="#0a0a0f" 
+                                 opacity="0.9"/>
+                        <!-- Animated center dot -->
+                        <circle cx="27" cy="23" r="2" fill="url(#hexGold)">
+                            <animate attributeName="r" values="2;3;2" dur="2s" repeatCount="indefinite"/>
+                            <animate attributeName="opacity" values="1;0.7;1" dur="2s" repeatCount="indefinite"/>
+                        </circle>
+                    </svg>
+                </div>
+                <span class="logo-text">VERITRON</span>
+            </div>
+            
+            <!-- Premium Navigation -->
+            <nav class="header-nav" role="navigation" aria-label="Main navigation">
+                <a href="#features" class="nav-link-premium">Features</a>
+                <a href="#solutions" class="nav-link-premium">Solutions</a>
+                <a href="#pricing" class="nav-link-premium">Pricing</a>
+                <a href="#resources" class="nav-link-premium">Resources</a>
+            </nav>
+            
+            <!-- CTA Section -->
+            <div class="header-cta-section">
+                <!-- Live Activity -->
+                <div class="live-indicator-premium" aria-live="polite">
+                    <div class="live-dot-container">
+                        <div class="live-dot"></div>
+                    </div>
+                    <span class="live-text">
+                        <span class="live-count">247</span> Active
+                    </span>
+                </div>
+                
+                <!-- Auth States -->
+                <button class="cta-secondary-premium" aria-label="Sign in to your account">
+                    Sign In
+                </button>
+                <button class="cta-ultra-premium" aria-label="Start your free trial">
+                    Start Free Trial
+                    <span class="cta-shine-layer"></span>
+                </button>
+                
+                <!-- Signed In State (hidden by default) -->
+                <div class="notification-wrapper" style="display: none;">
+                    <svg class="notification-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                    </svg>
+                    <span class="notification-badge-premium">3</span>
+                </div>
+                
+                <div class="user-section-premium" style="display: none;">
+                    <div class="user-avatar-premium">JD</div>
+                    <span class="user-name">John Doe</span>
+                </div>
+                
+                <!-- Mobile Toggle -->
+                <button class="mobile-toggle-premium" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer-overlay" id="drawerOverlay"></div>
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-header">
+            <div class="drawer-logo">
+                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="drawerGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#d4af37;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#b8941f;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <polygon points="24,4 40,14 40,34 24,44 8,34 8,14" 
+                             fill="none" 
+                             stroke="url(#drawerGold)" 
+                             stroke-width="1.5"/>
+                    <polygon points="24,12 32,17 32,27 24,32 16,27 16,17" 
+                             fill="url(#drawerGold)" 
+                             opacity="0.8"/>
+                </svg>
+                <span class="drawer-logo-text">VERITRON</span>
+            </div>
+        </div>
+        
+        <nav class="drawer-nav">
+            <a href="#features" class="drawer-nav-item">Features</a>
+            <a href="#solutions" class="drawer-nav-item">Solutions</a>
+            <a href="#pricing" class="drawer-nav-item">Pricing</a>
+            <a href="#resources" class="drawer-nav-item">Resources</a>
+            <a href="#about" class="drawer-nav-item">About</a>
+            <a href="#contact" class="drawer-nav-item">Contact</a>
+        </nav>
+        
+        <div class="drawer-footer">
+            <div class="drawer-cta-container">
+                <button class="drawer-cta drawer-cta-primary">Start Free Trial</button>
+                <button class="drawer-cta drawer-cta-secondary">Sign In</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Demo Content -->
+    <main class="demo-content">
+        <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 100; letter-spacing: 0.2em; margin-bottom: 40px; background: linear-gradient(135deg, #ffffff, #c0c0c0, #808080); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+            ULTRA PREMIUM HEADER
+        </h1>
+        
+        <p style="color: var(--vt-text-secondary); line-height: 1.8; margin-bottom: 30px; font-size: var(--vt-text-base);">
+            This conversion-optimized header represents the pinnacle of web design sophistication. Every gradient contains 10-15 stops for true metallic realism. Multiple glass layers create authentic depth. Continuous ambient animations bring the interface to life.
+        </p>
+        
+        <!-- VERITRON Premium Cards -->
+        <style>
+            .card-veritron-ultra {
+                background: linear-gradient(135deg, #0f0f14 0%, #050507 50%, #0a0a0f 100%);
+                border-radius: clamp(16px, 3vw, 24px);
+                padding: 0;
+                border: 1px solid rgba(136,136,136,0.1);
+                position: relative;
+                overflow: hidden;
+                transition: all 0.4s var(--vt-ease-out-expo);
+                min-height: clamp(300px, 38vw, 340px);
+                box-shadow: 
+                    0 8px 30px rgba(0,0,0,0.4),
+                    inset 0 1px 0 rgba(255,255,255,0.02);
+                transform-style: preserve-3d;
+                will-change: transform;
+                cursor: pointer;
+            }
+            
+            .card-veritron-ultra::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                    rgba(212,175,55,0.08) 0%, 
+                    transparent 60%);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                pointer-events: none;
+            }
+            
+            .card-veritron-ultra:hover::after {
+                opacity: 1;
+            }
+            
+            .card-veritron-ultra::before {
+                content: '';
+                position: absolute;
+                top: -100%;
+                left: -100%;
+                width: 300%;
+                height: 300%;
+                background: linear-gradient(45deg,
+                    transparent 30%,
+                    rgba(255,255,255,0.02) 40%,
+                    rgba(212,175,55,0.05) 50%,
+                    rgba(255,255,255,0.02) 60%,
+                    transparent 70%);
+                transform: rotate(45deg);
+                transition: all 0.6s var(--vt-ease-out-expo);
+            }
+            
+            .card-veritron-ultra:hover::before {
+                top: -150%;
+                left: -150%;
+            }
+            
+            .card-veritron-ultra:hover {
+                transform: translateY(-8px) rotateX(-5deg) rotateY(2deg);
+                box-shadow: 
+                    0 25px 60px rgba(0,0,0,0.5),
+                    0 0 120px rgba(212,175,55,0.08),
+                    inset 0 1px 0 rgba(255,255,255,0.05);
+                border-color: rgba(212,175,55,0.3);
+            }
+            
+            .card-status-bar {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: linear-gradient(90deg, 
+                    var(--vt-gold-6) 0%, 
+                    var(--vt-gold-3) 50%, 
+                    var(--vt-gold-6) 100%);
+                background-size: 200% 100%;
+                animation: statusPulse 3s linear infinite;
+                opacity: 0.8;
+            }
+            
+            @keyframes statusPulse {
+                0% { background-position: 0% 0%; }
+                100% { background-position: 200% 0%; }
+            }
+            
+            .card-inner {
+                padding: clamp(1.5rem, 4vw, 2.25rem);
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                z-index: 1;
+            }
+            
+            .card-badge {
+                position: absolute;
+                top: -10px;
+                right: -10px;
+                background: linear-gradient(135deg, var(--vt-gold-6), var(--vt-gold-10));
+                color: #0a0a0f;
+                padding: 4px 12px;
+                border-radius: 12px;
+                font-size: 10px;
+                font-weight: 600;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                box-shadow: 0 4px 12px rgba(212,175,55,0.3);
+                animation: badgePulse 2s ease-in-out infinite;
+            }
+            
+            .card-header {
+                display: flex;
+                align-items: center;
+                gap: var(--vt-space-sm);
+                margin-bottom: var(--vt-space-md);
+            }
+            
+            .card-icon-wrapper {
+                width: clamp(45px, 8vw, 55px);
+                height: clamp(45px, 8vw, 55px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(
+                    135deg,
+                    rgba(212,175,55,0.03) 0%,
+                    rgba(212,175,55,0.05) 50%,
+                    transparent 100%
+                );
+                border-radius: 12px;
+                position: relative;
+                border: 1px solid rgba(212,175,55,0.08);
+                box-shadow: 
+                    inset 0 1px 0 rgba(255,255,255,0.02),
+                    inset 0 -1px 0 rgba(0,0,0,0.2);
+                transition: all 0.4s var(--vt-ease-out-expo);
+            }
+            
+            .card-veritron-ultra:hover .card-icon-wrapper {
+                background: linear-gradient(
+                    135deg,
+                    rgba(212,175,55,0.05) 0%,
+                    rgba(212,175,55,0.08) 50%,
+                    transparent 100%
+                );
+                border-color: rgba(212,175,55,0.15);
+                transform: scale(1.05);
+            }
+            
+            .card-icon {
+                width: 100%;
+                height: 100%;
+                filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+                transition: all 0.4s var(--vt-ease-spring);
+            }
+            
+            .card-veritron-ultra:hover .card-icon {
+                transform: scale(1.15) rotate(5deg);
+                filter: drop-shadow(0 6px 12px rgba(212,175,55,0.3));
+            }
+            
+            .card-title {
+                font-size: var(--vt-text-lg);
+                font-weight: 600;
+                background: linear-gradient(90deg, #e8e8e8, #c0c0c0);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                transition: all 0.3s ease;
+            }
+            
+            .card-veritron-ultra:hover .card-title {
+                background: linear-gradient(90deg, var(--vt-gold-3), var(--vt-gold-9));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+            
+            .card-content {
+                color: var(--vt-text-secondary);
+                font-size: var(--vt-text-sm);
+                line-height: 1.8;
+                margin-bottom: var(--vt-space-md);
+                flex-grow: 1;
+            }
+            
+            .card-stats-visual {
+                display: flex;
+                gap: var(--vt-space-md);
+                margin-bottom: var(--vt-space-sm);
+            }
+            
+            .stat-progress {
+                flex: 1;
+            }
+            
+            .stat-label {
+                font-size: 10px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: var(--vt-text-muted);
+                margin-bottom: 4px;
+            }
+            
+            .stat-bar {
+                height: 4px;
+                background: rgba(255,255,255,0.05);
+                border-radius: 2px;
+                overflow: hidden;
+                position: relative;
+            }
+            
+            .stat-fill {
+                height: 100%;
+                background: linear-gradient(90deg, var(--vt-gold-9), var(--vt-gold-6));
+                border-radius: 2px;
+                transition: width 1s var(--vt-ease-out-expo);
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .stat-fill::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(90deg, 
+                    transparent 0%, 
+                    rgba(255,255,255,0.3) 50%, 
+                    transparent 100%);
+                animation: shimmer 2s infinite;
+            }
+            
+            @keyframes shimmer {
+                0% { transform: translateX(-100%); }
+                100% { transform: translateX(100%); }
+            }
+            
+            .card-footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-top: var(--vt-space-md);
+                border-top: 1px solid rgba(136,136,136,0.08);
+                position: relative;
+            }
+            
+            .card-footer::before {
+                content: '';
+                position: absolute;
+                top: -1px;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background: linear-gradient(90deg, 
+                    transparent, 
+                    rgba(212,175,55,0.3), 
+                    transparent);
+                transform: scaleX(0);
+                transition: transform 0.5s var(--vt-ease-out-expo);
+            }
+            
+            .card-veritron-ultra:hover .card-footer::before {
+                transform: scaleX(1);
+            }
+            
+            .card-action {
+                background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(212,175,55,0.05));
+                border: 1px solid rgba(212,175,55,0.3);
+                color: var(--vt-gold-9);
+                padding: 6px 12px;
+                border-radius: 6px;
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                cursor: pointer;
+                transition: all 0.3s var(--vt-ease-out-expo);
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .card-action:hover {
+                background: linear-gradient(135deg, rgba(212,175,55,0.2), rgba(212,175,55,0.1));
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(212,175,55,0.2);
+            }
+            
+            /* ==================== VERITRON BUTTON STYLES FOR CARDS ==================== */
+            
+            .btn-veritron-card {
+                font-family: inherit;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: clamp(0.08rem, 0.15vw, 0.1rem);
+                border: none;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+                transition: all 0.3s var(--vt-ease-out-expo);
+                transform-style: preserve-3d;
+                will-change: transform;
+                -webkit-tap-highlight-color: transparent;
+                width: 100%;
+            }
+            
+            .btn-small-card {
+                padding: clamp(0.625rem, 1.5vw, 0.75rem) clamp(1rem, 2.5vw, 1.375rem);
+                font-size: var(--vt-text-xs);
+                border-radius: clamp(6px, 1vw, 8px);
+                min-height: 34px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                white-space: nowrap;
+            }
+            
+            /* Gold Button - Premium Material */
+            .btn-gold-card {
+                background: radial-gradient(ellipse at 50% -20%, 
+                    #fff4d4 0%, 
+                    #ffed9e 8%, 
+                    #ffe574 15%, 
+                    #ffdb4a 22%, 
+                    #ffd428 28%, 
+                    #f4c838 35%, 
+                    #e8bc3c 42%, 
+                    #dcb03e 48%, 
+                    #d0a43c 55%, 
+                    #c49838 62%, 
+                    #b88c34 68%, 
+                    #ac8030 75%, 
+                    #a0742c 82%, 
+                    #946828 90%, 
+                    #885c24 100%);
+                color: #0a0a0f;
+                text-shadow: 0 1px 0 rgba(255,255,200,0.5);
+                box-shadow: 
+                    0 6px 20px rgba(0,0,0,0.3),
+                    0 0 40px rgba(212,175,55,0.15),
+                    0 1px 0 rgba(255,255,200,0.8) inset,
+                    0 -3px 5px rgba(0,0,0,0.3) inset;
+                animation: goldGlowCard 3s ease-in-out infinite alternate;
+                line-height: 1;
+            }
+            
+            @keyframes goldGlowCard {
+                from {
+                    box-shadow: 
+                        0 6px 20px rgba(0,0,0,0.3),
+                        0 0 40px rgba(212,175,55,0.15),
+                        0 1px 0 rgba(255,255,200,0.8) inset,
+                        0 -3px 5px rgba(0,0,0,0.3) inset;
+                }
+                to {
+                    box-shadow: 
+                        0 6px 20px rgba(0,0,0,0.3),
+                        0 0 60px rgba(212,175,55,0.25),
+                        0 1px 0 rgba(255,255,200,0.8) inset,
+                        0 -3px 5px rgba(0,0,0,0.3) inset;
+                }
+            }
+            
+            .btn-gold-card::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    115deg,
+                    transparent 30%,
+                    rgba(255,255,200,0.3) 48%,
+                    rgba(255,255,200,0.35) 50%,
+                    rgba(255,255,200,0.3) 52%,
+                    transparent 70%
+                );
+                transform: translateX(-100%);
+                transition: transform 0.6s var(--vt-ease-out-expo);
+                pointer-events: none;
+                border-radius: inherit;
+            }
+            
+            .btn-gold-card:hover::after {
+                transform: translateX(100%);
+            }
+            
+            .btn-gold-card:hover {
+                transform: translateY(-2px) scale(1.02);
+                animation-play-state: paused;
+                box-shadow: 
+                    0 10px 30px rgba(0,0,0,0.4),
+                    0 0 80px rgba(212,175,55,0.3),
+                    0 1px 0 rgba(255,255,200,0.9) inset,
+                    0 -3px 6px rgba(0,0,0,0.35) inset;
+            }
+            
+            .btn-gold-card:active {
+                transform: translateY(0) scale(1);
+                box-shadow: 
+                    0 4px 12px rgba(0,0,0,0.3),
+                    0 0 30px rgba(212,175,55,0.1),
+                    0 1px 0 rgba(255,255,200,0.7) inset,
+                    0 -2px 4px rgba(0,0,0,0.25) inset;
+            }
+            
+            /* Aluminum Button - Brushed Metal */
+            .btn-aluminum-card {
+                background: radial-gradient(ellipse at 50% -20%, 
+                    #ffffff 0%, 
+                    #fafafa 8%, 
+                    #f5f5f5 15%, 
+                    #ececec 22%, 
+                    #e2e2e2 28%, 
+                    #d8d8d8 35%, 
+                    #cecece 42%, 
+                    #c4c4c4 48%, 
+                    #bababa 55%, 
+                    #b0b0b0 62%, 
+                    #a6a6a6 68%, 
+                    #9c9c9c 75%, 
+                    #929292 82%, 
+                    #888888 90%, 
+                    #7e7e7e 100%);
+                color: #1a1a1a;
+                text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+                box-shadow: 
+                    0 6px 18px rgba(0,0,0,0.25),
+                    0 1px 0 rgba(255,255,255,0.8) inset,
+                    0 -3px 5px rgba(0,0,0,0.2) inset;
+                transform: translateZ(0);
+                line-height: 1;
+            }
+            
+            .btn-aluminum-card::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    115deg,
+                    transparent 30%,
+                    rgba(255,255,255,0.2) 48%,
+                    rgba(255,255,255,0.25) 50%,
+                    rgba(255,255,255,0.2) 52%,
+                    transparent 70%
+                );
+                transform: translateX(-100%);
+                transition: transform 0.6s var(--vt-ease-out-expo);
+                pointer-events: none;
+                border-radius: inherit;
+            }
+            
+            .btn-aluminum-card:hover::after {
+                transform: translateX(100%);
+            }
+            
+            .btn-aluminum-card:hover {
+                transform: translateY(-2px) scale(1.02);
+                box-shadow: 
+                    0 10px 28px rgba(0,0,0,0.3),
+                    0 1px 0 rgba(255,255,255,0.9) inset,
+                    0 -3px 6px rgba(0,0,0,0.25) inset;
+            }
+            
+            .btn-aluminum-card:active {
+                transform: translateY(0) scale(1);
+                box-shadow: 
+                    0 4px 10px rgba(0,0,0,0.2),
+                    0 1px 0 rgba(255,255,255,0.7) inset,
+                    0 -2px 4px rgba(0,0,0,0.15) inset;
+            }
+            
+            /* Gunmetal Button - Dark Premium */
+            .btn-gunmetal-card {
+                background: radial-gradient(ellipse at 50% -20%, 
+                    #6a6a6a 0%, 
+                    #525252 15%, 
+                    #3a3a3a 35%, 
+                    #2a2a2a 55%, 
+                    #1c1c1c 70%, 
+                    #0a0a0a 100%);
+                color: #c0c0c0;
+                text-shadow: 0 -1px 2px rgba(0,0,0,0.8);
+                box-shadow: 
+                    0 6px 20px rgba(0,0,0,0.4),
+                    0 1px 0 rgba(255,255,255,0.1) inset,
+                    0 -3px 5px rgba(0,0,0,0.7) inset;
+                line-height: 1;
+            }
+            
+            .btn-gunmetal-card::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    115deg,
+                    transparent 30%,
+                    rgba(255,255,255,0.06) 48%,
+                    rgba(255,255,255,0.08) 50%,
+                    rgba(255,255,255,0.06) 52%,
+                    transparent 70%
+                );
+                transform: translateX(-100%);
+                transition: transform 0.6s var(--vt-ease-out-expo);
+                pointer-events: none;
+                border-radius: inherit;
+            }
+            
+            .btn-gunmetal-card:hover::after {
+                transform: translateX(100%);
+            }
+            
+            .btn-gunmetal-card:hover {
+                transform: translateY(-2px) scale(1.02);
+                box-shadow: 
+                    0 10px 30px rgba(0,0,0,0.5),
+                    0 1px 0 rgba(255,255,255,0.15) inset,
+                    0 -3px 6px rgba(0,0,0,0.8) inset;
+                color: #e8e8e8;
+            }
+            
+            .btn-gunmetal-card:active {
+                transform: translateY(0) scale(1);
+                box-shadow: 
+                    0 4px 12px rgba(0,0,0,0.35),
+                    0 1px 0 rgba(255,255,255,0.08) inset,
+                    0 -2px 4px rgba(0,0,0,0.6) inset;
+            }
+            
+            /* Button Focus States */
+            .btn-veritron-card:focus-visible {
+                outline: 2px solid var(--vt-gold-9);
+                outline-offset: 3px;
+            }
+        </style>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin: 60px 0;">
+            <!-- Card 1 - Performance -->
+            <div class="card-veritron-ultra">
+                <div class="card-status-bar"></div>
+                <div class="card-inner">
+                    <div class="card-badge">PRO</div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">
+                            <svg class="card-icon" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <defs>
+                                    <!-- Complex Aluminum Gradient - 15 stops -->
+                                    <linearGradient id="perfAlum" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                                        <stop offset="5%" style="stop-color:#fafafa;stop-opacity:1" />
+                                        <stop offset="10%" style="stop-color:#f5f5f5;stop-opacity:1" />
+                                        <stop offset="15%" style="stop-color:#ececec;stop-opacity:1" />
+                                        <stop offset="22%" style="stop-color:#e2e2e2;stop-opacity:1" />
+                                        <stop offset="28%" style="stop-color:#d8d8d8;stop-opacity:1" />
+                                        <stop offset="35%" style="stop-color:#cecece;stop-opacity:1" />
+                                        <stop offset="42%" style="stop-color:#c4c4c4;stop-opacity:1" />
+                                        <stop offset="48%" style="stop-color:#bababa;stop-opacity:1" />
+                                        <stop offset="55%" style="stop-color:#b0b0b0;stop-opacity:1" />
+                                        <stop offset="62%" style="stop-color:#a6a6a6;stop-opacity:1" />
+                                        <stop offset="68%" style="stop-color:#9c9c9c;stop-opacity:1" />
+                                        <stop offset="75%" style="stop-color:#929292;stop-opacity:1" />
+                                        <stop offset="82%" style="stop-color:#888888;stop-opacity:1" />
+                                        <stop offset="90%" style="stop-color:#7e7e7e;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#707070;stop-opacity:1" />
+                                    </linearGradient>
+                                    <!-- Complex Gold Gradient - 12 stops -->
+                                    <linearGradient id="perfGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#fff4d4;stop-opacity:1" />
+                                        <stop offset="8%" style="stop-color:#ffed9e;stop-opacity:1" />
+                                        <stop offset="15%" style="stop-color:#ffe574;stop-opacity:1" />
+                                        <stop offset="22%" style="stop-color:#ffdb4a;stop-opacity:1" />
+                                        <stop offset="28%" style="stop-color:#ffd428;stop-opacity:1" />
+                                        <stop offset="35%" style="stop-color:#f4c838;stop-opacity:1" />
+                                        <stop offset="42%" style="stop-color:#e8bc3c;stop-opacity:1" />
+                                        <stop offset="48%" style="stop-color:#dcb03e;stop-opacity:1" />
+                                        <stop offset="55%" style="stop-color:#d0a43c;stop-opacity:1" />
+                                        <stop offset="62%" style="stop-color:#c49838;stop-opacity:1" />
+                                        <stop offset="68%" style="stop-color:#b88c34;stop-opacity:1" />
+                                        <stop offset="75%" style="stop-color:#ac8030;stop-opacity:1" />
+                                        <stop offset="82%" style="stop-color:#a0742c;stop-opacity:1" />
+                                        <stop offset="90%" style="stop-color:#946828;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#885c24;stop-opacity:1" />
+                                    </linearGradient>
+                                    <!-- Inner Shadow Filter -->
+                                    <filter id="perfInnerShadow">
+                                        <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+                                        <feOffset dx="0" dy="2" result="offsetblur"/>
+                                        <feFlood flood-color="#000000" flood-opacity="0.4"/>
+                                        <feComposite in2="offsetblur" operator="in"/>
+                                        <feMerge>
+                                            <feMergeNode/>
+                                            <feMergeNode in="SourceGraphic"/>
+                                        </feMerge>
+                                    </filter>
+                                    <!-- Glow Filter -->
+                                    <filter id="perfGlow">
+                                        <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                                        <feMerge>
+                                            <feMergeNode in="coloredBlur"/>
+                                            <feMergeNode in="SourceGraphic"/>
+                                        </feMerge>
+                                    </filter>
+                                </defs>
+                                <g transform="translate(45,45)">
+                                    <!-- Outer Hexagon Frame -->
+                                    <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                                             fill="url(#perfAlum)" 
+                                             stroke="#808080" 
+                                             stroke-width="0.75"
+                                             filter="url(#perfInnerShadow)"/>
+                                    <!-- Inner Dark Background -->
+                                    <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                                             fill="#0a0a0f" 
+                                             opacity="0.93"/>
+                                    <!-- Performance Gauge Base -->
+                                    <circle cx="0" cy="0" r="18" 
+                                            fill="none" 
+                                            stroke="url(#perfGold)" 
+                                            stroke-width="1.5" 
+                                            opacity="0.3"
+                                            stroke-dasharray="2 1"/>
+                                    <!-- Performance Arc Segments -->
+                                    <path d="M 0,-18 A 18,18 0 0,1 15.6,9" 
+                                          fill="none" 
+                                          stroke="url(#perfGold)" 
+                                          stroke-width="2.5" 
+                                          stroke-linecap="round"
+                                          opacity="0.9">
+                                        <animate attributeName="stroke-dasharray" 
+                                                 values="0 120;60 60;0 120" 
+                                                 dur="3s" 
+                                                 repeatCount="indefinite"/>
+                                    </path>
+                                    <path d="M 15.6,9 A 18,18 0 0,1 -15.6,9" 
+                                          fill="none" 
+                                          stroke="url(#perfGold)" 
+                                          stroke-width="2.5" 
+                                          stroke-linecap="round"
+                                          opacity="0.7">
+                                        <animate attributeName="stroke-dasharray" 
+                                                 values="0 120;60 60;0 120" 
+                                                 dur="3s" 
+                                                 begin="0.5s"
+                                                 repeatCount="indefinite"/>
+                                    </path>
+                                    <path d="M -15.6,9 A 18,18 0 0,1 0,-18" 
+                                          fill="none" 
+                                          stroke="url(#perfGold)" 
+                                          stroke-width="2.5" 
+                                          stroke-linecap="round"
+                                          opacity="0.5">
+                                        <animate attributeName="stroke-dasharray" 
+                                                 values="0 120;60 60;0 120" 
+                                                 dur="3s" 
+                                                 begin="1s"
+                                                 repeatCount="indefinite"/>
+                                    </path>
+                                    <!-- Center Performance Metric -->
+                                    <circle cx="0" cy="0" r="8" 
+                                            fill="url(#perfGold)" 
+                                            opacity="0.2"/>
+                                    <circle cx="0" cy="0" r="5" 
+                                            fill="url(#perfGold)" 
+                                            opacity="0.4"/>
+                                    <!-- Animated Center Pulse -->
+                                    <circle cx="0" cy="0" r="3" 
+                                            fill="url(#perfGold)"
+                                            filter="url(#perfGlow)">
+                                        <animate attributeName="r" 
+                                                 values="3;5;3" 
+                                                 dur="2s" 
+                                                 repeatCount="indefinite"/>
+                                        <animate attributeName="opacity" 
+                                                 values="1;0.6;1" 
+                                                 dur="2s" 
+                                                 repeatCount="indefinite"/>
+                                    </circle>
+                                    <!-- Performance Indicators -->
+                                    <rect x="-1.5" y="-14" width="3" height="6" 
+                                          fill="url(#perfGold)" 
+                                          opacity="0.8">
+                                        <animate attributeName="height" 
+                                                 values="6;10;6" 
+                                                 dur="1.5s" 
+                                                 repeatCount="indefinite"/>
+                                    </rect>
+                                    <rect x="11" y="-1.5" width="6" height="3" 
+                                          fill="url(#perfGold)" 
+                                          opacity="0.8">
+                                        <animate attributeName="width" 
+                                                 values="6;10;6" 
+                                                 dur="1.8s" 
+                                                 repeatCount="indefinite"/>
+                                    </rect>
+                                    <rect x="-1.5" y="8" width="3" height="6" 
+                                          fill="url(#perfGold)" 
+                                          opacity="0.8">
+                                        <animate attributeName="height" 
+                                                 values="6;10;6" 
+                                                 dur="2.1s" 
+                                                 repeatCount="indefinite"/>
+                                    </rect>
+                                    <rect x="-17" y="-1.5" width="6" height="3" 
+                                          fill="url(#perfGold)" 
+                                          opacity="0.8">
+                                        <animate attributeName="width" 
+                                                 values="6;10;6" 
+                                                 dur="1.6s" 
+                                                 repeatCount="indefinite"/>
+                                    </rect>
+                                </g>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Performance</h3>
+                    </div>
+                    <div class="card-content">
+                        Advanced system monitoring with real-time analytics and machine learning powered insights for optimal performance optimization.
+                    </div>
+                    <div class="card-stats-visual">
+                        <div class="stat-progress">
+                            <div class="stat-label">CPU Usage</div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 38%"></div>
+                            </div>
+                        </div>
+                        <div class="stat-progress">
+                            <div class="stat-label">Memory</div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 64%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="card-footer">
+                        <div class="card-button-wrapper">
+                            <button class="btn-veritron-card btn-gold-card btn-small-card">View Details</button>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+            
+            <!-- Card 2 - Security -->
+            <div class="card-veritron-ultra">
+                <div class="card-status-bar"></div>
+                <div class="card-inner">
+                    <div class="card-badge">SECURE</div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">
+                            <svg class="card-icon" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <defs>
+                                    <!-- Gunmetal Gradient - 15 stops -->
+                                    <linearGradient id="secGun" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#6a6a6a;stop-opacity:1" />
+                                        <stop offset="7%" style="stop-color:#626262;stop-opacity:1" />
+                                        <stop offset="14%" style="stop-color:#5a5a5a;stop-opacity:1" />
+                                        <stop offset="21%" style="stop-color:#525252;stop-opacity:1" />
+                                        <stop offset="28%" style="stop-color:#4a4a4a;stop-opacity:1" />
+                                        <stop offset="35%" style="stop-color:#424242;stop-opacity:1" />
+                                        <stop offset="42%" style="stop-color:#3a3a3a;stop-opacity:1" />
+                                        <stop offset="50%" style="stop-color:#323232;stop-opacity:1" />
+                                        <stop offset="57%" style="stop-color:#2a2a2a;stop-opacity:1" />
+                                        <stop offset="64%" style="stop-color:#222222;stop-opacity:1" />
+                                        <stop offset="71%" style="stop-color:#1a1a1a;stop-opacity:1" />
+                                        <stop offset="78%" style="stop-color:#121212;stop-opacity:1" />
+                                        <stop offset="85%" style="stop-color:#0a0a0a;stop-opacity:1" />
+                                        <stop offset="92%" style="stop-color:#050505;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+                                    </linearGradient>
+                                    <!-- Security Gold Premium Gradient -->
+                                    <linearGradient id="secGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#ffed4e;stop-opacity:1" />
+                                        <stop offset="10%" style="stop-color:#ffe574;stop-opacity:1" />
+                                        <stop offset="20%" style="stop-color:#ffd700;stop-opacity:1" />
+                                        <stop offset="30%" style="stop-color:#f4c838;stop-opacity:1" />
+                                        <stop offset="40%" style="stop-color:#e8bc3c;stop-opacity:1" />
+                                        <stop offset="50%" style="stop-color:#d4af37;stop-opacity:1" />
+                                        <stop offset="60%" style="stop-color:#c49838;stop-opacity:1" />
+                                        <stop offset="70%" style="stop-color:#b88c34;stop-opacity:1" />
+                                        <stop offset="80%" style="stop-color:#a0742c;stop-opacity:1" />
+                                        <stop offset="90%" style="stop-color:#946828;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#885c24;stop-opacity:1" />
+                                    </linearGradient>
+                                    <!-- Multi-layer Shield Gradient -->
+                                    <radialGradient id="secShieldCore">
+                                        <stop offset="0%" style="stop-color:#ffd700;stop-opacity:0.3" />
+                                        <stop offset="20%" style="stop-color:#f4c838;stop-opacity:0.25" />
+                                        <stop offset="40%" style="stop-color:#d4af37;stop-opacity:0.2" />
+                                        <stop offset="60%" style="stop-color:#b88c34;stop-opacity:0.15" />
+                                        <stop offset="80%" style="stop-color:#946828;stop-opacity:0.1" />
+                                        <stop offset="100%" style="stop-color:#885c24;stop-opacity:0.05" />
+                                    </radialGradient>
+                                    <!-- Circuit Pattern -->
+                                    <pattern id="circuitPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                                        <rect width="20" height="20" fill="transparent"/>
+                                        <circle cx="2" cy="2" r="0.5" fill="#d4af37" opacity="0.3"/>
+                                        <circle cx="18" cy="2" r="0.5" fill="#d4af37" opacity="0.3"/>
+                                        <circle cx="2" cy="18" r="0.5" fill="#d4af37" opacity="0.3"/>
+                                        <circle cx="18" cy="18" r="0.5" fill="#d4af37" opacity="0.3"/>
+                                        <path d="M2,2 L18,2 M18,2 L18,18 M18,18 L2,18 M2,18 L2,2" 
+                                              stroke="#d4af37" stroke-width="0.2" opacity="0.2" fill="none"/>
+                                    </pattern>
+                                    <!-- Security Filters -->
+                                    <filter id="secInnerShadow">
+                                        <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+                                        <feOffset dx="0" dy="2" result="offsetblur"/>
+                                        <feFlood flood-color="#000000" flood-opacity="0.5"/>
+                                        <feComposite in2="offsetblur" operator="in"/>
+                                        <feMerge>
+                                            <feMergeNode/>
+                                            <feMergeNode in="SourceGraphic"/>
+                                        </feMerge>
+                                    </filter>
+                                </defs>
+                                <g transform="translate(45,45)">
+                                    <!-- Outer Hexagon Frame -->
+                                    <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                                             fill="url(#secGun)" 
+                                             stroke="#1a1a1a" 
+                                             stroke-width="0.75"
+                                             filter="url(#secInnerShadow)"/>
+                                    <!-- Inner Dark Background -->
+                                    <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                                             fill="#000000" 
+                                             opacity="0.94"/>
+                                    
+                                    <!-- Circuit Background Pattern -->
+                                    <polygon points="-22,-12.5 0,-25 22,-12.5 22,12.5 0,25 -22,12.5" 
+                                             fill="url(#circuitPattern)" 
+                                             opacity="0.15"/>
+                                    
+                                    <!-- Outer Defense Ring -->
+                                    <circle cx="0" cy="0" r="21" 
+                                            fill="none" 
+                                            stroke="url(#secGold)" 
+                                            stroke-width="0.3" 
+                                            opacity="0.2"
+                                            stroke-dasharray="2 1">
+                                        <animateTransform attributeName="transform" 
+                                                          type="rotate" 
+                                                          from="0 0 0" 
+                                                          to="-360 0 0" 
+                                                          dur="30s" 
+                                                          repeatCount="indefinite"/>
+                                    </circle>
+                                    
+                                    <!-- Multi-Layer Shield Construction -->
+                                    <!-- Shield Base Layer -->
+                                    <path d="M 0,-18 L 14,-14 L 14,2 C 14,14 0,22 0,22 S -14,14 -14,2 L -14,-14 Z" 
+                                          fill="#0a0a0f" 
+                                          stroke="url(#secGold)" 
+                                          stroke-width="0.5"
+                                          opacity="0.9"/>
+                                    
+                                    <!-- Shield Middle Layer -->
+                                    <path d="M 0,-16 L 12,-12 L 12,2 C 12,12 0,20 0,20 S -12,12 -12,2 L -12,-12 Z" 
+                                          fill="url(#secShieldCore)" 
+                                          stroke="url(#secGold)" 
+                                          stroke-width="1"
+                                          opacity="0.8"/>
+                                    
+                                    <!-- Shield Inner Layer -->
+                                    <path d="M 0,-14 L 10,-10 L 10,2 C 10,10 0,17 0,17 S -10,10 -10,2 L -10,-10 Z" 
+                                          fill="none" 
+                                          stroke="url(#secGold)" 
+                                          stroke-width="0.5"
+                                          stroke-dasharray="1 0.5"
+                                          opacity="0.6"/>
+                                    
+                                    <!-- Shield Core -->
+                                    <path d="M 0,-12 L 8,-9 L 8,1 C 8,8 0,14 0,14 S -8,8 -8,1 L -8,-9 Z" 
+                                          fill="#0a0a0f" 
+                                          stroke="url(#secGold)" 
+                                          stroke-width="1.5"
+                                          opacity="0.9"/>
+                                    
+                                    <!-- Advanced Lock System -->
+                                    <!-- Lock Body -->
+                                    <rect x="-6" y="-3" width="12" height="10" 
+                                          fill="url(#secGun)" 
+                                          stroke="url(#secGold)" 
+                                          stroke-width="1" 
+                                          rx="1.5"/>
+                                    <!-- Lock Shackle -->
+                                    <path d="M -4,-3 L -4,-6 A 4,4 0 0,1 4,-6 L 4,-3" 
+                                          fill="none" 
+                                          stroke="url(#secGold)" 
+                                          stroke-width="1.5"
+                                          stroke-linecap="round"/>
+                                    <!-- Lock Mechanism Detail -->
+                                    <rect x="-5" y="-2" width="10" height="8" 
+                                          fill="#000000" 
+                                          opacity="0.7"
+                                          rx="1"/>
+                                    <!-- Keyhole System -->
+                                    <circle cx="0" cy="2" r="2" fill="url(#secGold)"/>
+                                    <rect x="-1" y="2" width="2" height="3.5" fill="url(#secGold)"/>
+                                    <circle cx="0" cy="2" r="1.2" fill="#0a0a0f"/>
+                                    <rect x="-0.6" y="2" width="1.2" height="2.5" fill="#0a0a0f"/>
+                                    
+                                    <!-- Security Matrix Grid -->
+                                    <g opacity="0.4">
+                                        <line x1="-8" y1="-8" x2="-8" y2="10" stroke="url(#secGold)" stroke-width="0.2"/>
+                                        <line x1="-4" y1="-8" x2="-4" y2="10" stroke="url(#secGold)" stroke-width="0.2"/>
+                                        <line x1="0" y1="-8" x2="0" y2="10" stroke="url(#secGold)" stroke-width="0.2"/>
+                                        <line x1="4" y1="-8" x2="4" y2="10" stroke="url(#secGold)" stroke-width="0.2"/>
+                                        <line x1="8" y1="-8" x2="8" y2="10" stroke="url(#secGold)" stroke-width="0.2"/>
+                                        <line x1="-8" y1="-4" x2="8" y2="-4" stroke="url(#secGold)" stroke-width="0.2"/>
+                                        <line x1="-8" y1="0" x2="8" y2="0" stroke="url(#secGold)" stroke-width="0.2"/>
+                                        <line x1="-8" y1="4" x2="8" y2="4" stroke="url(#secGold)" stroke-width="0.2"/>
+                                        <line x1="-8" y1="8" x2="8" y2="8" stroke="url(#secGold)" stroke-width="0.2"/>
+                                    </g>
+                                    
+                                    <!-- Advanced Scan Effect -->
+                                    <rect x="-20" y="-15" width="40" height="2" 
+                                          fill="url(#secGold)" 
+                                          opacity="0">
+                                        <animate attributeName="y" 
+                                                 values="-15;15;-15" 
+                                                 dur="3s" 
+                                                 repeatCount="indefinite"/>
+                                        <animate attributeName="opacity" 
+                                                 values="0;0.4;0" 
+                                                 dur="3s" 
+                                                 repeatCount="indefinite"/>
+                                    </rect>
+                                    
+                                    <!-- Protection Pulse Wave -->
+                                    <circle cx="0" cy="0" r="8" 
+                                            fill="none" 
+                                            stroke="url(#secGold)" 
+                                            stroke-width="0.5"
+                                            opacity="0">
+                                        <animate attributeName="r" 
+                                                 values="8;20;8" 
+                                                 dur="2.5s" 
+                                                 repeatCount="indefinite"/>
+                                        <animate attributeName="opacity" 
+                                                 values="0.6;0;0.6" 
+                                                 dur="2.5s" 
+                                                 repeatCount="indefinite"/>
+                                        <animate attributeName="stroke-width" 
+                                                 values="1;0.1;1" 
+                                                 dur="2.5s" 
+                                                 repeatCount="indefinite"/>
+                                    </circle>
+                                    
+                                    <!-- Corner Defense Nodes -->
+                                    <g>
+                                        <circle cx="-18" cy="-10" r="1.5" fill="none" stroke="url(#secGold)" stroke-width="0.5">
+                                            <animate attributeName="r" 
+                                                     values="1.5;2.5;1.5" 
+                                                     dur="2s" 
+                                                     repeatCount="indefinite"/>
+                                        </circle>
+                                        <circle cx="-18" cy="-10" r="0.5" fill="url(#secGold)">
+                                            <animate attributeName="opacity" 
+                                                     values="0.3;1;0.3" 
+                                                     dur="2s" 
+                                                     repeatCount="indefinite"/>
+                                        </circle>
+                                    </g>
+                                    <g>
+                                        <circle cx="18" cy="-10" r="1.5" fill="none" stroke="url(#secGold)" stroke-width="0.5">
+                                            <animate attributeName="r" 
+                                                     values="1.5;2.5;1.5" 
+                                                     dur="2s" 
+                                                     begin="0.5s"
+                                                     repeatCount="indefinite"/>
+                                        </circle>
+                                        <circle cx="18" cy="-10" r="0.5" fill="url(#secGold)">
+                                            <animate attributeName="opacity" 
+                                                     values="0.3;1;0.3" 
+                                                     dur="2s" 
+                                                     begin="0.5s"
+                                                     repeatCount="indefinite"/>
+                                        </circle>
+                                    </g>
+                                    <g>
+                                        <circle cx="18" cy="10" r="1.5" fill="none" stroke="url(#secGold)" stroke-width="0.5">
+                                            <animate attributeName="r" 
+                                                     values="1.5;2.5;1.5" 
+                                                     dur="2s" 
+                                                     begin="1s"
+                                                     repeatCount="indefinite"/>
+                                        </circle>
+                                        <circle cx="18" cy="10" r="0.5" fill="url(#secGold)">
+                                            <animate attributeName="opacity" 
+                                                     values="0.3;1;0.3" 
+                                                     dur="2s" 
+                                                     begin="1s"
+                                                     repeatCount="indefinite"/>
+                                        </circle>
+                                    </g>
+                                    <g>
+                                        <circle cx="-18" cy="10" r="1.5" fill="none" stroke="url(#secGold)" stroke-width="0.5">
+                                            <animate attributeName="r" 
+                                                     values="1.5;2.5;1.5" 
+                                                     dur="2s" 
+                                                     begin="1.5s"
+                                                     repeatCount="indefinite"/>
+                                        </circle>
+                                        <circle cx="-18" cy="10" r="0.5" fill="url(#secGold)">
+                                            <animate attributeName="opacity" 
+                                                     values="0.3;1;0.3" 
+                                                     dur="2s" 
+                                                     begin="1.5s"
+                                                     repeatCount="indefinite"/>
+                                        </circle>
+                                    </g>
+                                    
+                                    <!-- Data Stream Lines -->
+                                    <g opacity="0.3">
+                                        <path d="M-20,-10 L-10,0 L0,-5 L10,5 L20,-8" 
+                                              stroke="url(#secGold)" 
+                                              stroke-width="0.3" 
+                                              fill="none"
+                                              stroke-dasharray="5 5">
+                                            <animate attributeName="stroke-dashoffset" 
+                                                     values="0;10" 
+                                                     dur="1s" 
+                                                     repeatCount="indefinite"/>
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Security</h3>
+                    </div>
+                    <div class="card-content">
+                        Enterprise-grade security with multi-layer protection, real-time threat detection, and automated response systems.
+                    </div>
+                    <div class="card-stats-visual">
+                        <div class="stat-progress">
+                            <div class="stat-label">Protection Level</div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="stat-progress">
+                            <div class="stat-label">Threat Detection</div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="card-footer">
+                        <div class="card-button-wrapper">
+                            <button class="btn-veritron-card btn-aluminum-card btn-small-card">Configure</button>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+            
+            <!-- Card 3 - Analytics -->
+            <div class="card-veritron-ultra">
+                <div class="card-status-bar"></div>
+                <div class="card-inner">
+                    <div class="card-badge">LIVE</div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper">
+                            <svg class="card-icon" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <defs>
+                                    <!-- Analytics Aluminum Gradient -->
+                                    <linearGradient id="anaAlum" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                                        <stop offset="8%" style="stop-color:#f5f5f5;stop-opacity:1" />
+                                        <stop offset="16%" style="stop-color:#e8e8e8;stop-opacity:1" />
+                                        <stop offset="24%" style="stop-color:#d8d8d8;stop-opacity:1" />
+                                        <stop offset="32%" style="stop-color:#c8c8c8;stop-opacity:1" />
+                                        <stop offset="40%" style="stop-color:#b8b8b8;stop-opacity:1" />
+                                        <stop offset="48%" style="stop-color:#a8a8a8;stop-opacity:1" />
+                                        <stop offset="56%" style="stop-color:#989898;stop-opacity:1" />
+                                        <stop offset="64%" style="stop-color:#888888;stop-opacity:1" />
+                                        <stop offset="72%" style="stop-color:#787878;stop-opacity:1" />
+                                        <stop offset="80%" style="stop-color:#686868;stop-opacity:1" />
+                                        <stop offset="88%" style="stop-color:#585858;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#484848;stop-opacity:1" />
+                                    </linearGradient>
+                                    <!-- Analytics Gold Gradient -->
+                                    <linearGradient id="anaGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#fff9e6;stop-opacity:1" />
+                                        <stop offset="12%" style="stop-color:#ffed9e;stop-opacity:1" />
+                                        <stop offset="24%" style="stop-color:#ffd700;stop-opacity:1" />
+                                        <stop offset="36%" style="stop-color:#f4c838;stop-opacity:1" />
+                                        <stop offset="48%" style="stop-color:#d4af37;stop-opacity:1" />
+                                        <stop offset="60%" style="stop-color:#c49838;stop-opacity:1" />
+                                        <stop offset="72%" style="stop-color:#b88c34;stop-opacity:1" />
+                                        <stop offset="84%" style="stop-color:#a0742c;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#885c24;stop-opacity:1" />
+                                    </linearGradient>
+                                    <!-- Data Stream Gradient -->
+                                    <linearGradient id="anaStream" x1="0%" y1="100%" x2="0%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#d4af37;stop-opacity:0" />
+                                        <stop offset="50%" style="stop-color:#ffd700;stop-opacity:0.8" />
+                                        <stop offset="100%" style="stop-color:#d4af37;stop-opacity:0" />
+                                    </linearGradient>
+                                    <!-- Analytics Filters -->
+                                    <filter id="anaInnerShadow">
+                                        <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+                                        <feOffset dx="0" dy="1" result="offsetblur"/>
+                                        <feFlood flood-color="#000000" flood-opacity="0.3"/>
+                                        <feComposite in2="offsetblur" operator="in"/>
+                                        <feMerge>
+                                            <feMergeNode/>
+                                            <feMergeNode in="SourceGraphic"/>
+                                        </feMerge>
+                                    </filter>
+                                    <filter id="anaGlow">
+                                        <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                                        <feMerge>
+                                            <feMergeNode in="coloredBlur"/>
+                                            <feMergeNode in="SourceGraphic"/>
+                                        </feMerge>
+                                    </filter>
+                                </defs>
+                                <g transform="translate(45,45)">
+                                    <!-- Outer Hexagon Frame -->
+                                    <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                                             fill="url(#anaAlum)" 
+                                             stroke="#808080" 
+                                             stroke-width="0.75"
+                                             filter="url(#anaInnerShadow)"/>
+                                    <!-- Inner Dark Background -->
+                                    <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                                             fill="#0a0a0f" 
+                                             opacity="0.93"/>
+                                    <!-- Grid Lines -->
+                                    <line x1="-20" y1="12" x2="20" y2="12" 
+                                          stroke="url(#anaGold)" 
+                                          stroke-width="0.3" 
+                                          opacity="0.3"/>
+                                    <line x1="-20" y1="6" x2="20" y2="6" 
+                                          stroke="url(#anaGold)" 
+                                          stroke-width="0.3" 
+                                          opacity="0.3"/>
+                                    <line x1="-20" y1="0" x2="20" y2="0" 
+                                          stroke="url(#anaGold)" 
+                                          stroke-width="0.3" 
+                                          opacity="0.3"/>
+                                    <line x1="-20" y1="-6" x2="20" y2="-6" 
+                                          stroke="url(#anaGold)" 
+                                          stroke-width="0.3" 
+                                          opacity="0.3"/>
+                                    <!-- Animated Bar Chart -->
+                                    <rect x="-16" y="8" width="4" height="6" 
+                                          fill="url(#anaGold)" 
+                                          opacity="0.6" 
+                                          rx="0.5">
+                                        <animate attributeName="height" 
+                                                 values="6;10;6" 
+                                                 dur="2s" 
+                                                 repeatCount="indefinite"/>
+                                        <animate attributeName="y" 
+                                                 values="8;4;8" 
+                                                 dur="2s" 
+                                                 repeatCount="indefinite"/>
+                                    </rect>
+                                    <rect x="-10" y="3" width="4" height="11" 
+                                          fill="url(#anaGold)" 
+                                          opacity="0.7" 
+                                          rx="0.5">
+                                        <animate attributeName="height" 
+                                                 values="11;16;11" 
+                                                 dur="2.2s" 
+                                                 repeatCount="indefinite"/>
+                                        <animate attributeName="y" 
+                                                 values="3;-2;3" 
+                                                 dur="2.2s" 
+                                                 repeatCount="indefinite"/>
+                                    </rect>
+                                    <rect x="-4" y="-2" width="4" height="16" 
+                                          fill="url(#anaGold)" 
+                                          opacity="0.8" 
+                                          rx="0.5">
+                                        <animate attributeName="height" 
+                                                 values="16;22;16" 
+                                                 dur="2.4s" 
+                                                 repeatCount="indefinite"/>
+                                        <animate attributeName="y" 
+                                                 values="-2;-8;-2" 
+                                                 dur="2.4s" 
+                                                 repeatCount="indefinite"/>
+                                    </rect>
+                                    <rect x="2" y="-5" width="4" height="19" 
+                                          fill="url(#anaGold)" 
+                                          opacity="0.85" 
+                                          rx="0.5">
+                                        <animate attributeName="height" 
+                                                 values="19;26;19" 
+                                                 dur="2.6s" 
+                                                 repeatCount="indefinite"/>
+                                        <animate attributeName="y" 
+                                                 values="-5;-12;-5" 
+                                                 dur="2.6s" 
+                                                 repeatCount="indefinite"/>
+                                    </rect>
+                                    <rect x="8" y="-8" width="4" height="22" 
+                                          fill="url(#anaGold)" 
+                                          opacity="0.9" 
+                                          rx="0.5">
+                                        <animate attributeName="height" 
+                                                 values="22;28;22" 
+                                                 dur="2.8s" 
+                                                 repeatCount="indefinite"/>
+                                        <animate attributeName="y" 
+                                                 values="-8;-14;-8" 
+                                                 dur="2.8s" 
+                                                 repeatCount="indefinite"/>
+                                    </rect>
+                                    <rect x="14" y="-3" width="4" height="17" 
+                                          fill="url(#anaGold)" 
+                                          opacity="0.75" 
+                                          rx="0.5">
+                                        <animate attributeName="height" 
+                                                 values="17;23;17" 
+                                                 dur="3s" 
+                                                 repeatCount="indefinite"/>
+                                        <animate attributeName="y" 
+                                                 values="-3;-9;-3" 
+                                                 dur="3s" 
+                                                 repeatCount="indefinite"/>
+                                    </rect>
+                                    <!-- Trend Line -->
+                                    <polyline points="-14,10 -8,5 -2,1 4,-3 10,-7 16,-4" 
+                                              fill="none" 
+                                              stroke="url(#anaGold)" 
+                                              stroke-width="2" 
+                                              stroke-linecap="round" 
+                                              stroke-linejoin="round"
+                                              stroke-dasharray="80"
+                                              stroke-dashoffset="80">
+                                        <animate attributeName="stroke-dashoffset" 
+                                                 values="80;0" 
+                                                 dur="2s" 
+                                                 repeatCount="indefinite"/>
+                                    </polyline>
+                                    <!-- Data Points -->
+                                    <circle cx="-14" cy="10" r="2" fill="url(#anaGold)" filter="url(#anaGlow)">
+                                        <animate attributeName="r" 
+                                                 values="2;3;2" 
+                                                 dur="2s" 
+                                                 repeatCount="indefinite"/>
+                                    </circle>
+                                    <circle cx="-8" cy="5" r="2" fill="url(#anaGold)" filter="url(#anaGlow)">
+                                        <animate attributeName="r" 
+                                                 values="2;3;2" 
+                                                 dur="2s" 
+                                                 begin="0.3s"
+                                                 repeatCount="indefinite"/>
+                                    </circle>
+                                    <circle cx="-2" cy="1" r="2" fill="url(#anaGold)" filter="url(#anaGlow)">
+                                        <animate attributeName="r" 
+                                                 values="2;3;2" 
+                                                 dur="2s" 
+                                                 begin="0.6s"
+                                                 repeatCount="indefinite"/>
+                                    </circle>
+                                    <circle cx="4" cy="-3" r="2" fill="url(#anaGold)" filter="url(#anaGlow)">
+                                        <animate attributeName="r" 
+                                                 values="2;3;2" 
+                                                 dur="2s" 
+                                                 begin="0.9s"
+                                                 repeatCount="indefinite"/>
+                                    </circle>
+                                    <circle cx="10" cy="-7" r="2" fill="url(#anaGold)" filter="url(#anaGlow)">
+                                        <animate attributeName="r" 
+                                                 values="2;3;2" 
+                                                 dur="2s" 
+                                                 begin="1.2s"
+                                                 repeatCount="indefinite"/>
+                                    </circle>
+                                    <circle cx="16" cy="-4" r="2" fill="url(#anaGold)" filter="url(#anaGlow)">
+                                        <animate attributeName="r" 
+                                                 values="2;3;2" 
+                                                 dur="2s" 
+                                                 begin="1.5s"
+                                                 repeatCount="indefinite"/>
+                                    </circle>
+                                    <!-- Data Stream Effect -->
+                                    <rect x="-1" y="-20" width="2" height="40" 
+                                          fill="url(#anaStream)" 
+                                          opacity="0">
+                                        <animate attributeName="opacity" 
+                                                 values="0;0.6;0" 
+                                                 dur="3s" 
+                                                 repeatCount="indefinite"/>
+                                        <animateTransform attributeName="transform" 
+                                                          type="translate" 
+                                                          from="-20 0" 
+                                                          to="20 0" 
+                                                          dur="3s" 
+                                                          repeatCount="indefinite"/>
+                                    </rect>
+                                    <!-- Axis Lines -->
+                                    <line x1="-20" y1="14" x2="20" y2="14" 
+                                          stroke="url(#anaGold)" 
+                                          stroke-width="1" 
+                                          opacity="0.5"/>
+                                    <line x1="-20" y1="-10" x2="-20" y2="14" 
+                                          stroke="url(#anaGold)" 
+                                          stroke-width="1" 
+                                          opacity="0.5"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Analytics</h3>
+                    </div>
+                    <div class="card-content">
+                        Comprehensive data visualization and analysis tools with predictive modeling and custom reporting capabilities.
+                    </div>
+                    <div class="card-stats-visual">
+                        <div class="stat-progress">
+                            <div class="stat-label">Data Processed</div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 72%"></div>
+                            </div>
+                        </div>
+                        <div class="stat-progress">
+                            <div class="stat-label">Accuracy Rate</div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 91%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="card-footer">
+                        <div class="card-button-wrapper">
+                            <button class="btn-veritron-card btn-gunmetal-card btn-small-card">Analyze</button>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+        
+        <div style="height: 100px;"></div>
+        
+        <h2 style="color: var(--vt-text-muted); font-size: var(--vt-text-xs); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 20px;">VERITRON DESIGN PRINCIPLES</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin: 40px 0;">
+            <!-- Design Principle Cards -->
+            <div style="background: linear-gradient(135deg, rgba(15,15,20,0.6), rgba(10,10,15,0.8)); backdrop-filter: blur(10px); border: 1px solid rgba(136,136,136,0.15); border-radius: 16px; padding: 24px; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--vt-gold-9), var(--vt-gold-6), var(--vt-gold-9)); background-size: 200% 100%; animation: shimmerMove 3s linear infinite;"></div>
+                <h3 style="color: var(--vt-gold-9); font-size: var(--vt-text-sm); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">15-Stop Gradients</h3>
+                <p style="color: var(--vt-text-muted); font-size: var(--vt-text-sm); line-height: 1.6;">Each icon contains 15 gradient stops for photorealistic metal finishes. Aluminum, gunmetal, and gold materials replicate real-world light physics.</p>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, rgba(15,15,20,0.6), rgba(10,10,15,0.8)); backdrop-filter: blur(10px); border: 1px solid rgba(136,136,136,0.15); border-radius: 16px; padding: 24px; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--vt-gold-9), var(--vt-gold-6), var(--vt-gold-9)); background-size: 200% 100%; animation: shimmerMove 3s linear infinite;"></div>
+                <h3 style="color: var(--vt-gold-9); font-size: var(--vt-text-sm); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">Living Animations</h3>
+                <p style="color: var(--vt-text-muted); font-size: var(--vt-text-sm); line-height: 1.6;">Performance gauges rotate, security shields pulse, analytics bars grow. Every element breathes with continuous, choreographed movement.</p>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, rgba(15,15,20,0.6), rgba(10,10,15,0.8)); backdrop-filter: blur(10px); border: 1px solid rgba(136,136,136,0.15); border-radius: 16px; padding: 24px; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--vt-gold-9), var(--vt-gold-6), var(--vt-gold-9)); background-size: 200% 100%; animation: shimmerMove 3s linear infinite;"></div>
+                <h3 style="color: var(--vt-gold-9); font-size: var(--vt-text-sm); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">Layered Depth</h3>
+                <p style="color: var(--vt-text-muted); font-size: var(--vt-text-sm); line-height: 1.6;">Multiple shadow layers, inner filters, and glow effects create tangible 3D presence. Each button variant uses unique material properties.</p>
+            </div>
+        </div>
+        
+        <div style="height: 80px;"></div>
+        
+        <p style="color: var(--vt-text-muted); font-size: var(--vt-text-sm);">Press <kbd style="background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2);">Cmd+A</kbd> to toggle auth states</p>
+        
+        <div style="height: 100px;"></div>
+        
+        <h2 style="color: var(--vt-text-muted); font-size: var(--vt-text-xs); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 30px;">KEY FEATURES</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 60px;">
+            <div style="padding: 20px; background: linear-gradient(135deg, rgba(15,15,20,0.4), rgba(5,5,10,0.6)); border: 1px solid rgba(212,175,55,0.1); border-radius: 12px; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 40px; height: 1px; background: var(--vt-gold-9);"></div>
+                <h3 style="color: var(--vt-text-primary); font-size: var(--vt-text-base); margin-bottom: 10px; font-weight: 600;">Header Shrink</h3>
+                <p style="color: var(--vt-text-muted); font-size: var(--vt-text-sm); line-height: 1.6;">Smooth height transition at 50px scroll with enhanced shadows and glow activation</p>
+            </div>
+            <div style="padding: 20px; background: linear-gradient(135deg, rgba(15,15,20,0.4), rgba(5,5,10,0.6)); border: 1px solid rgba(212,175,55,0.1); border-radius: 12px; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 40px; height: 1px; background: var(--vt-gold-9);"></div>
+                <h3 style="color: var(--vt-text-primary); font-size: var(--vt-text-base); margin-bottom: 10px; font-weight: 600;">Mobile Drawer</h3>
+                <p style="color: var(--vt-text-muted); font-size: var(--vt-text-sm); line-height: 1.6;">Premium slide-in menu with glassmorphism, body scroll lock, and smooth animations</p>
+            </div>
+            <div style="padding: 20px; background: linear-gradient(135deg, rgba(15,15,20,0.4), rgba(5,5,10,0.6)); border: 1px solid rgba(212,175,55,0.1); border-radius: 12px; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 40px; height: 1px; background: var(--vt-gold-9);"></div>
+                <h3 style="color: var(--vt-text-primary); font-size: var(--vt-text-base); margin-bottom: 10px; font-weight: 600;">Complex Icons</h3>
+                <p style="color: var(--vt-text-muted); font-size: var(--vt-text-sm); line-height: 1.6;">Hexagonal SVGs with 15-stop gradients, animated internals, and continuous movement</p>
+            </div>
+            <div style="padding: 20px; background: linear-gradient(135deg, rgba(15,15,20,0.4), rgba(5,5,10,0.6)); border: 1px solid rgba(212,175,55,0.1); border-radius: 12px; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 40px; height: 1px; background: var(--vt-gold-9);"></div>
+                <h3 style="color: var(--vt-text-primary); font-size: var(--vt-text-base); margin-bottom: 10px; font-weight: 600;">3D Card Tracking</h3>
+                <p style="color: var(--vt-text-muted); font-size: var(--vt-text-sm); line-height: 1.6;">Mouse position aware tilt effect with real-time rotation based on cursor position</p>
+            </div>
+            <div style="padding: 20px; background: linear-gradient(135deg, rgba(15,15,20,0.4), rgba(5,5,10,0.6)); border: 1px solid rgba(212,175,55,0.1); border-radius: 12px; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 40px; height: 1px; background: var(--vt-gold-9);"></div>
+                <h3 style="color: var(--vt-text-primary); font-size: var(--vt-text-base); margin-bottom: 10px; font-weight: 600;">Material Buttons</h3>
+                <p style="color: var(--vt-text-muted); font-size: var(--vt-text-sm); line-height: 1.6;">Three variants with realistic metal gradients, multi-layer shadows, and shine effects</p>
+            </div>
+            <div style="padding: 20px; background: linear-gradient(135deg, rgba(15,15,20,0.4), rgba(5,5,10,0.6)); border: 1px solid rgba(212,175,55,0.1); border-radius: 12px; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 40px; height: 1px; background: var(--vt-gold-9);"></div>
+                <h3 style="color: var(--vt-text-primary); font-size: var(--vt-text-base); margin-bottom: 10px; font-weight: 600;">Living Interface</h3>
+                <p style="color: var(--vt-text-muted); font-size: var(--vt-text-sm); line-height: 1.6;">Continuous animations, pulse effects, and traveling lights create organic movement</p>
+            </div>
+        </div>
+        
+        <div style="height: 100px;"></div>
+    </main>
+    
+    <script>
+        // Premium scroll behavior with proper shrink animation
+        let lastScrollY = 0;
+        let ticking = false;
+        
+        const header = document.getElementById('conversionHeader');
+        const scrollThreshold = 50;
+        
+        function updateHeader() {
+            const scrollY = window.scrollY;
+            
+            // Add/remove scrolled class for shrink effect
+            if (scrollY > scrollThreshold) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScrollY = scrollY;
+            ticking = false;
+        }
+        
+        function requestTick() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        }
+        
+        // Initialize on load
+        updateHeader();
+        
+        // Listen for scroll events
+        window.addEventListener('scroll', requestTick, { passive: true });
+        
+        // Mobile drawer functionality
+        const mobileToggle = document.querySelector('.mobile-toggle-premium');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const drawerOverlay = document.getElementById('drawerOverlay');
+        
+        function openDrawer() {
+            mobileToggle.classList.add('active');
+            mobileDrawer.classList.add('active');
+            drawerOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            mobileToggle.setAttribute('aria-expanded', 'true');
+        }
+        
+        function closeDrawer() {
+            mobileToggle.classList.remove('active');
+            mobileDrawer.classList.remove('active');
+            drawerOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            mobileToggle.setAttribute('aria-expanded', 'false');
+        }
+        
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', function() {
+                if (this.classList.contains('active')) {
+                    closeDrawer();
+                } else {
+                    openDrawer();
+                }
+            });
+        }
+        
+        // Close drawer when clicking overlay
+        if (drawerOverlay) {
+            drawerOverlay.addEventListener('click', closeDrawer);
+        }
+        
+        // Close drawer when clicking nav links
+        document.querySelectorAll('.drawer-nav-item').forEach(link => {
+            link.addEventListener('click', closeDrawer);
+        });
+        
+        // ESC key to close drawer
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileDrawer.classList.contains('active')) {
+                closeDrawer();
+            }
+        });
+        
+        // Enhanced Card 3D tilt effect with mouse tracking
+        const cards = document.querySelectorAll('.card-veritron-ultra');
+        
+        cards.forEach(card => {
+            // Mouse move for 3D effect
+            card.addEventListener('mousemove', function(e) {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                
+                card.style.setProperty('--mouse-x', `${x}%`);
+                card.style.setProperty('--mouse-y', `${y}%`);
+                
+                // Calculate rotation based on mouse position
+                const rotateX = (y - 50) * 0.1;
+                const rotateY = (x - 50) * -0.1;
+                
+                card.style.setProperty('--rotate-x', `${rotateX}deg`);
+                card.style.setProperty('--rotate-y', `${rotateY}deg`);
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                card.style.setProperty('--mouse-x', '50%');
+                card.style.setProperty('--mouse-y', '50%');
+                card.style.setProperty('--rotate-x', '0deg');
+                card.style.setProperty('--rotate-y', '0deg');
+            });
+            
+            // Add haptic-like visual feedback on click
+            card.addEventListener('mousedown', function() {
+                this.style.transform = 'scale(0.98)';
+            });
+            
+            card.addEventListener('mouseup', function() {
+                this.style.transform = '';
+            });
+        });
+        
+        // Animated number counters
+        function animateValue(element, start, end, duration) {
+            const startTime = performance.now();
+            const range = end - start;
+            
+            function updateValue(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Easing function for smooth animation
+                const easeOutExpo = 1 - Math.pow(2, -10 * progress);
+                const current = Math.floor(start + range * easeOutExpo);
+                
+                element.textContent = current;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateValue);
+                }
+            }
+            
+            requestAnimationFrame(updateValue);
+        }
+        
+        // Animate stat bars and values on viewport entry
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.hasAttribute('data-animated')) {
+                    entry.target.setAttribute('data-animated', 'true');
+                    
+                    // Animate stat bars
+                    const fills = entry.target.querySelectorAll('.stat-fill');
+                    fills.forEach((fill, index) => {
+                        const width = fill.style.width;
+                        fill.style.width = '0';
+                        setTimeout(() => {
+                            fill.style.width = width;
+                        }, index * 150); // Stagger animation
+                    });
+                    
+                    // Animate any number counters
+                    const counters = entry.target.querySelectorAll('.stat-value-counter');
+                    counters.forEach(counter => {
+                        const finalValue = parseInt(counter.textContent);
+                        animateValue(counter, 0, finalValue, 1500);
+                    });
+                }
+            });
+        }, { 
+            threshold: 0.3,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        document.querySelectorAll('.card-veritron-ultra').forEach(card => {
+            observer.observe(card);
+        });
+        
+        // Live counter animation with variance
+        const liveCount = document.querySelector('.live-count');
+        if (liveCount) {
+            let currentValue = parseInt(liveCount.textContent);
+            
+            setInterval(() => {
+                // More realistic fluctuation
+                const change = Math.floor(Math.random() * 9) - 4; // -4 to +4
+                const newValue = Math.max(235, Math.min(265, currentValue + change));
+                
+                // Smooth transition for counter
+                animateValue(liveCount, currentValue, newValue, 500);
+                currentValue = newValue;
+            }, 3000);
+        }
+        
+        // Button press feedback
+        document.querySelectorAll('.btn-veritron-card').forEach(button => {
+            button.addEventListener('mousedown', function() {
+                this.style.transform = 'translateY(1px) scale(0.98)';
+            });
+            
+            button.addEventListener('mouseup', function() {
+                this.style.transform = '';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+            });
+        });
+        
+        // Enhanced parallax effect on scroll
+        let scrollPos = 0;
+        
+        function parallaxEffect() {
+            scrollPos = window.scrollY;
+            
+            // Parallax for cards
+            document.querySelectorAll('.card-veritron-ultra').forEach((card, index) => {
+                const speed = 0.5 + (index * 0.1);
+                const yPos = -(scrollPos * speed / 10);
+                
+                if (Math.abs(yPos) < 50) { // Limit effect
+                    card.style.transform = `translateY(${yPos}px)`;
+                }
+            });
+        }
+        
+        // Throttle parallax for performance
+        let parallaxTicking = false;
+        
+        function requestParallax() {
+            if (!parallaxTicking) {
+                window.requestAnimationFrame(() => {
+                    parallaxEffect();
+                    parallaxTicking = false;
+                });
+                parallaxTicking = true;
+            }
+        }
+        
+        // Enable parallax only on desktop
+        if (window.innerWidth > 1024) {
+            window.addEventListener('scroll', requestParallax, { passive: true });
+        }
+        
+        // Auth state toggle demo
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'a' && e.metaKey) {
+                e.preventDefault();
+                const signedOut = document.querySelectorAll('.cta-secondary-premium, .cta-ultra-premium');
+                const signedIn = document.querySelectorAll('.notification-wrapper, .user-section-premium');
+                
+                signedOut.forEach(el => {
+                    el.style.display = el.style.display === 'none' ? '' : 'none';
+                });
+                
+                signedIn.forEach(el => {
+                    el.style.display = el.style.display === 'none' ? 'flex' : 'none';
+                });
+            }
+        });
+        
+        // Performance optimization: Disable animations when tab is not visible
+        document.addEventListener('visibilitychange', () => {
+            const animations = document.querySelectorAll('animate, animateTransform');
+            
+            if (document.hidden) {
+                animations.forEach(anim => {
+                    if (anim.pauseAnimations && typeof anim.pauseAnimations === 'function') {
+                        anim.pauseAnimations();
+                    }
+                });
+            } else {
+                animations.forEach(anim => {
+                    if (anim.unpauseAnimations && typeof anim.unpauseAnimations === 'function') {
+                        anim.unpauseAnimations();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

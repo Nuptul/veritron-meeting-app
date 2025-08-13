@@ -1,0 +1,2828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <title>VERITRON™ Premium UI Kit - Ultra Enhanced Edition</title>
+    <style>
+        /* Advanced CSS Variables for Dynamic Theming */
+        :root {
+            --vt-primary-gold: #d4af37;
+            --vt-primary-gold-light: #ffd700;
+            --vt-primary-gold-dark: #b8941f;
+            
+            --vt-aluminum-1: #ffffff;
+            --vt-aluminum-2: #e8e8e8;
+            --vt-aluminum-3: #c0c0c0;
+            --vt-aluminum-4: #989898;
+            --vt-aluminum-5: #707070;
+            
+            --vt-gunmetal-1: #5a5a5a;
+            --vt-gunmetal-2: #3a3a3a;
+            --vt-gunmetal-3: #2a2a2a;
+            --vt-gunmetal-4: #1a1a1a;
+            --vt-gunmetal-5: #0a0a0a;
+            
+            --vt-bg-primary: #000000;
+            --vt-bg-secondary: #0a0a0f;
+            --vt-bg-tertiary: #0f0f14;
+            
+            --vt-text-primary: #e8e8e8;
+            --vt-text-secondary: #888888;
+            --vt-text-muted: #666666;
+            
+            /* Dynamic Spacing System */
+            --vt-space-xs: clamp(0.25rem, 1vw, 0.5rem);
+            --vt-space-sm: clamp(0.5rem, 2vw, 1rem);
+            --vt-space-md: clamp(1rem, 3vw, 1.5rem);
+            --vt-space-lg: clamp(1.5rem, 4vw, 2.5rem);
+            --vt-space-xl: clamp(2rem, 5vw, 4rem);
+            --vt-space-2xl: clamp(3rem, 7vw, 6rem);
+            
+            /* Advanced Timing Functions */
+            --vt-ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+            --vt-ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+            --vt-ease-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            
+            /* Fluid Typography Scale */
+            --vt-text-xs: clamp(0.625rem, 0.5rem + 0.25vw, 0.75rem);
+            --vt-text-sm: clamp(0.75rem, 0.625rem + 0.5vw, 0.875rem);
+            --vt-text-base: clamp(0.875rem, 0.75rem + 0.5vw, 1rem);
+            --vt-text-lg: clamp(1rem, 0.875rem + 0.75vw, 1.25rem);
+            --vt-text-xl: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+            --vt-text-2xl: clamp(1.5rem, 1.25rem + 1.5vw, 2.25rem);
+            --vt-text-3xl: clamp(2rem, 1.5rem + 2vw, 3rem);
+            --vt-text-4xl: clamp(3rem, 2rem + 4vw, 6rem);
+        }
+        
+        /* Performance Optimizations */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+        
+        /* Smooth Scrolling with Reduced Motion Support */
+        @media (prefers-reduced-motion: no-preference) {
+            html {
+                scroll-behavior: smooth;
+            }
+        }
+        
+        /* Advanced Body Styling */
+        body {
+            background: var(--vt-bg-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+            color: var(--vt-text-primary);
+            padding: var(--vt-space-lg) var(--vt-space-md);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        
+        /* Enhanced Background with Multiple Layers */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 20% 0%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(212, 175, 55, 0.02) 0%, transparent 50%),
+                radial-gradient(ellipse at center, #0a0a0f 0%, #000000 100%);
+            z-index: -2;
+            will-change: transform;
+        }
+        
+        /* Animated Noise Texture */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            opacity: 0.03;
+            z-index: -1;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px);
+            animation: noiseAnimation 8s steps(10) infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes noiseAnimation {
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(-2%, -2%); }
+            20% { transform: translate(2%, 2%); }
+            30% { transform: translate(-2%, 2%); }
+            40% { transform: translate(2%, -2%); }
+            50% { transform: translate(-1%, 1%); }
+            60% { transform: translate(1%, -1%); }
+            70% { transform: translate(-1%, -1%); }
+            80% { transform: translate(1%, 1%); }
+            90% { transform: translate(0, -1%); }
+        }
+        
+        /* Enhanced Header with Advanced Typography */
+        .header {
+            text-align: center;
+            margin-bottom: var(--vt-space-2xl);
+            position: relative;
+            animation: fadeInDown 1.2s var(--vt-ease-out-expo);
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Ultra Premium Title Styling */
+        h1 {
+            font-size: var(--vt-text-4xl);
+            font-weight: 100;
+            letter-spacing: clamp(0.5rem, 3vw, 1.75rem);
+            margin: var(--vt-space-lg) 0;
+            background: radial-gradient(ellipse at 50% -30%,
+                #ffffff 0%,
+                #fafafa 10%,
+                #f5f5f5 18%,
+                #ececec 26%,
+                #e2e2e2 34%,
+                #d8d8d8 42%,
+                #cecece 50%,
+                #c4c4c4 58%,
+                #bababa 66%,
+                #b0b0b0 74%,
+                #a6a6a6 82%,
+                #9c9c9c 90%,
+                #929292 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+            transform: perspective(500px) rotateX(15deg);
+            transform-style: preserve-3d;
+            will-change: transform;
+            transition: transform 0.6s var(--vt-ease-out-expo);
+        }
+        
+        h1:hover {
+            transform: perspective(500px) rotateX(0deg) scale(1.05);
+        }
+        
+        /* Enhanced Shine Effect */
+        h1::before {
+            content: 'VERITRON';
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            letter-spacing: inherit;
+            background: linear-gradient(105deg,
+                transparent 40%,
+                rgba(255,255,255,0.1) 45%,
+                rgba(255,255,255,0.2) 50%,
+                rgba(255,255,255,0.1) 55%,
+                transparent 60%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 100%;
+            animation: metalShine 12s ease-in-out infinite;
+        }
+        
+        @keyframes metalShine {
+            0%, 100% { background-position: -100% 0; }
+            50% { background-position: 100% 0; }
+        }
+        
+        /* Premium Subtitle */
+        .subtitle {
+            color: var(--vt-text-muted);
+            font-size: var(--vt-text-xs);
+            letter-spacing: clamp(0.2rem, 1vw, 0.4rem);
+            text-transform: uppercase;
+            font-weight: 400;
+            opacity: 0;
+            animation: fadeIn 1.5s 0.5s var(--vt-ease-out-expo) forwards;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        /* Responsive Section Container */
+        .section {
+            margin-bottom: var(--vt-space-2xl);
+            max-width: min(1400px, 95vw);
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: fadeInUp 0.8s var(--vt-ease-out-expo) forwards;
+            animation-delay: 0.3s;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Enhanced Section Headers */
+        h2 {
+            font-size: var(--vt-text-sm);
+            font-weight: 500;
+            letter-spacing: clamp(0.2rem, 0.8vw, 0.3rem);
+            text-transform: uppercase;
+            color: var(--vt-text-secondary);
+            margin-bottom: var(--vt-space-xl);
+            padding-bottom: var(--vt-space-md);
+            border-bottom: 1px solid rgba(136,136,136,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--vt-primary-gold), transparent);
+            animation: slideIn 0.6s var(--vt-ease-out-expo);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Ultra Responsive Icon Grid */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
+            gap: clamp(1rem, 3vw, 2rem);
+            margin-bottom: var(--vt-space-2xl);
+        }
+        
+        /* Advanced Icon Items with Magnetic Effect */
+        .icon-item {
+            background: var(--vt-bg-secondary);
+            border-radius: clamp(16px, 3vw, 24px);
+            padding: clamp(1.5rem, 4vw, 2rem);
+            text-align: center;
+            border: 1px solid rgba(136,136,136,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: clamp(140px, 20vw, 160px);
+            cursor: pointer;
+            box-shadow: 
+                0 4px 20px rgba(0,0,0,0.5),
+                inset 0 1px 0 rgba(255,255,255,0.03);
+            transition: all 0.4s var(--vt-ease-out-expo);
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+        
+        /* 3D Hover Effect */
+        .icon-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, 
+                transparent 30%, 
+                rgba(212,175,55,0.05) 50%, 
+                transparent 70%);
+            transform: translateX(-100%) rotate(45deg);
+            transition: transform 0.6s var(--vt-ease-out-expo);
+        }
+        
+        .icon-item:hover::before {
+            transform: translateX(100%) rotate(45deg);
+        }
+        
+        .icon-item:hover {
+            transform: translateY(-8px) rotateX(-5deg) scale(1.02);
+            box-shadow: 
+                0 12px 40px rgba(0,0,0,0.7),
+                0 0 60px rgba(212,175,55,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.05);
+            border-color: rgba(212,175,55,0.3);
+        }
+        
+        /* Icon Wrapper with Animation */
+        .icon-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: clamp(70px, 12vw, 90px);
+            height: clamp(70px, 12vw, 90px);
+            transition: transform 0.4s var(--vt-ease-spring);
+        }
+        
+        .icon-item:hover .icon-wrapper {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        /* Enhanced Icon Names */
+        .icon-name {
+            color: var(--vt-text-muted);
+            font-size: var(--vt-text-xs);
+            text-transform: uppercase;
+            letter-spacing: clamp(0.1rem, 0.3vw, 0.15rem);
+            margin-top: var(--vt-space-sm);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .icon-item:hover .icon-name {
+            color: var(--vt-primary-gold);
+            letter-spacing: clamp(0.15rem, 0.4vw, 0.2rem);
+        }
+        
+        /* Ultra Premium Button Styles */
+        .button-container {
+            display: flex;
+            gap: clamp(1rem, 3vw, 2rem);
+            flex-wrap: wrap;
+            margin-bottom: var(--vt-space-lg);
+            align-items: center;
+        }
+        
+        .btn-veritron {
+            font-family: inherit;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: clamp(0.1rem, 0.2vw, 0.15rem);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s var(--vt-ease-out-expo);
+            transform-style: preserve-3d;
+            will-change: transform;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Responsive Button Sizes */
+        .btn-small {
+            padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+            font-size: var(--vt-text-xs);
+            border-radius: clamp(8px, 1.5vw, 10px);
+        }
+        
+        .btn-medium {
+            padding: clamp(1rem, 2.5vw, 1.25rem) clamp(2rem, 5vw, 2.75rem);
+            font-size: var(--vt-text-sm);
+            border-radius: clamp(10px, 2vw, 12px);
+        }
+        
+        .btn-large {
+            padding: clamp(1.25rem, 3vw, 1.5rem) clamp(2.5rem, 6vw, 3.5rem);
+            font-size: var(--vt-text-base);
+            border-radius: clamp(12px, 2.5vw, 14px);
+        }
+        
+        /* Enhanced Aluminum Button with Realistic Metal */
+        .btn-aluminum {
+            background: radial-gradient(ellipse at 50% -20%, 
+                #ffffff 0%, 
+                #fafafa 8%, 
+                #f5f5f5 15%, 
+                #ececec 22%, 
+                #e2e2e2 28%, 
+                #d8d8d8 35%, 
+                #cecece 42%, 
+                #c4c4c4 48%, 
+                #bababa 55%, 
+                #b0b0b0 62%, 
+                #a6a6a6 68%, 
+                #9c9c9c 75%, 
+                #929292 82%, 
+                #888888 90%, 
+                #7e7e7e 100%);
+            color: #1a1a1a;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+            box-shadow: 
+                0 10px 30px rgba(0,0,0,0.3),
+                0 1px 0 rgba(255,255,255,0.8) inset,
+                0 -3px 5px rgba(0,0,0,0.2) inset;
+            transform: translateZ(0);
+        }
+        
+        .btn-aluminum::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                115deg,
+                transparent 30%,
+                rgba(255,255,255,0.2) 48%,
+                rgba(255,255,255,0.25) 50%,
+                rgba(255,255,255,0.2) 52%,
+                transparent 70%
+            );
+            transform: translateX(-100%);
+            transition: transform 0.6s var(--vt-ease-out-expo);
+            pointer-events: none;
+            border-radius: inherit;
+        }
+        
+        .btn-aluminum:hover::after {
+            transform: translateX(100%);
+        }
+        
+        .btn-aluminum:hover {
+            transform: translateY(-2px) translateZ(10px);
+            box-shadow: 
+                0 14px 40px rgba(0,0,0,0.35),
+                0 1px 0 rgba(255,255,255,0.9) inset,
+                0 -3px 6px rgba(0,0,0,0.25) inset;
+        }
+        
+        .btn-aluminum:active {
+            transform: translateY(0) translateZ(0);
+            box-shadow: 
+                0 5px 15px rgba(0,0,0,0.25),
+                0 1px 0 rgba(255,255,255,0.7) inset,
+                0 -2px 4px rgba(0,0,0,0.15) inset;
+        }
+        
+        /* Enhanced Gunmetal Button */
+        .btn-gunmetal {
+            background: radial-gradient(ellipse at 50% -20%, 
+                #6a6a6a 0%, 
+                #525252 15%, 
+                #3a3a3a 35%, 
+                #2a2a2a 55%, 
+                #1c1c1c 70%, 
+                #0a0a0a 100%);
+            color: #c0c0c0;
+            text-shadow: 0 -1px 2px rgba(0,0,0,0.8);
+            box-shadow: 
+                0 10px 30px rgba(0,0,0,0.5),
+                0 1px 0 rgba(255,255,255,0.1) inset,
+                0 -3px 5px rgba(0,0,0,0.7) inset;
+        }
+        
+        .btn-gunmetal::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                115deg,
+                transparent 30%,
+                rgba(255,255,255,0.06) 48%,
+                rgba(255,255,255,0.08) 50%,
+                rgba(255,255,255,0.06) 52%,
+                transparent 70%
+            );
+            transform: translateX(-100%);
+            transition: transform 0.6s var(--vt-ease-out-expo);
+            pointer-events: none;
+            border-radius: inherit;
+        }
+        
+        .btn-gunmetal:hover::after {
+            transform: translateX(100%);
+        }
+        
+        .btn-gunmetal:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 14px 40px rgba(0,0,0,0.6),
+                0 1px 0 rgba(255,255,255,0.15) inset,
+                0 -3px 6px rgba(0,0,0,0.8) inset;
+            color: #e8e8e8;
+        }
+        
+        .btn-gunmetal:active {
+            transform: translateY(0);
+            box-shadow: 
+                0 5px 15px rgba(0,0,0,0.4),
+                0 1px 0 rgba(255,255,255,0.08) inset,
+                0 -2px 4px rgba(0,0,0,0.6) inset;
+        }
+        
+        /* Enhanced Gold Button with Luxury Feel */
+        .btn-gold {
+            background: radial-gradient(ellipse at 50% -20%, 
+                #fff4d4 0%, 
+                #ffed9e 8%, 
+                #ffe574 15%, 
+                #ffdb4a 22%, 
+                #ffd428 28%, 
+                #f4c838 35%, 
+                #e8bc3c 42%, 
+                #dcb03e 48%, 
+                #d0a43c 55%, 
+                #c49838 62%, 
+                #b88c34 68%, 
+                #ac8030 75%, 
+                #a0742c 82%, 
+                #946828 90%, 
+                #885c24 100%);
+            color: #0a0a0f;
+            text-shadow: 0 1px 0 rgba(255,255,200,0.5);
+            box-shadow: 
+                0 10px 30px rgba(0,0,0,0.35),
+                0 0 40px rgba(212,175,55,0.15),
+                0 1px 0 rgba(255,255,200,0.8) inset,
+                0 -3px 5px rgba(0,0,0,0.3) inset;
+            animation: goldGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes goldGlow {
+            from {
+                box-shadow: 
+                    0 10px 30px rgba(0,0,0,0.35),
+                    0 0 40px rgba(212,175,55,0.15),
+                    0 1px 0 rgba(255,255,200,0.8) inset,
+                    0 -3px 5px rgba(0,0,0,0.3) inset;
+            }
+            to {
+                box-shadow: 
+                    0 10px 30px rgba(0,0,0,0.35),
+                    0 0 60px rgba(212,175,55,0.25),
+                    0 1px 0 rgba(255,255,200,0.8) inset,
+                    0 -3px 5px rgba(0,0,0,0.3) inset;
+            }
+        }
+        
+        .btn-gold::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                115deg,
+                transparent 30%,
+                rgba(255,255,200,0.3) 48%,
+                rgba(255,255,200,0.35) 50%,
+                rgba(255,255,200,0.3) 52%,
+                transparent 70%
+            );
+            transform: translateX(-100%);
+            transition: transform 0.6s var(--vt-ease-out-expo);
+            pointer-events: none;
+            border-radius: inherit;
+        }
+        
+        .btn-gold:hover::after {
+            transform: translateX(100%);
+        }
+        
+        .btn-gold:hover {
+            transform: translateY(-2px) scale(1.02);
+            animation-play-state: paused;
+            box-shadow: 
+                0 14px 40px rgba(0,0,0,0.4),
+                0 0 80px rgba(212,175,55,0.3),
+                0 1px 0 rgba(255,255,200,0.9) inset,
+                0 -3px 6px rgba(0,0,0,0.35) inset;
+        }
+        
+        .btn-gold:active {
+            transform: translateY(0) scale(1);
+            box-shadow: 
+                0 5px 15px rgba(0,0,0,0.3),
+                0 0 30px rgba(212,175,55,0.1),
+                0 1px 0 rgba(255,255,200,0.7) inset,
+                0 -2px 4px rgba(0,0,0,0.25) inset;
+        }
+        
+        /* Disabled State for All Buttons */
+        .btn-veritron:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+            animation: none !important;
+        }
+        
+        /* Focus States for Accessibility */
+        .btn-veritron:focus-visible {
+            outline: 2px solid var(--vt-primary-gold);
+            outline-offset: 3px;
+        }
+        
+        /* Ultra Premium Card Design - Expert Level */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+            gap: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: var(--vt-space-lg);
+            perspective: 1000px;
+        }
+        
+        .card-veritron {
+            background: linear-gradient(135deg, #0f0f14 0%, #050507 50%, #0a0a0f 100%);
+            border-radius: clamp(16px, 3vw, 24px);
+            padding: 0;
+            border: 1px solid rgba(136,136,136,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s var(--vt-ease-out-expo);
+            min-height: clamp(280px, 35vw, 320px);
+            box-shadow: 
+                0 8px 30px rgba(0,0,0,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.02);
+            transform-style: preserve-3d;
+            will-change: transform;
+            cursor: pointer;
+        }
+        
+        /* Advanced 3D Tilt Effect */
+        .card-veritron::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                rgba(212,175,55,0.08) 0%, 
+                transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .card-veritron:hover::after {
+            opacity: 1;
+        }
+        
+        /* Holographic Shine Effect */
+        .card-veritron::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: linear-gradient(45deg,
+                transparent 30%,
+                rgba(255,255,255,0.02) 40%,
+                rgba(212,175,55,0.05) 50%,
+                rgba(255,255,255,0.02) 60%,
+                transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.6s var(--vt-ease-out-expo);
+        }
+        
+        .card-veritron:hover::before {
+            top: -150%;
+            left: -150%;
+        }
+        
+        /* Card Inner Container */
+        .card-inner {
+            padding: clamp(1.5rem, 4vw, 2.25rem);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Status Indicator Bar */
+        .card-status-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                var(--vt-primary-gold) 0%, 
+                var(--vt-primary-gold-light) 50%, 
+                var(--vt-primary-gold) 100%);
+            background-size: 200% 100%;
+            animation: statusPulse 3s linear infinite;
+            opacity: 0.8;
+        }
+        
+        @keyframes statusPulse {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+        
+        .card-veritron:hover {
+            transform: translateY(-8px) rotateX(-5deg) rotateY(2deg);
+            box-shadow: 
+                0 25px 60px rgba(0,0,0,0.5),
+                0 0 120px rgba(212,175,55,0.08),
+                inset 0 1px 0 rgba(255,255,255,0.05);
+            border-color: rgba(212,175,55,0.3);
+        }
+        
+        /* Enhanced Card Header */
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--vt-space-md);
+            position: relative;
+        }
+        
+        .card-header-left {
+            display: flex;
+            align-items: center;
+            gap: var(--vt-space-sm);
+        }
+        
+        /* Premium Card Badge */
+        .card-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: linear-gradient(135deg, var(--vt-primary-gold), var(--vt-primary-gold-dark));
+            color: #0a0a0f;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(212,175,55,0.3);
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Animated Icon Container */
+        .card-icon-wrapper {
+            width: clamp(40px, 7vw, 50px);
+            height: clamp(40px, 7vw, 50px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, rgba(212,175,55,0.1), transparent);
+            border-radius: 12px;
+            position: relative;
+        }
+        
+        .card-icon {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+            transition: all 0.4s var(--vt-ease-spring);
+        }
+        
+        .card-veritron:hover .card-icon {
+            transform: scale(1.15) rotate(5deg);
+            filter: drop-shadow(0 6px 12px rgba(212,175,55,0.3));
+        }
+        
+        /* Icon Glow Pulse */
+        .card-icon-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            background: radial-gradient(circle, rgba(212,175,55,0.3), transparent);
+            border-radius: 50%;
+            opacity: 0;
+            animation: iconGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes iconGlow {
+            0%, 100% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        
+        .card-title {
+            font-size: var(--vt-text-lg);
+            font-weight: 600;
+            color: var(--vt-text-primary);
+            letter-spacing: clamp(0.05rem, 0.15vw, 0.1rem);
+            background: linear-gradient(90deg, #e8e8e8, #c0c0c0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all 0.3s ease;
+        }
+        
+        .card-veritron:hover .card-title {
+            background: linear-gradient(90deg, var(--vt-primary-gold-light), var(--vt-primary-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Enhanced Content with Truncation */
+        .card-content {
+            color: var(--vt-text-secondary);
+            font-size: var(--vt-text-sm);
+            line-height: 1.8;
+            margin-bottom: var(--vt-space-md);
+            flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .card-veritron:hover .card-content {
+            color: var(--vt-text-primary);
+        }
+        
+        /* Visual Data Stats */
+        .card-stats-visual {
+            display: flex;
+            gap: var(--vt-space-md);
+            margin-bottom: var(--vt-space-sm);
+        }
+        
+        .stat-progress {
+            flex: 1;
+        }
+        
+        .stat-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--vt-text-muted);
+            margin-bottom: 4px;
+        }
+        
+        .stat-bar {
+            height: 4px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .stat-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--vt-primary-gold), var(--vt-primary-gold-light));
+            border-radius: 2px;
+            transition: width 1s var(--vt-ease-out-expo);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255,255,255,0.3) 50%, 
+                transparent 100%);
+            animation: shimmer 2s infinite;
+        }
+        
+        /* Enhanced Footer with Actions */
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--vt-space-md);
+            border-top: 1px solid rgba(136,136,136,0.08);
+            position: relative;
+        }
+        
+        .card-footer::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(212,175,55,0.3), 
+                transparent);
+            transform: scaleX(0);
+            transition: transform 0.5s var(--vt-ease-out-expo);
+        }
+        
+        .card-veritron:hover .card-footer::before {
+            transform: scaleX(1);
+        }
+        
+        .card-stats {
+            display: flex;
+            gap: var(--vt-space-md);
+        }
+        
+        .card-stat {
+            font-size: var(--vt-text-xs);
+            color: var(--vt-text-muted);
+            letter-spacing: 0.05rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .card-stat-value {
+            color: var(--vt-primary-gold);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .card-veritron:hover .card-stat-value {
+            color: var(--vt-primary-gold-light);
+            text-shadow: 0 0 12px rgba(212,175,55,0.6);
+            transform: scale(1.1);
+        }
+        
+        /* Card Action Button */
+        .card-action {
+            background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(212,175,55,0.05));
+            border: 1px solid rgba(212,175,55,0.3);
+            color: var(--vt-primary-gold);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s var(--vt-ease-out-expo);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-action::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(212,175,55,0.4), transparent);
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+            border-radius: 50%;
+        }
+        
+        .card-action:hover::before {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .card-action:hover {
+            background: linear-gradient(135deg, rgba(212,175,55,0.2), rgba(212,175,55,0.1));
+            border-color: var(--vt-primary-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212,175,55,0.2);
+        }
+        
+        /* Loading Skeleton for Cards */
+        .card-skeleton {
+            background: linear-gradient(145deg, #0f0f14, #050507);
+            border-radius: clamp(16px, 3vw, 24px);
+            padding: clamp(1.5rem, 4vw, 2.25rem);
+            border: 1px solid rgba(136,136,136,0.1);
+            min-height: clamp(280px, 35vw, 320px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skeleton-shimmer {
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255,255,255,0.05) 50%, 
+                transparent 100%);
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            animation: shimmerMove 2s infinite;
+        }
+        
+        @keyframes shimmerMove {
+            to { left: 100%; }
+        }
+        
+        /* Enhanced Input Fields with Better UX */
+        .input-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: clamp(1.5rem, 4vw, 2.25rem);
+            margin-bottom: var(--vt-space-lg);
+        }
+        
+        .input-group {
+            position: relative;
+        }
+        
+        .input-veritron {
+            width: 100%;
+            padding: clamp(1rem, 2.5vw, 1.25rem) clamp(1.25rem, 3vw, 1.5rem);
+            min-height: clamp(48px, 8vw, 52px);
+            background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: clamp(10px, 2vw, 12px);
+            color: var(--vt-text-primary);
+            font-size: var(--vt-text-sm);
+            font-family: inherit;
+            transition: all 0.3s var(--vt-ease-out-expo);
+            box-shadow: 
+                inset 0 1px 0 rgba(255,255,255,0.05),
+                0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .input-veritron::placeholder {
+            color: var(--vt-text-muted);
+            opacity: 0.6;
+        }
+        
+        .input-veritron:hover {
+            border-color: rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.03);
+        }
+        
+        .input-veritron:focus {
+            outline: none;
+            border-color: rgba(212,175,55,0.4);
+            background: rgba(212,175,55,0.02);
+            box-shadow: 
+                inset 0 1px 0 rgba(255,255,255,0.08),
+                0 0 30px rgba(212,175,55,0.1),
+                0 4px 12px rgba(0,0,0,0.3);
+        }
+        
+        .input-label {
+            position: absolute;
+            top: -10px;
+            left: clamp(16px, 3vw, 20px);
+            background: var(--vt-bg-secondary);
+            padding: 2px clamp(8px, 1.5vw, 10px);
+            font-size: var(--vt-text-xs);
+            text-transform: uppercase;
+            letter-spacing: clamp(0.05rem, 0.15vw, 0.1rem);
+            color: var(--vt-text-muted);
+            border-radius: 4px;
+            transition: all 0.3s var(--vt-ease-out-expo);
+            pointer-events: none;
+        }
+        
+        .input-veritron:focus ~ .input-label,
+        .input-veritron:valid ~ .input-label {
+            color: var(--vt-primary-gold);
+            transform: translateY(-2px);
+        }
+        
+        /* Premium Navigation Bar - Expert Level */
+        .navbar-veritron {
+            background: linear-gradient(135deg, 
+                rgba(15,15,20,0.98) 0%, 
+                rgba(10,10,15,0.98) 50%, 
+                rgba(5,5,7,0.98) 100%);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-radius: clamp(14px, 2.5vw, 18px);
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            flex-wrap: wrap;
+            border: 1px solid rgba(136,136,136,0.1);
+            margin-bottom: var(--vt-space-lg);
+            box-shadow: 
+                0 8px 30px rgba(0,0,0,0.4),
+                0 1px 0 rgba(255,255,255,0.03) inset;
+            min-height: clamp(65px, 11vw, 75px);
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+            transition: all 0.3s var(--vt-ease-out-expo);
+            overflow: hidden;
+        }
+        
+        /* Animated Background Gradient */
+        .navbar-veritron::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(212,175,55,0.03) 25%,
+                rgba(212,175,55,0.05) 50%,
+                rgba(212,175,55,0.03) 75%,
+                transparent 100%);
+            animation: navGradientMove 20s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes navGradientMove {
+            to { left: 100%; }
+        }
+        
+        /* Glassmorphism Border Glow */
+        .navbar-veritron::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(45deg,
+                transparent 30%,
+                rgba(212,175,55,0.1) 50%,
+                transparent 70%);
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .navbar-veritron:hover::after {
+            opacity: 1;
+        }
+        
+        .navbar-veritron:hover {
+            box-shadow: 
+                0 12px 40px rgba(0,0,0,0.5),
+                0 0 80px rgba(212,175,55,0.05),
+                0 1px 0 rgba(255,255,255,0.05) inset;
+            transform: translateY(-1px);
+        }
+        
+        /* Logo/Brand Section */
+        .nav-brand-section {
+            display: flex;
+            align-items: center;
+            padding: 0 clamp(1.5rem, 4vw, 2.5rem);
+            position: relative;
+        }
+        
+        .nav-brand {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-weight: 200;
+            letter-spacing: clamp(0.3rem, 1vw, 0.6rem);
+            background: linear-gradient(135deg,
+                #ffffff 0%,
+                #e8e8e8 25%,
+                #c0c0c0 50%,
+                #989898 75%,
+                #707070 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all 0.3s var(--vt-ease-spring);
+            position: relative;
+            cursor: pointer;
+        }
+        
+        /* Brand Pulse Effect */
+        .nav-brand::after {
+            content: 'VERITRON';
+            position: absolute;
+            top: 0;
+            left: 0;
+            letter-spacing: inherit;
+            background: linear-gradient(135deg,
+                var(--vt-primary-gold-light) 0%,
+                var(--vt-primary-gold) 50%,
+                var(--vt-primary-gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-brand:hover::after {
+            opacity: 1;
+        }
+        
+        .nav-brand:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Navigation Menu Container */
+        .nav-menu-wrapper {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            position: relative;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 0;
+            list-style: none;
+            align-items: stretch;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Enhanced Nav Links */
+        .nav-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--vt-text-secondary);
+            text-decoration: none;
+            font-size: var(--vt-text-xs);
+            text-transform: uppercase;
+            letter-spacing: clamp(0.1rem, 0.2vw, 0.15rem);
+            transition: all 0.3s var(--vt-ease-out-expo);
+            position: relative;
+            padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 2.5vw, 1.5rem);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            height: 100%;
+            font-weight: 500;
+        }
+        
+        /* Active Indicator */
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--vt-primary-gold), var(--vt-primary-gold-light));
+            transform: scaleX(0);
+            transition: transform 0.3s var(--vt-ease-out-expo);
+            transform-origin: center;
+        }
+        
+        .nav-link.active::before,
+        .nav-link:hover::before {
+            transform: scaleX(1);
+        }
+        
+        /* Bottom Line Animation */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--vt-primary-gold), var(--vt-primary-gold-light));
+            transform: translateX(-50%);
+            transition: width 0.3s var(--vt-ease-out-expo);
+        }
+        
+        .nav-link:hover::after {
+            width: calc(100% - 2rem);
+        }
+        
+        /* Hover Background */
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, 
+                rgba(212,175,55,0.05) 0%, 
+                transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-item:hover::before {
+            opacity: 1;
+        }
+        
+        .nav-link:hover {
+            color: var(--vt-text-primary);
+            transform: translateY(-1px);
+        }
+        
+        /* Notification Badge */
+        .nav-badge {
+            position: absolute;
+            top: 15px;
+            right: 10px;
+            background: linear-gradient(135deg, #ff4444, #cc0000);
+            color: white;
+            font-size: 9px;
+            padding: 2px 5px;
+            border-radius: 10px;
+            font-weight: 600;
+            min-width: 16px;
+            text-align: center;
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+        
+        /* Nav Actions Section */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.75rem, 2vw, 1.25rem);
+            padding: 0 clamp(1.5rem, 4vw, 2.5rem);
+        }
+        
+        /* Search Bar */
+        .nav-search {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-search-input {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            padding: 8px 35px 8px 12px;
+            color: var(--vt-text-primary);
+            font-size: 12px;
+            width: 0;
+            opacity: 0;
+            transition: all 0.3s var(--vt-ease-out-expo);
+        }
+        
+        .nav-search-input:focus,
+        .nav-search-input.active {
+            width: 200px;
+            opacity: 1;
+            outline: none;
+            border-color: rgba(212,175,55,0.3);
+            background: rgba(212,175,55,0.02);
+        }
+        
+        .nav-search-btn {
+            position: absolute;
+            right: 0;
+            background: none;
+            border: none;
+            color: var(--vt-text-secondary);
+            padding: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-search-btn:hover {
+            color: var(--vt-primary-gold);
+        }
+        
+        /* User Profile */
+        .nav-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s var(--vt-ease-out-expo);
+            position: relative;
+        }
+        
+        .nav-profile:hover {
+            background: rgba(212,175,55,0.05);
+            transform: translateY(-1px);
+        }
+        
+        .nav-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--vt-primary-gold), var(--vt-primary-gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #0a0a0f;
+            position: relative;
+        }
+        
+        /* Online Status Indicator */
+        .nav-avatar::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            background: #4caf50;
+            border: 2px solid #0a0a0f;
+            border-radius: 50%;
+            animation: onlineGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes onlineGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(76,175,80,0.4); }
+            50% { box-shadow: 0 0 0 4px rgba(76,175,80,0.4); }
+        }
+        
+        .nav-profile-name {
+            font-size: 12px;
+            color: var(--vt-text-primary);
+            font-weight: 500;
+            display: none;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-profile-name {
+                display: block;
+            }
+        }
+        
+        /* Mobile Menu Toggle */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 4px;
+            padding: 10px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        .nav-toggle span {
+            width: 22px;
+            height: 2px;
+            background: var(--vt-text-secondary);
+            transition: all 0.3s var(--vt-ease-out-expo);
+            transform-origin: center;
+        }
+        
+        .nav-toggle:hover span {
+            background: var(--vt-primary-gold);
+        }
+        
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        
+        /* Dropdown Menu */
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: linear-gradient(135deg, 
+                rgba(15,15,20,0.98) 0%, 
+                rgba(10,10,15,0.98) 100%);
+            backdrop-filter: blur(20px);
+            border-radius: 12px;
+            border: 1px solid rgba(136,136,136,0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            padding: 8px 0;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s var(--vt-ease-out-expo);
+            z-index: 1100;
+        }
+        
+        .nav-item:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .nav-dropdown-item {
+            padding: 10px 20px;
+            color: var(--vt-text-secondary);
+            font-size: 12px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .nav-dropdown-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--vt-primary-gold);
+            transform: scaleY(0);
+            transition: transform 0.2s ease;
+        }
+        
+        .nav-dropdown-item:hover {
+            background: rgba(212,175,55,0.05);
+            color: var(--vt-text-primary);
+            padding-left: 24px;
+        }
+        
+        .nav-dropdown-item:hover::before {
+            transform: scaleY(1);
+        }
+        
+        /* Enhanced Toggle Switch */
+        .toggle-container {
+            display: flex;
+            gap: clamp(1.5rem, 4vw, 2.5rem);
+            align-items: center;
+            margin-bottom: var(--vt-space-lg);
+            flex-wrap: wrap;
+        }
+        
+        .toggle-veritron {
+            position: relative;
+            width: clamp(60px, 10vw, 70px);
+            height: clamp(30px, 5vw, 35px);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(136,136,136,0.2);
+            border-radius: 35px;
+            cursor: pointer;
+            transition: all 0.3s var(--vt-ease-out-expo);
+            box-shadow: 
+                inset 0 2px 5px rgba(0,0,0,0.5),
+                0 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .toggle-veritron:hover {
+            background: rgba(255,255,255,0.08);
+            box-shadow: 
+                inset 0 2px 5px rgba(0,0,0,0.6),
+                0 1px 5px rgba(0,0,0,0.4);
+        }
+        
+        .toggle-veritron input {
+            display: none;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: clamp(24px, 4vw, 27px);
+            height: clamp(24px, 4vw, 27px);
+            background: radial-gradient(ellipse at 50% -20%, 
+                #f5f5f5 0%, 
+                #e8e8e8 30%, 
+                #c8c8c8 60%, 
+                #a8a8a8 100%);
+            border-radius: 50%;
+            transition: all 0.3s var(--vt-ease-spring);
+            box-shadow: 
+                0 3px 8px rgba(0,0,0,0.35),
+                inset 0 2px 3px rgba(255,255,255,0.7),
+                inset 0 -1px 2px rgba(0,0,0,0.15);
+        }
+        
+        .toggle-veritron input:checked + .toggle-slider {
+            transform: translateX(clamp(30px, 5vw, 35px));
+            background: radial-gradient(ellipse at 50% -20%, 
+                #ffe574 0%, 
+                #ffd428 30%, 
+                #d4af37 60%, 
+                #b8941f 100%);
+            box-shadow: 
+                0 3px 8px rgba(212,175,55,0.35),
+                0 0 20px rgba(212,175,55,0.2),
+                inset 0 2px 3px rgba(255,255,200,0.6),
+                inset 0 -1px 2px rgba(0,0,0,0.25);
+        }
+        
+        .toggle-veritron input:checked ~ .toggle-bg {
+            background: rgba(212,175,55,0.1);
+        }
+        
+        /* Premium Badge Design */
+        .badge-container {
+            display: flex;
+            gap: clamp(0.75rem, 2vw, 1.25rem);
+            flex-wrap: wrap;
+            margin-bottom: var(--vt-space-lg);
+        }
+        
+        .badge-veritron {
+            display: inline-block;
+            padding: clamp(0.5rem, 1.5vw, 0.625rem) clamp(1rem, 2.5vw, 1.375rem);
+            min-height: clamp(32px, 5vw, 36px);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(136,136,136,0.15);
+            border-radius: 25px;
+            font-size: var(--vt-text-xs);
+            text-transform: uppercase;
+            letter-spacing: clamp(0.08rem, 0.15vw, 0.1rem);
+            color: var(--vt-text-secondary);
+            transition: all 0.3s var(--vt-ease-out-expo);
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .badge-veritron::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(212,175,55,0.3), transparent);
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+            border-radius: 50%;
+        }
+        
+        .badge-veritron:hover::before {
+            width: 120px;
+            height: 120px;
+        }
+        
+        .badge-veritron:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+        
+        .badge-aluminum {
+            background: radial-gradient(ellipse at 50% -20%, 
+                #f5f5f5 0%, 
+                #ececec 25%, 
+                #d8d8d8 50%, 
+                #c4c4c4 75%, 
+                #a8a8a8 100%);
+            border-color: rgba(192,192,192,0.5);
+            color: #0a0a0f;
+            box-shadow: 
+                inset 0 2px 3px rgba(255,255,255,0.8),
+                inset 0 -1px 2px rgba(0,0,0,0.15),
+                0 3px 8px rgba(0,0,0,0.2);
+        }
+        
+        .badge-gold {
+            background: radial-gradient(ellipse at 50% -20%, 
+                #ffe574 0%, 
+                #ffd428 25%, 
+                #e8bc3c 50%, 
+                #c49838 75%, 
+                #a0742c 100%);
+            border-color: rgba(212,175,55,0.5);
+            color: #0a0a0f;
+            box-shadow: 
+                inset 0 2px 3px rgba(255,255,200,0.7),
+                inset 0 -1px 2px rgba(0,0,0,0.25),
+                0 3px 8px rgba(212,175,55,0.25);
+            animation: goldPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes goldPulse {
+            0%, 100% {
+                box-shadow: 
+                    inset 0 2px 3px rgba(255,255,200,0.7),
+                    inset 0 -1px 2px rgba(0,0,0,0.25),
+                    0 3px 8px rgba(212,175,55,0.25);
+            }
+            50% {
+                box-shadow: 
+                    inset 0 2px 3px rgba(255,255,200,0.7),
+                    inset 0 -1px 2px rgba(0,0,0,0.25),
+                    0 3px 15px rgba(212,175,55,0.4);
+            }
+        }
+        
+        .badge-gunmetal {
+            background: radial-gradient(ellipse at 50% -20%, 
+                #4a4a4a 0%, 
+                #3a3a3a 25%, 
+                #2a2a2a 50%, 
+                #1a1a1a 75%, 
+                #0a0a0a 100%);
+            border-color: rgba(42,42,42,0.5);
+            color: #c0c0c0;
+            box-shadow: 
+                inset 0 2px 3px rgba(255,255,255,0.08),
+                inset 0 -1px 2px rgba(0,0,0,0.5),
+                0 3px 8px rgba(0,0,0,0.4);
+        }
+        
+        /* Loading State Animation */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(212,175,55,0.2);
+            border-top-color: var(--vt-primary-gold);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Skeleton Loading for Cards */
+        .skeleton {
+            background: linear-gradient(90deg, 
+                rgba(255,255,255,0.05) 25%, 
+                rgba(255,255,255,0.1) 50%, 
+                rgba(255,255,255,0.05) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -100% 0; }
+            100% { background-position: 100% 0; }
+        }
+        
+        /* Enhanced Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: var(--vt-space-md) var(--vt-space-sm);
+            }
+            
+            h1 {
+                letter-spacing: clamp(0.3rem, 2vw, 0.6rem);
+            }
+            
+            h1::before {
+                display: none; /* Disable shine on mobile for performance */
+            }
+            
+            .navbar-veritron {
+                position: relative;
+                top: 0;
+                flex-direction: row;
+                padding: 0;
+                gap: 0;
+            }
+            
+            .nav-brand-section {
+                padding: clamp(1rem, 3vw, 1.25rem) clamp(1.25rem, 3vw, 1.5rem);
+            }
+            
+            .nav-menu-wrapper {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, 
+                    rgba(15,15,20,0.98) 0%, 
+                    rgba(10,10,15,0.98) 100%);
+                backdrop-filter: blur(20px);
+                border-radius: 0 0 14px 14px;
+                border-top: 1px solid rgba(136,136,136,0.1);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s var(--vt-ease-out-expo);
+            }
+            
+            .nav-menu-wrapper.active {
+                max-height: 400px;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                padding: var(--vt-space-sm) 0;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                width: 100%;
+                padding: clamp(0.75rem, 2vw, 1rem) clamp(1.25rem, 3vw, 1.5rem);
+            }
+            
+            .nav-link::before {
+                left: 0;
+                right: auto;
+                top: 0;
+                bottom: 0;
+                width: 3px;
+                height: 100%;
+                transform: scaleY(0);
+            }
+            
+            .nav-link:hover::before,
+            .nav-link.active::before {
+                transform: scaleY(1);
+            }
+            
+            .nav-link::after {
+                display: none;
+            }
+            
+            .nav-dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                margin-left: var(--vt-space-md);
+                margin-top: var(--vt-space-xs);
+                box-shadow: none;
+                border: none;
+                background: rgba(0,0,0,0.3);
+            }
+            
+            .nav-actions {
+                gap: clamp(0.5rem, 2vw, 0.75rem);
+                padding: clamp(1rem, 3vw, 1.25rem) clamp(1.25rem, 3vw, 1.5rem);
+            }
+            
+            .nav-search-input:focus,
+            .nav-search-input.active {
+                width: 120px;
+            }
+            
+            .nav-profile-name {
+                display: none;
+            }
+            
+            .nav-toggle {
+                display: flex;
+            }
+            
+            .icon-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+            
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Touch-friendly sizes */
+            .btn-veritron {
+                min-height: 44px;
+                min-width: 120px;
+            }
+            
+            .input-veritron {
+                min-height: 48px;
+            }
+            
+            .toggle-veritron {
+                min-width: 60px;
+                min-height: 32px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .button-container {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn-veritron {
+                width: 100%;
+            }
+            
+            .input-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .badge-container {
+                justify-content: center;
+            }
+            
+            h1 {
+                font-size: clamp(2rem, 10vw, 3rem);
+            }
+        }
+        
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: light) {
+            :root {
+                --vt-bg-primary: #f5f5f5;
+                --vt-bg-secondary: #ffffff;
+                --vt-bg-tertiary: #fafafa;
+                --vt-text-primary: #1a1a1a;
+                --vt-text-secondary: #4a4a4a;
+                --vt-text-muted: #7a7a7a;
+            }
+            
+            body::before {
+                background: 
+                    radial-gradient(ellipse at 20% 0%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                    radial-gradient(ellipse at 80% 100%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+                    radial-gradient(ellipse at center, #fafafa 0%, #f0f0f0 100%);
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .navbar-veritron,
+            .toggle-container,
+            body::before,
+            body::after {
+                display: none;
+            }
+            
+            .btn-veritron,
+            .card-veritron,
+            .badge-veritron {
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
+        
+        /* Accessibility Improvements */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+        
+        /* High Contrast Mode */
+        @media (prefers-contrast: high) {
+            .btn-veritron,
+            .card-veritron,
+            .input-veritron,
+            .badge-veritron {
+                border-width: 2px;
+            }
+            
+            .btn-veritron:focus,
+            .input-veritron:focus {
+                outline-width: 3px;
+            }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--vt-primary-gold), var(--vt-primary-gold-dark));
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--vt-primary-gold-light), var(--vt-primary-gold));
+        }
+        
+        /* Selection Styling */
+        ::selection {
+            background: rgba(212,175,55,0.3);
+            color: var(--vt-text-primary);
+        }
+        
+        ::-moz-selection {
+            background: rgba(212,175,55,0.3);
+            color: var(--vt-text-primary);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="subtitle">Premium Material Design System</div>
+        <h1>VERITRON</h1>
+    </div>
+    
+    <!-- Icons Section -->
+    <section class="section" role="region" aria-label="Icon Components">
+        <h2>Precision Engineered Icons</h2>
+        <div class="icon-grid">
+            <!-- Web Development Icon -->
+            <div class="icon-item" role="button" tabindex="0" aria-label="Web Development">
+                <div class="icon-wrapper">
+                    <svg class="icon-hexagon" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="alum1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                                <stop offset="25%" style="stop-color:#e8e8e8;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#c0c0c0;stop-opacity:1" />
+                                <stop offset="75%" style="stop-color:#989898;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#707070;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="gold1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffed4e;stop-opacity:1" />
+                                <stop offset="25%" style="stop-color:#ffd700;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#d4af37;stop-opacity:1" />
+                                <stop offset="75%" style="stop-color:#b8941f;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#9a7c19;stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="innerShadow1">
+                                <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+                                <feOffset dx="0" dy="2" result="offsetblur"/>
+                                <feFlood flood-color="#000000" flood-opacity="0.3"/>
+                                <feComposite in2="offsetblur" operator="in"/>
+                                <feMerge>
+                                    <feMergeNode/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <g transform="translate(45,45)">
+                            <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                                     fill="url(#alum1)" 
+                                     stroke="#808080" 
+                                     stroke-width="0.75"
+                                     filter="url(#innerShadow1)"/>
+                            <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                                     fill="#0a0a0f" 
+                                     opacity="0.93"/>
+                            <rect x="-18" y="-12" width="36" height="22" fill="none" stroke="url(#gold1)" stroke-width="1.5" rx="2"/>
+                            <rect x="-18" y="-12" width="36" height="5" fill="url(#gold1)" opacity="0.3" rx="2"/>
+                            <circle cx="-14" cy="-9.5" r="1" fill="url(#gold1)" opacity="0.8"/>
+                            <circle cx="-10" cy="-9.5" r="1" fill="url(#gold1)" opacity="0.8"/>
+                            <circle cx="-6" cy="-9.5" r="1" fill="url(#gold1)" opacity="0.8"/>
+                            <line x1="-14" y1="-3" x2="-6" y2="-3" stroke="url(#gold1)" stroke-width="1.5" opacity="0.9"/>
+                            <line x1="-3" y1="-3" x2="4" y2="-3" stroke="url(#gold1)" stroke-width="1.5" opacity="0.6"/>
+                            <line x1="-14" y1="1" x2="-8" y2="1" stroke="url(#gold1)" stroke-width="1.5" opacity="0.7"/>
+                            <line x1="-5" y1="1" x2="8" y2="1" stroke="url(#gold1)" stroke-width="1.5" opacity="0.8"/>
+                            <line x1="-14" y1="5" x2="-2" y2="5" stroke="url(#gold1)" stroke-width="1.5" opacity="0.6"/>
+                            <line x1="1" y1="5" x2="12" y2="5" stroke="url(#gold1)" stroke-width="1.5" opacity="0.9"/>
+                            <rect x="14" y="4.5" width="1.5" height="2" fill="url(#gold1)">
+                                <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+                            </rect>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon-name">Web Development</div>
+            </div>
+            
+            <!-- Mobile Development Icon -->
+            <div class="icon-item" role="button" tabindex="0" aria-label="Mobile Apps">
+                <div class="icon-wrapper">
+                    <svg class="icon-hexagon" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="alum2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                                <stop offset="25%" style="stop-color:#e8e8e8;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#c0c0c0;stop-opacity:1" />
+                                <stop offset="75%" style="stop-color:#989898;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#707070;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="gold2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffed4e;stop-opacity:1" />
+                                <stop offset="25%" style="stop-color:#ffd700;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#d4af37;stop-opacity:1" />
+                                <stop offset="75%" style="stop-color:#b8941f;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#9a7c19;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <g transform="translate(45,45)">
+                            <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                                     fill="url(#alum2)" 
+                                     stroke="#808080" 
+                                     stroke-width="0.75"/>
+                            <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                                     fill="#0a0a0f" 
+                                     opacity="0.93"/>
+                            <rect x="-8" y="-14" width="16" height="28" fill="none" stroke="url(#gold2)" stroke-width="1.8" rx="3"/>
+                            <rect x="-6" y="-10" width="12" height="18" fill="url(#gold2)" opacity="0.15" rx="1"/>
+                            <rect x="-4.5" y="-8" width="3" height="3" fill="url(#gold2)" opacity="0.8" rx="0.5"/>
+                            <rect x="-0.5" y="-8" width="3" height="3" fill="url(#gold2)" opacity="0.6" rx="0.5"/>
+                            <rect x="3.5" y="-8" width="3" height="3" fill="url(#gold2)" opacity="0.8" rx="0.5"/>
+                            <rect x="-4.5" y="-3.5" width="3" height="3" fill="url(#gold2)" opacity="0.6" rx="0.5"/>
+                            <rect x="-0.5" y="-3.5" width="3" height="3" fill="url(#gold2)" opacity="0.9" rx="0.5"/>
+                            <rect x="3.5" y="-3.5" width="3" height="3" fill="url(#gold2)" opacity="0.7" rx="0.5"/>
+                            <rect x="-4.5" y="1" width="3" height="3" fill="url(#gold2)" opacity="0.7" rx="0.5"/>
+                            <rect x="-0.5" y="1" width="3" height="3" fill="url(#gold2)" opacity="0.5" rx="0.5"/>
+                            <rect x="3.5" y="1" width="3" height="3" fill="url(#gold2)" opacity="0.8" rx="0.5"/>
+                            <circle cx="0" cy="10" r="2" fill="none" stroke="url(#gold2)" stroke-width="1.2"/>
+                            <line x1="-3" y1="-12" x2="3" y2="-12" stroke="url(#gold2)" stroke-width="1.5" stroke-linecap="round"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon-name">Mobile Apps</div>
+            </div>
+            
+            <!-- UI/UX Design Icon -->
+            <div class="icon-item" role="button" tabindex="0" aria-label="UI/UX Design">
+                <div class="icon-wrapper">
+                    <svg class="icon-hexagon" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="gun3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#5a5a5a;stop-opacity:1" />
+                                <stop offset="25%" style="stop-color:#4a4a4a;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#2a2a2a;stop-opacity:1" />
+                                <stop offset="75%" style="stop-color:#1a1a1a;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#0a0a0a;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="gold3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffed4e;stop-opacity:1" />
+                                <stop offset="25%" style="stop-color:#ffd700;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#d4af37;stop-opacity:1" />
+                                <stop offset="75%" style="stop-color:#b8941f;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#9a7c19;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <g transform="translate(45,45)">
+                            <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                                     fill="url(#gun3)" 
+                                     stroke="#1a1a1a" 
+                                     stroke-width="0.75"/>
+                            <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                                     fill="#000000" 
+                                     opacity="0.94"/>
+                            <!-- Back Layer (Window Frame) -->
+                            <rect x="-12" y="-10" width="24" height="16" 
+                                  fill="none" 
+                                  stroke="url(#gold3)" 
+                                  stroke-width="1.5" 
+                                  opacity="0.4" 
+                                  rx="2"/>
+                            <!-- Middle Layer (Window Frame) -->
+                            <rect x="-8" y="-6" width="20" height="14" 
+                                  fill="none" 
+                                  stroke="url(#gold3)" 
+                                  stroke-width="1.5" 
+                                  opacity="0.6" 
+                                  rx="2"/>
+                            <!-- Front Layer (Active Window) -->
+                            <rect x="-4" y="-2" width="16" height="12" 
+                                  fill="none" 
+                                  stroke="url(#gold3)" 
+                                  stroke-width="2" 
+                                  rx="2"/>
+                            <!-- Window Header Bar -->
+                            <rect x="-4" y="-2" width="16" height="3" 
+                                  fill="url(#gold3)" 
+                                  opacity="0.3" 
+                                  rx="2"/>
+                            <!-- UI Elements - Header Buttons -->
+                            <circle cx="-1" cy="-0.5" r="0.8" fill="url(#gold3)" opacity="0.9"/>
+                            <circle cx="2" cy="-0.5" r="0.8" fill="url(#gold3)" opacity="0.9"/>
+                            <circle cx="5" cy="-0.5" r="0.8" fill="url(#gold3)" opacity="0.9"/>
+                            <!-- UI Elements - Content Blocks -->
+                            <rect x="-2" y="2" width="5" height="2" fill="url(#gold3)" opacity="0.7" rx="0.3"/>
+                            <rect x="4" y="2" width="3" height="2" fill="url(#gold3)" opacity="0.5" rx="0.3"/>
+                            <rect x="-2" y="5" width="8" height="1" fill="url(#gold3)" opacity="0.4" rx="0.2"/>
+                            <rect x="-2" y="7" width="6" height="1" fill="url(#gold3)" opacity="0.4" rx="0.2"/>
+                            <!-- Cursor/Selection Indicator -->
+                            <path d="M6,6 L10,8 L8,10 L6,9 Z" 
+                                  fill="url(#gold3)" 
+                                  opacity="0.9"/>
+                            <path d="M6,6 L10,8 L8,10 L6,9 Z" 
+                                  fill="none" 
+                                  stroke="url(#gold3)" 
+                                  stroke-width="0.5"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon-name">UI/UX Design</div>
+            </div>
+            
+            <!-- Additional Icons... (continuing with same pattern) -->
+            <!-- Branding Icon -->
+            <div class="icon-item" role="button" tabindex="0" aria-label="Branding">
+                <div class="icon-wrapper">
+                    <svg class="icon-hexagon" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="alum4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                                <stop offset="25%" style="stop-color:#e8e8e8;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#c0c0c0;stop-opacity:1" />
+                                <stop offset="75%" style="stop-color:#989898;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#707070;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="gold4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffed4e;stop-opacity:1" />
+                                <stop offset="25%" style="stop-color:#ffd700;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#d4af37;stop-opacity:1" />
+                                <stop offset="75%" style="stop-color:#b8941f;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#9a7c19;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <g transform="translate(45,45)">
+                            <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                                     fill="url(#alum4)" 
+                                     stroke="#808080" 
+                                     stroke-width="0.75"/>
+                            <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                                     fill="#0a0a0f" 
+                                     opacity="0.93"/>
+                            <!-- Diamond/Crystal Shape (Premium Brand Symbol) -->
+                            <path d="M0,-12 L8,-4 L0,12 L-8,-4 Z" 
+                                  fill="none" 
+                                  stroke="url(#gold4)" 
+                                  stroke-width="2"/>
+                            <!-- Inner Diamond Facets -->
+                            <path d="M0,-12 L0,12 M-8,-4 L8,-4" 
+                                  stroke="url(#gold4)" 
+                                  stroke-width="1.5" 
+                                  opacity="0.7"/>
+                            <!-- Diamond Shine Lines -->
+                            <path d="M-8,-4 L0,-12 L8,-4 M-8,-4 L0,12 L8,-4" 
+                                  stroke="url(#gold4)" 
+                                  stroke-width="1" 
+                                  opacity="0.5"/>
+                            <!-- Center Gem -->
+                            <polygon points="0,-6 3,-3 0,0 -3,-3" 
+                                     fill="url(#gold4)" 
+                                     opacity="0.8"/>
+                            <!-- Brand Sparkles -->
+                            <circle cx="-12" cy="-8" r="1.5" fill="url(#gold4)" opacity="0.9">
+                                <animate attributeName="opacity" values="0.9;0.3;0.9" dur="2s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="12" cy="-8" r="1.2" fill="url(#gold4)" opacity="0.7">
+                                <animate attributeName="opacity" values="0.7;0.2;0.7" dur="2.5s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="-10" cy="8" r="1" fill="url(#gold4)" opacity="0.8">
+                                <animate attributeName="opacity" values="0.8;0.3;0.8" dur="1.8s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="10" cy="8" r="1.3" fill="url(#gold4)" opacity="0.6">
+                                <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2.2s" repeatCount="indefinite"/>
+                            </circle>
+                            <!-- Brand Tag/Label -->
+                            <rect x="-6" y="6" width="12" height="4" fill="none" stroke="url(#gold4)" stroke-width="1" opacity="0.6" rx="0.5"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon-name">Branding</div>
+            </div>
+            
+            <!-- Video Production Icon -->
+            <div class="icon-item" role="button" tabindex="0" aria-label="Video Production">
+                <div class="icon-wrapper">
+                    <svg class="icon-hexagon" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="gun5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#5a5a5a;stop-opacity:1" />
+                                <stop offset="25%" style="stop-color:#4a4a4a;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#2a2a2a;stop-opacity:1" />
+                                <stop offset="75%" style="stop-color:#1a1a1a;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#0a0a0a;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="gold5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffed4e;stop-opacity:1" />
+                                <stop offset="25%" style="stop-color:#ffd700;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#d4af37;stop-opacity:1" />
+                                <stop offset="75%" style="stop-color:#b8941f;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#9a7c19;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <g transform="translate(45,45)">
+                            <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                                     fill="url(#gun5)" 
+                                     stroke="#1a1a1a" 
+                                     stroke-width="0.75"/>
+                            <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                                     fill="#000000" 
+                                     opacity="0.94"/>
+                            <!-- Main Video Screen -->
+                            <rect x="-14" y="-8" width="28" height="16" 
+                                  fill="none" 
+                                  stroke="url(#gold5)" 
+                                  stroke-width="2" 
+                                  rx="2"/>
+                            <!-- Screen Inner -->
+                            <rect x="-12" y="-6" width="24" height="12" 
+                                  fill="url(#gold5)" 
+                                  opacity="0.1" 
+                                  rx="1"/>
+                            <!-- Play Button Triangle -->
+                            <path d="M-3,-3 L5,0 L-3,3 Z" 
+                                  fill="url(#gold5)" 
+                                  opacity="0.9"/>
+                            <!-- Play Button Circle Background -->
+                            <circle cx="0" cy="0" r="6" 
+                                    fill="none" 
+                                    stroke="url(#gold5)" 
+                                    stroke-width="1.5" 
+                                    opacity="0.7"/>
+                            <!-- Recording Indicator (Red Dot) -->
+                            <circle cx="10" cy="-5" r="1.5" fill="url(#gold5)">
+                                <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
+                            </circle>
+                            <!-- Film Strip Bottom -->
+                            <rect x="-14" y="10" width="28" height="3" 
+                                  fill="url(#gold5)" 
+                                  opacity="0.4"/>
+                            <!-- Film Strip Perforations -->
+                            <rect x="-12" y="10.5" width="2" height="2" fill="#000000" opacity="0.8" rx="0.2"/>
+                            <rect x="-8" y="10.5" width="2" height="2" fill="#000000" opacity="0.8" rx="0.2"/>
+                            <rect x="-4" y="10.5" width="2" height="2" fill="#000000" opacity="0.8" rx="0.2"/>
+                            <rect x="0" y="10.5" width="2" height="2" fill="#000000" opacity="0.8" rx="0.2"/>
+                            <rect x="4" y="10.5" width="2" height="2" fill="#000000" opacity="0.8" rx="0.2"/>
+                            <rect x="8" y="10.5" width="2" height="2" fill="#000000" opacity="0.8" rx="0.2"/>
+                            <!-- Timeline Bars -->
+                            <line x1="-10" y1="-10" x2="-10" y2="-12" stroke="url(#gold5)" stroke-width="1" opacity="0.5"/>
+                            <line x1="-6" y1="-10" x2="-6" y2="-11.5" stroke="url(#gold5)" stroke-width="1" opacity="0.5"/>
+                            <line x1="-2" y1="-10" x2="-2" y2="-12" stroke="url(#gold5)" stroke-width="1" opacity="0.5"/>
+                            <line x1="2" y1="-10" x2="2" y2="-11.5" stroke="url(#gold5)" stroke-width="1" opacity="0.5"/>
+                            <line x1="6" y1="-10" x2="6" y2="-12" stroke="url(#gold5)" stroke-width="1" opacity="0.5"/>
+                            <line x1="10" y1="-10" x2="10" y2="-11.5" stroke="url(#gold5)" stroke-width="1" opacity="0.5"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon-name">Video Production</div>
+            </div>
+            
+            <!-- Analytics Icon -->
+            <div class="icon-item" role="button" tabindex="0" aria-label="Analytics">
+                <div class="icon-wrapper">
+                    <svg class="icon-hexagon" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="alum6" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                                <stop offset="25%" style="stop-color:#e8e8e8;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#c0c0c0;stop-opacity:1" />
+                                <stop offset="75%" style="stop-color:#989898;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#707070;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="gold6" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffed4e;stop-opacity:1" />
+                                <stop offset="25%" style="stop-color:#ffd700;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#d4af37;stop-opacity:1" />
+                                <stop offset="75%" style="stop-color:#b8941f;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#9a7c19;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <g transform="translate(45,45)">
+                            <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                                     fill="url(#alum6)" 
+                                     stroke="#808080" 
+                                     stroke-width="0.75"/>
+                            <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                                     fill="#0a0a0f" 
+                                     opacity="0.93"/>
+                            <rect x="-14" y="8" width="4" height="6" fill="url(#gold6)" opacity="0.5" rx="0.5"/>
+                            <rect x="-8" y="3" width="4" height="11" fill="url(#gold6)" opacity="0.6" rx="0.5"/>
+                            <rect x="-2" y="-2" width="4" height="16" fill="url(#gold6)" opacity="0.7" rx="0.5"/>
+                            <rect x="4" y="-5" width="4" height="19" fill="url(#gold6)" opacity="0.8" rx="0.5"/>
+                            <rect x="10" y="-8" width="4" height="22" fill="url(#gold6)" opacity="0.9" rx="0.5"/>
+                            <polyline points="-12,10 -6,5 0,1 6,-3 12,-7" 
+                                      fill="none" 
+                                      stroke="url(#gold6)" 
+                                      stroke-width="2" 
+                                      stroke-linecap="round" 
+                                      stroke-linejoin="round"/>
+                            <circle cx="-12" cy="10" r="2" fill="url(#gold6)"/>
+                            <circle cx="-6" cy="5" r="2" fill="url(#gold6)"/>
+                            <circle cx="0" cy="1" r="2" fill="url(#gold6)"/>
+                            <circle cx="6" cy="-3" r="2" fill="url(#gold6)"/>
+                            <circle cx="12" cy="-7" r="2" fill="url(#gold6)"/>
+                            <line x1="-16" y1="14" x2="16" y2="14" stroke="url(#gold6)" stroke-width="0.5" opacity="0.3"/>
+                            <line x1="-16" y1="-10" x2="-16" y2="14" stroke="url(#gold6)" stroke-width="0.5" opacity="0.3"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon-name">Analytics</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Buttons Section -->
+    <section class="section" role="region" aria-label="Button Components">
+        <h2>Material Button Components</h2>
+        
+        <div style="margin-bottom: var(--vt-space-lg);">
+            <h3 style="color: var(--vt-text-muted); font-size: var(--vt-text-xs); margin-bottom: var(--vt-space-md);">BRUSHED ALUMINUM</h3>
+            <div class="button-container">
+                <button class="btn-veritron btn-aluminum btn-small" aria-label="Small aluminum button">SMALL</button>
+                <button class="btn-veritron btn-aluminum btn-medium" aria-label="Medium aluminum button">MEDIUM</button>
+                <button class="btn-veritron btn-aluminum btn-large" aria-label="Large aluminum button">LARGE</button>
+            </div>
+        </div>
+        
+        <div style="margin-bottom: var(--vt-space-lg);">
+            <h3 style="color: var(--vt-text-muted); font-size: var(--vt-text-xs); margin-bottom: var(--vt-space-md);">GUNMETAL DARK</h3>
+            <div class="button-container">
+                <button class="btn-veritron btn-gunmetal btn-small" aria-label="Small gunmetal button">SMALL</button>
+                <button class="btn-veritron btn-gunmetal btn-medium" aria-label="Medium gunmetal button">MEDIUM</button>
+                <button class="btn-veritron btn-gunmetal btn-large" aria-label="Large gunmetal button">LARGE</button>
+            </div>
+        </div>
+        
+        <div>
+            <h3 style="color: var(--vt-text-muted); font-size: var(--vt-text-xs); margin-bottom: var(--vt-space-md);">GOLD ACCENT</h3>
+            <div class="button-container">
+                <button class="btn-veritron btn-gold btn-small" aria-label="Small gold button">SMALL</button>
+                <button class="btn-veritron btn-gold btn-medium" aria-label="Medium gold button">MEDIUM</button>
+                <button class="btn-veritron btn-gold btn-large" aria-label="Large gold button">LARGE</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Cards Section - Enhanced -->
+    <section class="section" role="region" aria-label="Card Components">
+        <h2>Material Card Components</h2>
+        <div class="card-container">
+            <article class="card-veritron">
+                <div class="card-status-bar"></div>
+                <div class="card-inner">
+                    <div class="card-badge">PRO</div>
+                    <div class="card-header">
+                        <div class="card-header-left">
+                            <div class="card-icon-wrapper">
+                                <svg class="card-icon" width="45" height="45" viewBox="0 0 45 45" aria-hidden="true">
+                                    <defs>
+                                        <linearGradient id="cardGold1">
+                                            <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#b8941f;stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <polygon points="22.5,6 33,12 33,27 22.5,33 12,27 12,12" 
+                                             fill="none" 
+                                             stroke="url(#cardGold1)" 
+                                             stroke-width="1.5"/>
+                                    <circle cx="22.5" cy="22.5" r="7" fill="url(#cardGold1)" opacity="0.5"/>
+                                </svg>
+                            </div>
+                            <h3 class="card-title">Performance</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        Advanced system monitoring with real-time analytics and machine learning powered insights for optimal performance optimization.
+                    </div>
+                    <div class="card-stats-visual">
+                        <div class="stat-progress">
+                            <div class="stat-label">CPU Usage</div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 38%"></div>
+                            </div>
+                        </div>
+                        <div class="stat-progress">
+                            <div class="stat-label">Memory</div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 64%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="card-footer">
+                        <div class="card-stats">
+                            <span class="card-stat">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" opacity="0.5">
+                                    <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M6,3 L6,6 L8,8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <span class="card-stat-value">38%</span>
+                            </span>
+                            <span class="card-stat">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" opacity="0.5">
+                                    <rect x="2" y="3" width="8" height="6" fill="none" stroke="currentColor" stroke-width="1.5" rx="1"/>
+                                    <rect x="4" y="5" width="4" height="2" fill="currentColor" opacity="0.7"/>
+                                </svg>
+                                <span class="card-stat-value">6.4GB</span>
+                            </span>
+                        </div>
+                        <button class="card-action">View Details</button>
+                    </footer>
+                </div>
+            </article>
+            
+            <article class="card-veritron">
+                <div class="card-status-bar"></div>
+                <div class="card-inner">
+                    <div class="card-badge">SECURE</div>
+                    <div class="card-header">
+                        <div class="card-header-left">
+                            <div class="card-icon-wrapper">
+                                <svg class="card-icon" width="45" height="45" viewBox="0 0 45 45" aria-hidden="true">
+                                    <defs>
+                                        <linearGradient id="cardGold2">
+                                            <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#b8941f;stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <polygon points="22.5,6 33,12 33,27 22.5,33 12,27 12,12" 
+                                             fill="none" 
+                                             stroke="url(#cardGold2)" 
+                                             stroke-width="1.5"/>
+                                    <path d="M22.5,10 L29,14 L29,22 C29,27 22.5,30 22.5,30 S16,27 16,22 L16,14 Z" 
+                                          fill="url(#cardGold2)" 
+                                          opacity="0.5"/>
+                                </svg>
+                            </div>
+                            <h3 class="card-title">Security</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        Enterprise-grade security with multi-layer protection, real-time threat detection, and automated response systems.
+                    </div>
+                    <div class="card-stats-visual">
+                        <div class="stat-progress">
+                            <div class="stat-label">Protection Level</div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="stat-progress">
+                            <div class="stat-label">Threat Detection</div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="card-footer">
+                        <div class="card-stats">
+                            <span class="card-stat">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" opacity="0.5">
+                                    <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                                    <circle cx="6" cy="6" r="2" fill="currentColor"/>
+                                </svg>
+                                <span class="card-stat-value">Protected</span>
+                            </span>
+                            <span class="card-stat">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" opacity="0.5">
+                                    <path d="M2,6 L5,9 L10,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span class="card-stat-value">247</span>
+                            </span>
+                        </div>
+                        <button class="card-action">Configure</button>
+                    </footer>
+                </div>
+            </article>
+            
+            <article class="card-veritron">
+                <div class="card-status-bar"></div>
+                <div class="card-inner">
+                    <div class="card-badge">LIVE</div>
+                    <div class="card-header">
+                        <div class="card-header-left">
+                            <div class="card-icon-wrapper">
+                                <svg class="card-icon" width="45" height="45" viewBox="0 0 45 45" aria-hidden="true">
+                                    <defs>
+                                        <linearGradient id="cardGold3">
+                                            <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#b8941f;stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <polygon points="22.5,6 33,12 33,27 22.5,33 12,27 12,12" 
+                                             fill="none" 
+                                             stroke="url(#cardGold3)" 
+                                             stroke-width="1.5"/>
+                                    <rect x="16" y="24" width="5" height="7" fill="url(#cardGold3)" opacity="0.5"/>
+                                    <rect x="20" y="19" width="5" height="12" fill="url(#cardGold3)" opacity="0.7"/>
+                                    <rect x="24" y="14" width="5" height="17" fill="url(#cardGold3)"/>
+                                </svg>
+                            </div>
+                            <h3 class="card-title">Analytics</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        Comprehensive data visualization and analysis tools with predictive modeling and custom reporting capabilities.
+                    </div>
+                    <div class="card-stats-visual">
+                        <div class="stat-progress">
+                            <div class="stat-label">Data Processed</div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 72%"></div>
+                            </div>
+                        </div>
+                        <div class="stat-progress">
+                            <div class="stat-label">Accuracy Rate</div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 91%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="card-footer">
+                        <div class="card-stats">
+                            <span class="card-stat">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" opacity="0.5">
+                                    <rect x="1" y="8" width="3" height="3" fill="currentColor"/>
+                                    <rect x="5" y="5" width="3" height="6" fill="currentColor"/>
+                                    <rect x="9" y="2" width="3" height="9" fill="currentColor"/>
+                                </svg>
+                                <span class="card-stat-value">3.2TB</span>
+                            </span>
+                            <span class="card-stat">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" opacity="0.5">
+                                    <path d="M6,2 L6,6 L9,9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M2,9 L4,6 L7,7 L10,3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span class="card-stat-value">+18%</span>
+                            </span>
+                        </div>
+                        <button class="card-action">Analyze</button>
+                    </footer>
+                </div>
+            </article>
+        </div>
+    </section>
+    
+    <!-- Navigation - Enhanced -->
+    <section class="section" role="region" aria-label="Navigation Component">
+        <h2>Navigation Component</h2>
+        <nav class="navbar-veritron" role="navigation" aria-label="Main navigation">
+            <div class="nav-brand-section">
+                <div class="nav-brand">VERITRON</div>
+            </div>
+            <div class="nav-menu-wrapper">
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="#dashboard" class="nav-link active" role="menuitem">
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#analytics" class="nav-link" role="menuitem">
+                            Analytics
+                            <span class="nav-badge">3</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#security" class="nav-link" role="menuitem">
+                            Security
+                        </a>
+                        <div class="nav-dropdown">
+                            <div class="nav-dropdown-item">Access Control</div>
+                            <div class="nav-dropdown-item">Audit Logs</div>
+                            <div class="nav-dropdown-item">Encryption</div>
+                            <div class="nav-dropdown-item">Compliance</div>
+                        </div>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#settings" class="nav-link" role="menuitem">
+                            Settings
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-actions">
+                <div class="nav-search">
+                    <input type="text" class="nav-search-input" placeholder="Search...">
+                    <button class="nav-search-btn" aria-label="Search">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <line x1="9.5" y1="9.5" x2="14" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="nav-profile">
+                    <div class="nav-avatar">A</div>
+                    <span class="nav-profile-name">Admin</span>
+                </div>
+                <button class="nav-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </section>
+    
+    <!-- Input Fields -->
+    <section class="section" role="region" aria-label="Input Components">
+        <h2>Glass Morphism Input Components</h2>
+        <div class="input-container">
+            <div class="input-group">
+                <input type="text" class="input-veritron" placeholder="Enter username" required aria-label="Username">
+                <label class="input-label">Username</label>
+            </div>
+            <div class="input-group">
+                <input type="email" class="input-veritron" placeholder="Enter email address" required aria-label="Email">
+                <label class="input-label">Email</label>
+            </div>
+            <div class="input-group">
+                <input type="password" class="input-veritron" placeholder="Enter secure password" required aria-label="Password">
+                <label class="input-label">Password</label>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Additional Components -->
+    <section class="section" role="region" aria-label="Premium Components">
+        <h2>Premium Components</h2>
+        
+        <div style="margin-bottom: var(--vt-space-lg);">
+            <h3 style="color: var(--vt-text-muted); font-size: var(--vt-text-xs); margin-bottom: var(--vt-space-md);">TOGGLE SWITCHES</h3>
+            <div class="toggle-container" role="group" aria-label="Toggle switches">
+                <label class="toggle-veritron">
+                    <input type="checkbox" aria-label="Toggle option 1">
+                    <span class="toggle-slider"></span>
+                </label>
+                <label class="toggle-veritron">
+                    <input type="checkbox" checked aria-label="Toggle option 2">
+                    <span class="toggle-slider"></span>
+                </label>
+                <label class="toggle-veritron">
+                    <input type="checkbox" aria-label="Toggle option 3">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </div>
+        
+        <div>
+            <h3 style="color: var(--vt-text-muted); font-size: var(--vt-text-xs); margin-bottom: var(--vt-space-md);">MATERIAL BADGES</h3>
+            <div class="badge-container" role="group" aria-label="Badges">
+                <span class="badge-veritron" role="status">Default</span>
+                <span class="badge-veritron badge-aluminum" role="status">Aluminum</span>
+                <span class="badge-veritron badge-gold" role="status">Premium</span>
+                <span class="badge-veritron badge-gunmetal" role="status">Gunmetal</span>
+                <span class="badge-veritron" role="status">Beta</span>
+                <span class="badge-veritron badge-gold" role="status">New</span>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // Mobile Navigation Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenuWrapper = document.querySelector('.nav-menu-wrapper');
+            
+            if (navToggle && navMenuWrapper) {
+                navToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navMenuWrapper.classList.toggle('active');
+                });
+            }
+            
+            // Search Toggle
+            const searchBtn = document.querySelector('.nav-search-btn');
+            const searchInput = document.querySelector('.nav-search-input');
+            
+            if (searchBtn && searchInput) {
+                searchBtn.addEventListener('click', function() {
+                    searchInput.classList.toggle('active');
+                    if (searchInput.classList.contains('active')) {
+                        searchInput.focus();
+                    }
+                });
+                
+                searchInput.addEventListener('blur', function() {
+                    if (this.value === '') {
+                        this.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Card 3D Tilt Effect
+            const cards = document.querySelectorAll('.card-veritron');
+            
+            cards.forEach(card => {
+                card.addEventListener('mousemove', function(e) {
+                    const rect = card.getBoundingClientRect();
+                    const x = ((e.clientX - rect.left) / rect.width) * 100;
+                    const y = ((e.clientY - rect.top) / rect.height) * 100;
+                    
+                    card.style.setProperty('--mouse-x', `${x}%`);
+                    card.style.setProperty('--mouse-y', `${y}%`);
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    card.style.setProperty('--mouse-x', '50%');
+                    card.style.setProperty('--mouse-y', '50%');
+                });
+            });
+            
+            // Progress Bar Animation on Scroll
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const fills = entry.target.querySelectorAll('.stat-fill');
+                        fills.forEach(fill => {
+                            const width = fill.style.width;
+                            fill.style.width = '0';
+                            setTimeout(() => {
+                                fill.style.width = width;
+                            }, 100);
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            document.querySelectorAll('.card-veritron').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

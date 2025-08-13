@@ -1,0 +1,271 @@
+<svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Premium Aluminum Gradient -->
+        <linearGradient id="dbAlum" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+            <stop offset="15%" style="stop-color:#e8e8e8;stop-opacity:1" />
+            <stop offset="30%" style="stop-color:#d0d0d0;stop-opacity:1" />
+            <stop offset="45%" style="stop-color:#b8b8b8;stop-opacity:1" />
+            <stop offset="60%" style="stop-color:#a0a0a0;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#888888;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#707070;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#606060;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Premium Gold Gradient -->
+        <linearGradient id="dbGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fff9e6;stop-opacity:1" />
+            <stop offset="25%" style="stop-color:#ffed9e;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#ffd428;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#d4af37;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#946828;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Data Stream Colors -->
+        <linearGradient id="dataBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#a5d8ff;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#4dabf7;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#1971c2;stop-opacity:1" />
+        </linearGradient>
+        
+        <linearGradient id="dataGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#b2f2bb;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#69db7c;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#2f9e44;stop-opacity:1" />
+        </linearGradient>
+        
+        <linearGradient id="dataPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#e5dbff;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#9775fa;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#6741d9;stop-opacity:1" />
+        </linearGradient>
+        
+        <linearGradient id="dataOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffd8a8;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#ff922b;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#e8590c;stop-opacity:1" />
+        </linearGradient>
+        
+        <linearGradient id="dataPink" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fcc2d7;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#f783ac;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#d6336c;stop-opacity:1" />
+        </linearGradient>
+        
+        <linearGradient id="dataCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#c5f6fa;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#66d9e8;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#0b7285;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Holographic Effect -->
+        <linearGradient id="holographic" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ff006e;stop-opacity:0.8" />
+            <stop offset="20%" style="stop-color:#8338ec;stop-opacity:0.8" />
+            <stop offset="40%" style="stop-color:#3a86ff;stop-opacity:0.8" />
+            <stop offset="60%" style="stop-color:#06ffa5;stop-opacity:0.8" />
+            <stop offset="80%" style="stop-color:#ffbe0b;stop-opacity:0.8" />
+            <stop offset="100%" style="stop-color:#fb5607;stop-opacity:0.8" />
+        </linearGradient>
+        
+        <!-- Database Glow -->
+        <radialGradient id="dbGlow">
+            <stop offset="0%" style="stop-color:#d4af37;stop-opacity:0.5" />
+            <stop offset="50%" style="stop-color:#d4af37;stop-opacity:0.2" />
+            <stop offset="100%" style="stop-color:#d4af37;stop-opacity:0" />
+        </radialGradient>
+        
+        <!-- Inner Shadow -->
+        <filter id="dbInnerShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.5"/>
+            <feComposite in2="offsetblur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        
+        <!-- Glow Filter -->
+        <filter id="dbGlowFilter">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <g transform="translate(45,45)">
+        <!-- Outer Hexagon Frame -->
+        <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                 fill="url(#dbAlum)" 
+                 stroke="#808080" 
+                 stroke-width="0.75"
+                 filter="url(#dbInnerShadow)"/>
+        <!-- Inner Dark Background -->
+        <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                 fill="#0a0a0f" 
+                 opacity="0.94"/>
+        
+        <!-- Background Glow -->
+        <ellipse cx="0" cy="0" rx="16" ry="12" 
+                 fill="url(#dbGlow)" 
+                 opacity="0.3">
+            <animate attributeName="opacity" values="0.3;0.5;0.3" dur="4s" repeatCount="indefinite"/>
+        </ellipse>
+        
+        <!-- Database Cylinder Structure -->
+        <!-- Top Section -->
+        <ellipse cx="0" cy="-8" rx="12" ry="4" 
+                 fill="none" 
+                 stroke="url(#dbGold)" 
+                 stroke-width="2"
+                 opacity="0.95"/>
+        <ellipse cx="0" cy="-8" rx="11" ry="3.5" 
+                 fill="url(#holographic)" 
+                 opacity="0.15"/>
+        
+        <!-- Data Layers in Top Section -->
+        <ellipse cx="0" cy="-8" rx="10" ry="3" 
+                 fill="none" 
+                 stroke="url(#dataBlue)" 
+                 stroke-width="0.5"
+                 opacity="0.8"
+                 filter="url(#dbGlowFilter)">
+            <animate attributeName="rx" values="10;11;10" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="ry" values="3;3.3;3" dur="3s" repeatCount="indefinite"/>
+        </ellipse>
+        
+        <!-- Middle Section 1 -->
+        <ellipse cx="0" cy="-3" rx="12" ry="4" 
+                 fill="none" 
+                 stroke="url(#dbGold)" 
+                 stroke-width="2"
+                 opacity="0.95"/>
+        <ellipse cx="0" cy="-3" rx="11" ry="3.5" 
+                 fill="url(#dataGreen)" 
+                 opacity="0.1"/>
+        
+        <!-- Middle Section 2 -->
+        <ellipse cx="0" cy="2" rx="12" ry="4" 
+                 fill="none" 
+                 stroke="url(#dbGold)" 
+                 stroke-width="2"
+                 opacity="0.95"/>
+        <ellipse cx="0" cy="2" rx="11" ry="3.5" 
+                 fill="url(#dataPurple)" 
+                 opacity="0.1"/>
+        
+        <!-- Bottom Section -->
+        <ellipse cx="0" cy="7" rx="12" ry="4" 
+                 fill="none" 
+                 stroke="url(#dbGold)" 
+                 stroke-width="2"
+                 opacity="0.95"/>
+        <ellipse cx="0" cy="7" rx="11" ry="3.5" 
+                 fill="url(#dataOrange)" 
+                 opacity="0.1"/>
+        
+        <!-- Bottom Cap -->
+        <ellipse cx="0" cy="12" rx="12" ry="4" 
+                 fill="none" 
+                 stroke="url(#dbGold)" 
+                 stroke-width="2"
+                 opacity="0.95"/>
+        <ellipse cx="0" cy="12" rx="11" ry="3.5" 
+                 fill="url(#dataPink)" 
+                 opacity="0.15"/>
+        
+        <!-- Vertical Lines -->
+        <line x1="-12" y1="-8" x2="-12" y2="12" 
+              stroke="url(#dbGold)" 
+              stroke-width="2"
+              opacity="0.95"/>
+        <line x1="12" y1="-8" x2="12" y2="12" 
+              stroke="url(#dbGold)" 
+              stroke-width="2"
+              opacity="0.95"/>
+        
+        <!-- Data Visualization Bars -->
+        <g opacity="0.9">
+            <!-- Level 1 Data -->
+            <rect x="-8" y="-8" width="2" height="2" fill="url(#dataBlue)" rx="0.3" filter="url(#dbGlowFilter)">
+                <animate attributeName="height" values="2;3;2" dur="2s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="-5" y="-8" width="2" height="2.5" fill="url(#dataGreen)" rx="0.3">
+                <animate attributeName="height" values="2.5;3.5;2.5" dur="2.2s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="-2" y="-8" width="2" height="1.8" fill="url(#dataPurple)" rx="0.3">
+                <animate attributeName="height" values="1.8;2.8;1.8" dur="2.4s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="1" y="-8" width="2" height="2.2" fill="url(#dataOrange)" rx="0.3">
+                <animate attributeName="height" values="2.2;3.2;2.2" dur="2.6s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="4" y="-8" width="2" height="1.5" fill="url(#dataPink)" rx="0.3">
+                <animate attributeName="height" values="1.5;2.5;1.5" dur="2.8s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="7" y="-8" width="2" height="2.8" fill="url(#dataCyan)" rx="0.3">
+                <animate attributeName="height" values="2.8;3.8;2.8" dur="3s" repeatCount="indefinite"/>
+            </rect>
+        </g>
+        
+        <!-- Data Flow Particles -->
+        <g opacity="0.8">
+            <circle cx="0" cy="-10" r="0.5" fill="url(#dataBlue)">
+                <animate attributeName="cy" values="-10;14" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="-4" cy="-10" r="0.5" fill="url(#dataGreen)">
+                <animate attributeName="cy" values="-10;14" dur="2s" begin="0.3s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;0" dur="2s" begin="0.3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="4" cy="-10" r="0.5" fill="url(#dataPurple)">
+                <animate attributeName="cy" values="-10;14" dur="2s" begin="0.6s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;0" dur="2s" begin="0.6s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="-6" cy="-10" r="0.5" fill="url(#dataOrange)">
+                <animate attributeName="cy" values="-10;14" dur="2s" begin="0.9s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;0" dur="2s" begin="0.9s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="6" cy="-10" r="0.5" fill="url(#dataPink)">
+                <animate attributeName="cy" values="-10;14" dur="2s" begin="1.2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;0" dur="2s" begin="1.2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="0" cy="-10" r="0.5" fill="url(#dataCyan)">
+                <animate attributeName="cy" values="-10;14" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;0" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+        
+        <!-- Query Text Animation -->
+        <g opacity="0.6">
+            <text x="-14" y="-3" font-size="1.5" fill="url(#dataBlue)" font-family="monospace">SELECT</text>
+            <text x="-14" y="2" font-size="1.5" fill="url(#dataGreen)" font-family="monospace">INSERT</text>
+            <text x="-14" y="7" font-size="1.5" fill="url(#dataPurple)" font-family="monospace">UPDATE</text>
+            <animate attributeName="opacity" values="0;0.6;0" dur="4s" repeatCount="indefinite"/>
+        </g>
+        
+        <!-- Status Indicators -->
+        <g transform="translate(14,-10)">
+            <circle cx="0" cy="0" r="1.5" fill="url(#dataGreen)" filter="url(#dbGlowFilter)">
+                <animate attributeName="r" values="1.5;2;1.5" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="0" cy="4" r="1.5" fill="url(#dataBlue)" filter="url(#dbGlowFilter)">
+                <animate attributeName="r" values="1.5;2;1.5" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="0" cy="8" r="1.5" fill="url(#dataPurple)" filter="url(#dbGlowFilter)">
+                <animate attributeName="r" values="1.5;2;1.5" dur="2s" begin="1s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+        
+        <!-- Holographic Shine Effect -->
+        <rect x="-12" y="-8" width="24" height="20" 
+              fill="url(#holographic)" 
+              opacity="0.05"
+              transform="skewY(-5)">
+            <animateTransform attributeName="transform" type="translate" values="0,-20;0,20" dur="5s" repeatCount="indefinite"/>
+        </rect>
+    </g>
+</svg>

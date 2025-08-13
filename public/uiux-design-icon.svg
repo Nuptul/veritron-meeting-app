@@ -1,0 +1,312 @@
+<svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Complex Gunmetal Gradient - 15 stops -->
+        <linearGradient id="uiGunmetal" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#6a6a6a;stop-opacity:1" />
+            <stop offset="5%" style="stop-color:#626262;stop-opacity:1" />
+            <stop offset="10%" style="stop-color:#5a5a5a;stop-opacity:1" />
+            <stop offset="15%" style="stop-color:#525252;stop-opacity:1" />
+            <stop offset="22%" style="stop-color:#4a4a4a;stop-opacity:1" />
+            <stop offset="28%" style="stop-color:#424242;stop-opacity:1" />
+            <stop offset="35%" style="stop-color:#3a3a3a;stop-opacity:1" />
+            <stop offset="42%" style="stop-color:#323232;stop-opacity:1" />
+            <stop offset="48%" style="stop-color:#2a2a2a;stop-opacity:1" />
+            <stop offset="55%" style="stop-color:#222222;stop-opacity:1" />
+            <stop offset="62%" style="stop-color:#1c1c1c;stop-opacity:1" />
+            <stop offset="68%" style="stop-color:#161616;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#101010;stop-opacity:1" />
+            <stop offset="82%" style="stop-color:#0c0c0c;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#080808;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#040404;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Complex Gold Gradient - 12 stops -->
+        <linearGradient id="uiGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fff4d4;stop-opacity:1" />
+            <stop offset="8%" style="stop-color:#ffed9e;stop-opacity:1" />
+            <stop offset="15%" style="stop-color:#ffe574;stop-opacity:1" />
+            <stop offset="22%" style="stop-color:#ffdb4a;stop-opacity:1" />
+            <stop offset="28%" style="stop-color:#ffd428;stop-opacity:1" />
+            <stop offset="35%" style="stop-color:#f4c838;stop-opacity:1" />
+            <stop offset="42%" style="stop-color:#e8bc3c;stop-opacity:1" />
+            <stop offset="48%" style="stop-color:#dcb03e;stop-opacity:1" />
+            <stop offset="55%" style="stop-color:#d0a43c;stop-opacity:1" />
+            <stop offset="62%" style="stop-color:#c49838;stop-opacity:1" />
+            <stop offset="68%" style="stop-color:#b88c34;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#ac8030;stop-opacity:1" />
+            <stop offset="82%" style="stop-color:#a0742c;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#946828;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#885c24;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Layer Colors -->
+        <linearGradient id="layerPink" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ff6ec7;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#ff2d95;stop-opacity:1" />
+        </linearGradient>
+        
+        <linearGradient id="layerCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#00f5ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#00a8cc;stop-opacity:1" />
+        </linearGradient>
+        
+        <linearGradient id="layerPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#b794f6;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#805ad5;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Grid Pattern -->
+        <pattern id="gridPattern" x="0" y="0" width="3" height="3" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="3" y2="0" stroke="#d4af37" stroke-width="0.1" opacity="0.2"/>
+            <line x1="0" y1="0" x2="0" y2="3" stroke="#d4af37" stroke-width="0.1" opacity="0.2"/>
+        </pattern>
+        
+        <!-- Dot Pattern -->
+        <pattern id="dotPattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="0.3" fill="#d4af37" opacity="0.15"/>
+        </pattern>
+        
+        <!-- Inner Shadow Filter -->
+        <filter id="uiInnerShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.4"/>
+            <feComposite in2="offsetblur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        
+        <!-- Glow Filter -->
+        <filter id="uiGlow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        
+        <!-- Blur Filter -->
+        <filter id="uiBlur">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0.5"/>
+        </filter>
+        
+        <!-- Screen Reflection -->
+        <linearGradient id="screenReflection" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.2" />
+            <stop offset="50%" style="stop-color:#ffffff;stop-opacity:0.05" />
+            <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+        </linearGradient>
+    </defs>
+    
+    <g transform="translate(45,45)">
+        <!-- Outer Hexagon Frame -->
+        <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                 fill="url(#uiGunmetal)" 
+                 stroke="#1a1a1a" 
+                 stroke-width="0.75"
+                 filter="url(#uiInnerShadow)"/>
+        
+        <!-- Inner Dark Background -->
+        <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                 fill="#000000" 
+                 opacity="0.94"/>
+        
+        <!-- Grid Background Pattern -->
+        <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                 fill="url(#gridPattern)" 
+                 opacity="0.3"/>
+        
+        <!-- Back Layer Window (Blurred) -->
+        <g filter="url(#uiBlur)" opacity="0.4">
+            <rect x="-14" y="-11" width="25" height="18" 
+                  fill="none" 
+                  stroke="url(#uiGold)" 
+                  stroke-width="1.2" 
+                  rx="2"/>
+            <rect x="-14" y="-11" width="25" height="3" 
+                  fill="url(#uiGold)" 
+                  opacity="0.2" 
+                  rx="2 2 0 0"/>
+        </g>
+        
+        <!-- Middle Layer Window -->
+        <g opacity="0.6">
+            <rect x="-10" y="-7" width="23" height="16" 
+                  fill="none" 
+                  stroke="url(#uiGold)" 
+                  stroke-width="1.5" 
+                  rx="2"/>
+            <rect x="-10" y="-7" width="23" height="3" 
+                  fill="url(#uiGold)" 
+                  opacity="0.25" 
+                  rx="2 2 0 0"/>
+            <!-- Layer Controls -->
+            <circle cx="-7.5" cy="-5.5" r="0.6" fill="url(#layerPink)" opacity="0.8"/>
+            <circle cx="-5.5" cy="-5.5" r="0.6" fill="url(#layerCyan)" opacity="0.8"/>
+            <circle cx="-3.5" cy="-5.5" r="0.6" fill="url(#layerPurple)" opacity="0.8"/>
+        </g>
+        
+        <!-- Main Design Canvas -->
+        <rect x="-6" y="-3" width="18" height="14" 
+              fill="#0a0a0f" 
+              stroke="url(#uiGold)" 
+              stroke-width="2" 
+              rx="2.5"
+              opacity="0.95"/>
+        
+        <!-- Canvas Header -->
+        <rect x="-6" y="-3" width="18" height="3" 
+              fill="url(#uiGold)" 
+              opacity="0.3" 
+              rx="2.5 2.5 0 0"/>
+        
+        <!-- Window Controls (Main) -->
+        <circle cx="-3.5" cy="-1.5" r="0.8" fill="url(#uiGold)" opacity="0.9">
+            <animate attributeName="opacity" values="0.9;0.5;0.9" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="-1" cy="-1.5" r="0.8" fill="url(#uiGold)" opacity="0.9"/>
+        <circle cx="1.5" cy="-1.5" r="0.8" fill="url(#uiGold)" opacity="0.9"/>
+        
+        <!-- Design Elements -->
+        
+        <!-- Color Palette -->
+        <g transform="translate(-4, 2)">
+            <rect x="0" y="0" width="2" height="2" fill="url(#layerPink)" rx="0.3"/>
+            <rect x="2.5" y="0" width="2" height="2" fill="url(#layerCyan)" rx="0.3"/>
+            <rect x="5" y="0" width="2" height="2" fill="url(#layerPurple)" rx="0.3"/>
+            <rect x="7.5" y="0" width="2" height="2" fill="url(#uiGold)" rx="0.3">
+                <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+            </rect>
+        </g>
+        
+        <!-- Typography Samples -->
+        <rect x="-4" y="5" width="8" height="0.8" fill="url(#uiGold)" opacity="0.7" rx="0.2"/>
+        <rect x="-4" y="6.5" width="6" height="0.6" fill="url(#uiGold)" opacity="0.5" rx="0.2"/>
+        <rect x="-4" y="7.8" width="9" height="0.4" fill="url(#uiGold)" opacity="0.3" rx="0.2"/>
+        
+        <!-- Component Preview -->
+        <rect x="6" y="2" width="4" height="4" fill="none" stroke="url(#uiGold)" stroke-width="0.8" rx="0.5" opacity="0.6"/>
+        <circle cx="8" cy="4" r="1.2" fill="none" stroke="url(#layerCyan)" stroke-width="0.5" opacity="0.8">
+            <animate attributeName="r" values="1.2;1.5;1.2" dur="2.5s" repeatCount="indefinite"/>
+        </circle>
+        
+        <!-- Ruler/Measurement Tools -->
+        <g transform="translate(-19, -12)" opacity="0.6">
+            <line x1="0" y1="0" x2="38" y2="0" stroke="url(#uiGold)" stroke-width="0.3"/>
+            <line x1="0" y1="-0.5" x2="0" y2="0.5" stroke="url(#uiGold)" stroke-width="0.3"/>
+            <line x1="5" y1="-0.3" x2="5" y2="0.3" stroke="url(#uiGold)" stroke-width="0.2"/>
+            <line x1="10" y1="-0.5" x2="10" y2="0.5" stroke="url(#uiGold)" stroke-width="0.3"/>
+            <line x1="15" y1="-0.3" x2="15" y2="0.3" stroke="url(#uiGold)" stroke-width="0.2"/>
+            <line x1="20" y1="-0.5" x2="20" y2="0.5" stroke="url(#uiGold)" stroke-width="0.3"/>
+            <line x1="25" y1="-0.3" x2="25" y2="0.3" stroke="url(#uiGold)" stroke-width="0.2"/>
+            <line x1="30" y1="-0.5" x2="30" y2="0.5" stroke="url(#uiGold)" stroke-width="0.3"/>
+            <line x1="35" y1="-0.3" x2="35" y2="0.3" stroke="url(#uiGold)" stroke-width="0.2"/>
+            <line x1="38" y1="-0.5" x2="38" y2="0.5" stroke="url(#uiGold)" stroke-width="0.3"/>
+        </g>
+        
+        <g transform="translate(-19, -12)" opacity="0.6">
+            <line x1="0" y1="0" x2="0" y2="24" stroke="url(#uiGold)" stroke-width="0.3"/>
+            <line x1="-0.5" y1="0" x2="0.5" y2="0" stroke="url(#uiGold)" stroke-width="0.3"/>
+            <line x1="-0.3" y1="5" x2="0.3" y2="5" stroke="url(#uiGold)" stroke-width="0.2"/>
+            <line x1="-0.5" y1="10" x2="0.5" y2="10" stroke="url(#uiGold)" stroke-width="0.3"/>
+            <line x1="-0.3" y1="15" x2="0.3" y2="15" stroke="url(#uiGold)" stroke-width="0.2"/>
+            <line x1="-0.5" y1="20" x2="0.5" y2="20" stroke="url(#uiGold)" stroke-width="0.3"/>
+            <line x1="-0.5" y1="24" x2="0.5" y2="24" stroke="url(#uiGold)" stroke-width="0.3"/>
+        </g>
+        
+        <!-- Pen/Design Tool -->
+        <g transform="rotate(45) translate(10, -8)">
+            <rect x="0" y="0" width="1.5" height="8" fill="url(#uiGold)" rx="0.3"/>
+            <polygon points="0,8 0.75,10 1.5,8" fill="url(#uiGold)"/>
+            <rect x="0" y="0" width="1.5" height="2" fill="url(#layerPink)" rx="0.3"/>
+            <circle cx="0.75" cy="9" r="0.2" fill="#000000"/>
+        </g>
+        
+        <!-- Selection Box with Handles -->
+        <g opacity="0.8">
+            <rect x="-3" y="1" width="5" height="5" fill="none" stroke="url(#uiGold)" stroke-width="0.5" stroke-dasharray="0.5,0.5">
+                <animate attributeName="stroke-dashoffset" values="0;1" dur="0.5s" repeatCount="indefinite"/>
+            </rect>
+            <!-- Corner Handles -->
+            <rect x="-3.5" y="0.5" width="1" height="1" fill="url(#uiGold)" rx="0.2"/>
+            <rect x="1.5" y="0.5" width="1" height="1" fill="url(#uiGold)" rx="0.2"/>
+            <rect x="-3.5" y="5.5" width="1" height="1" fill="url(#uiGold)" rx="0.2"/>
+            <rect x="1.5" y="5.5" width="1" height="1" fill="url(#uiGold)" rx="0.2"/>
+        </g>
+        
+        <!-- Layers Panel -->
+        <g transform="translate(13, -6)">
+            <rect x="0" y="0" width="8" height="10" fill="#050505" stroke="url(#uiGold)" stroke-width="0.8" opacity="0.9" rx="1"/>
+            <rect x="0" y="0" width="8" height="1.5" fill="url(#uiGold)" opacity="0.2" rx="1 1 0 0"/>
+            <text x="4" y="1" font-size="1" fill="url(#uiGold)" text-anchor="middle" font-family="monospace" opacity="0.7">LAYERS</text>
+            
+            <!-- Layer Items -->
+            <rect x="0.5" y="2" width="7" height="1.2" fill="url(#uiGold)" opacity="0.1" rx="0.2"/>
+            <circle cx="1.2" cy="2.6" r="0.3" fill="url(#layerPink)" opacity="0.8"/>
+            <rect x="2" y="2.4" width="3" height="0.4" fill="url(#uiGold)" opacity="0.4" rx="0.1"/>
+            
+            <rect x="0.5" y="3.5" width="7" height="1.2" fill="url(#uiGold)" opacity="0.2" rx="0.2"/>
+            <circle cx="1.2" cy="4.1" r="0.3" fill="url(#layerCyan)" opacity="0.8"/>
+            <rect x="2" y="3.9" width="4" height="0.4" fill="url(#uiGold)" opacity="0.4" rx="0.1"/>
+            
+            <rect x="0.5" y="5" width="7" height="1.2" fill="url(#uiGold)" opacity="0.1" rx="0.2"/>
+            <circle cx="1.2" cy="5.6" r="0.3" fill="url(#layerPurple)" opacity="0.8"/>
+            <rect x="2" y="5.4" width="2.5" height="0.4" fill="url(#uiGold)" opacity="0.4" rx="0.1"/>
+            
+            <!-- Eye Icons -->
+            <circle cx="6.5" cy="2.6" r="0.4" fill="none" stroke="url(#uiGold)" stroke-width="0.2" opacity="0.5"/>
+            <circle cx="6.5" cy="2.6" r="0.15" fill="url(#uiGold)" opacity="0.5"/>
+            
+            <circle cx="6.5" cy="4.1" r="0.4" fill="none" stroke="url(#uiGold)" stroke-width="0.2" opacity="0.5"/>
+            <circle cx="6.5" cy="4.1" r="0.15" fill="url(#uiGold)" opacity="0.5"/>
+        </g>
+        
+        <!-- Bezier Curve Path -->
+        <path d="M-15,8 Q-10,2 -5,7 T5,5" fill="none" stroke="url(#layerCyan)" stroke-width="0.8" opacity="0.6"/>
+        <circle cx="-15" cy="8" r="0.5" fill="url(#uiGold)" opacity="0.8"/>
+        <circle cx="-5" cy="7" r="0.5" fill="url(#uiGold)" opacity="0.8"/>
+        <circle cx="5" cy="5" r="0.5" fill="url(#uiGold)" opacity="0.8"/>
+        <line x1="-15" y1="8" x2="-10" y2="2" stroke="url(#uiGold)" stroke-width="0.2" opacity="0.4"/>
+        <line x1="-5" y1="7" x2="0" y2="1" stroke="url(#uiGold)" stroke-width="0.2" opacity="0.4"/>
+        <circle cx="-10" cy="2" r="0.3" fill="url(#uiGold)" opacity="0.6"/>
+        <circle cx="0" cy="1" r="0.3" fill="url(#uiGold)" opacity="0.6"/>
+        
+        <!-- Screen Reflection -->
+        <rect x="-6" y="-3" width="18" height="14" 
+              fill="url(#screenReflection)" 
+              rx="2.5"
+              opacity="0.5"/>
+        
+        <!-- Floating UI Elements -->
+        <g opacity="0.7">
+            <rect x="-16" y="-8" width="3" height="3" fill="url(#dotPattern)" stroke="url(#uiGold)" stroke-width="0.3" rx="0.5">
+                <animateTransform attributeName="transform" type="translate" values="0,0;0,-1;0,0" dur="3s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="14" y="6" width="2.5" height="2.5" fill="url(#dotPattern)" stroke="url(#uiGold)" stroke-width="0.3" rx="0.5">
+                <animateTransform attributeName="transform" type="translate" values="0,0;0,1;0,0" dur="3.5s" repeatCount="indefinite"/>
+            </rect>
+        </g>
+        
+        <!-- Cursor -->
+        <g transform="translate(3, 3)">
+            <path d="M0,0 L4,3 L2.5,4.5 L1,3.5 Z" fill="url(#uiGold)" opacity="0.9"/>
+            <path d="M0,0 L4,3 L2.5,4.5 L1,3.5 Z" fill="none" stroke="#000000" stroke-width="0.2" opacity="0.5"/>
+            <animateTransform attributeName="transform" type="translate" values="0,0;-3,-2;-5,2;0,0" dur="4s" repeatCount="indefinite"/>
+        </g>
+        
+        <!-- Artboard Corners -->
+        <g opacity="0.4">
+            <path d="M-18,-10 L-18,-7 M-18,-10 L-15,-10" stroke="url(#uiGold)" stroke-width="0.5" stroke-linecap="round"/>
+            <path d="M18,-10 L18,-7 M18,-10 L15,-10" stroke="url(#uiGold)" stroke-width="0.5" stroke-linecap="round"/>
+            <path d="M-18,10 L-18,7 M-18,10 L-15,10" stroke="url(#uiGold)" stroke-width="0.5" stroke-linecap="round"/>
+            <path d="M18,10 L18,7 M18,10 L15,10" stroke="url(#uiGold)" stroke-width="0.5" stroke-linecap="round"/>
+        </g>
+        
+        <!-- Glow Effect -->
+        <ellipse cx="0" cy="0" rx="22" ry="16" fill="url(#uiGold)" opacity="0.05" filter="url(#uiGlow)">
+            <animate attributeName="opacity" values="0.05;0.1;0.05" dur="4s" repeatCount="indefinite"/>
+        </ellipse>
+    </g>
+</svg>

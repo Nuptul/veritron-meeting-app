@@ -1,0 +1,232 @@
+<svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Premium Gunmetal Gradient -->
+        <linearGradient id="recordGunmetal" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#6a6a6a;stop-opacity:1" />
+            <stop offset="15%" style="stop-color:#5a5a5a;stop-opacity:1" />
+            <stop offset="30%" style="stop-color:#4a4a4a;stop-opacity:1" />
+            <stop offset="45%" style="stop-color:#3a3a3a;stop-opacity:1" />
+            <stop offset="60%" style="stop-color:#2a2a2a;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#1a1a1a;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#0a0a0a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Premium Gold Gradient -->
+        <linearGradient id="recordGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fff9e6;stop-opacity:1" />
+            <stop offset="25%" style="stop-color:#ffed9e;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#ffd428;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#d4af37;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#946828;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Recording Red -->
+        <radialGradient id="recordRed">
+            <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+            <stop offset="30%" style="stop-color:#f03e3e;stop-opacity:1" />
+            <stop offset="60%" style="stop-color:#c92a2a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#a61e1e;stop-opacity:1" />
+        </radialGradient>
+        
+        <!-- Recording Pulse -->
+        <radialGradient id="recordPulse">
+            <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:0.8" />
+            <stop offset="50%" style="stop-color:#f03e3e;stop-opacity:0.4" />
+            <stop offset="100%" style="stop-color:#c92a2a;stop-opacity:0" />
+        </radialGradient>
+        
+        <!-- Recording Glow -->
+        <radialGradient id="recordGlow">
+            <stop offset="0%" style="stop-color:#f03e3e;stop-opacity:0.6" />
+            <stop offset="50%" style="stop-color:#f03e3e;stop-opacity:0.3" />
+            <stop offset="100%" style="stop-color:#f03e3e;stop-opacity:0" />
+        </radialGradient>
+        
+        <!-- Grid Pattern -->
+        <pattern id="recordGridPattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="0" y2="4" stroke="#d4af37" stroke-width="0.1" opacity="0.2"/>
+            <line x1="0" y1="0" x2="4" y2="0" stroke="#d4af37" stroke-width="0.1" opacity="0.2"/>
+        </pattern>
+        
+        <!-- Inner Shadow -->
+        <filter id="recordInnerShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.5"/>
+            <feComposite in2="offsetblur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        
+        <!-- Glow Filter -->
+        <filter id="recordGlowFilter">
+            <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <g transform="translate(45,45)">
+        <!-- Outer Hexagon Frame -->
+        <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                 fill="url(#recordGunmetal)" 
+                 stroke="#1a1a1a" 
+                 stroke-width="0.75"
+                 filter="url(#recordInnerShadow)"/>
+        
+        <!-- Inner Dark Background -->
+        <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                 fill="#000000" 
+                 opacity="0.95"/>
+        
+        <!-- Background Glow -->
+        <ellipse cx="0" cy="0" rx="18" ry="14" 
+                 fill="url(#recordGlow)" 
+                 opacity="0.3">
+            <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2s" repeatCount="indefinite"/>
+        </ellipse>
+        
+        <!-- Background Grid -->
+        <rect x="-20" y="-15" width="40" height="30" 
+              fill="url(#recordGridPattern)" 
+              opacity="0.3"/>
+        
+        <!-- Recording Circle Base -->
+        <g filter="url(#recordGlowFilter)">
+            <!-- Shadow -->
+            <ellipse cx="0" cy="12" rx="10" ry="3" fill="#000000" opacity="0.3"/>
+            
+            <!-- Outer Ring -->
+            <circle cx="0" cy="0" r="12" 
+                    fill="url(#recordGold)" 
+                    filter="url(#recordInnerShadow)"/>
+            
+            <!-- Inner Ring -->
+            <circle cx="0" cy="0" r="10" 
+                    fill="#000000"/>
+            
+            <!-- Recording Dot -->
+            <circle cx="0" cy="0" r="8" 
+                    fill="url(#recordRed)" 
+                    filter="url(#recordGlowFilter)">
+                <animate attributeName="r" values="8;9;8" dur="1.5s" repeatCount="indefinite"/>
+            </circle>
+            
+            <!-- Center Highlight -->
+            <circle cx="-2" cy="-2" r="3" 
+                    fill="url(#recordPulse)" 
+                    opacity="0.8"/>
+            
+            <!-- Pulsing Ring -->
+            <circle cx="0" cy="0" r="8" 
+                    fill="none" 
+                    stroke="url(#recordRed)" 
+                    stroke-width="1" 
+                    opacity="0.8">
+                <animate attributeName="r" values="8;14;8" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.8;0;0.8" dur="2s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+        
+        <!-- REC Text -->
+        <g transform="translate(0,-16)" opacity="0.9">
+            <rect x="-8" y="-2" width="16" height="4" rx="1" fill="url(#recordRed)">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="1s" repeatCount="indefinite"/>
+            </rect>
+            <text x="0" y="0.5" font-size="3" fill="#ffffff" text-anchor="middle" font-family="monospace" font-weight="bold">REC</text>
+        </g>
+        
+        <!-- Time Counter -->
+        <g transform="translate(0,14)" opacity="0.8">
+            <rect x="-10" y="-2" width="20" height="4" rx="1" fill="#000000" opacity="0.5"/>
+            <text x="0" y="0.5" font-size="2.5" fill="url(#recordGold)" text-anchor="middle" font-family="monospace">00:42:15</text>
+        </g>
+        
+        <!-- Audio Waveform -->
+        <g transform="translate(0,5)" opacity="0.7">
+            <rect x="-10" y="-2" width="1" height="4" fill="url(#recordGold)">
+                <animate attributeName="height" values="4;8;4" dur="0.5s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-2;-4;-2" dur="0.5s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="-8" y="-3" width="1" height="6" fill="url(#recordGold)">
+                <animate attributeName="height" values="6;10;6" dur="0.5s" begin="0.1s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-3;-5;-3" dur="0.5s" begin="0.1s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="-6" y="-1" width="1" height="2" fill="url(#recordGold)">
+                <animate attributeName="height" values="2;6;2" dur="0.5s" begin="0.2s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-1;-3;-1" dur="0.5s" begin="0.2s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="-4" y="-4" width="1" height="8" fill="url(#recordGold)">
+                <animate attributeName="height" values="8;12;8" dur="0.5s" begin="0.3s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-4;-6;-4" dur="0.5s" begin="0.3s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="-2" y="-2" width="1" height="4" fill="url(#recordGold)">
+                <animate attributeName="height" values="4;8;4" dur="0.5s" begin="0.4s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-2;-4;-2" dur="0.5s" begin="0.4s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="0" y="-3" width="1" height="6" fill="url(#recordGold)">
+                <animate attributeName="height" values="6;10;6" dur="0.5s" begin="0.5s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-3;-5;-3" dur="0.5s" begin="0.5s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="2" y="-1" width="1" height="2" fill="url(#recordGold)">
+                <animate attributeName="height" values="2;6;2" dur="0.5s" begin="0.6s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-1;-3;-1" dur="0.5s" begin="0.6s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="4" y="-4" width="1" height="8" fill="url(#recordGold)">
+                <animate attributeName="height" values="8;12;8" dur="0.5s" begin="0.7s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-4;-6;-4" dur="0.5s" begin="0.7s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="6" y="-2" width="1" height="4" fill="url(#recordGold)">
+                <animate attributeName="height" values="4;8;4" dur="0.5s" begin="0.8s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-2;-4;-2" dur="0.5s" begin="0.8s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="8" y="-3" width="1" height="6" fill="url(#recordGold)">
+                <animate attributeName="height" values="6;10;6" dur="0.5s" begin="0.9s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-3;-5;-3" dur="0.5s" begin="0.9s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="10" y="-1" width="1" height="2" fill="url(#recordGold)">
+                <animate attributeName="height" values="2;6;2" dur="0.5s" begin="1s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-1;-3;-1" dur="0.5s" begin="1s" repeatCount="indefinite"/>
+            </rect>
+        </g>
+        
+        <!-- Storage Indicator -->
+        <g transform="translate(12,-10)" opacity="0.7">
+            <rect x="-3" y="-1" width="6" height="2" rx="0.5" fill="#343a40"/>
+            <rect x="-3" y="-1" width="4" height="2" rx="0.5" fill="url(#recordRed)">
+                <animate attributeName="width" values="4;5;4" dur="3s" repeatCount="indefinite"/>
+            </rect>
+        </g>
+        
+        <!-- Live Indicator -->
+        <g transform="translate(-12,-10)" opacity="0.9">
+            <circle cx="0" cy="0" r="2" fill="url(#recordRed)">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="1s" repeatCount="indefinite"/>
+            </circle>
+            <text x="0" y="4" font-size="1.5" fill="url(#recordRed)" text-anchor="middle" font-family="monospace">LIVE</text>
+        </g>
+        
+        <!-- Status Text -->
+        <g opacity="0.6">
+            <text x="-18" y="20" font-size="2" fill="url(#recordRed)" font-family="monospace">RECORD</text>
+            <text x="10" y="20" font-size="2" fill="url(#recordGold)" font-family="monospace">ON</text>
+        </g>
+        
+        <!-- Floating Particles -->
+        <g opacity="0.5">
+            <circle cx="-15" cy="10" r="0.3" fill="url(#recordRed)">
+                <animate attributeName="cy" values="10;-15;10" dur="5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;0.5;0" dur="5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="15" cy="-10" r="0.3" fill="url(#recordGold)">
+                <animate attributeName="cy" values="-10;15;-10" dur="5s" begin="2.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;0.5;0" dur="5s" begin="2.5s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+    </g>
+</svg>

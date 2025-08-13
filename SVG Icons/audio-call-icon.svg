@@ -1,0 +1,284 @@
+<svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Premium Gunmetal Gradient -->
+        <linearGradient id="audioGunmetal" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#6a6a6a;stop-opacity:1" />
+            <stop offset="15%" style="stop-color:#5a5a5a;stop-opacity:1" />
+            <stop offset="30%" style="stop-color:#4a4a4a;stop-opacity:1" />
+            <stop offset="45%" style="stop-color:#3a3a3a;stop-opacity:1" />
+            <stop offset="60%" style="stop-color:#2a2a2a;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#1a1a1a;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#0a0a0a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+        </linearGradient>
+        <!-- Veritron Hexagon Premium Gradients (logo-aligned) -->
+        <linearGradient id="vtHexGunmetal" x1="10%" y1="0%" x2="90%" y2="100%">
+            <stop offset="0%" stop-color="#6F80A3" stop-opacity="0.35"/>
+            <stop offset="30%" stop-color="#3B4C64" stop-opacity="0.7"/>
+            <stop offset="60%" stop-color="#1E2A3A" stop-opacity="0.95"/>
+            <stop offset="100%" stop-color="#0B111A" stop-opacity="1"/>
+        </linearGradient>
+        <linearGradient id="vtHexEdge" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#9FB2D2" stop-opacity="0.5"/>
+            <stop offset="50%" stop-color="#42536C" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#0B111A" stop-opacity="1"/>
+        </linearGradient>
+        <linearGradient id="vtHexSheen" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.5"/>
+            <stop offset="60%" stop-color="#FFFFFF" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+        </linearGradient>
+        <radialGradient id="vtInnerDepth" cx="50%" cy="50%" r="60%">
+            <stop offset="0%" stop-color="#0D141F" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#000000" stop-opacity="0.95"/>
+        </radialGradient>
+        <filter id="vtHexAmbient" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0B111A" flood-opacity="0.6"/>
+        </filter>
+
+
+        <!-- Premium Gold Gradient -->
+        <linearGradient id="audioGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fff9e6;stop-opacity:1" />
+            <stop offset="25%" style="stop-color:#ffed9e;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#ffd428;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#d4af37;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#946828;stop-opacity:1" />
+        </linearGradient>
+
+        <!-- Phone Green -->
+        <linearGradient id="phoneGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#8ce99a;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#51cf66;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#2f9e44;stop-opacity:1" />
+        </linearGradient>
+
+        <!-- Sound Wave Gradient -->
+        <linearGradient id="soundWaveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#51cf66;stop-opacity:0" />
+            <stop offset="50%" style="stop-color:#51cf66;stop-opacity:0.8" />
+            <stop offset="100%" style="stop-color:#51cf66;stop-opacity:0" />
+        </linearGradient>
+
+        <!-- Phone Glow -->
+        <radialGradient id="phoneGlow">
+            <stop offset="0%" style="stop-color:#51cf66;stop-opacity:0.4" />
+            <stop offset="50%" style="stop-color:#51cf66;stop-opacity:0.2" />
+            <stop offset="100%" style="stop-color:#51cf66;stop-opacity:0" />
+        </radialGradient>
+
+        <!-- Grid Pattern -->
+        <pattern id="audioGridPattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="0" y2="4" stroke="#d4af37" stroke-width="0.1" opacity="0.2"/>
+            <line x1="0" y1="0" x2="4" y2="0" stroke="#d4af37" stroke-width="0.1" opacity="0.2"/>
+        </pattern>
+
+        <!-- Inner Shadow -->
+        <filter id="audioInnerShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.5"/>
+            <feComposite in2="offsetblur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+
+        <!-- Glow Filter -->
+        <filter id="audioGlowFilter">
+            <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <g transform="translate(45,45)">
+        <!-- Outer Hexagon Frame (Logo-aligned style) -->
+        <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15"
+                 fill="url(#vtHexGunmetal)"
+                 stroke="url(#vtHexEdge)"
+                 stroke-width="0.9"
+                 filter="url(#vtHexAmbient)"/>
+
+        <!-- Inner Dark Background with depth -->
+        <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2"
+                 fill="url(#vtInnerDepth)"
+                 opacity="1"/>
+        <!-- Subtle sheen across top edges -->
+        <path d="M-22,-13 L0,-25 L22,-13" fill="none" stroke="url(#vtHexSheen)" stroke-width="1.2" stroke-linecap="round"/>
+
+        <!-- Background Glow -->
+        <ellipse cx="0" cy="0" rx="18" ry="14"
+                 fill="url(#phoneGlow)"
+                 opacity="0.3">
+            <animate attributeName="opacity" values="0.3;0.5;0.3" dur="4s" repeatCount="indefinite"/>
+        </ellipse>
+
+        <!-- Background Grid -->
+        <rect x="-20" y="-15" width="40" height="30"
+              fill="url(#audioGridPattern)"
+              opacity="0.0" display="none"/>
+
+        <!-- Phone Handset -->
+        <g transform="rotate(-25)" filter="url(#audioGlowFilter)">
+            <!-- Shadow -->
+            <ellipse cx="0" cy="12" rx="10" ry="3" fill="#000000" opacity="0.3"/>
+
+            <!-- Phone Body -->
+            <path d="M-10,-4 C-10,-6 -8,-8 -6,-8 L6,-8 C8,-8 10,-6 10,-4 L10,4 C10,6 8,8 6,8 L-6,8 C-8,8 -10,6 -10,4 Z"
+                  fill="url(#phoneGreen)"
+                  filter="url(#audioInnerShadow)"/>
+
+            <!-- Phone Inner -->
+            <path d="M-8,-3 C-8,-5 -6,-6 -5,-6 L5,-6 C6,-6 8,-5 8,-3 L8,3 C8,5 6,6 5,6 L-5,6 C-6,6 -8,5 -8,3 Z"
+                  fill="#2f9e44"
+                  opacity="0.3"/>
+
+            <!-- Earpiece -->
+            <ellipse cx="-5" cy="-4" rx="3" ry="2"
+                     fill="url(#audioGold)"/>
+            <g opacity="0.5">
+                <circle cx="-5.5" cy="-4" r="0.3" fill="#946828"/>
+                <circle cx="-4.5" cy="-4" r="0.3" fill="#946828"/>
+                <circle cx="-5" cy="-3.5" r="0.3" fill="#946828"/>
+                <circle cx="-5" cy="-4.5" r="0.3" fill="#946828"/>
+            </g>
+
+            <!-- Mouthpiece -->
+            <ellipse cx="5" cy="4" rx="3" ry="2"
+                     fill="url(#audioGold)"/>
+            <g opacity="0.5">
+                <circle cx="4.5" cy="4" r="0.3" fill="#946828"/>
+                <circle cx="5.5" cy="4" r="0.3" fill="#946828"/>
+                <circle cx="5" cy="3.5" r="0.3" fill="#946828"/>
+                <circle cx="5" cy="4.5" r="0.3" fill="#946828"/>
+            </g>
+
+            <!-- Center Detail -->
+            <rect x="-2" y="-1" width="4" height="2"
+                  rx="1"
+                  fill="#2b8a3e"
+                  opacity="0.5"/>
+        </g>
+
+        <!-- Sound Waves Left -->
+        <g opacity="0.8">
+            <path d="M-12,-4 Q-14,-4 -16,-2 Q-14,0 -12,0"
+                  fill="none"
+                  stroke="#2f9e44"
+                  stroke-width="1.5"
+                  stroke-linecap="round">
+                <animate attributeName="opacity" values="0;0.8;0" dur="1.5s" repeatCount="indefinite"/>
+            </path>
+            <path d="M-14,-6 Q-17,-6 -20,-3 Q-17,0 -14,0"
+                  fill="none"
+                  stroke="#2f9e44"
+                  stroke-width="1.5"
+                  stroke-linecap="round">
+                <animate attributeName="opacity" values="0;0.8;0" dur="1.5s" begin="0.5s" repeatCount="indefinite"/>
+            </path>
+            <path d="M-16,-8 Q-20,-8 -24,-4 Q-20,0 -16,0"
+                  fill="none"
+                  stroke="#2f9e44"
+                  stroke-width="1.5"
+                  stroke-linecap="round">
+                <animate attributeName="opacity" values="0;0.8;0" dur="1.5s" begin="1s" repeatCount="indefinite"/>
+            </path>
+        </g>
+
+        <!-- Sound Waves Right -->
+        <g opacity="0.8">
+            <path d="M12,0 Q14,0 16,2 Q14,4 12,4"
+                  fill="none"
+                  stroke="#2f9e44"
+                  stroke-width="1.5"
+                  stroke-linecap="round">
+                <animate attributeName="opacity" values="0;0.8;0" dur="1.5s" begin="0.25s" repeatCount="indefinite"/>
+            </path>
+            <path d="M14,0 Q17,0 20,3 Q17,6 14,6"
+                  fill="none"
+                  stroke="#2f9e44"
+                  stroke-width="1.5"
+                  stroke-linecap="round">
+                <animate attributeName="opacity" values="0;0.8;0" dur="1.5s" begin="0.75s" repeatCount="indefinite"/>
+            </path>
+            <path d="M16,0 Q20,0 24,4 Q20,8 16,8"
+                  fill="none"
+                  stroke="#2f9e44"
+                  stroke-width="1.5"
+                  stroke-linecap="round">
+                <animate attributeName="opacity" values="0;0.8;0" dur="1.5s" begin="1.25s" repeatCount="indefinite"/>
+            </path>
+        </g>
+
+        <!-- Call Timer -->
+        <g transform="translate(0,-14)" opacity="0.0" display="none">
+            <rect x="-10" y="-2" width="20" height="4" rx="1" fill="#000000" opacity="0.5"/>
+            <text x="0" y="0.5" font-size="2.5" fill="url(#audioGold)" text-anchor="middle" font-family="monospace">02:45</text>
+        </g>
+
+        <!-- Volume Indicator -->
+        <g transform="translate(0,12)" opacity="0.0" display="none">
+            <rect x="-8" y="-1" width="2" height="2" fill="url(#phoneGreen)">
+                <animate attributeName="height" values="2;4;2" dur="0.5s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-1;-2;-1" dur="0.5s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="-5" y="-1.5" width="2" height="3" fill="url(#phoneGreen)">
+                <animate attributeName="height" values="3;6;3" dur="0.5s" begin="0.1s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-1.5;-3;-1.5" dur="0.5s" begin="0.1s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="-2" y="-2" width="2" height="4" fill="url(#phoneGreen)">
+                <animate attributeName="height" values="4;8;4" dur="0.5s" begin="0.2s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-2;-4;-2" dur="0.5s" begin="0.2s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="1" y="-1.5" width="2" height="3" fill="url(#phoneGreen)">
+                <animate attributeName="height" values="3;6;3" dur="0.5s" begin="0.3s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-1.5;-3;-1.5" dur="0.5s" begin="0.3s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="4" y="-1" width="2" height="2" fill="url(#phoneGreen)">
+                <animate attributeName="height" values="2;4;2" dur="0.5s" begin="0.4s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-1;-2;-1" dur="0.5s" begin="0.4s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="7" y="-2" width="2" height="4" fill="url(#phoneGreen)">
+                <animate attributeName="height" values="4;8;4" dur="0.5s" begin="0.5s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-2;-4;-2" dur="0.5s" begin="0.5s" repeatCount="indefinite"/>
+            </rect>
+        </g>
+
+        <!-- Connection Quality -->
+        <g transform="translate(14,-10)" opacity="0.0" display="none">
+            <rect x="-1" y="2" width="2" height="2" fill="url(#phoneGreen)"/>
+            <rect x="2" y="1" width="2" height="3" fill="url(#phoneGreen)"/>
+            <rect x="5" y="0" width="2" height="4" fill="url(#phoneGreen)"/>
+            <rect x="8" y="-1" width="2" height="5" fill="url(#phoneGreen)"/>
+        </g>
+
+        <!-- Mute Indicator -->
+        <g transform="translate(-14,-10)" opacity="0.0" display="none">
+            <rect x="-2" y="-2" width="4" height="4" rx="2" fill="url(#audioGold)"/>
+            <rect x="-1" y="-0.5" width="2" height="1" fill="#946828"/>
+            <circle cx="0" cy="-2" r="0.5" fill="#946828"/>
+        </g>
+
+        <!-- Status Text -->
+        <g opacity="0.0" display="none">
+            <text x="-18" y="18" font-size="2" fill="url(#audioGold)" font-family="monospace">VOICE</text>
+            <text x="10" y="18" font-size="2" fill="url(#phoneGreen)" font-family="monospace">CALL</text>
+        </g>
+
+        <!-- Floating Particles -->
+        <g opacity="0.0" display="none">
+            <circle cx="-15" cy="10" r="0.3" fill="url(#phoneGreen)">
+                <animate attributeName="cy" values="10;-15;10" dur="5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;0.5;0" dur="5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="15" cy="-10" r="0.3" fill="url(#audioGold)">
+                <animate attributeName="cy" values="-10;15;-10" dur="5s" begin="2.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;0.5;0" dur="5s" begin="2.5s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+    </g>
+</svg>

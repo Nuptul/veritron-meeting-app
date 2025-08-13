@@ -1,0 +1,264 @@
+<svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Premium Gunmetal Gradient -->
+        <linearGradient id="supportGunmetal" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#6a6a6a;stop-opacity:1" />
+            <stop offset="15%" style="stop-color:#5a5a5a;stop-opacity:1" />
+            <stop offset="30%" style="stop-color:#4a4a4a;stop-opacity:1" />
+            <stop offset="45%" style="stop-color:#3a3a3a;stop-opacity:1" />
+            <stop offset="60%" style="stop-color:#2a2a2a;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#1a1a1a;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#0a0a0a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Premium Gold Gradient -->
+        <linearGradient id="supportGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fff9e6;stop-opacity:1" />
+            <stop offset="25%" style="stop-color:#ffed9e;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#ffd428;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#d4af37;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#946828;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Lifebuoy Red -->
+        <linearGradient id="lifebuoyRed" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#f03e3e;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#c92a2a;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Lifebuoy White -->
+        <linearGradient id="lifebuoyWhite" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#f8f9fa;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#e9ecef;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Support Glow -->
+        <radialGradient id="supportGlow">
+            <stop offset="0%" style="stop-color:#f03e3e;stop-opacity:0.4" />
+            <stop offset="50%" style="stop-color:#f03e3e;stop-opacity:0.2" />
+            <stop offset="100%" style="stop-color:#f03e3e;stop-opacity:0" />
+        </radialGradient>
+        
+        <!-- Water Effect -->
+        <radialGradient id="waterGradient">
+            <stop offset="0%" style="stop-color:#74c0fc;stop-opacity:0.3" />
+            <stop offset="50%" style="stop-color:#4dabf7;stop-opacity:0.2" />
+            <stop offset="100%" style="stop-color:#1971c2;stop-opacity:0.1" />
+        </radialGradient>
+        
+        <!-- Grid Pattern -->
+        <pattern id="supportGridPattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="0" y2="4" stroke="#d4af37" stroke-width="0.1" opacity="0.2"/>
+            <line x1="0" y1="0" x2="4" y2="0" stroke="#d4af37" stroke-width="0.1" opacity="0.2"/>
+        </pattern>
+        
+        <!-- Inner Shadow -->
+        <filter id="supportInnerShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.5"/>
+            <feComposite in2="offsetblur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        
+        <!-- Glow Filter -->
+        <filter id="supportGlowFilter">
+            <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <g transform="translate(45,45)">
+        <!-- Outer Hexagon Frame -->
+        <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                 fill="url(#supportGunmetal)" 
+                 stroke="#1a1a1a" 
+                 stroke-width="0.75"
+                 filter="url(#supportInnerShadow)"/>
+        
+        <!-- Inner Dark Background -->
+        <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                 fill="#000000" 
+                 opacity="0.95"/>
+        
+        <!-- Background Glow -->
+        <ellipse cx="0" cy="0" rx="18" ry="14" 
+                 fill="url(#supportGlow)" 
+                 opacity="0.3">
+            <animate attributeName="opacity" values="0.3;0.5;0.3" dur="4s" repeatCount="indefinite"/>
+        </ellipse>
+        
+        <!-- Background Grid -->
+        <rect x="-20" y="-15" width="40" height="30" 
+              fill="url(#supportGridPattern)" 
+              opacity="0.3"/>
+        
+        <!-- Water Ripples -->
+        <g opacity="0.3">
+            <ellipse cx="0" cy="8" rx="16" ry="4" 
+                     fill="none" 
+                     stroke="url(#waterGradient)" 
+                     stroke-width="0.5">
+                <animate attributeName="rx" values="16;20;16" dur="3s" repeatCount="indefinite"/>
+                <animate attributeName="ry" values="4;5;4" dur="3s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.3;0.1;0.3" dur="3s" repeatCount="indefinite"/>
+            </ellipse>
+            <ellipse cx="0" cy="8" rx="12" ry="3" 
+                     fill="none" 
+                     stroke="url(#waterGradient)" 
+                     stroke-width="0.5">
+                <animate attributeName="rx" values="12;16;12" dur="3s" begin="1s" repeatCount="indefinite"/>
+                <animate attributeName="ry" values="3;4;3" dur="3s" begin="1s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.3;0.1;0.3" dur="3s" begin="1s" repeatCount="indefinite"/>
+            </ellipse>
+        </g>
+        
+        <!-- Main Lifebuoy -->
+        <g transform="translate(0,-2)" filter="url(#supportGlowFilter)">
+            <!-- Shadow -->
+            <ellipse cx="0" cy="12" rx="10" ry="3" fill="#000000" opacity="0.3"/>
+            
+            <!-- Outer Ring -->
+            <circle cx="0" cy="0" r="12" 
+                    fill="url(#lifebuoyRed)" 
+                    filter="url(#supportInnerShadow)"/>
+            
+            <!-- Inner Hole -->
+            <circle cx="0" cy="0" r="6" 
+                    fill="#000000"/>
+            
+            <!-- White Sections -->
+            <g>
+                <!-- Section 1 -->
+                <path d="M0,-12 A12,12 0 0,1 8.5,-8.5 L4.2,-4.2 A6,6 0 0,0 0,-6 Z" 
+                      fill="url(#lifebuoyWhite)"/>
+                <!-- Section 2 -->
+                <path d="M12,0 A12,12 0 0,1 8.5,8.5 L4.2,4.2 A6,6 0 0,0 6,0 Z" 
+                      fill="url(#lifebuoyWhite)"/>
+                <!-- Section 3 -->
+                <path d="M0,12 A12,12 0 0,1 -8.5,8.5 L-4.2,4.2 A6,6 0 0,0 0,6 Z" 
+                      fill="url(#lifebuoyWhite)"/>
+                <!-- Section 4 -->
+                <path d="M-12,0 A12,12 0 0,1 -8.5,-8.5 L-4.2,-4.2 A6,6 0 0,0 -6,0 Z" 
+                      fill="url(#lifebuoyWhite)"/>
+            </g>
+            
+            <!-- Rope Attachments -->
+            <g opacity="0.8">
+                <circle cx="8.5" cy="-8.5" r="1" fill="url(#supportGold)"/>
+                <circle cx="8.5" cy="8.5" r="1" fill="url(#supportGold)"/>
+                <circle cx="-8.5" cy="8.5" r="1" fill="url(#supportGold)"/>
+                <circle cx="-8.5" cy="-8.5" r="1" fill="url(#supportGold)"/>
+            </g>
+            
+            <!-- Rotation Animation -->
+            <animateTransform attributeName="transform" 
+                              type="rotate" 
+                              from="0 0 0" 
+                              to="360 0 0" 
+                              dur="20s" 
+                              repeatCount="indefinite"/>
+        </g>
+        
+        <!-- Rope -->
+        <path d="M8,-10 Q12,-12 14,-8 Q16,-4 14,0" 
+              fill="none" 
+              stroke="url(#supportGold)" 
+              stroke-width="1.5" 
+              stroke-linecap="round" 
+              opacity="0.7"
+              stroke-dasharray="2,1">
+            <animate attributeName="d" 
+                     values="M8,-10 Q12,-12 14,-8 Q16,-4 14,0;
+                             M8,-10 Q11,-13 14,-8 Q17,-3 14,0;
+                             M8,-10 Q12,-12 14,-8 Q16,-4 14,0" 
+                     dur="3s" 
+                     repeatCount="indefinite"/>
+        </path>
+        
+        <!-- Help Signal -->
+        <g transform="translate(0,-14)" opacity="0.9">
+            <circle cx="0" cy="0" r="3" fill="url(#supportGold)">
+                <animate attributeName="r" values="3;3.5;3" dur="1s" repeatCount="indefinite"/>
+            </circle>
+            <text x="0" y="1" font-size="4" fill="#946828" text-anchor="middle" font-family="monospace" font-weight="bold">?</text>
+        </g>
+        
+        <!-- SOS Morse Code -->
+        <g transform="translate(0,14)" opacity="0.6">
+            <!-- S -->
+            <circle cx="-8" cy="0" r="0.5" fill="url(#supportGold)">
+                <animate attributeName="opacity" values="0;1;0" dur="0.3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="-6" cy="0" r="0.5" fill="url(#supportGold)">
+                <animate attributeName="opacity" values="0;1;0" dur="0.3s" begin="0.3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="-4" cy="0" r="0.5" fill="url(#supportGold)">
+                <animate attributeName="opacity" values="0;1;0" dur="0.3s" begin="0.6s" repeatCount="indefinite"/>
+            </circle>
+            
+            <!-- O -->
+            <rect x="-1" y="-0.5" width="2" height="1" fill="url(#supportGold)" rx="0.2">
+                <animate attributeName="opacity" values="0;1;0" dur="0.6s" begin="1.2s" repeatCount="indefinite"/>
+            </rect>
+            
+            <!-- S -->
+            <circle cx="4" cy="0" r="0.5" fill="url(#supportGold)">
+                <animate attributeName="opacity" values="0;1;0" dur="0.3s" begin="2.1s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="6" cy="0" r="0.5" fill="url(#supportGold)">
+                <animate attributeName="opacity" values="0;1;0" dur="0.3s" begin="2.4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="8" cy="0" r="0.5" fill="url(#supportGold)">
+                <animate attributeName="opacity" values="0;1;0" dur="0.3s" begin="2.7s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+        
+        <!-- Support Agent Icon -->
+        <g transform="translate(-14,-6)" opacity="0.7">
+            <circle cx="0" cy="0" r="2.5" fill="url(#supportGold)"/>
+            <circle cx="0" cy="-0.5" r="1.5" fill="#946828"/>
+            <path d="M-2,2 Q0,1 2,2" fill="url(#supportGold)"/>
+            <!-- Headset -->
+            <path d="M-2,-0.5 Q0,-2 2,-0.5" 
+                  fill="none" 
+                  stroke="#946828" 
+                  stroke-width="0.5" 
+                  stroke-linecap="round"/>
+            <circle cx="-2" cy="-0.5" r="0.5" fill="#946828"/>
+            <circle cx="2" cy="-0.5" r="0.5" fill="#946828"/>
+        </g>
+        
+        <!-- 24/7 Text -->
+        <g transform="translate(14,-6)" opacity="0.7">
+            <text x="0" y="0" font-size="2.5" fill="url(#supportGold)" font-family="monospace" font-weight="bold">24/7</text>
+        </g>
+        
+        <!-- Status Text -->
+        <g opacity="0.6">
+            <text x="-18" y="20" font-size="2" fill="url(#supportGold)" font-family="monospace">HELP</text>
+            <text x="8" y="20" font-size="2" fill="url(#lifebuoyRed)" font-family="monospace">SUPPORT</text>
+        </g>
+        
+        <!-- Floating Particles -->
+        <g opacity="0.5">
+            <circle cx="-15" cy="10" r="0.3" fill="url(#lifebuoyRed)">
+                <animate attributeName="cy" values="10;-15;10" dur="5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;0.5;0" dur="5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="15" cy="-10" r="0.3" fill="url(#supportGold)">
+                <animate attributeName="cy" values="-10;15;-10" dur="5s" begin="2.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;0.5;0" dur="5s" begin="2.5s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+    </g>
+</svg>

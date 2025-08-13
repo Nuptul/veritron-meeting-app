@@ -1,0 +1,268 @@
+<svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Premium Gunmetal Gradient -->
+        <linearGradient id="whiteboardGunmetal" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#6a6a6a;stop-opacity:1" />
+            <stop offset="15%" style="stop-color:#5a5a5a;stop-opacity:1" />
+            <stop offset="30%" style="stop-color:#4a4a4a;stop-opacity:1" />
+            <stop offset="45%" style="stop-color:#3a3a3a;stop-opacity:1" />
+            <stop offset="60%" style="stop-color:#2a2a2a;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#1a1a1a;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#0a0a0a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Premium Gold Gradient -->
+        <linearGradient id="whiteboardGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fff9e6;stop-opacity:1" />
+            <stop offset="25%" style="stop-color:#ffed9e;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#ffd428;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#d4af37;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#946828;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Board Surface -->
+        <linearGradient id="boardSurface" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#e9ecef;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#dee2e6;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Pen Gradient -->
+        <linearGradient id="penGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#f03e3e;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#c92a2a;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Marker Colors -->
+        <linearGradient id="markerBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#74c0fc;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#1971c2;stop-opacity:1" />
+        </linearGradient>
+        
+        <linearGradient id="markerGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#8ce99a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#2f9e44;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Whiteboard Glow -->
+        <radialGradient id="whiteboardGlow">
+            <stop offset="0%" style="stop-color:#e9ecef;stop-opacity:0.4" />
+            <stop offset="50%" style="stop-color:#e9ecef;stop-opacity:0.2" />
+            <stop offset="100%" style="stop-color:#e9ecef;stop-opacity:0" />
+        </radialGradient>
+        
+        <!-- Grid Pattern -->
+        <pattern id="whiteboardGridPattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="0" y2="4" stroke="#d4af37" stroke-width="0.1" opacity="0.2"/>
+            <line x1="0" y1="0" x2="4" y2="0" stroke="#d4af37" stroke-width="0.1" opacity="0.2"/>
+        </pattern>
+        
+        <!-- Inner Shadow -->
+        <filter id="whiteboardInnerShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.5"/>
+            <feComposite in2="offsetblur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        
+        <!-- Glow Filter -->
+        <filter id="whiteboardGlowFilter">
+            <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <g transform="translate(45,45)">
+        <!-- Outer Hexagon Frame -->
+        <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                 fill="url(#whiteboardGunmetal)" 
+                 stroke="#1a1a1a" 
+                 stroke-width="0.75"
+                 filter="url(#whiteboardInnerShadow)"/>
+        
+        <!-- Inner Dark Background -->
+        <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                 fill="#000000" 
+                 opacity="0.95"/>
+        
+        <!-- Background Glow -->
+        <ellipse cx="0" cy="0" rx="18" ry="14" 
+                 fill="url(#whiteboardGlow)" 
+                 opacity="0.3">
+            <animate attributeName="opacity" values="0.3;0.5;0.3" dur="4s" repeatCount="indefinite"/>
+        </ellipse>
+        
+        <!-- Background Grid -->
+        <rect x="-20" y="-15" width="40" height="30" 
+              fill="url(#whiteboardGridPattern)" 
+              opacity="0.3"/>
+        
+        <!-- Whiteboard -->
+        <g filter="url(#whiteboardGlowFilter)">
+            <!-- Shadow -->
+            <ellipse cx="0" cy="12" rx="12" ry="3" fill="#000000" opacity="0.3"/>
+            
+            <!-- Board Frame -->
+            <rect x="-14" y="-10" width="28" height="20" 
+                  rx="2" 
+                  fill="url(#whiteboardGold)" 
+                  filter="url(#whiteboardInnerShadow)"/>
+            
+            <!-- Board Surface -->
+            <rect x="-12" y="-8" width="24" height="16" 
+                  rx="1" 
+                  fill="url(#boardSurface)"/>
+            
+            <!-- Grid Lines on Board -->
+            <g opacity="0.2">
+                <line x1="-10" y1="-4" x2="10" y2="-4" stroke="#adb5bd" stroke-width="0.3"/>
+                <line x1="-10" y1="0" x2="10" y2="0" stroke="#adb5bd" stroke-width="0.3"/>
+                <line x1="-10" y1="4" x2="10" y2="4" stroke="#adb5bd" stroke-width="0.3"/>
+                <line x1="-4" y1="-6" x2="-4" y2="6" stroke="#adb5bd" stroke-width="0.3"/>
+                <line x1="4" y1="-6" x2="4" y2="6" stroke="#adb5bd" stroke-width="0.3"/>
+            </g>
+            
+            <!-- Drawing on Board -->
+            <g opacity="0.8">
+                <!-- Chart -->
+                <polyline points="-8,-2 -5,2 -2,-3 1,1 4,-1 7,3" 
+                          fill="none" 
+                          stroke="url(#markerBlue)" 
+                          stroke-width="1.5" 
+                          stroke-linecap="round" 
+                          stroke-linejoin="round">
+                    <animate attributeName="stroke-dasharray" values="0,100;50,0" dur="3s" repeatCount="indefinite"/>
+                </polyline>
+                
+                <!-- Circle -->
+                <circle cx="-6" cy="2" r="2" 
+                        fill="none" 
+                        stroke="url(#markerGreen)" 
+                        stroke-width="1">
+                    <animate attributeName="stroke-dasharray" values="0,20;13,0" dur="2s" begin="1s" repeatCount="indefinite"/>
+                </circle>
+                
+                <!-- Arrow -->
+                <g transform="translate(5,-4)">
+                    <line x1="0" y1="0" x2="4" y2="0" 
+                          stroke="url(#penGradient)" 
+                          stroke-width="1" 
+                          stroke-linecap="round"/>
+                    <path d="M4,0 L3,-1 M4,0 L3,1" 
+                          stroke="url(#penGradient)" 
+                          stroke-width="1" 
+                          stroke-linecap="round"/>
+                </g>
+                
+                <!-- Text Lines -->
+                <rect x="2" y="2" width="5" height="0.5" fill="#495057" opacity="0.5"/>
+                <rect x="2" y="3" width="3" height="0.5" fill="#495057" opacity="0.5"/>
+            </g>
+        </g>
+        
+        <!-- Pen/Marker -->
+        <g transform="translate(8,6) rotate(-45)" filter="url(#whiteboardGlowFilter)">
+            <!-- Pen Body -->
+            <rect x="-1" y="0" width="2" height="10" 
+                  fill="url(#penGradient)"/>
+            
+            <!-- Pen Tip -->
+            <path d="M-1,10 L0,12 L1,10 Z" 
+                  fill="#c92a2a"/>
+            
+            <!-- Pen Cap -->
+            <rect x="-1.5" y="0" width="3" height="2" 
+                  rx="0.5" 
+                  fill="#f03e3e"/>
+            
+            <!-- Drawing Animation -->
+            <animateTransform attributeName="transform" 
+                              type="translate" 
+                              values="0,0; -2,-2; 0,0" 
+                              dur="2s" 
+                              repeatCount="indefinite"/>
+        </g>
+        
+        <!-- Eraser -->
+        <g transform="translate(-10,8)" opacity="0.8">
+            <rect x="-2" y="-1" width="4" height="2" 
+                  rx="0.5" 
+                  fill="#fcc2d7"/>
+            <rect x="-2" y="-1" width="1" height="2" 
+                  fill="#f783ac"/>
+        </g>
+        
+        <!-- Color Palette -->
+        <g transform="translate(0,-14)" opacity="0.9">
+            <circle cx="-6" cy="0" r="1.5" fill="url(#penGradient)"/>
+            <circle cx="-2" cy="0" r="1.5" fill="url(#markerBlue)"/>
+            <circle cx="2" cy="0" r="1.5" fill="url(#markerGreen)"/>
+            <circle cx="6" cy="0" r="1.5" fill="url(#whiteboardGold)"/>
+            <circle cx="0" cy="0" r="2" fill="none" stroke="#ffffff" stroke-width="0.5">
+                <animate attributeName="cx" values="-6;-2;2;6;2;-2;-6" dur="6s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+        
+        <!-- Tools Panel -->
+        <g transform="translate(14,0)" opacity="0.7">
+            <!-- Select Tool -->
+            <rect x="-1" y="-4" width="2" height="2" fill="none" stroke="url(#whiteboardGold)" stroke-width="0.5"/>
+            
+            <!-- Text Tool -->
+            <text x="0" y="0" font-size="2" fill="url(#whiteboardGold)" text-anchor="middle" font-family="monospace">T</text>
+            
+            <!-- Shape Tool -->
+            <circle cx="0" cy="4" r="1" fill="none" stroke="url(#whiteboardGold)" stroke-width="0.5"/>
+        </g>
+        
+        <!-- Collaboration Cursors -->
+        <g opacity="0.6">
+            <g transform="translate(-8,-4)">
+                <path d="M0,0 L2,3 L0,2 L-1,4 Z" fill="#4dabf7">
+                    <animateTransform attributeName="transform" 
+                                      type="translate" 
+                                      values="0,0; 2,2; 0,0" 
+                                      dur="3s" 
+                                      repeatCount="indefinite"/>
+                </path>
+            </g>
+            <g transform="translate(6,2)">
+                <path d="M0,0 L2,3 L0,2 L-1,4 Z" fill="#51cf66">
+                    <animateTransform attributeName="transform" 
+                                      type="translate" 
+                                      values="0,0; -2,1; 0,0" 
+                                      dur="3s" 
+                                      begin="1.5s" 
+                                      repeatCount="indefinite"/>
+                </path>
+            </g>
+        </g>
+        
+        <!-- Status Text -->
+        <g opacity="0.6">
+            <text x="-18" y="-18" font-size="2" fill="url(#whiteboardGold)" font-family="monospace">BOARD</text>
+            <text x="10" y="18" font-size="2" fill="url(#penGradient)" font-family="monospace">DRAW</text>
+        </g>
+        
+        <!-- Floating Particles -->
+        <g opacity="0.5">
+            <circle cx="-15" cy="10" r="0.3" fill="url(#markerBlue)">
+                <animate attributeName="cy" values="10;-15;10" dur="5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;0.5;0" dur="5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="15" cy="-10" r="0.3" fill="url(#whiteboardGold)">
+                <animate attributeName="cy" values="-10;15;-10" dur="5s" begin="2.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;0.5;0" dur="5s" begin="2.5s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,183 @@
+<svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Premium Gunmetal Gradient -->
+        <linearGradient id="hangupGunmetal" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#6a6a6a;stop-opacity:1" />
+            <stop offset="15%" style="stop-color:#5a5a5a;stop-opacity:1" />
+            <stop offset="30%" style="stop-color:#4a4a4a;stop-opacity:1" />
+            <stop offset="45%" style="stop-color:#3a3a3a;stop-opacity:1" />
+            <stop offset="60%" style="stop-color:#2a2a2a;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#1a1a1a;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#0a0a0a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Premium Gold Gradient -->
+        <linearGradient id="hangupGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fff9e6;stop-opacity:1" />
+            <stop offset="25%" style="stop-color:#ffed9e;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#ffd428;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#d4af37;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#946828;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Red Gradient for Phone -->
+        <linearGradient id="hangupRed" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#f03e3e;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#c92a2a;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Dark Red for Details -->
+        <linearGradient id="hangupDarkRed" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#e03131;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#c92a2a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#a61e1e;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Grid Pattern -->
+        <pattern id="hangupGridPattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="0" y2="4" stroke="#d4af37" stroke-width="0.1" opacity="0.2"/>
+            <line x1="0" y1="0" x2="4" y2="0" stroke="#d4af37" stroke-width="0.1" opacity="0.2"/>
+        </pattern>
+        
+        <!-- Red Glow -->
+        <radialGradient id="hangupGlow">
+            <stop offset="0%" style="stop-color:#f03e3e;stop-opacity:0.4" />
+            <stop offset="50%" style="stop-color:#f03e3e;stop-opacity:0.2" />
+            <stop offset="100%" style="stop-color:#f03e3e;stop-opacity:0" />
+        </radialGradient>
+        
+        <!-- Inner Shadow -->
+        <filter id="hangupInnerShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.5"/>
+            <feComposite in2="offsetblur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        
+        <!-- Glow Filter -->
+        <filter id="hangupGlowFilter">
+            <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <g transform="translate(45,45)">
+        <!-- Outer Hexagon Frame -->
+        <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                 fill="url(#hangupGunmetal)" 
+                 stroke="#1a1a1a" 
+                 stroke-width="0.75"
+                 filter="url(#hangupInnerShadow)"/>
+        
+        <!-- Inner Dark Background -->
+        <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                 fill="#000000" 
+                 opacity="0.95"/>
+        
+        <!-- Background Glow -->
+        <ellipse cx="0" cy="0" rx="18" ry="14" 
+                 fill="url(#hangupGlow)" 
+                 opacity="0.3">
+            <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2s" repeatCount="indefinite"/>
+        </ellipse>
+        
+        <!-- Background Grid -->
+        <rect x="-20" y="-15" width="40" height="30" 
+              fill="url(#hangupGridPattern)" 
+              opacity="0.3"/>
+        
+        <!-- Phone Handset -->
+        <g transform="rotate(-135)">
+            <!-- Phone Shadow -->
+            <ellipse cx="0" cy="8" rx="10" ry="3" fill="#000000" opacity="0.3"/>
+            
+            <!-- Phone Body -->
+            <path d="M-8,-4 C-8,-6 -6,-8 -4,-8 L4,-8 C6,-8 8,-6 8,-4 L8,4 C8,6 6,8 4,8 L-4,8 C-6,8 -8,6 -8,4 Z" 
+                  fill="url(#hangupRed)" 
+                  filter="url(#hangupInnerShadow)"/>
+            
+            <!-- Phone Earpiece -->
+            <rect x="-6" y="-6" width="4" height="3" 
+                  rx="1.5" 
+                  fill="url(#hangupDarkRed)"/>
+            
+            <!-- Phone Mouthpiece -->
+            <rect x="2" y="3" width="4" height="3" 
+                  rx="1.5" 
+                  fill="url(#hangupDarkRed)"/>
+            
+            <!-- Phone Middle Section -->
+            <rect x="-3" y="-2" width="6" height="4" 
+                  rx="2" 
+                  fill="#a61e1e" 
+                  opacity="0.5"/>
+        </g>
+        
+        <!-- Slash Line -->
+        <line x1="-10" y1="-10" x2="10" y2="10" 
+              stroke="url(#hangupRed)" 
+              stroke-width="3" 
+              stroke-linecap="round"
+              filter="url(#hangupGlowFilter)"/>
+        
+        <!-- Slash Outline for Emphasis -->
+        <line x1="-10" y1="-10" x2="10" y2="10" 
+              stroke="#a61e1e" 
+              stroke-width="4" 
+              stroke-linecap="round"
+              opacity="0.5"/>
+        
+        <!-- Disconnection Waves -->
+        <g filter="url(#hangupGlowFilter)">
+            <path d="M-14,0 L-16,-2 M-14,0 L-16,2" 
+                  stroke="url(#hangupRed)" 
+                  stroke-width="1.5" 
+                  stroke-linecap="round" 
+                  opacity="0">
+                <animate attributeName="opacity" values="0;0.8;0" dur="1.5s" repeatCount="indefinite"/>
+            </path>
+            <path d="M14,0 L16,-2 M14,0 L16,2" 
+                  stroke="url(#hangupRed)" 
+                  stroke-width="1.5" 
+                  stroke-linecap="round" 
+                  opacity="0">
+                <animate attributeName="opacity" values="0;0.8;0" dur="1.5s" begin="0.75s" repeatCount="indefinite"/>
+            </path>
+        </g>
+        
+        <!-- Warning Indicator -->
+        <g transform="translate(0,-18)" opacity="0.8">
+            <circle cx="0" cy="0" r="2.5" fill="url(#hangupRed)">
+                <animate attributeName="r" values="2.5;3;2.5" dur="1s" repeatCount="indefinite"/>
+            </circle>
+            <text x="0" y="1" font-size="3" fill="#ffffff" text-anchor="middle" font-family="monospace" font-weight="bold">!</text>
+        </g>
+        
+        <!-- Status Text -->
+        <g opacity="0.6">
+            <text x="-18" y="18" font-size="2" fill="url(#hangupRed)" font-family="monospace">END</text>
+            <text x="10" y="18" font-size="2" fill="url(#hangupGold)" font-family="monospace">CALL</text>
+        </g>
+        
+        <!-- Floating Particles -->
+        <g opacity="0.5">
+            <circle cx="-15" cy="10" r="0.3" fill="url(#hangupRed)">
+                <animate attributeName="cy" values="10;-15;10" dur="4s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;0.5;0" dur="4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="15" cy="-10" r="0.3" fill="url(#hangupRed)">
+                <animate attributeName="cy" values="-10;15;-10" dur="4s" begin="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;0.5;0" dur="4s" begin="2s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+    </g>
+</svg>

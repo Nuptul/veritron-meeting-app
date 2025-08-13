@@ -1,0 +1,291 @@
+<svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Premium Aluminum Gradient - 15 stops -->
+        <linearGradient id="cloudAlum" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+            <stop offset="7%" style="stop-color:#fafafa;stop-opacity:1" />
+            <stop offset="14%" style="stop-color:#f5f5f5;stop-opacity:1" />
+            <stop offset="21%" style="stop-color:#ececec;stop-opacity:1" />
+            <stop offset="28%" style="stop-color:#e2e2e2;stop-opacity:1" />
+            <stop offset="35%" style="stop-color:#d8d8d8;stop-opacity:1" />
+            <stop offset="42%" style="stop-color:#cecece;stop-opacity:1" />
+            <stop offset="49%" style="stop-color:#c4c4c4;stop-opacity:1" />
+            <stop offset="56%" style="stop-color:#bababa;stop-opacity:1" />
+            <stop offset="63%" style="stop-color:#b0b0b0;stop-opacity:1" />
+            <stop offset="70%" style="stop-color:#a6a6a6;stop-opacity:1" />
+            <stop offset="77%" style="stop-color:#9c9c9c;stop-opacity:1" />
+            <stop offset="84%" style="stop-color:#929292;stop-opacity:1" />
+            <stop offset="91%" style="stop-color:#888888;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#707070;stop-opacity:1" />
+        </linearGradient>
+        <!-- Premium Gold Gradient - 16 stops -->
+        <linearGradient id="cloudGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fffdf5;stop-opacity:1" />
+            <stop offset="6%" style="stop-color:#fff9e6;stop-opacity:1" />
+            <stop offset="12%" style="stop-color:#fff4d4;stop-opacity:1" />
+            <stop offset="18%" style="stop-color:#ffed9e;stop-opacity:1" />
+            <stop offset="24%" style="stop-color:#ffe574;stop-opacity:1" />
+            <stop offset="30%" style="stop-color:#ffdb4a;stop-opacity:1" />
+            <stop offset="36%" style="stop-color:#ffd428;stop-opacity:1" />
+            <stop offset="42%" style="stop-color:#f4c838;stop-opacity:1" />
+            <stop offset="48%" style="stop-color:#e8bc3c;stop-opacity:1" />
+            <stop offset="54%" style="stop-color:#dcb03e;stop-opacity:1" />
+            <stop offset="60%" style="stop-color:#d0a43c;stop-opacity:1" />
+            <stop offset="66%" style="stop-color:#c49838;stop-opacity:1" />
+            <stop offset="72%" style="stop-color:#b88c34;stop-opacity:1" />
+            <stop offset="78%" style="stop-color:#ac8030;stop-opacity:1" />
+            <stop offset="84%" style="stop-color:#a0742c;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#946828;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#885c24;stop-opacity:1" />
+        </linearGradient>
+        <!-- Cloud Glow -->
+        <radialGradient id="cloudGlow">
+            <stop offset="0%" style="stop-color:#d4af37;stop-opacity:0.3" />
+            <stop offset="50%" style="stop-color:#d4af37;stop-opacity:0.15" />
+            <stop offset="100%" style="stop-color:#d4af37;stop-opacity:0" />
+        </radialGradient>
+        <!-- Upload/Download Gradients -->
+        <linearGradient id="uploadGreen" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" style="stop-color:#27c93f;stop-opacity:0.2" />
+            <stop offset="50%" style="stop-color:#51cf66;stop-opacity:0.8" />
+            <stop offset="100%" style="stop-color:#8ce99a;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="downloadBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#339af0;stop-opacity:0.2" />
+            <stop offset="50%" style="stop-color:#4dabf7;stop-opacity:0.8" />
+            <stop offset="100%" style="stop-color:#74c0fc;stop-opacity:1" />
+        </linearGradient>
+        <!-- Inner Shadow Filter -->
+        <filter id="cloudInnerShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.4"/>
+            <feComposite in2="offsetblur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <!-- Soft Glow Filter -->
+        <filter id="softGlow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <!-- Data Particle Pattern -->
+        <pattern id="dataPattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+            <circle cx="1" cy="1" r="0.3" fill="#d4af37" opacity="0.2">
+                <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="3" cy="3" r="0.3" fill="#d4af37" opacity="0.2">
+                <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+            </circle>
+        </pattern>
+    </defs>
+    <g transform="translate(45,45)">
+        <!-- Outer Hexagon Frame -->
+        <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                 fill="url(#cloudAlum)" 
+                 stroke="#808080" 
+                 stroke-width="0.75"
+                 filter="url(#cloudInnerShadow)"/>
+        <!-- Inner Dark Background -->
+        <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                 fill="#0a0a0f" 
+                 opacity="0.93"/>
+        
+        <!-- Background Glow Effect -->
+        <ellipse cx="0" cy="-2" rx="18" ry="12" 
+                 fill="url(#cloudGlow)" 
+                 opacity="0.3">
+            <animate attributeName="opacity" values="0.3;0.5;0.3" dur="4s" repeatCount="indefinite"/>
+        </ellipse>
+        
+        <!-- Main Cloud Shape -->
+        <g filter="url(#softGlow)">
+            <path d="M-10,4 
+                     C-14,4 -16,1 -16,-2 
+                     C-16,-7 -13,-10 -9,-10 
+                     C-9,-14 -5,-16 0,-16 
+                     C6,-16 10,-12 10,-7 
+                     C13,-7 16,-4 16,0 
+                     C16,4 13,6 10,6 
+                     L-10,4 Z" 
+                  fill="none" 
+                  stroke="url(#cloudGold)" 
+                  stroke-width="2.5"
+                  opacity="0.95"/>
+            
+            <!-- Cloud Inner Layer -->
+            <path d="M-8,2 
+                     C-11,2 -12,0 -12,-2 
+                     C-12,-5 -10,-7 -7,-7 
+                     C-7,-10 -4,-11 0,-11 
+                     C4,-11 7,-8 7,-5 
+                     C9,-5 11,-3 11,-0.5 
+                     C11,2 9,3 7,3 
+                     L-8,2 Z" 
+                  fill="url(#cloudGold)" 
+                  opacity="0.08"/>
+            
+            <!-- Cloud Highlight -->
+            <path d="M-6,-8 
+                     C-6,-10 -4,-11 0,-11 
+                     C4,-11 6,-9 6,-6" 
+                  fill="none" 
+                  stroke="url(#cloudGold)" 
+                  stroke-width="1"
+                  opacity="0.4"
+                  stroke-linecap="round"/>
+        </g>
+        
+        <!-- Upload Arrow -->
+        <g transform="translate(-4,0)">
+            <line x1="0" y1="10" x2="0" y2="-2" 
+                  stroke="url(#uploadGreen)" 
+                  stroke-width="2" 
+                  stroke-linecap="round">
+                <animate attributeName="stroke-dasharray" values="0,20;20,0" dur="2s" repeatCount="indefinite"/>
+            </line>
+            <path d="M-2,0 L0,-2 L2,0" 
+                  fill="none" 
+                  stroke="url(#uploadGreen)" 
+                  stroke-width="2" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round">
+                <animateTransform attributeName="transform" type="translate" values="0,0;0,-2;0,0" dur="2s" repeatCount="indefinite"/>
+            </path>
+            <!-- Upload Particles -->
+            <circle cx="0" cy="5" r="0.5" fill="url(#uploadGreen)">
+                <animate attributeName="cy" values="10;-2" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="0" cy="5" r="0.5" fill="url(#uploadGreen)">
+                <animate attributeName="cy" values="10;-2" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;0" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="0" cy="5" r="0.5" fill="url(#uploadGreen)">
+                <animate attributeName="cy" values="10;-2" dur="2s" begin="1s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;0" dur="2s" begin="1s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+        
+        <!-- Download Arrow -->
+        <g transform="translate(4,0)">
+            <line x1="0" y1="-2" x2="0" y2="10" 
+                  stroke="url(#downloadBlue)" 
+                  stroke-width="2" 
+                  stroke-linecap="round">
+                <animate attributeName="stroke-dasharray" values="0,20;20,0" dur="2s" begin="1s" repeatCount="indefinite"/>
+            </line>
+            <path d="M-2,8 L0,10 L2,8" 
+                  fill="none" 
+                  stroke="url(#downloadBlue)" 
+                  stroke-width="2" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round">
+                <animateTransform attributeName="transform" type="translate" values="0,0;0,2;0,0" dur="2s" begin="1s" repeatCount="indefinite"/>
+            </path>
+            <!-- Download Particles -->
+            <circle cx="0" cy="5" r="0.5" fill="url(#downloadBlue)">
+                <animate attributeName="cy" values="-2;10" dur="2s" begin="1s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;0" dur="2s" begin="1s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="0" cy="5" r="0.5" fill="url(#downloadBlue)">
+                <animate attributeName="cy" values="-2;10" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;0" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="0" cy="5" r="0.5" fill="url(#downloadBlue)">
+                <animate attributeName="cy" values="-2;10" dur="2s" begin="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;0" dur="2s" begin="2s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+        
+        <!-- Server Nodes in Cloud -->
+        <g opacity="0.6">
+            <!-- Node 1 -->
+            <rect x="-7" y="-6" width="3" height="3" 
+                  fill="none" 
+                  stroke="url(#cloudGold)" 
+                  stroke-width="0.8" 
+                  rx="0.3"/>
+            <circle cx="-5.5" cy="-4.5" r="0.3" fill="url(#cloudGold)">
+                <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            
+            <!-- Node 2 -->
+            <rect x="4" y="-6" width="3" height="3" 
+                  fill="none" 
+                  stroke="url(#cloudGold)" 
+                  stroke-width="0.8" 
+                  rx="0.3"/>
+            <circle cx="5.5" cy="-4.5" r="0.3" fill="url(#cloudGold)">
+                <animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+            </circle>
+            
+            <!-- Node 3 -->
+            <rect x="-1.5" y="-9" width="3" height="3" 
+                  fill="none" 
+                  stroke="url(#cloudGold)" 
+                  stroke-width="0.8" 
+                  rx="0.3"/>
+            <circle cx="0" cy="-7.5" r="0.3" fill="url(#cloudGold)">
+                <animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="1s" repeatCount="indefinite"/>
+            </circle>
+            
+            <!-- Connection Lines -->
+            <line x1="-5.5" y1="-4.5" x2="0" y2="-7.5" 
+                  stroke="url(#cloudGold)" 
+                  stroke-width="0.3" 
+                  stroke-dasharray="1,2"/>
+            <line x1="5.5" y1="-4.5" x2="0" y2="-7.5" 
+                  stroke="url(#cloudGold)" 
+                  stroke-width="0.3" 
+                  stroke-dasharray="1,2"/>
+            <line x1="-5.5" y1="-4.5" x2="5.5" y2="-4.5" 
+                  stroke="url(#cloudGold)" 
+                  stroke-width="0.3" 
+                  stroke-dasharray="1,2"/>
+        </g>
+        
+        <!-- Network Status Indicators -->
+        <g transform="translate(0,12)">
+            <rect x="-8" y="-1" width="2" height="2" fill="url(#cloudGold)" opacity="0.8">
+                <animate attributeName="opacity" values="0.8;0.2;0.8" dur="0.5s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="-5" y="-1" width="2" height="2" fill="url(#cloudGold)" opacity="0.6">
+                <animate attributeName="opacity" values="0.6;0.2;0.6" dur="0.7s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="-2" y="-1" width="2" height="2" fill="url(#cloudGold)" opacity="0.7">
+                <animate attributeName="opacity" values="0.7;0.2;0.7" dur="0.6s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="1" y="-1" width="2" height="2" fill="url(#cloudGold)" opacity="0.5">
+                <animate attributeName="opacity" values="0.5;0.2;0.5" dur="0.8s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="4" y="-1" width="2" height="2" fill="url(#cloudGold)" opacity="0.9">
+                <animate attributeName="opacity" values="0.9;0.2;0.9" dur="0.4s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="7" y="-1" width="2" height="2" fill="url(#cloudGold)" opacity="0.6">
+                <animate attributeName="opacity" values="0.6;0.2;0.6" dur="0.65s" repeatCount="indefinite"/>
+            </rect>
+        </g>
+        
+        <!-- Cloud Label -->
+        <text x="0" y="-18" font-size="1.5" fill="url(#cloudGold)" opacity="0.4" font-family="monospace" text-anchor="middle" letter-spacing="0.8">CLOUD</text>
+        
+        <!-- Security Lock Icon (Small) -->
+        <g transform="translate(12,-8)" opacity="0.5">
+            <rect x="-1.5" y="-0.5" width="3" height="2.5" fill="none" stroke="url(#cloudGold)" stroke-width="0.5" rx="0.3"/>
+            <path d="M-1,-0.5 L-1,-1.5 C-1,-2.5 -0.5,-3 0,-3 C0.5,-3 1,-2.5 1,-1.5 L1,-0.5" 
+                  fill="none" stroke="url(#cloudGold)" stroke-width="0.5"/>
+            <circle cx="0" cy="0.5" r="0.3" fill="url(#cloudGold)"/>
+        </g>
+        
+        <!-- Data Flow Background Pattern -->
+        <rect x="-20" y="-12" width="40" height="24" 
+              fill="url(#dataPattern)" 
+              opacity="0.1"/>
+    </g>
+</svg>

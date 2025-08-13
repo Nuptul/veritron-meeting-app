@@ -1,0 +1,267 @@
+<svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Premium Gunmetal Gradient - 15 stops -->
+        <linearGradient id="apiGunmetal" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#6a6a6a;stop-opacity:1" />
+            <stop offset="5%" style="stop-color:#626262;stop-opacity:1" />
+            <stop offset="10%" style="stop-color:#5a5a5a;stop-opacity:1" />
+            <stop offset="15%" style="stop-color:#525252;stop-opacity:1" />
+            <stop offset="22%" style="stop-color:#4a4a4a;stop-opacity:1" />
+            <stop offset="28%" style="stop-color:#424242;stop-opacity:1" />
+            <stop offset="35%" style="stop-color:#3a3a3a;stop-opacity:1" />
+            <stop offset="42%" style="stop-color:#323232;stop-opacity:1" />
+            <stop offset="48%" style="stop-color:#2a2a2a;stop-opacity:1" />
+            <stop offset="55%" style="stop-color:#222222;stop-opacity:1" />
+            <stop offset="62%" style="stop-color:#1c1c1c;stop-opacity:1" />
+            <stop offset="68%" style="stop-color:#161616;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#101010;stop-opacity:1" />
+            <stop offset="82%" style="stop-color:#0a0a0a;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#060606;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+        </linearGradient>
+        <!-- Premium Gold Gradient - 15 stops -->
+        <linearGradient id="apiGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fff9e6;stop-opacity:1" />
+            <stop offset="7%" style="stop-color:#fff4d4;stop-opacity:1" />
+            <stop offset="14%" style="stop-color:#ffed9e;stop-opacity:1" />
+            <stop offset="21%" style="stop-color:#ffe574;stop-opacity:1" />
+            <stop offset="28%" style="stop-color:#ffdb4a;stop-opacity:1" />
+            <stop offset="35%" style="stop-color:#ffd428;stop-opacity:1" />
+            <stop offset="42%" style="stop-color:#f4c838;stop-opacity:1" />
+            <stop offset="49%" style="stop-color:#e8bc3c;stop-opacity:1" />
+            <stop offset="56%" style="stop-color:#dcb03e;stop-opacity:1" />
+            <stop offset="63%" style="stop-color:#d0a43c;stop-opacity:1" />
+            <stop offset="70%" style="stop-color:#c49838;stop-opacity:1" />
+            <stop offset="77%" style="stop-color:#b88c34;stop-opacity:1" />
+            <stop offset="84%" style="stop-color:#ac8030;stop-opacity:1" />
+            <stop offset="91%" style="stop-color:#a0742c;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#946828;stop-opacity:1" />
+        </linearGradient>
+        <!-- API Node Glow -->
+        <radialGradient id="apiNodeGlow">
+            <stop offset="0%" style="stop-color:#ffd700;stop-opacity:0.8" />
+            <stop offset="40%" style="stop-color:#d4af37;stop-opacity:0.4" />
+            <stop offset="100%" style="stop-color:#d4af37;stop-opacity:0" />
+        </radialGradient>
+        <!-- Inner Shadow Filter -->
+        <filter id="apiInnerShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.5"/>
+            <feComposite in2="offsetblur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <!-- Glow Filter -->
+        <filter id="apiGlow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <!-- Connection Pattern -->
+        <pattern id="dataFlow" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="0.5" fill="#d4af37" opacity="0.3">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+            </circle>
+        </pattern>
+    </defs>
+    <g transform="translate(45,45)">
+        <!-- Outer Hexagon Frame -->
+        <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                 fill="url(#apiGunmetal)" 
+                 stroke="#1a1a1a" 
+                 stroke-width="0.75"
+                 filter="url(#apiInnerShadow)"/>
+        <!-- Inner Dark Background -->
+        <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                 fill="#000000" 
+                 opacity="0.95"/>
+        
+        <!-- Central API Hub -->
+        <circle cx="0" cy="0" r="5" 
+                fill="none" 
+                stroke="url(#apiGold)" 
+                stroke-width="2"
+                opacity="0.9"/>
+        <circle cx="0" cy="0" r="3.5" 
+                fill="url(#apiNodeGlow)" 
+                opacity="0.3"/>
+        <circle cx="0" cy="0" r="2.5" 
+                fill="none" 
+                stroke="url(#apiGold)" 
+                stroke-width="1"
+                opacity="0.7"/>
+        <circle cx="0" cy="0" r="1.5" 
+                fill="url(#apiGold)" 
+                opacity="0.9"
+                filter="url(#apiGlow)">
+            <animate attributeName="r" values="1.5;2;1.5" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        
+        <!-- API Endpoint Nodes -->
+        <!-- Top Node -->
+        <circle cx="0" cy="-10" r="3" 
+                fill="none" 
+                stroke="url(#apiGold)" 
+                stroke-width="1.5"/>
+        <circle cx="0" cy="-10" r="2" 
+                fill="#0a0a0f" 
+                opacity="0.9"/>
+        <circle cx="0" cy="-10" r="1" 
+                fill="url(#apiGold)" 
+                opacity="0.8">
+            <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        
+        <!-- Top-Right Node -->
+        <circle cx="8" cy="-5" r="3" 
+                fill="none" 
+                stroke="url(#apiGold)" 
+                stroke-width="1.5"/>
+        <circle cx="8" cy="-5" r="2" 
+                fill="#0a0a0f" 
+                opacity="0.9"/>
+        <circle cx="8" cy="-5" r="1" 
+                fill="url(#apiGold)" 
+                opacity="0.8">
+            <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+        </circle>
+        
+        <!-- Bottom-Right Node -->
+        <circle cx="8" cy="5" r="3" 
+                fill="none" 
+                stroke="url(#apiGold)" 
+                stroke-width="1.5"/>
+        <circle cx="8" cy="5" r="2" 
+                fill="#0a0a0f" 
+                opacity="0.9"/>
+        <circle cx="8" cy="5" r="1" 
+                fill="url(#apiGold)" 
+                opacity="0.8">
+            <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3s" begin="1s" repeatCount="indefinite"/>
+        </circle>
+        
+        <!-- Bottom Node -->
+        <circle cx="0" cy="10" r="3" 
+                fill="none" 
+                stroke="url(#apiGold)" 
+                stroke-width="1.5"/>
+        <circle cx="0" cy="10" r="2" 
+                fill="#0a0a0f" 
+                opacity="0.9"/>
+        <circle cx="0" cy="10" r="1" 
+                fill="url(#apiGold)" 
+                opacity="0.8">
+            <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+        </circle>
+        
+        <!-- Bottom-Left Node -->
+        <circle cx="-8" cy="5" r="3" 
+                fill="none" 
+                stroke="url(#apiGold)" 
+                stroke-width="1.5"/>
+        <circle cx="-8" cy="5" r="2" 
+                fill="#0a0a0f" 
+                opacity="0.9"/>
+        <circle cx="-8" cy="5" r="1" 
+                fill="url(#apiGold)" 
+                opacity="0.8">
+            <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3s" begin="2s" repeatCount="indefinite"/>
+        </circle>
+        
+        <!-- Top-Left Node -->
+        <circle cx="-8" cy="-5" r="3" 
+                fill="none" 
+                stroke="url(#apiGold)" 
+                stroke-width="1.5"/>
+        <circle cx="-8" cy="-5" r="2" 
+                fill="#0a0a0f" 
+                opacity="0.9"/>
+        <circle cx="-8" cy="-5" r="1" 
+                fill="url(#apiGold)" 
+                opacity="0.8">
+            <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3s" begin="2.5s" repeatCount="indefinite"/>
+        </circle>
+        
+        <!-- Connection Lines -->
+        <line x1="0" y1="-2.5" x2="0" y2="-7" 
+              stroke="url(#apiGold)" 
+              stroke-width="1" 
+              opacity="0.6"/>
+        <line x1="2.2" y1="-1.2" x2="5.8" y2="-3.8" 
+              stroke="url(#apiGold)" 
+              stroke-width="1" 
+              opacity="0.6"/>
+        <line x1="2.2" y1="1.2" x2="5.8" y2="3.8" 
+              stroke="url(#apiGold)" 
+              stroke-width="1" 
+              opacity="0.6"/>
+        <line x1="0" y1="2.5" x2="0" y2="7" 
+              stroke="url(#apiGold)" 
+              stroke-width="1" 
+              opacity="0.6"/>
+        <line x1="-2.2" y1="1.2" x2="-5.8" y2="3.8" 
+              stroke="url(#apiGold)" 
+              stroke-width="1" 
+              opacity="0.6"/>
+        <line x1="-2.2" y1="-1.2" x2="-5.8" y2="-3.8" 
+              stroke="url(#apiGold)" 
+              stroke-width="1" 
+              opacity="0.6"/>
+        
+        <!-- Data Flow Particles -->
+        <circle cx="0" cy="0" r="0.5" fill="url(#apiGold)">
+            <animateMotion dur="2s" repeatCount="indefinite">
+                <mpath href="#flowPath1"/>
+            </animateMotion>
+        </circle>
+        <circle cx="0" cy="0" r="0.5" fill="url(#apiGold)">
+            <animateMotion dur="2s" begin="0.33s" repeatCount="indefinite">
+                <mpath href="#flowPath2"/>
+            </animateMotion>
+        </circle>
+        <circle cx="0" cy="0" r="0.5" fill="url(#apiGold)">
+            <animateMotion dur="2s" begin="0.66s" repeatCount="indefinite">
+                <mpath href="#flowPath3"/>
+            </animateMotion>
+        </circle>
+        <circle cx="0" cy="0" r="0.5" fill="url(#apiGold)">
+            <animateMotion dur="2s" begin="1s" repeatCount="indefinite">
+                <mpath href="#flowPath4"/>
+            </animateMotion>
+        </circle>
+        <circle cx="0" cy="0" r="0.5" fill="url(#apiGold)">
+            <animateMotion dur="2s" begin="1.33s" repeatCount="indefinite">
+                <mpath href="#flowPath5"/>
+            </animateMotion>
+        </circle>
+        <circle cx="0" cy="0" r="0.5" fill="url(#apiGold)">
+            <animateMotion dur="2s" begin="1.66s" repeatCount="indefinite">
+                <mpath href="#flowPath6"/>
+            </animateMotion>
+        </circle>
+        
+        <!-- Hidden Flow Paths -->
+        <path id="flowPath1" d="M0,0 L0,-10" fill="none"/>
+        <path id="flowPath2" d="M0,0 L8,-5" fill="none"/>
+        <path id="flowPath3" d="M0,0 L8,5" fill="none"/>
+        <path id="flowPath4" d="M0,0 L0,10" fill="none"/>
+        <path id="flowPath5" d="M0,0 L-8,5" fill="none"/>
+        <path id="flowPath6" d="M0,0 L-8,-5" fill="none"/>
+        
+        <!-- Method Labels -->
+        <text x="0" y="-13" font-size="1.5" fill="url(#apiGold)" opacity="0.4" font-family="monospace" text-anchor="middle">GET</text>
+        <text x="12" y="-5" font-size="1.5" fill="url(#apiGold)" opacity="0.4" font-family="monospace" text-anchor="middle">POST</text>
+        <text x="12" y="6" font-size="1.5" fill="url(#apiGold)" opacity="0.4" font-family="monospace" text-anchor="middle">PUT</text>
+        <text x="0" y="14" font-size="1.5" fill="url(#apiGold)" opacity="0.4" font-family="monospace" text-anchor="middle">DELETE</text>
+        <text x="-12" y="6" font-size="1.5" fill="url(#apiGold)" opacity="0.4" font-family="monospace" text-anchor="middle">PATCH</text>
+        <text x="-12" y="-5" font-size="1.5" fill="url(#apiGold)" opacity="0.4" font-family="monospace" text-anchor="middle">HEAD</text>
+        
+        <!-- Central API Text -->
+        <text x="0" y="0.5" font-size="2" fill="url(#apiGold)" font-family="monospace" text-anchor="middle" font-weight="bold">API</text>
+    </g>
+</svg>

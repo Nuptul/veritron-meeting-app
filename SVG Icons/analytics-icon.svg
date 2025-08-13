@@ -1,0 +1,326 @@
+<svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Complex Aluminum Gradient - 15 stops -->
+        <linearGradient id="analyticsAlum" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+            <stop offset="5%" style="stop-color:#fafafa;stop-opacity:1" />
+            <stop offset="10%" style="stop-color:#f5f5f5;stop-opacity:1" />
+            <stop offset="15%" style="stop-color:#ececec;stop-opacity:1" />
+            <stop offset="22%" style="stop-color:#e2e2e2;stop-opacity:1" />
+            <stop offset="28%" style="stop-color:#d8d8d8;stop-opacity:1" />
+            <stop offset="35%" style="stop-color:#cecece;stop-opacity:1" />
+            <stop offset="42%" style="stop-color:#c4c4c4;stop-opacity:1" />
+            <stop offset="48%" style="stop-color:#bababa;stop-opacity:1" />
+            <stop offset="55%" style="stop-color:#b0b0b0;stop-opacity:1" />
+            <stop offset="62%" style="stop-color:#a6a6a6;stop-opacity:1" />
+            <stop offset="68%" style="stop-color:#9c9c9c;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#929292;stop-opacity:1" />
+            <stop offset="82%" style="stop-color:#888888;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#7e7e7e;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#707070;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Complex Gold Gradient - 12 stops -->
+        <linearGradient id="analyticsGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fff4d4;stop-opacity:1" />
+            <stop offset="8%" style="stop-color:#ffed9e;stop-opacity:1" />
+            <stop offset="15%" style="stop-color:#ffe574;stop-opacity:1" />
+            <stop offset="22%" style="stop-color:#ffdb4a;stop-opacity:1" />
+            <stop offset="28%" style="stop-color:#ffd428;stop-opacity:1" />
+            <stop offset="35%" style="stop-color:#f4c838;stop-opacity:1" />
+            <stop offset="42%" style="stop-color:#e8bc3c;stop-opacity:1" />
+            <stop offset="48%" style="stop-color:#dcb03e;stop-opacity:1" />
+            <stop offset="55%" style="stop-color:#d0a43c;stop-opacity:1" />
+            <stop offset="62%" style="stop-color:#c49838;stop-opacity:1" />
+            <stop offset="68%" style="stop-color:#b88c34;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#ac8030;stop-opacity:1" />
+            <stop offset="82%" style="stop-color:#a0742c;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#946828;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#885c24;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Data Visualization Colors -->
+        <linearGradient id="dataBlue" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+        </linearGradient>
+        
+        <linearGradient id="dataGreen" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" style="stop-color:#14532d;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#22c55e;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#86efac;stop-opacity:1" />
+        </linearGradient>
+        
+        <linearGradient id="dataPurple" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" style="stop-color:#581c87;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#a855f7;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#d8b4fe;stop-opacity:1" />
+        </linearGradient>
+        
+        <linearGradient id="dataOrange" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" style="stop-color:#7c2d12;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#fb923c;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#fed7aa;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Grid Pattern -->
+        <pattern id="analyticsGrid" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="4" y2="0" stroke="#d4af37" stroke-width="0.1" opacity="0.2"/>
+            <line x1="0" y1="0" x2="0" y2="4" stroke="#d4af37" stroke-width="0.1" opacity="0.2"/>
+        </pattern>
+        
+        <!-- Dot Matrix Pattern -->
+        <pattern id="dotMatrix" x="0" y="0" width="3" height="3" patternUnits="userSpaceOnUse">
+            <circle cx="1.5" cy="1.5" r="0.2" fill="#d4af37" opacity="0.1"/>
+        </pattern>
+        
+        <!-- Data Stream Pattern -->
+        <linearGradient id="dataStream" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#d4af37;stop-opacity:0" />
+            <stop offset="50%" style="stop-color:#d4af37;stop-opacity:0.5" />
+            <stop offset="100%" style="stop-color:#d4af37;stop-opacity:0" />
+        </linearGradient>
+        
+        <!-- Holographic Effect -->
+        <linearGradient id="holographic" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ff006e;stop-opacity:0.3" />
+            <stop offset="25%" style="stop-color:#8338ec;stop-opacity:0.3" />
+            <stop offset="50%" style="stop-color:#3a86ff;stop-opacity:0.3" />
+            <stop offset="75%" style="stop-color:#06ffa5;stop-opacity:0.3" />
+            <stop offset="100%" style="stop-color:#ffbe0b;stop-opacity:0.3" />
+        </linearGradient>
+        
+        <!-- Inner Shadow Filter -->
+        <filter id="analyticsInnerShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.4"/>
+            <feComposite in2="offsetblur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        
+        <!-- Glow Filter -->
+        <filter id="analyticsGlow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        
+        <!-- Data Pulse Filter -->
+        <filter id="dataPulse">
+            <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <g transform="translate(45,45)">
+        <!-- Outer Hexagon Frame -->
+        <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                 fill="url(#analyticsAlum)" 
+                 stroke="#808080" 
+                 stroke-width="0.75"
+                 filter="url(#analyticsInnerShadow)"/>
+        
+        <!-- Inner Dark Background -->
+        <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                 fill="#0a0a0f" 
+                 opacity="0.93"/>
+        
+        <!-- Grid Background -->
+        <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                 fill="url(#analyticsGrid)" 
+                 opacity="0.4"/>
+        
+        <!-- Coordinate Axes -->
+        <line x1="-18" y1="10" x2="18" y2="10" 
+              stroke="url(#analyticsGold)" 
+              stroke-width="0.8" 
+              opacity="0.6"/>
+        <line x1="-16" y1="-10" x2="-16" y2="12" 
+              stroke="url(#analyticsGold)" 
+              stroke-width="0.8" 
+              opacity="0.6"/>
+        
+        <!-- Axis Ticks X -->
+        <g opacity="0.4">
+            <line x1="-12" y1="9.5" x2="-12" y2="10.5" stroke="url(#analyticsGold)" stroke-width="0.5"/>
+            <line x1="-8" y1="9.5" x2="-8" y2="10.5" stroke="url(#analyticsGold)" stroke-width="0.5"/>
+            <line x1="-4" y1="9.5" x2="-4" y2="10.5" stroke="url(#analyticsGold)" stroke-width="0.5"/>
+            <line x1="0" y1="9.5" x2="0" y2="10.5" stroke="url(#analyticsGold)" stroke-width="0.5"/>
+            <line x1="4" y1="9.5" x2="4" y2="10.5" stroke="url(#analyticsGold)" stroke-width="0.5"/>
+            <line x1="8" y1="9.5" x2="8" y2="10.5" stroke="url(#analyticsGold)" stroke-width="0.5"/>
+            <line x1="12" y1="9.5" x2="12" y2="10.5" stroke="url(#analyticsGold)" stroke-width="0.5"/>
+            <line x1="16" y1="9.5" x2="16" y2="10.5" stroke="url(#analyticsGold)" stroke-width="0.5"/>
+        </g>
+        
+        <!-- Axis Ticks Y -->
+        <g opacity="0.4">
+            <line x1="-16.5" y1="6" x2="-15.5" y2="6" stroke="url(#analyticsGold)" stroke-width="0.5"/>
+            <line x1="-16.5" y1="2" x2="-15.5" y2="2" stroke="url(#analyticsGold)" stroke-width="0.5"/>
+            <line x1="-16.5" y1="-2" x2="-15.5" y2="-2" stroke="url(#analyticsGold)" stroke-width="0.5"/>
+            <line x1="-16.5" y1="-6" x2="-15.5" y2="-6" stroke="url(#analyticsGold)" stroke-width="0.5"/>
+        </g>
+        
+        <!-- Bar Chart -->
+        <g transform="translate(-12, 10)">
+            <rect x="0" y="-4" width="3" height="4" fill="url(#dataBlue)" rx="0.5">
+                <animate attributeName="height" values="4;5;4" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-4;-5;-4" dur="2s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="4" y="-6" width="3" height="6" fill="url(#dataGreen)" rx="0.5">
+                <animate attributeName="height" values="6;7;6" dur="2.2s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-6;-7;-6" dur="2.2s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="8" y="-8" width="3" height="8" fill="url(#dataPurple)" rx="0.5">
+                <animate attributeName="height" values="8;9;8" dur="2.4s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-8;-9;-8" dur="2.4s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="12" y="-10" width="3" height="10" fill="url(#dataOrange)" rx="0.5">
+                <animate attributeName="height" values="10;11;10" dur="2.6s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-10;-11;-10" dur="2.6s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="16" y="-12" width="3" height="12" fill="url(#analyticsGold)" rx="0.5">
+                <animate attributeName="height" values="12;13;12" dur="2.8s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="-12;-13;-12" dur="2.8s" repeatCount="indefinite"/>
+            </rect>
+        </g>
+        
+        <!-- Line Graph -->
+        <g opacity="0.9">
+            <polyline points="-14,6 -10,2 -6,-1 -2,-4 2,-6 6,-3 10,-7 14,-9" 
+                      fill="none" 
+                      stroke="url(#analyticsGold)" 
+                      stroke-width="2" 
+                      stroke-linecap="round" 
+                      stroke-linejoin="round"
+                      filter="url(#dataPulse)"/>
+            
+            <!-- Data Points with Pulse -->
+            <circle cx="-14" cy="6" r="1.5" fill="url(#analyticsGold)" filter="url(#analyticsGlow)">
+                <animate attributeName="r" values="1.5;2;1.5" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="-10" cy="2" r="1.5" fill="url(#analyticsGold)" filter="url(#analyticsGlow)">
+                <animate attributeName="r" values="1.5;2;1.5" dur="2.1s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="-6" cy="-1" r="1.5" fill="url(#analyticsGold)" filter="url(#analyticsGlow)">
+                <animate attributeName="r" values="1.5;2;1.5" dur="2.2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="-2" cy="-4" r="1.5" fill="url(#analyticsGold)" filter="url(#analyticsGlow)">
+                <animate attributeName="r" values="1.5;2;1.5" dur="2.3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="2" cy="-6" r="1.5" fill="url(#analyticsGold)" filter="url(#analyticsGlow)">
+                <animate attributeName="r" values="1.5;2;1.5" dur="2.4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="6" cy="-3" r="1.5" fill="url(#analyticsGold)" filter="url(#analyticsGlow)">
+                <animate attributeName="r" values="1.5;2;1.5" dur="2.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="10" cy="-7" r="1.5" fill="url(#analyticsGold)" filter="url(#analyticsGlow)">
+                <animate attributeName="r" values="1.5;2;1.5" dur="2.6s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="14" cy="-9" r="1.5" fill="url(#analyticsGold)" filter="url(#analyticsGlow)">
+                <animate attributeName="r" values="1.5;2;1.5" dur="2.7s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+        
+        <!-- Trend Line -->
+        <line x1="-14" y1="5" x2="14" y2="-8" 
+              stroke="url(#analyticsGold)" 
+              stroke-width="0.5" 
+              stroke-dasharray="2,2" 
+              opacity="0.5">
+            <animate attributeName="stroke-dashoffset" values="0;4" dur="1s" repeatCount="indefinite"/>
+        </line>
+        
+        <!-- Pie Chart (Top Right) -->
+        <g transform="translate(10, -7)">
+            <circle cx="0" cy="0" r="4" fill="none" stroke="url(#analyticsGold)" stroke-width="0.5" opacity="0.4"/>
+            <!-- Pie Slices -->
+            <path d="M0,0 L4,0 A4,4 0 0,1 1.4,3.7 Z" fill="url(#dataBlue)" opacity="0.8"/>
+            <path d="M0,0 L1.4,3.7 A4,4 0 0,1 -3.7,1.4 Z" fill="url(#dataGreen)" opacity="0.8"/>
+            <path d="M0,0 L-3.7,1.4 A4,4 0 0,1 -2,-3.5 Z" fill="url(#dataPurple)" opacity="0.8"/>
+            <path d="M0,0 L-2,-3.5 A4,4 0 0,1 4,0 Z" fill="url(#dataOrange)" opacity="0.8"/>
+            <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="20s" repeatCount="indefinite"/>
+        </g>
+        
+        <!-- Data Stream Visualization -->
+        <g opacity="0.6">
+            <rect x="-20" y="-11" width="40" height="0.5" fill="url(#dataStream)">
+                <animate attributeName="x" values="-20;-60;-20" dur="3s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="-40" y="-9" width="40" height="0.3" fill="url(#dataStream)">
+                <animate attributeName="x" values="-40;-80;-40" dur="3.5s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="-30" y="-7" width="40" height="0.4" fill="url(#dataStream)">
+                <animate attributeName="x" values="-30;-70;-30" dur="3.2s" repeatCount="indefinite"/>
+            </rect>
+        </g>
+        
+        <!-- Percentage Display -->
+        <g transform="translate(-8, -8)">
+            <rect x="-3" y="-1.5" width="6" height="3" fill="rgba(0,0,0,0.8)" stroke="url(#analyticsGold)" stroke-width="0.5" rx="0.5"/>
+            <text x="0" y="0.3" font-size="1.5" fill="url(#analyticsGold)" text-anchor="middle" font-weight="bold">87%</text>
+        </g>
+        
+        <!-- Growth Arrow -->
+        <g transform="translate(16, 2)" opacity="0.8">
+            <path d="M0,3 L0,-3 M-1.5,-1.5 L0,-3 L1.5,-1.5" 
+                  stroke="url(#dataGreen)" 
+                  stroke-width="1.5" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round"
+                  fill="none">
+                <animateTransform attributeName="transform" type="translate" values="0,0;0,-1;0,0" dur="2s" repeatCount="indefinite"/>
+            </path>
+            <text x="0" y="5" font-size="1.2" fill="url(#dataGreen)" text-anchor="middle">+18%</text>
+        </g>
+        
+        <!-- Holographic Overlay -->
+        <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                 fill="url(#holographic)" 
+                 opacity="0.1">
+            <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="60s" repeatCount="indefinite"/>
+        </polygon>
+        
+        <!-- Floating Data Points -->
+        <g opacity="0.5">
+            <circle cx="-18" cy="-8" r="0.5" fill="url(#analyticsGold)">
+                <animate attributeName="cy" values="-8;-10;-8" dur="3s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="18" cy="5" r="0.4" fill="url(#analyticsGold)">
+                <animate attributeName="cy" values="5;3;5" dur="3.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="3.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="-10" cy="-12" r="0.6" fill="url(#analyticsGold)">
+                <animate attributeName="cy" values="-12;-14;-12" dur="2.8s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+        
+        <!-- Data Matrix Background -->
+        <g opacity="0.2">
+            <text x="-20" y="-10" font-size="1" fill="url(#analyticsGold)" font-family="monospace">01001</text>
+            <text x="12" y="-11" font-size="1" fill="url(#analyticsGold)" font-family="monospace">11010</text>
+            <text x="-15" y="13" font-size="1" fill="url(#analyticsGold)" font-family="monospace">10110</text>
+            <text x="8" y="12" font-size="1" fill="url(#analyticsGold)" font-family="monospace">00111</text>
+        </g>
+        
+        <!-- Center Glow Effect -->
+        <ellipse cx="0" cy="0" rx="22" ry="16" 
+                 fill="url(#analyticsGold)" 
+                 opacity="0.06" 
+                 filter="url(#analyticsGlow)">
+            <animate attributeName="opacity" values="0.06;0.1;0.06" dur="4s" repeatCount="indefinite"/>
+        </ellipse>
+    </g>
+</svg>

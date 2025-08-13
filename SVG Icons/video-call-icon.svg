@@ -1,0 +1,272 @@
+<svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Premium Gunmetal Gradient -->
+        <linearGradient id="videoGunmetal" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#6a6a6a;stop-opacity:1" />
+            <stop offset="15%" style="stop-color:#5a5a5a;stop-opacity:1" />
+            <stop offset="30%" style="stop-color:#4a4a4a;stop-opacity:1" />
+            <stop offset="45%" style="stop-color:#3a3a3a;stop-opacity:1" />
+            <stop offset="60%" style="stop-color:#2a2a2a;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#1a1a1a;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#0a0a0a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Premium Gold Gradient -->
+        <linearGradient id="videoGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fff9e6;stop-opacity:1" />
+            <stop offset="25%" style="stop-color:#ffed9e;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#ffd428;stop-opacity:1" />
+            <stop offset="75%" style="stop-color:#d4af37;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#946828;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Camera Body Gradient -->
+        <linearGradient id="cameraBody" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#74c0fc;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#4dabf7;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#1971c2;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Lens Gradient -->
+        <radialGradient id="lensGradient">
+            <stop offset="0%" style="stop-color:#495057;stop-opacity:1" />
+            <stop offset="30%" style="stop-color:#343a40;stop-opacity:1" />
+            <stop offset="60%" style="stop-color:#212529;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+        </radialGradient>
+        
+        <!-- Lens Reflection -->
+        <radialGradient id="lensReflection">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+            <stop offset="40%" style="stop-color:#e7f5ff;stop-opacity:0.4" />
+            <stop offset="100%" style="stop-color:#4dabf7;stop-opacity:0.1" />
+        </radialGradient>
+        
+        <!-- Recording Light -->
+        <radialGradient id="recordingLight">
+            <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#f03e3e;stop-opacity:0.8" />
+            <stop offset="100%" style="stop-color:#c92a2a;stop-opacity:0.6" />
+        </radialGradient>
+        
+        <!-- Grid Pattern -->
+        <pattern id="videoGridPattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="0" y2="4" stroke="#d4af37" stroke-width="0.1" opacity="0.2"/>
+            <line x1="0" y1="0" x2="4" y2="0" stroke="#d4af37" stroke-width="0.1" opacity="0.2"/>
+        </pattern>
+        
+        <!-- Camera Glow -->
+        <radialGradient id="cameraGlow">
+            <stop offset="0%" style="stop-color:#4dabf7;stop-opacity:0.4" />
+            <stop offset="50%" style="stop-color:#4dabf7;stop-opacity:0.2" />
+            <stop offset="100%" style="stop-color:#4dabf7;stop-opacity:0" />
+        </radialGradient>
+        
+        <!-- Inner Shadow -->
+        <filter id="videoInnerShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.5"/>
+            <feComposite in2="offsetblur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        
+        <!-- Glow Filter -->
+        <filter id="videoGlowFilter">
+            <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <g transform="translate(45,45)">
+        <!-- Outer Hexagon Frame -->
+        <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                 fill="url(#videoGunmetal)" 
+                 stroke="#1a1a1a" 
+                 stroke-width="0.75"
+                 filter="url(#videoInnerShadow)"/>
+        
+        <!-- Inner Dark Background -->
+        <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                 fill="#000000" 
+                 opacity="0.95"/>
+        
+        <!-- Background Glow -->
+        <ellipse cx="0" cy="0" rx="18" ry="14" 
+                 fill="url(#cameraGlow)" 
+                 opacity="0.3">
+            <animate attributeName="opacity" values="0.3;0.5;0.3" dur="4s" repeatCount="indefinite"/>
+        </ellipse>
+        
+        <!-- Background Grid -->
+        <rect x="-20" y="-15" width="40" height="30" 
+              fill="url(#videoGridPattern)" 
+              opacity="0.3"/>
+        
+        <!-- Main Camera Body -->
+        <g transform="translate(0,0)">
+            <!-- Camera Shadow -->
+            <ellipse cx="0" cy="10" rx="12" ry="3" fill="#000000" opacity="0.3"/>
+            
+            <!-- Camera Body -->
+            <rect x="-12" y="-4" width="24" height="12" 
+                  rx="2" 
+                  fill="url(#cameraBody)" 
+                  filter="url(#videoInnerShadow)"/>
+            
+            <!-- Camera Front Panel -->
+            <rect x="-10" y="-2" width="20" height="8" 
+                  rx="1" 
+                  fill="#1971c2" 
+                  opacity="0.5"/>
+            
+            <!-- Main Lens -->
+            <circle cx="0" cy="2" r="6" 
+                    fill="url(#lensGradient)" 
+                    filter="url(#videoInnerShadow)"/>
+            
+            <!-- Lens Rings -->
+            <circle cx="0" cy="2" r="5.5" 
+                    fill="none" 
+                    stroke="#495057" 
+                    stroke-width="0.5" 
+                    opacity="0.8"/>
+            <circle cx="0" cy="2" r="4.5" 
+                    fill="none" 
+                    stroke="#343a40" 
+                    stroke-width="0.3" 
+                    opacity="0.6"/>
+            <circle cx="0" cy="2" r="3.5" 
+                    fill="none" 
+                    stroke="#212529" 
+                    stroke-width="0.3" 
+                    opacity="0.4"/>
+            
+            <!-- Lens Iris Blades -->
+            <g transform="translate(0,2)" opacity="0.5">
+                <path d="M0,-3 L2.6,-1.5 L2.6,1.5 L0,3 L-2.6,1.5 L-2.6,-1.5 Z" 
+                      fill="none" 
+                      stroke="#495057" 
+                      stroke-width="0.2"/>
+            </g>
+            
+            <!-- Lens Reflection -->
+            <ellipse cx="-1.5" cy="0.5" rx="2" ry="2" 
+                     fill="url(#lensReflection)" 
+                     opacity="0.7"/>
+            
+            <!-- Recording Indicator -->
+            <circle cx="8" cy="-2" r="1.5" 
+                    fill="url(#recordingLight)">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
+            </circle>
+            
+            <!-- Microphone -->
+            <rect x="-6" y="-3" width="3" height="1" 
+                  rx="0.5" 
+                  fill="url(#videoGold)" 
+                  opacity="0.8"/>
+            
+            <!-- Speaker Grilles -->
+            <g opacity="0.7">
+                <circle cx="-8" cy="2" r="0.3" fill="#212529"/>
+                <circle cx="-8" cy="3.5" r="0.3" fill="#212529"/>
+                <circle cx="-8" cy="5" r="0.3" fill="#212529"/>
+            </g>
+        </g>
+        
+        <!-- Signal Waves -->
+        <g transform="translate(14,0)" filter="url(#videoGlowFilter)">
+            <path d="M0,0 Q3,-3 6,0" 
+                  fill="none" 
+                  stroke="url(#videoGold)" 
+                  stroke-width="0.8" 
+                  stroke-linecap="round" 
+                  opacity="0">
+                <animate attributeName="opacity" values="0;0.8;0" dur="2s" repeatCount="indefinite"/>
+            </path>
+            <path d="M0,2 Q3,-1 6,2" 
+                  fill="none" 
+                  stroke="url(#videoGold)" 
+                  stroke-width="0.8" 
+                  stroke-linecap="round" 
+                  opacity="0">
+                <animate attributeName="opacity" values="0;0.8;0" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+            </path>
+            <path d="M0,4 Q3,1 6,4" 
+                  fill="none" 
+                  stroke="url(#videoGold)" 
+                  stroke-width="0.8" 
+                  stroke-linecap="round" 
+                  opacity="0">
+                <animate attributeName="opacity" values="0;0.8;0" dur="2s" begin="1s" repeatCount="indefinite"/>
+            </path>
+        </g>
+        
+        <!-- User Icons in Corner -->
+        <g transform="translate(-16,-10)" opacity="0.8">
+            <circle cx="0" cy="0" r="3" 
+                    fill="url(#videoGold)" 
+                    opacity="0.3"/>
+            <circle cx="0" cy="-1" r="1.5" 
+                    fill="url(#videoGold)"/>
+            <path d="M-2,2 Q0,0.5 2,2" 
+                  fill="url(#videoGold)"/>
+        </g>
+        
+        <g transform="translate(16,-10)" opacity="0.8">
+            <circle cx="0" cy="0" r="3" 
+                    fill="url(#videoGold)" 
+                    opacity="0.3"/>
+            <circle cx="0" cy="-1" r="1.5" 
+                    fill="url(#videoGold)"/>
+            <path d="M-2,2 Q0,0.5 2,2" 
+                  fill="url(#videoGold)"/>
+        </g>
+        
+        <!-- Status Text -->
+        <g opacity="0.6">
+            <text x="-18" y="-18" font-size="2" fill="url(#videoGold)" font-family="monospace">LIVE</text>
+            <text x="8" y="18" font-size="2" fill="url(#videoGold)" font-family="monospace">00:42</text>
+        </g>
+        
+        <!-- Floating Particles -->
+        <g opacity="0.5">
+            <circle cx="-15" cy="10" r="0.3" fill="url(#videoGold)">
+                <animate attributeName="cy" values="10;-15;10" dur="4s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;0.5;0" dur="4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="15" cy="-10" r="0.3" fill="url(#cameraBody)">
+                <animate attributeName="cy" values="-10;15;-10" dur="4s" begin="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;0.5;0" dur="4s" begin="2s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+        
+        <!-- Bottom Control Bar -->
+        <rect x="-18" y="12" width="36" height="5" 
+              rx="2" 
+              fill="url(#videoGold)" 
+              opacity="0.2"/>
+        
+        <!-- Control Icons -->
+        <g transform="translate(0,14.5)">
+            <!-- Mute Icon -->
+            <rect x="-14" y="-1" width="2" height="2" fill="url(#videoGold)" opacity="0.7"/>
+            <path d="M-12,-1.5 L-10,-2.5 L-10,2.5 L-12,1.5 Z" fill="url(#videoGold)" opacity="0.7"/>
+            
+            <!-- Settings Icon -->
+            <circle cx="0" cy="0" r="1.5" fill="none" stroke="url(#videoGold)" stroke-width="0.5" opacity="0.7"/>
+            <circle cx="0" cy="0" r="0.5" fill="url(#videoGold)" opacity="0.7"/>
+            
+            <!-- End Call Icon -->
+            <rect x="10" y="-1" width="4" height="2" rx="1" fill="#f03e3e" opacity="0.8"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,166 @@
+<svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Premium Gunmetal Gradient -->
+        <linearGradient id="userGunmetal" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#6a6a6a;stop-opacity:1" />
+            <stop offset="7%" style="stop-color:#626262;stop-opacity:1" />
+            <stop offset="14%" style="stop-color:#5a5a5a;stop-opacity:1" />
+            <stop offset="21%" style="stop-color:#525252;stop-opacity:1" />
+            <stop offset="28%" style="stop-color:#4a4a4a;stop-opacity:1" />
+            <stop offset="35%" style="stop-color:#424242;stop-opacity:1" />
+            <stop offset="42%" style="stop-color:#3a3a3a;stop-opacity:1" />
+            <stop offset="49%" style="stop-color:#323232;stop-opacity:1" />
+            <stop offset="56%" style="stop-color:#2a2a2a;stop-opacity:1" />
+            <stop offset="63%" style="stop-color:#222222;stop-opacity:1" />
+            <stop offset="70%" style="stop-color:#1c1c1c;stop-opacity:1" />
+            <stop offset="77%" style="stop-color:#161616;stop-opacity:1" />
+            <stop offset="84%" style="stop-color:#101010;stop-opacity:1" />
+            <stop offset="91%" style="stop-color:#0a0a0a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+        </linearGradient>
+        <!-- Premium Gold Gradient -->
+        <linearGradient id="userGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fffdf5;stop-opacity:1" />
+            <stop offset="10%" style="stop-color:#fff4d4;stop-opacity:1" />
+            <stop offset="20%" style="stop-color:#ffed9e;stop-opacity:1" />
+            <stop offset="30%" style="stop-color:#ffe574;stop-opacity:1" />
+            <stop offset="40%" style="stop-color:#ffdb4a;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#ffd428;stop-opacity:1" />
+            <stop offset="60%" style="stop-color:#e8bc3c;stop-opacity:1" />
+            <stop offset="70%" style="stop-color:#d0a43c;stop-opacity:1" />
+            <stop offset="80%" style="stop-color:#c49838;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#b88c34;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#946828;stop-opacity:1" />
+        </linearGradient>
+        <!-- User Glow -->
+        <radialGradient id="userGlow">
+            <stop offset="0%" style="stop-color:#d4af37;stop-opacity:0.4" />
+            <stop offset="50%" style="stop-color:#d4af37;stop-opacity:0.2" />
+            <stop offset="100%" style="stop-color:#d4af37;stop-opacity:0" />
+        </radialGradient>
+        <!-- Inner Shadow -->
+        <filter id="userInnerShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.5"/>
+            <feComposite in2="offsetblur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <!-- Status Gradient -->
+        <linearGradient id="statusGreen">
+            <stop offset="0%" style="stop-color:#8ce99a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#51cf66;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    <g transform="translate(45,45)">
+        <!-- Outer Hexagon Frame -->
+        <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                 fill="url(#userGunmetal)" 
+                 stroke="#1a1a1a" 
+                 stroke-width="0.75"
+                 filter="url(#userInnerShadow)"/>
+        <!-- Inner Dark Background -->
+        <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                 fill="#000000" 
+                 opacity="0.95"/>
+        
+        <!-- Background Glow -->
+        <circle cx="0" cy="-2" r="15" 
+                fill="url(#userGlow)" 
+                opacity="0.3">
+            <animate attributeName="opacity" values="0.3;0.5;0.3" dur="4s" repeatCount="indefinite"/>
+        </circle>
+        
+        <!-- Outer Ring -->
+        <circle cx="0" cy="0" r="14" 
+                fill="none" 
+                stroke="url(#userGold)" 
+                stroke-width="1" 
+                opacity="0.3"
+                stroke-dasharray="2,3"/>
+        
+        <!-- User Head -->
+        <circle cx="0" cy="-4" r="5.5" 
+                fill="none" 
+                stroke="url(#userGold)" 
+                stroke-width="2.5"
+                opacity="0.95"/>
+        <circle cx="0" cy="-4" r="4" 
+                fill="url(#userGold)" 
+                opacity="0.15"/>
+        <circle cx="0" cy="-4" r="3.5" 
+                fill="none" 
+                stroke="url(#userGold)" 
+                stroke-width="1"
+                opacity="0.5"/>
+        
+        <!-- Face Details -->
+        <!-- Eyes -->
+        <circle cx="-1.5" cy="-5" r="0.5" fill="url(#userGold)" opacity="0.7"/>
+        <circle cx="1.5" cy="-5" r="0.5" fill="url(#userGold)" opacity="0.7"/>
+        <!-- Smile -->
+        <path d="M-1.5,-2.5 Q0,-1.5 1.5,-2.5" 
+              fill="none" 
+              stroke="url(#userGold)" 
+              stroke-width="0.5" 
+              opacity="0.6"
+              stroke-linecap="round"/>
+        
+        <!-- User Shoulders/Body -->
+        <path d="M-10,12 C-10,8 -8,6 -6,5 C-5,4 -3,3 0,3 C3,3 5,4 6,5 C8,6 10,8 10,12 Z" 
+              fill="none" 
+              stroke="url(#userGold)" 
+              stroke-width="2.5"
+              opacity="0.95"/>
+        <path d="M-10,12 C-10,8 -8,6 -6,5 C-5,4 -3,3 0,3 C3,3 5,4 6,5 C8,6 10,8 10,12 Z" 
+              fill="url(#userGold)" 
+              opacity="0.1"/>
+        
+        <!-- Collar/Neckline Detail -->
+        <path d="M-3,3 L-3,5 L0,6 L3,5 L3,3" 
+              fill="none" 
+              stroke="url(#userGold)" 
+              stroke-width="1.5"
+              opacity="0.7"/>
+        
+        <!-- Status Indicator -->
+        <circle cx="4" cy="-7" r="2" 
+                fill="#0a0a0f" 
+                opacity="0.9"/>
+        <circle cx="4" cy="-7" r="1.5" 
+                fill="url(#statusGreen)">
+            <animate attributeName="r" values="1.5;2;1.5" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="1;0.6;1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        
+        <!-- Profile Frame Decorations -->
+        <g opacity="0.4">
+            <!-- Top decoration -->
+            <rect x="-1" y="-14" width="2" height="1" fill="url(#userGold)" rx="0.5"/>
+            <!-- Side decorations -->
+            <rect x="-14" y="-1" width="1" height="2" fill="url(#userGold)" rx="0.5"/>
+            <rect x="13" y="-1" width="1" height="2" fill="url(#userGold)" rx="0.5"/>
+            <!-- Bottom decoration -->
+            <rect x="-1" y="13" width="2" height="1" fill="url(#userGold)" rx="0.5"/>
+        </g>
+        
+        <!-- Data Points (representing user data) -->
+        <g opacity="0.3">
+            <circle cx="-12" cy="8" r="0.3" fill="url(#userGold)">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="-10" cy="10" r="0.3" fill="url(#userGold)">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="10" cy="10" r="0.3" fill="url(#userGold)">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" begin="1s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="12" cy="8" r="0.3" fill="url(#userGold)">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,2881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <title>VERITRON™ UI Component System</title>
+    <style>
+        /* ==================== VERITRON DESIGN SYSTEM ==================== */
+        :root {
+            /* Gold Spectrum - 12 stops for realistic metal */
+            --vt-gold-1: #fff9e6;
+            --vt-gold-2: #fff4d4;
+            --vt-gold-3: #ffed9e;
+            --vt-gold-4: #ffe574;
+            --vt-gold-5: #ffdb4a;
+            --vt-gold-6: #ffd428;
+            --vt-gold-7: #f4c838;
+            --vt-gold-8: #e8bc3c;
+            --vt-gold-9: #d4af37;
+            --vt-gold-10: #c49838;
+            --vt-gold-11: #b88c34;
+            --vt-gold-12: #9a7c19;
+            
+            /* Aluminum Spectrum - True brushed metal */
+            --vt-aluminum-1: #ffffff;
+            --vt-aluminum-2: #fafafa;
+            --vt-aluminum-3: #f5f5f5;
+            --vt-aluminum-4: #ececec;
+            --vt-aluminum-5: #e2e2e2;
+            --vt-aluminum-6: #d8d8d8;
+            --vt-aluminum-7: #cecece;
+            --vt-aluminum-8: #c4c4c4;
+            --vt-aluminum-9: #bababa;
+            --vt-aluminum-10: #b0b0b0;
+            --vt-aluminum-11: #a6a6a6;
+            --vt-aluminum-12: #9c9c9c;
+            --vt-aluminum-13: #929292;
+            --vt-aluminum-14: #888888;
+            --vt-aluminum-15: #7e7e7e;
+            
+            /* Gunmetal Spectrum */
+            --vt-gunmetal-1: #6a6a6a;
+            --vt-gunmetal-2: #5a5a5a;
+            --vt-gunmetal-3: #4a4a4a;
+            --vt-gunmetal-4: #3a3a3a;
+            --vt-gunmetal-5: #2a2a2a;
+            --vt-gunmetal-6: #1c1c1c;
+            --vt-gunmetal-7: #151515;
+            --vt-gunmetal-8: #0f0f0f;
+            --vt-gunmetal-9: #0a0a0a;
+            --vt-gunmetal-10: #050505;
+            
+            /* Success/Error/Warning Colors */
+            --vt-success: #4caf50;
+            --vt-error: #ff5252;
+            --vt-warning: #ff9800;
+            --vt-info: #2196f3;
+            
+            /* Core Design Tokens */
+            --vt-bg-primary: #000000;
+            --vt-bg-secondary: #0a0a0f;
+            --vt-bg-tertiary: #0f0f14;
+            
+            --vt-text-primary: #e8e8e8;
+            --vt-text-secondary: #888888;
+            --vt-text-muted: #666666;
+            
+            /* Premium Timing Functions */
+            --vt-ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+            --vt-ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+            --vt-ease-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --vt-ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: var(--vt-bg-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+            color: var(--vt-text-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding: 40px 20px;
+            background-image: 
+                radial-gradient(ellipse at 20% 0%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(212, 175, 55, 0.02) 0%, transparent 50%);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 100;
+            letter-spacing: 0.2em;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #ffffff, #c0c0c0, #808080);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+        
+        .component-section {
+            margin-bottom: 80px;
+        }
+        
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--vt-gold-9);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--vt-gold-9), transparent);
+        }
+        
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        /* ==================== DATE PICKER - ULTRA PREMIUM ==================== */
+        
+        .vt-date-picker {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            perspective: 1000px;
+        }
+        
+        .vt-date-input {
+            width: 100%;
+            padding: 16px 48px 16px 20px;
+            background: 
+                linear-gradient(135deg, 
+                    rgba(15, 15, 20, 0.6) 0%, 
+                    rgba(10, 10, 15, 0.8) 100%),
+                radial-gradient(ellipse at 30% 50%, 
+                    rgba(212, 175, 55, 0.03) 0%, 
+                    transparent 50%);
+            border: 1px solid rgba(136, 136, 136, 0.2);
+            border-radius: 14px;
+            color: var(--vt-text-primary);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            transition: all 0.4s var(--vt-ease-out-expo);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 
+                0 2px 8px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.02),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        .vt-date-input::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(212, 175, 55, 0.1) 50%,
+                transparent 100%
+            );
+            transition: left 0.6s var(--vt-ease-out-expo);
+        }
+        
+        .vt-date-input:hover::before {
+            left: 100%;
+        }
+        
+        .vt-date-input::after {
+            content: '📅';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            opacity: 0.5;
+            transition: all 0.3s var(--vt-ease-smooth);
+        }
+        
+        .vt-date-input:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            background: 
+                linear-gradient(135deg, 
+                    rgba(15, 15, 20, 0.7) 0%, 
+                    rgba(10, 10, 15, 0.9) 100%),
+                radial-gradient(ellipse at 30% 50%, 
+                    rgba(212, 175, 55, 0.05) 0%, 
+                    transparent 50%);
+            transform: translateY(-2px);
+            box-shadow: 
+                0 8px 24px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(212, 175, 55, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.03),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+        }
+        
+        .vt-date-input:hover::after {
+            transform: translateY(-50%) rotate(15deg) scale(1.1);
+            opacity: 0.8;
+        }
+        
+        .vt-date-input:focus {
+            outline: none;
+            border-color: var(--vt-gold-9);
+            transform: translateY(-2px);
+            box-shadow: 
+                0 0 0 3px rgba(212, 175, 55, 0.15),
+                0 12px 32px rgba(0, 0, 0, 0.4),
+                0 0 60px rgba(212, 175, 55, 0.15),
+                inset 0 1px 0 rgba(255, 255, 200, 0.1);
+        }
+        
+        .vt-calendar-dropdown {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 50%;
+            transform: translateX(-50%);
+            width: 360px;
+            background: 
+                linear-gradient(135deg, 
+                    rgba(15, 15, 20, 0.98) 0%,
+                    rgba(12, 12, 17, 0.99) 50%,
+                    rgba(10, 10, 15, 0.99) 100%),
+                radial-gradient(ellipse at top, 
+                    rgba(212, 175, 55, 0.02) 0%, 
+                    transparent 50%);
+            backdrop-filter: blur(30px) saturate(150%);
+            -webkit-backdrop-filter: blur(30px) saturate(150%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 24px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-50%) translateY(-10px) rotateX(-15deg);
+            transform-origin: top center;
+            transition: all 0.4s var(--vt-ease-out-expo);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.6),
+                0 0 100px rgba(212, 175, 55, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.03),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            overflow: hidden;
+        }
+        
+        .vt-calendar-dropdown::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                rgba(212, 175, 55, 0.05) 0%,
+                transparent 50%
+            );
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .vt-calendar-dropdown::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(212, 175, 55, 0.3) 20%,
+                rgba(212, 175, 55, 0.5) 50%,
+                rgba(212, 175, 55, 0.3) 80%,
+                transparent 100%
+            );
+            animation: calendarGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes calendarGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        .vt-calendar-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0) rotateX(0);
+        }
+        
+        .vt-calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            position: relative;
+            padding-bottom: 16px;
+        }
+        
+        .vt-calendar-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(136, 136, 136, 0.2) 50%,
+                transparent 100%
+            );
+        }
+        
+        .vt-calendar-nav {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            background: 
+                linear-gradient(135deg, 
+                    rgba(212, 175, 55, 0.03) 0%,
+                    rgba(212, 175, 55, 0.06) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s var(--vt-ease-spring);
+            color: var(--vt-gold-9);
+            font-size: 18px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .vt-calendar-nav::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                circle at center,
+                rgba(212, 175, 55, 0.2) 0%,
+                transparent 70%
+            );
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.3s var(--vt-ease-spring);
+        }
+        
+        .vt-calendar-nav:hover {
+            background: 
+                linear-gradient(135deg, 
+                    rgba(212, 175, 55, 0.08) 0%,
+                    rgba(212, 175, 55, 0.12) 100%);
+            transform: scale(1.1);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 
+                0 4px 12px rgba(212, 175, 55, 0.2),
+                inset 0 1px 0 rgba(255, 255, 200, 0.1);
+        }
+        
+        .vt-calendar-nav:hover::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .vt-calendar-nav:active {
+            transform: scale(0.95);
+        }
+        
+        .vt-calendar-title {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: linear-gradient(
+                90deg,
+                var(--vt-aluminum-8) 0%,
+                var(--vt-aluminum-3) 50%,
+                var(--vt-aluminum-8) 100%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleShimmer 4s linear infinite;
+            background-size: 200% 100%;
+        }
+        
+        @keyframes titleShimmer {
+            0% { background-position: -100% 0; }
+            100% { background-position: 100% 0; }
+        }
+        
+        .vt-calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+            position: relative;
+        }
+        
+        .vt-calendar-weekday {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--vt-gold-9);
+            text-align: center;
+            padding: 10px 0;
+            opacity: 0.6;
+            position: relative;
+        }
+        
+        .vt-calendar-weekday::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20%;
+            right: 20%;
+            height: 1px;
+            background: var(--vt-gold-9);
+            opacity: 0.2;
+        }
+        
+        .vt-calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--vt-text-secondary);
+            transition: all 0.3s var(--vt-ease-spring);
+            position: relative;
+            background: 
+                linear-gradient(135deg, 
+                    rgba(15, 15, 20, 0.3) 0%,
+                    rgba(10, 10, 15, 0.5) 100%);
+            border: 1px solid transparent;
+            overflow: hidden;
+        }
+        
+        .vt-calendar-day::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                circle at center,
+                rgba(212, 175, 55, 0.15) 0%,
+                transparent 70%
+            );
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.4s var(--vt-ease-spring);
+        }
+        
+        .vt-calendar-day:hover {
+            background: 
+                linear-gradient(135deg, 
+                    rgba(212, 175, 55, 0.08) 0%,
+                    rgba(212, 175, 55, 0.12) 100%);
+            color: var(--vt-text-primary);
+            transform: translateZ(10px) scale(1.15);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 
+                0 6px 20px rgba(212, 175, 55, 0.2),
+                inset 0 1px 0 rgba(255, 255, 200, 0.1);
+        }
+        
+        .vt-calendar-day:hover::before {
+            opacity: 1;
+            transform: scale(1.5);
+        }
+        
+        .vt-calendar-day.today {
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: var(--vt-gold-9);
+            background: 
+                linear-gradient(135deg, 
+                    rgba(212, 175, 55, 0.05) 0%,
+                    rgba(212, 175, 55, 0.08) 100%);
+            font-weight: 600;
+            box-shadow: 
+                0 0 20px rgba(212, 175, 55, 0.1),
+                inset 0 1px 0 rgba(255, 255, 200, 0.05);
+        }
+        
+        .vt-calendar-day.today::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            animation: todayPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes todayPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+        
+        .vt-calendar-day.selected {
+            background: 
+                radial-gradient(ellipse at 30% 30%,
+                    var(--vt-gold-6) 0%,
+                    var(--vt-gold-8) 40%,
+                    var(--vt-gold-10) 100%);
+            color: var(--vt-bg-primary);
+            font-weight: 700;
+            transform: scale(1.05);
+            border-color: var(--vt-gold-9);
+            box-shadow: 
+                0 4px 16px rgba(212, 175, 55, 0.4),
+                0 0 30px rgba(212, 175, 55, 0.2),
+                inset 0 1px 0 rgba(255, 255, 200, 0.4),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+            animation: selectedGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes selectedGlow {
+            0%, 100% { 
+                box-shadow: 
+                    0 4px 16px rgba(212, 175, 55, 0.4),
+                    0 0 30px rgba(212, 175, 55, 0.2),
+                    inset 0 1px 0 rgba(255, 255, 200, 0.4),
+                    inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+            }
+            50% { 
+                box-shadow: 
+                    0 6px 20px rgba(212, 175, 55, 0.5),
+                    0 0 40px rgba(212, 175, 55, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 200, 0.5),
+                    inset 0 -1px 2px rgba(0, 0, 0, 0.3);
+            }
+        }
+        
+        .vt-calendar-day.other-month {
+            opacity: 0.2;
+            cursor: default;
+            pointer-events: none;
+        }
+        
+        /* ==================== INPUT FIELDS - ULTRA PREMIUM ==================== */
+        
+        .vt-input-group {
+            position: relative;
+            width: 100%;
+            perspective: 1000px;
+            margin-bottom: 8px; /* Add consistent spacing between input groups */
+        }
+        
+        .vt-input {
+            width: 100%;
+            padding: 16px 48px 16px 20px; /* Adjusted padding for icon space */
+            background: 
+                linear-gradient(135deg, 
+                    rgba(15, 15, 20, 0.6) 0%,
+                    rgba(12, 12, 17, 0.7) 50%,
+                    rgba(10, 10, 15, 0.8) 100%),
+                radial-gradient(ellipse at 25% 50%, 
+                    rgba(212, 175, 55, 0.02) 0%, 
+                    transparent 60%);
+            border: 1px solid rgba(136, 136, 136, 0.2);
+            border-radius: 14px;
+            color: var(--vt-text-primary);
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            transition: all 0.4s var(--vt-ease-out-expo);
+            position: relative;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 
+                0 2px 8px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.02),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+        }
+        
+        .vt-input::placeholder {
+            color: var(--vt-text-muted);
+            transition: all 0.3s ease;
+        }
+        
+        .vt-input:hover {
+            border-color: rgba(136, 136, 136, 0.3);
+            background: 
+                linear-gradient(135deg, 
+                    rgba(15, 15, 20, 0.7) 0%,
+                    rgba(12, 12, 17, 0.8) 50%,
+                    rgba(10, 10, 15, 0.9) 100%),
+                radial-gradient(ellipse at 25% 50%, 
+                    rgba(212, 175, 55, 0.04) 0%, 
+                    transparent 60%);
+            transform: translateY(-1px) translateZ(5px);
+            box-shadow: 
+                0 6px 16px rgba(0, 0, 0, 0.2),
+                0 0 30px rgba(212, 175, 55, 0.02),
+                inset 0 1px 0 rgba(255, 255, 255, 0.03),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+        }
+        
+        .vt-input:hover::placeholder {
+            color: var(--vt-text-secondary);
+        }
+        
+        .vt-input:focus {
+            outline: none;
+            border-color: var(--vt-gold-9);
+            background: 
+                linear-gradient(135deg, 
+                    rgba(15, 15, 20, 0.8) 0%,
+                    rgba(12, 12, 17, 0.9) 50%,
+                    rgba(10, 10, 15, 1) 100%),
+                radial-gradient(ellipse at 25% 50%, 
+                    rgba(212, 175, 55, 0.06) 0%, 
+                    transparent 60%);
+            transform: translateY(-2px) translateZ(10px);
+            box-shadow: 
+                0 0 0 3px rgba(212, 175, 55, 0.1),
+                0 12px 32px rgba(0, 0, 0, 0.3),
+                0 0 60px rgba(212, 175, 55, 0.1),
+                inset 0 1px 0 rgba(255, 255, 200, 0.05),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Animated typing indicator */
+        @keyframes typingGlow {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 0 3px rgba(212, 175, 55, 0.1),
+                    0 12px 32px rgba(0, 0, 0, 0.3),
+                    0 0 60px rgba(212, 175, 55, 0.1),
+                    inset 0 1px 0 rgba(255, 255, 200, 0.05),
+                    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 0 3px rgba(212, 175, 55, 0.15),
+                    0 12px 32px rgba(0, 0, 0, 0.3),
+                    0 0 80px rgba(212, 175, 55, 0.15),
+                    inset 0 1px 0 rgba(255, 255, 200, 0.08),
+                    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+            }
+        }
+        
+        .vt-input:focus:not(:placeholder-shown) {
+            animation: typingGlow 2s ease-in-out infinite;
+        }
+        
+        .vt-input-label {
+            position: absolute;
+            top: -10px;
+            left: 16px;
+            padding: 0 8px;
+            background: linear-gradient(135deg, 
+                var(--vt-bg-primary) 0%, 
+                rgba(10, 10, 15, 0.98) 100%);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--vt-text-muted);
+            transition: all 0.3s var(--vt-ease-spring);
+            border-radius: 6px;
+            z-index: 1;
+            white-space: nowrap;
+        }
+        
+        .vt-input:focus ~ .vt-input-label {
+            color: var(--vt-gold-9);
+            transform: translateY(-2px) scale(1.05);
+            background: linear-gradient(135deg, 
+                var(--vt-bg-primary) 0%, 
+                rgba(10, 10, 15, 1) 100%);
+            box-shadow: 
+                0 2px 8px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(212, 175, 55, 0.1);
+        }
+        
+        .vt-input-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--vt-text-muted);
+            transition: all 0.3s var(--vt-ease-spring);
+            pointer-events: none;
+        }
+        
+        .vt-input:hover ~ .vt-input-icon {
+            color: var(--vt-text-secondary);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .vt-input:focus ~ .vt-input-icon {
+            color: var(--vt-gold-9);
+            transform: translateY(-50%) rotate(15deg) scale(1.15);
+            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+        }
+        
+        /* Search Input Variant - Premium */
+        .vt-input-search {
+            padding-left: 52px;
+            padding-right: 52px;
+        }
+        
+        .vt-search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--vt-text-muted);
+            transition: all 0.3s var(--vt-ease-spring);
+        }
+        
+        .vt-input-search:hover ~ .vt-search-icon {
+            color: var(--vt-text-secondary);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .vt-input-search:focus ~ .vt-search-icon {
+            color: var(--vt-gold-9);
+            transform: translateY(-50%) rotate(-15deg) scale(1.15);
+            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+        }
+        
+        /* Clear button for search */
+        .vt-input-search:not(:placeholder-shown) ~ .vt-input-clear {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(-50%) scale(1);
+        }
+        
+        .vt-input-clear {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%) scale(0.8);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(136, 136, 136, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s var(--vt-ease-spring);
+            color: var(--vt-text-muted);
+            font-size: 14px;
+        }
+        
+        .vt-input-clear:hover {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--vt-gold-9);
+            transform: translateY(-50%) scale(1.1) rotate(90deg);
+        }
+        
+        /* Input validation states */
+        .vt-input.valid {
+            border-color: rgba(76, 175, 80, 0.4);
+            background: 
+                linear-gradient(135deg, 
+                    rgba(15, 15, 20, 0.6) 0%,
+                    rgba(10, 10, 15, 0.8) 100%),
+                radial-gradient(ellipse at 25% 50%, 
+                    rgba(76, 175, 80, 0.02) 0%, 
+                    transparent 60%);
+        }
+        
+        .vt-input.valid:focus {
+            border-color: var(--vt-success);
+            box-shadow: 
+                0 0 0 3px rgba(76, 175, 80, 0.1),
+                0 12px 32px rgba(0, 0, 0, 0.3),
+                0 0 60px rgba(76, 175, 80, 0.1);
+        }
+        
+        .vt-input.error {
+            border-color: rgba(255, 82, 82, 0.4);
+            background: 
+                linear-gradient(135deg, 
+                    rgba(15, 15, 20, 0.6) 0%,
+                    rgba(10, 10, 15, 0.8) 100%),
+                radial-gradient(ellipse at 25% 50%, 
+                    rgba(255, 82, 82, 0.02) 0%, 
+                    transparent 60%);
+            animation: errorShake 0.4s ease-in-out;
+        }
+        
+        @keyframes errorShake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+            20%, 40%, 60%, 80% { transform: translateX(4px); }
+        }
+        
+        .vt-input.error:focus {
+            border-color: var(--vt-error);
+            box-shadow: 
+                0 0 0 3px rgba(255, 82, 82, 0.1),
+                0 12px 32px rgba(0, 0, 0, 0.3),
+                0 0 60px rgba(255, 82, 82, 0.1);
+        }
+        
+        /* ==================== SELECT DROPDOWN ==================== */
+        
+        .vt-select {
+            position: relative;
+            width: 100%;
+        }
+        
+        .vt-select-trigger {
+            width: 100%;
+            padding: 14px 40px 14px 16px;
+            background: linear-gradient(135deg, 
+                rgba(15, 15, 20, 0.6) 0%,
+                rgba(10, 10, 15, 0.8) 100%);
+            border: 1px solid rgba(136, 136, 136, 0.2);
+            border-radius: 12px;
+            color: var(--vt-text-primary);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s var(--vt-ease-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .vt-select-trigger:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            background: linear-gradient(135deg, 
+                rgba(15, 15, 20, 0.7) 0%,
+                rgba(10, 10, 15, 0.9) 100%);
+        }
+        
+        .vt-select-trigger.active {
+            border-color: var(--vt-gold-9);
+            box-shadow: 
+                0 0 0 3px rgba(212, 175, 55, 0.1),
+                0 0 20px rgba(212, 175, 55, 0.2);
+        }
+        
+        .vt-select-arrow {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s var(--vt-ease-smooth);
+            color: var(--vt-gold-9);
+        }
+        
+        .vt-select-trigger.active .vt-select-arrow {
+            transform: translateY(-50%) rotate(180deg);
+        }
+        
+        .vt-select-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, 
+                rgba(15, 15, 20, 0.98) 0%,
+                rgba(10, 10, 15, 0.99) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s var(--vt-ease-out-expo);
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.5),
+                0 0 60px rgba(212, 175, 55, 0.1);
+            z-index: 1000;
+            max-height: 240px;
+            overflow-y: auto;
+        }
+        
+        .vt-select-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .vt-select-option {
+            padding: 12px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s var(--vt-ease-smooth);
+            font-size: 14px;
+            color: var(--vt-text-secondary);
+            position: relative;
+        }
+        
+        .vt-select-option:hover {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--vt-text-primary);
+            padding-left: 20px;
+        }
+        
+        .vt-select-option.selected {
+            background: linear-gradient(135deg, 
+                rgba(212, 175, 55, 0.15) 0%,
+                rgba(212, 175, 55, 0.1) 100%);
+            color: var(--vt-gold-9);
+            font-weight: 600;
+        }
+        
+        .vt-select-option.selected::before {
+            content: '✓';
+            position: absolute;
+            left: 16px;
+            color: var(--vt-gold-9);
+        }
+        
+        /* ==================== TOGGLE SWITCH - ULTRA PREMIUM ==================== */
+        
+        .vt-toggle {
+            position: relative;
+            width: 64px;
+            height: 32px;
+            cursor: pointer;
+            perspective: 200px;
+        }
+        
+        .vt-toggle-input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .vt-toggle-slider {
+            position: absolute;
+            inset: 0;
+            background: 
+                linear-gradient(135deg, 
+                    var(--vt-gunmetal-3) 0%,
+                    var(--vt-gunmetal-4) 50%,
+                    var(--vt-gunmetal-5) 100%),
+                radial-gradient(ellipse at 30% 50%, 
+                    rgba(0, 0, 0, 0.3) 0%, 
+                    transparent 50%);
+            border: 1px solid rgba(136, 136, 136, 0.2);
+            border-radius: 32px;
+            transition: all 0.4s var(--vt-ease-smooth);
+            box-shadow: 
+                inset 0 2px 4px rgba(0, 0, 0, 0.4),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.3),
+                0 1px 2px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        .vt-toggle-slider::after {
+            content: 'OFF';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--vt-text-muted);
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+        
+        .vt-toggle-slider::before {
+            content: '';
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            left: 3px;
+            top: 50%;
+            transform: translateY(-50%) rotateY(0deg);
+            background: 
+                radial-gradient(ellipse at 30% 30%,
+                    var(--vt-aluminum-1) 0%,
+                    var(--vt-aluminum-3) 20%,
+                    var(--vt-aluminum-5) 40%,
+                    var(--vt-aluminum-7) 60%,
+                    var(--vt-aluminum-10) 80%,
+                    var(--vt-aluminum-13) 100%),
+                linear-gradient(135deg, 
+                    rgba(255, 255, 255, 0.1) 0%, 
+                    transparent 50%);
+            border-radius: 50%;
+            transition: all 0.4s var(--vt-ease-spring);
+            box-shadow: 
+                0 2px 8px rgba(0, 0, 0, 0.4),
+                0 0 12px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+            transform-style: preserve-3d;
+        }
+        
+        .vt-toggle:hover .vt-toggle-slider::before {
+            transform: translateY(-50%) rotateY(0deg) scale(1.05);
+            box-shadow: 
+                0 4px 12px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(136, 136, 136, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.7),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .vt-toggle-input:checked + .vt-toggle-slider {
+            background: 
+                linear-gradient(135deg, 
+                    var(--vt-gold-8) 0%,
+                    var(--vt-gold-9) 50%,
+                    var(--vt-gold-10) 100%),
+                radial-gradient(ellipse at 70% 50%, 
+                    rgba(255, 215, 0, 0.2) 0%, 
+                    transparent 50%);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 
+                inset 0 2px 4px rgba(0, 0, 0, 0.3),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.2),
+                0 0 30px rgba(212, 175, 55, 0.2),
+                0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        .vt-toggle-input:checked + .vt-toggle-slider::after {
+            content: 'ON';
+            right: auto;
+            left: 10px;
+            color: var(--vt-bg-primary);
+            opacity: 0.7;
+        }
+        
+        .vt-toggle-input:checked + .vt-toggle-slider::before {
+            left: calc(100% - 29px);
+            transform: translateY(-50%) rotateY(180deg);
+            background: 
+                radial-gradient(ellipse at 30% 30%,
+                    var(--vt-gold-2) 0%,
+                    var(--vt-gold-3) 20%,
+                    var(--vt-gold-4) 40%,
+                    var(--vt-gold-6) 60%,
+                    var(--vt-gold-8) 80%,
+                    var(--vt-gold-10) 100%),
+                linear-gradient(135deg, 
+                    rgba(255, 255, 200, 0.3) 0%, 
+                    transparent 50%);
+            box-shadow: 
+                0 2px 10px rgba(212, 175, 55, 0.5),
+                0 0 25px rgba(212, 175, 55, 0.3),
+                inset 0 1px 0 rgba(255, 255, 200, 0.7),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        .vt-toggle-input:checked:hover + .vt-toggle-slider::before {
+            transform: translateY(-50%) rotateY(180deg) scale(1.05);
+            box-shadow: 
+                0 4px 14px rgba(212, 175, 55, 0.6),
+                0 0 35px rgba(212, 175, 55, 0.4),
+                inset 0 1px 0 rgba(255, 255, 200, 0.8),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* ==================== CHECKBOX - ULTRA PREMIUM ==================== */
+        
+        .vt-checkbox {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            padding: 4px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+        
+        .vt-checkbox:hover {
+            background: rgba(212, 175, 55, 0.02);
+        }
+        
+        .vt-checkbox-input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .vt-checkbox-box {
+            width: 22px;
+            height: 22px;
+            background: 
+                linear-gradient(135deg, 
+                    rgba(15, 15, 20, 0.6) 0%,
+                    rgba(10, 10, 15, 0.8) 100%),
+                radial-gradient(ellipse at 30% 30%, 
+                    rgba(136, 136, 136, 0.05) 0%, 
+                    transparent 50%);
+            border: 1px solid rgba(136, 136, 136, 0.3);
+            border-radius: 6px;
+            transition: all 0.3s var(--vt-ease-spring);
+            position: relative;
+            margin-right: 12px;
+            overflow: hidden;
+            box-shadow: 
+                inset 0 1px 3px rgba(0, 0, 0, 0.2),
+                0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .vt-checkbox-box::before {
+            content: '';
+            position: absolute;
+            inset: -50%;
+            background: radial-gradient(
+                circle at center,
+                rgba(212, 175, 55, 0.4) 0%,
+                transparent 70%
+            );
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.5s var(--vt-ease-spring);
+        }
+        
+        .vt-checkbox:hover .vt-checkbox-box {
+            border-color: rgba(212, 175, 55, 0.4);
+            background: 
+                linear-gradient(135deg, 
+                    rgba(15, 15, 20, 0.7) 0%,
+                    rgba(10, 10, 15, 0.9) 100%),
+                radial-gradient(ellipse at 30% 30%, 
+                    rgba(212, 175, 55, 0.05) 0%, 
+                    transparent 50%);
+            transform: scale(1.05);
+            box-shadow: 
+                inset 0 1px 3px rgba(0, 0, 0, 0.3),
+                0 2px 8px rgba(212, 175, 55, 0.1);
+        }
+        
+        .vt-checkbox-input:checked ~ .vt-checkbox-box {
+            background: 
+                linear-gradient(135deg, 
+                    var(--vt-gold-8) 0%,
+                    var(--vt-gold-9) 50%,
+                    var(--vt-gold-10) 100%);
+            border-color: var(--vt-gold-9);
+            animation: checkPulse 0.4s var(--vt-ease-spring);
+            box-shadow: 
+                0 2px 12px rgba(212, 175, 55, 0.4),
+                0 0 20px rgba(212, 175, 55, 0.2),
+                inset 0 1px 0 rgba(255, 255, 200, 0.3),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        @keyframes checkPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.9); }
+            75% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        .vt-checkbox-input:checked ~ .vt-checkbox-box::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .vt-checkbox-checkmark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0) rotate(-45deg);
+            width: 12px;
+            height: 7px;
+            border-left: 2px solid var(--vt-bg-primary);
+            border-bottom: 2px solid var(--vt-bg-primary);
+            transition: all 0.3s var(--vt-ease-spring);
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+        }
+        
+        .vt-checkbox-input:checked ~ .vt-checkbox-box .vt-checkbox-checkmark {
+            transform: translate(-50%, -60%) scale(1) rotate(-45deg);
+            animation: checkmarkDraw 0.3s ease-out;
+        }
+        
+        @keyframes checkmarkDraw {
+            from {
+                transform: translate(-50%, -60%) scale(0) rotate(-45deg);
+            }
+            50% {
+                transform: translate(-50%, -60%) scale(1.2) rotate(-45deg);
+            }
+            to {
+                transform: translate(-50%, -60%) scale(1) rotate(-45deg);
+            }
+        }
+        
+        .vt-checkbox-label {
+            font-size: 14px;
+            color: var(--vt-text-secondary);
+            transition: color 0.3s ease;
+            letter-spacing: 0.02em;
+        }
+        
+        .vt-checkbox:hover .vt-checkbox-label {
+            color: var(--vt-text-primary);
+        }
+        
+        .vt-checkbox-input:checked ~ .vt-checkbox-label {
+            color: var(--vt-text-primary);
+            font-weight: 500;
+        }
+        
+        /* ==================== RADIO BUTTONS ==================== */
+        
+        .vt-radio {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            margin-right: 20px;
+        }
+        
+        .vt-radio-input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .vt-radio-button {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, 
+                rgba(15, 15, 20, 0.6) 0%,
+                rgba(10, 10, 15, 0.8) 100%);
+            border: 1px solid rgba(136, 136, 136, 0.3);
+            border-radius: 50%;
+            transition: all 0.3s var(--vt-ease-smooth);
+            position: relative;
+            margin-right: 10px;
+        }
+        
+        .vt-radio:hover .vt-radio-button {
+            border-color: rgba(212, 175, 55, 0.4);
+            background: linear-gradient(135deg, 
+                rgba(15, 15, 20, 0.7) 0%,
+                rgba(10, 10, 15, 0.9) 100%);
+        }
+        
+        .vt-radio-input:checked ~ .vt-radio-button {
+            border-color: var(--vt-gold-9);
+            box-shadow: 
+                0 0 0 3px rgba(212, 175, 55, 0.1),
+                0 0 12px rgba(212, 175, 55, 0.2);
+        }
+        
+        .vt-radio-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle,
+                var(--vt-gold-6) 0%,
+                var(--vt-gold-9) 100%);
+            border-radius: 50%;
+            transition: all 0.3s var(--vt-ease-spring);
+        }
+        
+        .vt-radio-input:checked ~ .vt-radio-button::after {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        .vt-radio-label {
+            font-size: 14px;
+            color: var(--vt-text-secondary);
+            transition: color 0.3s ease;
+        }
+        
+        .vt-radio:hover .vt-radio-label {
+            color: var(--vt-text-primary);
+        }
+        
+        /* ==================== SLIDER / RANGE ==================== */
+        
+        .vt-slider {
+            position: relative;
+            width: 100%;
+            padding: 20px 0;
+        }
+        
+        .vt-slider-track {
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, 
+                var(--vt-gunmetal-3) 0%,
+                var(--vt-gunmetal-5) 100%);
+            border-radius: 3px;
+            position: relative;
+            box-shadow: 
+                inset 0 1px 2px rgba(0, 0, 0, 0.3),
+                0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+        
+        .vt-slider-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                var(--vt-gold-8) 0%,
+                var(--vt-gold-10) 100%);
+            border-radius: 3px;
+            width: 60%;
+            transition: width 0.3s var(--vt-ease-smooth);
+            box-shadow: 
+                0 0 10px rgba(212, 175, 55, 0.3),
+                inset 0 1px 0 rgba(255, 255, 200, 0.3);
+        }
+        
+        .vt-slider-thumb {
+            position: absolute;
+            top: 50%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            background: radial-gradient(ellipse at 30% 30%,
+                var(--vt-aluminum-1) 0%,
+                var(--vt-aluminum-4) 30%,
+                var(--vt-aluminum-8) 60%,
+                var(--vt-aluminum-12) 100%);
+            border: 2px solid var(--vt-gold-9);
+            border-radius: 50%;
+            cursor: grab;
+            transition: all 0.2s var(--vt-ease-smooth);
+            box-shadow: 
+                0 2px 8px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+        
+        .vt-slider-thumb:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 
+                0 4px 12px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(212, 175, 55, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+        
+        .vt-slider-thumb:active {
+            cursor: grabbing;
+            transform: translate(-50%, -50%) scale(0.95);
+        }
+        
+        .vt-slider-value {
+            position: absolute;
+            top: -30px;
+            left: 60%;
+            transform: translateX(-50%);
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--vt-gold-9);
+            opacity: 0;
+            transition: opacity 0.3s var(--vt-ease-smooth);
+        }
+        
+        .vt-slider-thumb:hover ~ .vt-slider-value,
+        .vt-slider-thumb:active ~ .vt-slider-value {
+            opacity: 1;
+        }
+        
+        /* ==================== TOOLTIP ==================== */
+        
+        .vt-tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .vt-tooltip-content {
+            position: absolute;
+            bottom: calc(100% + 12px);
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: linear-gradient(135deg, 
+                rgba(15, 15, 20, 0.95) 0%,
+                rgba(10, 10, 15, 0.98) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--vt-text-primary);
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s var(--vt-ease-out-expo);
+            box-shadow: 
+                0 6px 20px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(212, 175, 55, 0.1);
+            z-index: 1000;
+        }
+        
+        .vt-tooltip-content::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid rgba(10, 10, 15, 0.98);
+        }
+        
+        .vt-tooltip:hover .vt-tooltip-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        
+        /* ==================== PROGRESS BAR ==================== */
+        
+        .vt-progress {
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, 
+                var(--vt-gunmetal-3) 0%,
+                var(--vt-gunmetal-5) 100%);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 
+                inset 0 1px 3px rgba(0, 0, 0, 0.3),
+                0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+        
+        .vt-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, 
+                var(--vt-gold-8) 0%,
+                var(--vt-gold-6) 50%,
+                var(--vt-gold-10) 100%);
+            border-radius: 4px;
+            position: relative;
+            transition: width 0.6s var(--vt-ease-out-expo);
+            box-shadow: 
+                0 0 10px rgba(212, 175, 55, 0.3),
+                inset 0 1px 0 rgba(255, 255, 200, 0.3);
+        }
+        
+        .vt-progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.2) 50%,
+                transparent 100%);
+            animation: progressShine 2s linear infinite;
+        }
+        
+        @keyframes progressShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* ==================== NOTIFICATION / TOAST ==================== */
+        
+        .vt-notification {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, 
+                rgba(15, 15, 20, 0.95) 0%,
+                rgba(10, 10, 15, 0.98) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 0.3s var(--vt-ease-out-expo);
+            box-shadow: 
+                0 6px 20px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(212, 175, 55, 0.05);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .vt-notification::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+        }
+        
+        .vt-notification.success {
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+        
+        .vt-notification.success::before {
+            background: linear-gradient(180deg, 
+                var(--vt-success) 0%,
+                rgba(76, 175, 80, 0.6) 100%);
+        }
+        
+        .vt-notification.error {
+            border: 1px solid rgba(255, 82, 82, 0.3);
+        }
+        
+        .vt-notification.error::before {
+            background: linear-gradient(180deg, 
+                var(--vt-error) 0%,
+                rgba(255, 82, 82, 0.6) 100%);
+        }
+        
+        .vt-notification.warning {
+            border: 1px solid rgba(255, 152, 0, 0.3);
+        }
+        
+        .vt-notification.warning::before {
+            background: linear-gradient(180deg, 
+                var(--vt-warning) 0%,
+                rgba(255, 152, 0, 0.6) 100%);
+        }
+        
+        .vt-notification.info {
+            border: 1px solid rgba(33, 150, 243, 0.3);
+        }
+        
+        .vt-notification.info::before {
+            background: linear-gradient(180deg, 
+                var(--vt-info) 0%,
+                rgba(33, 150, 243, 0.6) 100%);
+        }
+        
+        .vt-notification-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+        
+        .vt-notification-content {
+            flex: 1;
+        }
+        
+        .vt-notification-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--vt-text-primary);
+            margin-bottom: 2px;
+        }
+        
+        .vt-notification-message {
+            font-size: 13px;
+            color: var(--vt-text-secondary);
+        }
+        
+        .vt-notification-close {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s var(--vt-ease-smooth);
+            color: var(--vt-text-muted);
+        }
+        
+        .vt-notification-close:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--vt-text-primary);
+        }
+        
+        /* ==================== TABS ==================== */
+        
+        .vt-tabs {
+            width: 100%;
+        }
+        
+        .vt-tabs-header {
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid rgba(136, 136, 136, 0.1);
+            position: relative;
+            margin-bottom: 24px;
+        }
+        
+        .vt-tab {
+            padding: 12px 24px;
+            background: transparent;
+            border: none;
+            color: var(--vt-text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s var(--vt-ease-smooth);
+            letter-spacing: 0.05em;
+        }
+        
+        .vt-tab:hover {
+            color: var(--vt-text-secondary);
+        }
+        
+        .vt-tab.active {
+            color: var(--vt-gold-9);
+        }
+        
+        .vt-tab-indicator {
+            position: absolute;
+            bottom: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                var(--vt-gold-6) 0%,
+                var(--vt-gold-9) 50%,
+                var(--vt-gold-6) 100%);
+            transition: all 0.3s var(--vt-ease-out-expo);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        }
+        
+        .vt-tab-content {
+            padding: 20px 0;
+            animation: tabFade 0.3s var(--vt-ease-smooth);
+        }
+        
+        @keyframes tabFade {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* ==================== BADGES / PILLS ==================== */
+        
+        .vt-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            background: linear-gradient(135deg, 
+                rgba(212, 175, 55, 0.1) 0%,
+                rgba(212, 175, 55, 0.05) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--vt-gold-9);
+            transition: all 0.3s var(--vt-ease-smooth);
+        }
+        
+        .vt-badge:hover {
+            background: linear-gradient(135deg, 
+                rgba(212, 175, 55, 0.15) 0%,
+                rgba(212, 175, 55, 0.08) 100%);
+            transform: scale(1.05);
+        }
+        
+        .vt-badge.primary {
+            background: linear-gradient(135deg, 
+                var(--vt-gold-8) 0%,
+                var(--vt-gold-10) 100%);
+            border-color: var(--vt-gold-9);
+            color: var(--vt-bg-primary);
+            box-shadow: 
+                0 2px 8px rgba(212, 175, 55, 0.3),
+                inset 0 1px 0 rgba(255, 255, 200, 0.3);
+        }
+        
+        .vt-badge.success {
+            background: linear-gradient(135deg, 
+                rgba(76, 175, 80, 0.1) 0%,
+                rgba(76, 175, 80, 0.05) 100%);
+            border-color: rgba(76, 175, 80, 0.3);
+            color: var(--vt-success);
+        }
+        
+        .vt-badge.error {
+            background: linear-gradient(135deg, 
+                rgba(255, 82, 82, 0.1) 0%,
+                rgba(255, 82, 82, 0.05) 100%);
+            border-color: rgba(255, 82, 82, 0.3);
+            color: var(--vt-error);
+        }
+        
+        /* ==================== MODAL ==================== */
+        
+        .vt-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s var(--vt-ease-smooth);
+            z-index: 10000;
+        }
+        
+        .vt-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .vt-modal {
+            background: linear-gradient(135deg, 
+                rgba(15, 15, 20, 0.98) 0%,
+                rgba(10, 10, 15, 0.99) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 500px;
+            width: 90%;
+            transform: scale(0.9) translateY(20px);
+            transition: all 0.3s var(--vt-ease-out-expo);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 100px rgba(212, 175, 55, 0.1);
+        }
+        
+        .vt-modal-overlay.active .vt-modal {
+            transform: scale(1) translateY(0);
+        }
+        
+        /* Utilities */
+        .flex-demo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>VERITRON UI COMPONENTS</h1>
+        
+        <!-- Date Picker -->
+        <section class="component-section">
+            <h2 class="section-title">Date & Time</h2>
+            <div class="component-grid">
+                <div>
+                    <div class="vt-date-picker">
+                        <input type="text" class="vt-date-input" placeholder="Select date" readonly value="Dec 25, 2024">
+                        <div class="vt-calendar-dropdown" id="calendar">
+                            <div class="vt-calendar-header">
+                                <button class="vt-calendar-nav">‹</button>
+                                <div class="vt-calendar-title">December 2024</div>
+                                <button class="vt-calendar-nav">›</button>
+                                <!-- Additional Premium Components -->
+        <section class="component-section">
+            <h2 class="section-title">Loading & Status</h2>
+            <div class="component-grid">
+                <!-- Spinner -->
+                <div style="display: flex; gap: 40px; align-items: center;">
+                    <div class="vt-spinner">
+                        <div class="spinner-ring"></div>
+                        <div class="spinner-ring"></div>
+                        <div class="spinner-ring"></div>
+                        <div class="spinner-core"></div>
+                    </div>
+                    
+                    <!-- Pulse Loader -->
+                    <div class="vt-pulse-loader">
+                        <div class="pulse-dot"></div>
+                        <div class="pulse-dot"></div>
+                        <div class="pulse-dot"></div>
+                    </div>
+                    
+                    <!-- Status Indicator -->
+                    <div class="vt-status online">
+                        <div class="status-dot"></div>
+                        <span>Online</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Card Component -->
+        <section class="component-section">
+            <h2 class="section-title">Premium Card</h2>
+            <div class="vt-card-premium">
+                <div class="card-header">
+                    <h3 class="card-title">System Performance</h3>
+                    <span class="card-badge">LIVE</span>
+                </div>
+                <div class="card-body">
+                    <p>Real-time monitoring with advanced analytics and predictive insights.</p>
+                    <div class="card-stats">
+                        <div class="stat">
+                            <span class="stat-value">99.9%</span>
+                            <span class="stat-label">Uptime</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">150ms</span>
+                            <span class="stat-label">Response</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="card-action">View Details</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <style>
+        /* ==================== SPINNER ==================== */
+        
+        .vt-spinner {
+            width: 48px;
+            height: 48px;
+            position: relative;
+        }
+        
+        .spinner-ring {
+            position: absolute;
+            inset: 0;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            border-top-color: var(--vt-gold-9);
+            animation: spinnerRotate 1.5s linear infinite;
+        }
+        
+        .spinner-ring:nth-child(1) {
+            animation-delay: 0s;
+            border-top-color: var(--vt-gold-6);
+        }
+        
+        .spinner-ring:nth-child(2) {
+            inset: 6px;
+            animation-delay: 0.2s;
+            animation-direction: reverse;
+            border-top-color: var(--vt-gold-8);
+        }
+        
+        .spinner-ring:nth-child(3) {
+            inset: 12px;
+            animation-delay: 0.4s;
+            border-top-color: var(--vt-gold-10);
+        }
+        
+        .spinner-core {
+            position: absolute;
+            inset: 18px;
+            background: radial-gradient(circle, var(--vt-gold-9) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: spinnerPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes spinnerRotate {
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes spinnerPulse {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+        
+        /* ==================== PULSE LOADER ==================== */
+        
+        .vt-pulse-loader {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .pulse-dot {
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle, var(--vt-gold-6) 0%, var(--vt-gold-10) 100%);
+            border-radius: 50%;
+            animation: pulseDot 1.5s ease-in-out infinite;
+        }
+        
+        .pulse-dot:nth-child(1) { animation-delay: 0s; }
+        .pulse-dot:nth-child(2) { animation-delay: 0.2s; }
+        .pulse-dot:nth-child(3) { animation-delay: 0.4s; }
+        
+        @keyframes pulseDot {
+            0%, 80%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            40% {
+                transform: scale(1.3);
+                opacity: 0.5;
+            }
+        }
+        
+        /* ==================== STATUS INDICATOR ==================== */
+        
+        .vt-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: linear-gradient(135deg, rgba(15, 15, 20, 0.6) 0%, rgba(10, 10, 15, 0.8) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(136, 136, 136, 0.2);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        .vt-status.online .status-dot {
+            background: radial-gradient(circle, #4caf50 0%, #388e3c 100%);
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+            animation: statusPulse 2s ease-in-out infinite;
+        }
+        
+        .vt-status.online .status-dot::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            border-radius: 50%;
+            animation: statusRing 2s ease-in-out infinite;
+        }
+        
+        @keyframes statusPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        @keyframes statusRing {
+            0%, 100% {
+                transform: scale(0.8);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+        }
+        
+        /* ==================== PREMIUM CARD ==================== */
+        
+        .vt-card-premium {
+            background: linear-gradient(135deg, 
+                rgba(15, 15, 20, 0.8) 0%,
+                rgba(10, 10, 15, 0.95) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            max-width: 400px;
+            position: relative;
+            transition: all 0.4s var(--vt-ease-out-expo);
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.3),
+                0 0 60px rgba(212, 175, 55, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.02);
+        }
+        
+        .vt-card-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                var(--vt-gold-6) 0%,
+                var(--vt-gold-9) 50%,
+                var(--vt-gold-6) 100%);
+            animation: cardGlow 3s linear infinite;
+            background-size: 200% 100%;
+        }
+        
+        @keyframes cardGlow {
+            0% { background-position: -100% 0; }
+            100% { background-position: 100% 0; }
+        }
+        
+        .vt-card-premium:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.4),
+                0 0 100px rgba(212, 175, 55, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.03);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        
+        .card-header {
+            padding: 24px;
+            border-bottom: 1px solid rgba(136, 136, 136, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            background: linear-gradient(90deg, var(--vt-text-primary) 0%, var(--vt-text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-badge {
+            padding: 4px 10px;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2) 0%, rgba(76, 175, 80, 0.1) 100%);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #4caf50;
+            animation: badgeBlink 2s ease-in-out infinite;
+        }
+        
+        @keyframes badgeBlink {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        .card-body {
+            padding: 24px;
+            color: var(--vt-text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .card-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 20px;
+        }
+        
+        .stat {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(180deg, var(--vt-gold-6) 0%, var(--vt-gold-10) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--vt-text-muted);
+        }
+        
+        .card-footer {
+            padding: 20px 24px;
+            background: rgba(0, 0, 0, 0.2);
+            border-top: 1px solid rgba(136, 136, 136, 0.1);
+        }
+        
+        .card-action {
+            width: 100%;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--vt-gold-8) 0%, var(--vt-gold-10) 100%);
+            border: none;
+            border-radius: 10px;
+            color: var(--vt-bg-primary);
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s var(--vt-ease-smooth);
+            box-shadow: 
+                0 4px 12px rgba(212, 175, 55, 0.3),
+                inset 0 1px 0 rgba(255, 255, 200, 0.3);
+        }
+        
+        .card-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 6px 20px rgba(212, 175, 55, 0.4),
+                inset 0 1px 0 rgba(255, 255, 200, 0.4);
+        }
+    </style>
+                            <div class="vt-calendar-grid">
+                                <div class="vt-calendar-weekday">Su</div>
+                                <div class="vt-calendar-weekday">Mo</div>
+                                <div class="vt-calendar-weekday">Tu</div>
+                                <div class="vt-calendar-weekday">We</div>
+                                <div class="vt-calendar-weekday">Th</div>
+                                <div class="vt-calendar-weekday">Fr</div>
+                                <div class="vt-calendar-weekday">Sa</div>
+                                
+                                <div class="vt-calendar-day other-month">29</div>
+                                <div class="vt-calendar-day other-month">30</div>
+                                <div class="vt-calendar-day">1</div>
+                                <div class="vt-calendar-day">2</div>
+                                <div class="vt-calendar-day">3</div>
+                                <div class="vt-calendar-day">4</div>
+                                <div class="vt-calendar-day">5</div>
+                                <div class="vt-calendar-day">6</div>
+                                <div class="vt-calendar-day">7</div>
+                                <div class="vt-calendar-day">8</div>
+                                <div class="vt-calendar-day">9</div>
+                                <div class="vt-calendar-day">10</div>
+                                <div class="vt-calendar-day">11</div>
+                                <div class="vt-calendar-day">12</div>
+                                <div class="vt-calendar-day">13</div>
+                                <div class="vt-calendar-day">14</div>
+                                <div class="vt-calendar-day">15</div>
+                                <div class="vt-calendar-day">16</div>
+                                <div class="vt-calendar-day">17</div>
+                                <div class="vt-calendar-day today">18</div>
+                                <div class="vt-calendar-day">19</div>
+                                <div class="vt-calendar-day">20</div>
+                                <div class="vt-calendar-day">21</div>
+                                <div class="vt-calendar-day">22</div>
+                                <div class="vt-calendar-day">23</div>
+                                <div class="vt-calendar-day">24</div>
+                                <div class="vt-calendar-day selected">25</div>
+                                <div class="vt-calendar-day">26</div>
+                                <div class="vt-calendar-day">27</div>
+                                <div class="vt-calendar-day">28</div>
+                                <div class="vt-calendar-day">29</div>
+                                <div class="vt-calendar-day">30</div>
+                                <div class="vt-calendar-day">31</div>
+                                <div class="vt-calendar-day other-month">1</div>
+                                <div class="vt-calendar-day other-month">2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Input Fields -->
+        <section class="component-section">
+            <h2 class="section-title">Input Fields</h2>
+            <div class="component-grid">
+                <div class="vt-input-group">
+                    <input type="text" class="vt-input" placeholder="Enter username" id="username-input">
+                    <label class="vt-input-label" for="username-input">Username</label>
+                    <svg class="vt-input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </div>
+                
+                <div class="vt-input-group">
+                    <input type="password" class="vt-input" placeholder="Enter password" id="password-input">
+                    <label class="vt-input-label" for="password-input">Password</label>
+                    <svg class="vt-input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                </div>
+                
+                <div class="vt-input-group">
+                    <input type="text" class="vt-input vt-input-search" placeholder="Search..." id="search-input">
+                    <svg class="vt-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <span class="vt-input-clear">×</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Select Dropdown -->
+        <section class="component-section">
+            <h2 class="section-title">Select & Dropdown</h2>
+            <div class="component-grid">
+                <div class="vt-select">
+                    <div class="vt-select-trigger" id="selectTrigger">
+                        <span>Choose option</span>
+                        <svg class="vt-select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </div>
+                    <div class="vt-select-dropdown" id="selectDropdown">
+                        <div class="vt-select-option">Option One</div>
+                        <div class="vt-select-option selected">Option Two</div>
+                        <div class="vt-select-option">Option Three</div>
+                        <div class="vt-select-option">Option Four</div>
+                        <div class="vt-select-option">Option Five</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Toggle & Checkbox & Radio -->
+        <section class="component-section">
+            <h2 class="section-title">Toggles & Checkboxes</h2>
+            <div class="component-grid">
+                <div class="flex-demo">
+                    <label class="vt-toggle">
+                        <input type="checkbox" class="vt-toggle-input" checked>
+                        <span class="vt-toggle-slider"></span>
+                    </label>
+                    
+                    <label class="vt-toggle">
+                        <input type="checkbox" class="vt-toggle-input">
+                        <span class="vt-toggle-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="flex-demo">
+                    <label class="vt-checkbox">
+                        <input type="checkbox" class="vt-checkbox-input" checked>
+                        <span class="vt-checkbox-box">
+                            <span class="vt-checkbox-checkmark"></span>
+                        </span>
+                        <span class="vt-checkbox-label">Remember me</span>
+                    </label>
+                    
+                    <label class="vt-checkbox">
+                        <input type="checkbox" class="vt-checkbox-input">
+                        <span class="vt-checkbox-box">
+                            <span class="vt-checkbox-checkmark"></span>
+                        </span>
+                        <span class="vt-checkbox-label">Subscribe</span>
+                    </label>
+                </div>
+                
+                <div class="flex-demo">
+                    <label class="vt-radio">
+                        <input type="radio" name="radio-demo" class="vt-radio-input" checked>
+                        <span class="vt-radio-button"></span>
+                        <span class="vt-radio-label">Option A</span>
+                    </label>
+                    
+                    <label class="vt-radio">
+                        <input type="radio" name="radio-demo" class="vt-radio-input">
+                        <span class="vt-radio-button"></span>
+                        <span class="vt-radio-label">Option B</span>
+                    </label>
+                    
+                    <label class="vt-radio">
+                        <input type="radio" name="radio-demo" class="vt-radio-input">
+                        <span class="vt-radio-button"></span>
+                        <span class="vt-radio-label">Option C</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Slider -->
+        <section class="component-section">
+            <h2 class="section-title">Sliders & Progress</h2>
+            <div class="component-grid">
+                <div class="vt-slider">
+                    <div class="vt-slider-track">
+                        <div class="vt-slider-fill" id="sliderFill"></div>
+                        <div class="vt-slider-thumb" id="sliderThumb"></div>
+                        <div class="vt-slider-value" id="sliderValue">60</div>
+                    </div>
+                </div>
+                
+                <div style="padding: 20px 0;">
+                    <div class="vt-progress">
+                        <div class="vt-progress-bar" style="width: 75%;"></div>
+                    </div>
+                </div>
+                
+                <div style="padding: 20px 0;">
+                    <div class="vt-progress">
+                        <div class="vt-progress-bar" style="width: 45%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Tooltips -->
+        <section class="component-section">
+            <h2 class="section-title">Tooltips & Badges</h2>
+            <div class="component-grid">
+                <div class="flex-demo">
+                    <div class="vt-tooltip">
+                        <button class="vt-input" style="padding: 10px 20px;">Hover me</button>
+                        <div class="vt-tooltip-content">This is a premium tooltip</div>
+                    </div>
+                    
+                    <div class="vt-tooltip">
+                        <span class="vt-badge primary">Premium</span>
+                        <div class="vt-tooltip-content">Ultra premium badge</div>
+                    </div>
+                </div>
+                
+                <div class="flex-demo">
+                    <span class="vt-badge">Default</span>
+                    <span class="vt-badge primary">Primary</span>
+                    <span class="vt-badge success">Success</span>
+                    <span class="vt-badge error">Error</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Notifications -->
+        <section class="component-section">
+            <h2 class="section-title">Notifications</h2>
+            <div style="max-width: 400px;">
+                <div class="vt-notification success">
+                    <svg class="vt-notification-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#4caf50"/>
+                        <polyline points="22 4 12 14.01 9 11.01" stroke="#4caf50"/>
+                    </svg>
+                    <div class="vt-notification-content">
+                        <div class="vt-notification-title">Success!</div>
+                        <div class="vt-notification-message">Operation completed successfully.</div>
+                    </div>
+                    <div class="vt-notification-close">×</div>
+                </div>
+                
+                <div class="vt-notification error">
+                    <svg class="vt-notification-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" stroke="#ff5252"/>
+                        <line x1="15" y1="9" x2="9" y2="15" stroke="#ff5252"/>
+                        <line x1="9" y1="9" x2="15" y2="15" stroke="#ff5252"/>
+                    </svg>
+                    <div class="vt-notification-content">
+                        <div class="vt-notification-title">Error</div>
+                        <div class="vt-notification-message">Something went wrong.</div>
+                    </div>
+                    <div class="vt-notification-close">×</div>
+                </div>
+                
+                <div class="vt-notification warning">
+                    <svg class="vt-notification-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="#ff9800"/>
+                        <line x1="12" y1="9" x2="12" y2="13" stroke="#ff9800"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="#ff9800"/>
+                    </svg>
+                    <div class="vt-notification-content">
+                        <div class="vt-notification-title">Warning</div>
+                        <div class="vt-notification-message">Please check your input.</div>
+                    </div>
+                    <div class="vt-notification-close">×</div>
+                </div>
+                
+                <div class="vt-notification info">
+                    <svg class="vt-notification-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" stroke="#2196f3"/>
+                        <line x1="12" y1="16" x2="12" y2="12" stroke="#2196f3"/>
+                        <line x1="12" y1="8" x2="12.01" y2="8" stroke="#2196f3"/>
+                    </svg>
+                    <div class="vt-notification-content">
+                        <div class="vt-notification-title">Info</div>
+                        <div class="vt-notification-message">New update available.</div>
+                    </div>
+                    <div class="vt-notification-close">×</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Tabs -->
+        <section class="component-section">
+            <h2 class="section-title">Tabs</h2>
+            <div class="vt-tabs">
+                <div class="vt-tabs-header">
+                    <button class="vt-tab active">Overview</button>
+                    <button class="vt-tab">Analytics</button>
+                    <button class="vt-tab">Reports</button>
+                    <button class="vt-tab">Settings</button>
+                    <div class="vt-tab-indicator" style="width: 88px; left: 0;"></div>
+                </div>
+                <div class="vt-tab-content">
+                    <p style="color: var(--vt-text-secondary);">Tab content goes here. Each tab can contain different information and components.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        // ==================== ULTRA PREMIUM INTERACTIONS ====================
+        
+        // Advanced Date Picker with smooth animations
+        const dateInput = document.querySelector('.vt-date-input');
+        const calendar = document.getElementById('calendar');
+        
+        dateInput.addEventListener('click', function() {
+            calendar.classList.toggle('active');
+            
+            // Add ripple effect on click
+            const ripple = document.createElement('div');
+            ripple.className = 'input-ripple';
+            ripple.style.cssText = `
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0;
+                height: 0;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
+                transform: translate(-50%, -50%);
+                pointer-events: none;
+                animation: rippleExpand 0.6s ease-out;
+            `;
+            this.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        });
+        
+        // Calendar mouse tracking for glow effect
+        calendar.addEventListener('mousemove', (e) => {
+            const rect = calendar.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            
+            calendar.style.setProperty('--mouse-x', `${x}%`);
+            calendar.style.setProperty('--mouse-y', `${y}%`);
+        });
+        
+        // Enhanced calendar day selection with particle effect
+        document.querySelectorAll('.vt-calendar-day:not(.other-month)').forEach(day => {
+            day.addEventListener('click', function(e) {
+                // Remove previous selection
+                document.querySelectorAll('.vt-calendar-day').forEach(d => d.classList.remove('selected'));
+                this.classList.add('selected');
+                
+                // Update input value
+                document.querySelector('.vt-date-input').value = `Dec ${this.textContent}, 2024`;
+                
+                // Create particle burst effect
+                const rect = this.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                
+                for (let i = 0; i < 8; i++) {
+                    const particle = document.createElement('div');
+                    particle.style.cssText = `
+                        position: fixed;
+                        width: 4px;
+                        height: 4px;
+                        background: var(--vt-gold-9);
+                        border-radius: 50%;
+                        left: ${centerX}px;
+                        top: ${centerY}px;
+                        pointer-events: none;
+                        z-index: 10000;
+                        animation: particleBurst 0.8s ease-out forwards;
+                        --angle: ${(i * 45)}deg;
+                    `;
+                    document.body.appendChild(particle);
+                    setTimeout(() => particle.remove(), 800);
+                }
+                
+                // Close calendar with delay
+                setTimeout(() => {
+                    calendar.classList.remove('active');
+                }, 300);
+            });
+        });
+        
+        // Enhanced Select Dropdown with smooth transitions
+        const selectTrigger = document.getElementById('selectTrigger');
+        const selectDropdown = document.getElementById('selectDropdown');
+        const selectArrow = document.querySelector('.vt-select-arrow');
+        
+        selectTrigger.addEventListener('click', function(e) {
+            this.classList.toggle('active');
+            selectDropdown.classList.toggle('active');
+            
+            // Add click wave effect
+            const wave = document.createElement('div');
+            const rect = this.getBoundingClientRect();
+            wave.style.cssText = `
+                position: absolute;
+                left: ${e.clientX - rect.left}px;
+                top: ${e.clientY - rect.top}px;
+                width: 0;
+                height: 0;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+                transform: translate(-50%, -50%);
+                pointer-events: none;
+                animation: waveExpand 0.5s ease-out;
+            `;
+            this.appendChild(wave);
+            setTimeout(() => wave.remove(), 500);
+        });
+        
+        // Select option with enhanced interaction
+        document.querySelectorAll('.vt-select-option').forEach((option, index) => {
+            // Add staggered animation on dropdown open
+            option.style.animationDelay = `${index * 0.05}s`;
+            
+            option.addEventListener('click', function() {
+                // Update selection
+                document.querySelectorAll('.vt-select-option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                
+                // Animate text change
+                const triggerText = document.querySelector('.vt-select-trigger span');
+                triggerText.style.animation = 'textFadeOut 0.2s ease-out';
+                
+                setTimeout(() => {
+                    triggerText.textContent = this.textContent;
+                    triggerText.style.animation = 'textFadeIn 0.2s ease-out';
+                }, 200);
+                
+                // Close dropdown
+                setTimeout(() => {
+                    selectTrigger.classList.remove('active');
+                    selectDropdown.classList.remove('active');
+                }, 150);
+            });
+        });
+        
+        // Enhanced Slider with magnetic thumb
+        const slider = document.querySelector('.vt-slider');
+        const sliderThumb = document.getElementById('sliderThumb');
+        const sliderFill = document.getElementById('sliderFill');
+        const sliderValue = document.getElementById('sliderValue');
+        let isDragging = false;
+        
+        sliderThumb.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            sliderThumb.style.cursor = 'grabbing';
+            sliderThumb.style.transform = 'translate(-50%, -50%) scale(1.2)';
+        });
+        
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            
+            const rect = slider.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+            let percentage = (x / rect.width) * 100;
+            
+            percentage = Math.max(0, Math.min(100, percentage));
+            
+            // Smooth animation
+            requestAnimationFrame(() => {
+                sliderThumb.style.left = percentage + '%';
+                sliderFill.style.width = percentage + '%';
+                sliderValue.style.left = percentage + '%';
+                sliderValue.textContent = Math.round(percentage);
+                
+                // Add glow based on value
+                const glowIntensity = percentage / 100;
+                sliderFill.style.boxShadow = `
+                    0 0 ${10 + glowIntensity * 20}px rgba(212, 175, 55, ${0.3 + glowIntensity * 0.3}),
+                    inset 0 1px 0 rgba(255, 255, 200, ${0.3 + glowIntensity * 0.2})
+                `;
+            });
+        });
+        
+        document.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                sliderThumb.style.cursor = 'grab';
+                sliderThumb.style.transform = 'translate(-50%, -50%) scale(1)';
+            }
+        });
+        
+        // Advanced Tab System with sliding indicator
+        const tabs = document.querySelectorAll('.vt-tab');
+        const indicator = document.querySelector('.vt-tab-indicator');
+        const tabContent = document.querySelector('.vt-tab-content');
+        
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', function() {
+                // Update active state
+                tabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Animate indicator
+                const rect = this.getBoundingClientRect();
+                const containerRect = this.parentElement.getBoundingClientRect();
+                
+                indicator.style.width = rect.width + 'px';
+                indicator.style.left = (rect.left - containerRect.left) + 'px';
+                
+                // Animate content change
+                tabContent.style.animation = 'tabFadeOut 0.2s ease-out';
+                
+                setTimeout(() => {
+                    tabContent.innerHTML = `
+                        <p style="color: var(--vt-text-secondary);">
+                            Content for ${this.textContent} tab. Each tab displays unique information with smooth transitions.
+                        </p>
+                    `;
+                    tabContent.style.animation = 'tabFadeIn 0.3s ease-out';
+                }, 200);
+            });
+        });
+        
+        // Enhanced Notification System
+        document.querySelectorAll('.vt-notification-close').forEach(close => {
+            close.addEventListener('click', function() {
+                const notification = this.parentElement;
+                
+                // Add exit animation
+                notification.style.animation = 'notificationExit 0.4s var(--vt-ease-smooth)';
+                
+                // Create dissolve particles
+                const rect = notification.getBoundingClientRect();
+                for (let i = 0; i < 12; i++) {
+                    const particle = document.createElement('div');
+                    particle.style.cssText = `
+                        position: fixed;
+                        width: 3px;
+                        height: 3px;
+                        background: var(--vt-gold-9);
+                        border-radius: 50%;
+                        left: ${rect.left + Math.random() * rect.width}px;
+                        top: ${rect.top + rect.height / 2}px;
+                        pointer-events: none;
+                        z-index: 10000;
+                        animation: particleDissolve 0.6s ease-out forwards;
+                        --random-x: ${(Math.random() - 0.5) * 100}px;
+                        --random-y: ${(Math.random() - 0.5) * 100}px;
+                    `;
+                    document.body.appendChild(particle);
+                    setTimeout(() => particle.remove(), 600);
+                }
+                
+                setTimeout(() => notification.remove(), 400);
+            });
+        });
+        
+        // Input field enhancements
+        document.querySelectorAll('.vt-input').forEach(input => {
+            // Add typing effect
+            input.addEventListener('input', function() {
+                if (this.value.length > 0) {
+                    this.classList.add('has-value');
+                } else {
+                    this.classList.remove('has-value');
+                }
+            });
+            
+            // Add focus particles
+            input.addEventListener('focus', function() {
+                const rect = this.getBoundingClientRect();
+                
+                for (let i = 0; i < 4; i++) {
+                    setTimeout(() => {
+                        const particle = document.createElement('div');
+                        particle.style.cssText = `
+                            position: fixed;
+                            width: 2px;
+                            height: 2px;
+                            background: var(--vt-gold-9);
+                            border-radius: 50%;
+                            left: ${rect.left + rect.width * Math.random()}px;
+                            top: ${rect.top + rect.height}px;
+                            pointer-events: none;
+                            z-index: 10000;
+                            animation: inputParticle 1s ease-out forwards;
+                        `;
+                        document.body.appendChild(particle);
+                        setTimeout(() => particle.remove(), 1000);
+                    }, i * 100);
+                }
+            });
+        });
+        
+        // Add global styles for animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rippleExpand {
+                to {
+                    width: 100px;
+                    height: 100px;
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes particleBurst {
+                to {
+                    transform: translate(
+                        calc(cos(var(--angle)) * 50px - 50%), 
+                        calc(sin(var(--angle)) * 50px - 50%)
+                    );
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes waveExpand {
+                to {
+                    width: 200px;
+                    height: 200px;
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes textFadeOut {
+                to {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+            }
+            
+            @keyframes textFadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            @keyframes tabFadeOut {
+                to {
+                    opacity: 0;
+                    transform: translateX(-20px);
+                }
+            }
+            
+            @keyframes tabFadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateX(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            
+            @keyframes notificationExit {
+                to {
+                    transform: translateX(120%);
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes particleDissolve {
+                to {
+                    transform: translate(var(--random-x), var(--random-y));
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes inputParticle {
+                to {
+                    transform: translateY(-30px);
+                    opacity: 0;
+                }
+            }
+            
+            /* Option slide in animation */
+            .vt-select-dropdown.active .vt-select-option {
+                animation: optionSlideIn 0.3s ease-out backwards;
+            }
+            
+            @keyframes optionSlideIn {
+                from {
+                    opacity: 0;
+                    transform: translateX(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.vt-select')) {
+                selectTrigger?.classList.remove('active');
+                selectDropdown?.classList.remove('active');
+            }
+            
+            if (!e.target.closest('.vt-date-picker')) {
+                calendar?.classList.remove('active');
+            }
+        });
+        
+        // Add ambient animation to page
+        function createAmbientParticle() {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position: fixed;
+                width: 1px;
+                height: 1px;
+                background: var(--vt-gold-9);
+                border-radius: 50%;
+                left: ${Math.random() * 100}vw;
+                top: 100vh;
+                pointer-events: none;
+                z-index: 1;
+                opacity: ${Math.random() * 0.5 + 0.3};
+                animation: floatUp ${10 + Math.random() * 10}s linear;
+            `;
+            document.body.appendChild(particle);
+            
+            setTimeout(() => particle.remove(), 20000);
+        }
+        
+        // Create ambient particles periodically
+        setInterval(createAmbientParticle, 2000);
+        
+        // Add float up animation
+        const floatStyle = document.createElement('style');
+        floatStyle.textContent = `
+            @keyframes floatUp {
+                to {
+                    transform: translateY(-100vh) translateX(${(Math.random() - 0.5) * 50}px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(floatStyle);
+    </script>
+</body>
+</html>

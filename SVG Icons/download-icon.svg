@@ -1,0 +1,229 @@
+<svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Premium Gunmetal Gradient -->
+        <linearGradient id="downloadGunmetal" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#6a6a6a;stop-opacity:1" />
+            <stop offset="8%" style="stop-color:#626262;stop-opacity:1" />
+            <stop offset="16%" style="stop-color:#5a5a5a;stop-opacity:1" />
+            <stop offset="24%" style="stop-color:#525252;stop-opacity:1" />
+            <stop offset="32%" style="stop-color:#4a4a4a;stop-opacity:1" />
+            <stop offset="40%" style="stop-color:#424242;stop-opacity:1" />
+            <stop offset="48%" style="stop-color:#3a3a3a;stop-opacity:1" />
+            <stop offset="56%" style="stop-color:#323232;stop-opacity:1" />
+            <stop offset="64%" style="stop-color:#2a2a2a;stop-opacity:1" />
+            <stop offset="72%" style="stop-color:#222222;stop-opacity:1" />
+            <stop offset="80%" style="stop-color:#1c1c1c;stop-opacity:1" />
+            <stop offset="88%" style="stop-color:#161616;stop-opacity:1" />
+            <stop offset="94%" style="stop-color:#101010;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+        </linearGradient>
+        <!-- Premium Gold Gradient -->
+        <linearGradient id="downloadGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fffdf5;stop-opacity:1" />
+            <stop offset="10%" style="stop-color:#fff4d4;stop-opacity:1" />
+            <stop offset="20%" style="stop-color:#ffed9e;stop-opacity:1" />
+            <stop offset="30%" style="stop-color:#ffe574;stop-opacity:1" />
+            <stop offset="40%" style="stop-color:#ffdb4a;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#ffd428;stop-opacity:1" />
+            <stop offset="60%" style="stop-color:#e8bc3c;stop-opacity:1" />
+            <stop offset="70%" style="stop-color:#d0a43c;stop-opacity:1" />
+            <stop offset="80%" style="stop-color:#c49838;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#b88c34;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#946828;stop-opacity:1" />
+        </linearGradient>
+        <!-- Download Flow Gradient -->
+        <linearGradient id="downloadFlow" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#d4af37;stop-opacity:0" />
+            <stop offset="50%" style="stop-color:#d4af37;stop-opacity:0.8" />
+            <stop offset="100%" style="stop-color:#d4af37;stop-opacity:0" />
+        </linearGradient>
+        <!-- Success Green -->
+        <linearGradient id="successGreen">
+            <stop offset="0%" style="stop-color:#8ce99a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#51cf66;stop-opacity:1" />
+        </linearGradient>
+        <!-- Download Glow -->
+        <radialGradient id="downloadGlow">
+            <stop offset="0%" style="stop-color:#d4af37;stop-opacity:0.6" />
+            <stop offset="50%" style="stop-color:#d4af37;stop-opacity:0.3" />
+            <stop offset="100%" style="stop-color:#d4af37;stop-opacity:0" />
+        </radialGradient>
+        <!-- Inner Shadow -->
+        <filter id="downloadInnerShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.5"/>
+            <feComposite in2="offsetblur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <!-- Arrow Glow -->
+        <filter id="arrowGlow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    <g transform="translate(45,45)">
+        <!-- Outer Hexagon Frame -->
+        <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                 fill="url(#downloadGunmetal)" 
+                 stroke="#1a1a1a" 
+                 stroke-width="0.75"
+                 filter="url(#downloadInnerShadow)"/>
+        <!-- Inner Dark Background -->
+        <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                 fill="#000000" 
+                 opacity="0.95"/>
+        
+        <!-- Background Glow -->
+        <ellipse cx="0" cy="2" rx="16" ry="12" 
+                 fill="url(#downloadGlow)" 
+                 opacity="0.3">
+            <animate attributeName="opacity" values="0.3;0.5;0.3" dur="3s" repeatCount="indefinite"/>
+        </ellipse>
+        
+        <!-- Cloud/Server Shape (Top) -->
+        <path d="M-8,-10 C-10,-10 -11,-9 -11,-7 C-11,-5 -10,-4 -8,-4 L8,-4 C10,-4 11,-5 11,-7 C11,-9 10,-10 8,-10 Z" 
+              fill="none" 
+              stroke="url(#downloadGold)" 
+              stroke-width="2"
+              opacity="0.7"/>
+        <path d="M-8,-10 C-10,-10 -11,-9 -11,-7 C-11,-5 -10,-4 -8,-4 L8,-4 C10,-4 11,-5 11,-7 C11,-9 10,-10 8,-10 Z" 
+              fill="url(#downloadGold)" 
+              opacity="0.1"/>
+        
+        <!-- Download Arrow (Main) -->
+        <g filter="url(#arrowGlow)">
+            <!-- Arrow Shaft -->
+            <line x1="0" y1="-7" x2="0" y2="6" 
+                  stroke="url(#downloadGold)" 
+                  stroke-width="3" 
+                  stroke-linecap="round"
+                  opacity="0.95">
+                <animate attributeName="y2" values="6;8;6" dur="2s" repeatCount="indefinite"/>
+            </line>
+            
+            <!-- Arrow Head -->
+            <path d="M-5,3 L0,8 L5,3" 
+                  fill="none" 
+                  stroke="url(#downloadGold)" 
+                  stroke-width="3" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round"
+                  opacity="0.95">
+                <animateTransform attributeName="transform" type="translate" values="0,0;0,2;0,0" dur="2s" repeatCount="indefinite"/>
+            </path>
+        </g>
+        
+        <!-- Download Base/Storage -->
+        <line x1="-12" y1="12" x2="12" y2="12" 
+              stroke="url(#downloadGold)" 
+              stroke-width="3" 
+              stroke-linecap="round"
+              opacity="0.95"/>
+        
+        <!-- Storage Container -->
+        <rect x="-10" y="10" width="20" height="3" 
+              fill="url(#downloadGold)" 
+              opacity="0.2" 
+              rx="1"/>
+        
+        <!-- Data Particles (Downloading) -->
+        <g opacity="0.8">
+            <rect x="-1.5" y="-8" width="3" height="3" 
+                  fill="url(#downloadGold)" 
+                  rx="0.5">
+                <animate attributeName="y" values="-8;10" dur="1.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="-1.5" y="-8" width="3" height="3" 
+                  fill="url(#downloadGold)" 
+                  rx="0.5">
+                <animate attributeName="y" values="-8;10" dur="1.5s" begin="0.3s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;0" dur="1.5s" begin="0.3s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="-1.5" y="-8" width="3" height="3" 
+                  fill="url(#downloadGold)" 
+                  rx="0.5">
+                <animate attributeName="y" values="-8;10" dur="1.5s" begin="0.6s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;0" dur="1.5s" begin="0.6s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="-1.5" y="-8" width="3" height="3" 
+                  fill="url(#downloadGold)" 
+                  rx="0.5">
+                <animate attributeName="y" values="-8;10" dur="1.5s" begin="0.9s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;0" dur="1.5s" begin="0.9s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="-1.5" y="-8" width="3" height="3" 
+                  fill="url(#downloadGold)" 
+                  rx="0.5">
+                <animate attributeName="y" values="-8;10" dur="1.5s" begin="1.2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;0" dur="1.5s" begin="1.2s" repeatCount="indefinite"/>
+            </rect>
+        </g>
+        
+        <!-- Progress Indicators -->
+        <g opacity="0.6">
+            <!-- Left progress bar -->
+            <rect x="-15" y="-2" width="2" height="10" 
+                  fill="#0a0a0f" 
+                  opacity="0.5" 
+                  rx="1"/>
+            <rect x="-15" y="-2" width="2" height="6" 
+                  fill="url(#downloadGold)" 
+                  rx="1">
+                <animate attributeName="height" values="0;10;0" dur="3s" repeatCount="indefinite"/>
+            </rect>
+            
+            <!-- Right progress bar -->
+            <rect x="13" y="-2" width="2" height="10" 
+                  fill="#0a0a0f" 
+                  opacity="0.5" 
+                  rx="1"/>
+            <rect x="13" y="-2" width="2" height="6" 
+                  fill="url(#downloadGold)" 
+                  rx="1">
+                <animate attributeName="height" values="0;10;0" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+            </rect>
+        </g>
+        
+        <!-- Speed Lines -->
+        <g opacity="0.3">
+            <line x1="-4" y1="-6" x2="-4" y2="0" 
+                  stroke="url(#downloadFlow)" 
+                  stroke-width="0.5">
+                <animate attributeName="y2" values="-6;10" dur="1s" repeatCount="indefinite"/>
+            </line>
+            <line x1="4" y1="-6" x2="4" y2="0" 
+                  stroke="url(#downloadFlow)" 
+                  stroke-width="0.5">
+                <animate attributeName="y2" values="-6;10" dur="1s" begin="0.5s" repeatCount="indefinite"/>
+            </line>
+        </g>
+        
+        <!-- Success Checkmark (appears periodically) -->
+        <g opacity="0">
+            <circle cx="10" cy="-8" r="3" fill="url(#successGreen)">
+                <animate attributeName="opacity" values="0;1;1;0" dur="4s" repeatCount="indefinite"/>
+            </circle>
+            <path d="M8.5,-8 L9.5,-7 L11.5,-9" 
+                  fill="none" 
+                  stroke="#ffffff" 
+                  stroke-width="1" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round">
+                <animate attributeName="opacity" values="0;1;1;0" dur="4s" repeatCount="indefinite"/>
+            </path>
+        </g>
+        
+        <!-- File Type Indicator -->
+        <g transform="translate(0,15)" opacity="0.4">
+            <text x="0" y="0" font-size="3" fill="url(#downloadGold)" text-anchor="middle" font-family="monospace">.ZIP</text>
+        </g>
+    </g>
+</svg>

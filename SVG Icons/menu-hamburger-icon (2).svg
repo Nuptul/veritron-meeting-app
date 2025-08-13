@@ -1,0 +1,285 @@
+<svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Premium Aluminum Gradient - 16 stops -->
+        <linearGradient id="menuAlum" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+            <stop offset="6%" style="stop-color:#fafafa;stop-opacity:1" />
+            <stop offset="12%" style="stop-color:#f5f5f5;stop-opacity:1" />
+            <stop offset="18%" style="stop-color:#ececec;stop-opacity:1" />
+            <stop offset="24%" style="stop-color:#e2e2e2;stop-opacity:1" />
+            <stop offset="30%" style="stop-color:#d8d8d8;stop-opacity:1" />
+            <stop offset="36%" style="stop-color:#cecece;stop-opacity:1" />
+            <stop offset="42%" style="stop-color:#c4c4c4;stop-opacity:1" />
+            <stop offset="48%" style="stop-color:#bababa;stop-opacity:1" />
+            <stop offset="54%" style="stop-color:#b0b0b0;stop-opacity:1" />
+            <stop offset="60%" style="stop-color:#a6a6a6;stop-opacity:1" />
+            <stop offset="66%" style="stop-color:#9c9c9c;stop-opacity:1" />
+            <stop offset="72%" style="stop-color:#929292;stop-opacity:1" />
+            <stop offset="78%" style="stop-color:#888888;stop-opacity:1" />
+            <stop offset="84%" style="stop-color:#7e7e7e;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#747474;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#707070;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Ultra Premium Gold Gradient with Metallic Finish -->
+        <linearGradient id="menuGoldTop" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#fffdf5;stop-opacity:1" />
+            <stop offset="10%" style="stop-color:#fff9e6;stop-opacity:1" />
+            <stop offset="20%" style="stop-color:#fff4d4;stop-opacity:1" />
+            <stop offset="30%" style="stop-color:#ffed9e;stop-opacity:1" />
+            <stop offset="40%" style="stop-color:#ffe574;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#ffd428;stop-opacity:1" />
+            <stop offset="60%" style="stop-color:#d4af37;stop-opacity:1" />
+            <stop offset="70%" style="stop-color:#c49838;stop-opacity:1" />
+            <stop offset="80%" style="stop-color:#b88c34;stop-opacity:1" />
+            <stop offset="90%" style="stop-color:#ac8030;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#946828;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Metallic Shine Effect -->
+        <linearGradient id="menuMetallicShine" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0" />
+            <stop offset="45%" style="stop-color:#ffffff;stop-opacity:0" />
+            <stop offset="50%" style="stop-color:#ffffff;stop-opacity:0.6" />
+            <stop offset="55%" style="stop-color:#ffffff;stop-opacity:0" />
+            <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+        </linearGradient>
+        
+        <!-- 3D Depth Shadow -->
+        <linearGradient id="menu3DDepth" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#000000;stop-opacity:0" />
+            <stop offset="50%" style="stop-color:#000000;stop-opacity:0.3" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:0.5" />
+        </linearGradient>
+        
+        <!-- Radial Burst Glow -->
+        <radialGradient id="menuBurstGlow">
+            <stop offset="0%" style="stop-color:#ffd428;stop-opacity:0.6" />
+            <stop offset="30%" style="stop-color:#d4af37;stop-opacity:0.3" />
+            <stop offset="60%" style="stop-color:#d4af37;stop-opacity:0.1" />
+            <stop offset="100%" style="stop-color:#d4af37;stop-opacity:0" />
+        </radialGradient>
+        
+        <!-- Premium Inner Shadow -->
+        <filter id="menuInnerShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.5"/>
+            <feComposite in2="offsetblur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        
+        <!-- Premium Line Shadow -->
+        <filter id="lineShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="1.5"/>
+            <feOffset dx="0" dy="1" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.6"/>
+            <feComposite in2="offsetblur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        
+        <!-- Soft Glow Effect -->
+        <filter id="menuGlowEffect">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <g transform="translate(45,45)">
+        <!-- Outer Hexagon Frame -->
+        <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" 
+                 fill="url(#menuAlum)" 
+                 stroke="#808080" 
+                 stroke-width="0.75"
+                 filter="url(#menuInnerShadow)"/>
+        <!-- Inner Dark Background -->
+        <polygon points="-23,-13.2 0,-26.5 23,-13.2 23,13.2 0,26.5 -23,13.2" 
+                 fill="#0a0a0f" 
+                 opacity="0.94"/>
+        
+        <!-- Radial Burst Background Effect -->
+        <circle cx="0" cy="0" r="18" 
+                fill="url(#menuBurstGlow)" 
+                opacity="0.4">
+            <animate attributeName="r" values="18;20;18" dur="4s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.4;0.6;0.4" dur="4s" repeatCount="indefinite"/>
+        </circle>
+        
+        <!-- === HAMBURGER MENU LINES === -->
+        
+        <!-- TOP LINE -->
+        <g id="topMenuLine" transform="translate(0,-7)">
+            <!-- Shadow Layer -->
+            <rect x="-14" y="-2" width="28" height="4" 
+                  fill="#000000" 
+                  opacity="0.3" 
+                  rx="2"
+                  transform="translate(0,1)"/>
+            
+            <!-- Main Bar -->
+            <rect x="-14" y="-2" width="28" height="4" 
+                  fill="url(#menuGoldTop)" 
+                  rx="2"
+                  filter="url(#lineShadow)"/>
+            
+            <!-- 3D Depth Layer -->
+            <rect x="-13.5" y="0" width="27" height="2" 
+                  fill="url(#menu3DDepth)" 
+                  rx="1"
+                  opacity="0.5"/>
+            
+            <!-- Top Highlight -->
+            <rect x="-13" y="-1.5" width="26" height="1" 
+                  fill="#ffffff" 
+                  opacity="0.3" 
+                  rx="0.5"/>
+            
+            <!-- Metallic Shine Animation -->
+            <rect x="-14" y="-2" width="28" height="4" 
+                  fill="url(#menuMetallicShine)" 
+                  rx="2"
+                  opacity="0.8">
+                <animateTransform attributeName="transform" type="translate" 
+                                  values="-30,0;30,0;-30,0" 
+                                  dur="6s" 
+                                  repeatCount="indefinite"/>
+            </rect>
+            
+            <!-- Edge Glow -->
+            <rect x="-14" y="-2" width="28" height="4" 
+                  fill="none" 
+                  stroke="url(#menuGoldTop)" 
+                  stroke-width="0.5" 
+                  rx="2"
+                  opacity="0.6"
+                  filter="url(#menuGlowEffect)"/>
+        </g>
+        
+        <!-- MIDDLE LINE -->
+        <g id="middleMenuLine" transform="translate(0,0)">
+            <!-- Shadow Layer -->
+            <rect x="-14" y="-2" width="28" height="4" 
+                  fill="#000000" 
+                  opacity="0.3" 
+                  rx="2"
+                  transform="translate(0,1)"/>
+            
+            <!-- Main Bar -->
+            <rect x="-14" y="-2" width="28" height="4" 
+                  fill="url(#menuGoldTop)" 
+                  rx="2"
+                  filter="url(#lineShadow)"/>
+            
+            <!-- 3D Depth Layer -->
+            <rect x="-13.5" y="0" width="27" height="2" 
+                  fill="url(#menu3DDepth)" 
+                  rx="1"
+                  opacity="0.5"/>
+            
+            <!-- Top Highlight -->
+            <rect x="-13" y="-1.5" width="26" height="1" 
+                  fill="#ffffff" 
+                  opacity="0.3" 
+                  rx="0.5"/>
+            
+            <!-- Metallic Shine Animation -->
+            <rect x="-14" y="-2" width="28" height="4" 
+                  fill="url(#menuMetallicShine)" 
+                  rx="2"
+                  opacity="0.8">
+                <animateTransform attributeName="transform" type="translate" 
+                                  values="-30,0;30,0;-30,0" 
+                                  dur="6s" 
+                                  begin="0.5s"
+                                  repeatCount="indefinite"/>
+            </rect>
+            
+            <!-- Edge Glow -->
+            <rect x="-14" y="-2" width="28" height="4" 
+                  fill="none" 
+                  stroke="url(#menuGoldTop)" 
+                  stroke-width="0.5" 
+                  rx="2"
+                  opacity="0.6"
+                  filter="url(#menuGlowEffect)"/>
+        </g>
+        
+        <!-- BOTTOM LINE -->
+        <g id="bottomMenuLine" transform="translate(0,7)">
+            <!-- Shadow Layer -->
+            <rect x="-14" y="-2" width="28" height="4" 
+                  fill="#000000" 
+                  opacity="0.3" 
+                  rx="2"
+                  transform="translate(0,1)"/>
+            
+            <!-- Main Bar -->
+            <rect x="-14" y="-2" width="28" height="4" 
+                  fill="url(#menuGoldTop)" 
+                  rx="2"
+                  filter="url(#lineShadow)"/>
+            
+            <!-- 3D Depth Layer -->
+            <rect x="-13.5" y="0" width="27" height="2" 
+                  fill="url(#menu3DDepth)" 
+                  rx="1"
+                  opacity="0.5"/>
+            
+            <!-- Top Highlight -->
+            <rect x="-13" y="-1.5" width="26" height="1" 
+                  fill="#ffffff" 
+                  opacity="0.3" 
+                  rx="0.5"/>
+            
+            <!-- Metallic Shine Animation -->
+            <rect x="-14" y="-2" width="28" height="4" 
+                  fill="url(#menuMetallicShine)" 
+                  rx="2"
+                  opacity="0.8">
+                <animateTransform attributeName="transform" type="translate" 
+                                  values="-30,0;30,0;-30,0" 
+                                  dur="6s" 
+                                  begin="1s"
+                                  repeatCount="indefinite"/>
+            </rect>
+            
+            <!-- Edge Glow -->
+            <rect x="-14" y="-2" width="28" height="4" 
+                  fill="none" 
+                  stroke="url(#menuGoldTop)" 
+                  stroke-width="0.5" 
+                  rx="2"
+                  opacity="0.6"
+                  filter="url(#menuGlowEffect)"/>
+        </g>
+        
+
+        
+        <!-- Simple Pulse Effect on Lines -->
+        
+        <!-- Corner Accent Lights -->
+        <g opacity="0.5">
+            <circle cx="-18" cy="-10" r="0.8" fill="url(#menuGoldTop)">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="18" cy="-10" r="0.8" fill="url(#menuGoldTop)">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="0.75s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="18" cy="10" r="0.8" fill="url(#menuGoldTop)">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="-18" cy="10" r="0.8" fill="url(#menuGoldTop)">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="2.25s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+    </g>
+</svg>
